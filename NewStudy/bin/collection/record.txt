@@ -1,0 +1,32 @@
+Collection
+	list（有序，可重复）
+		ArrayList
+			底层由数组实现，查询快，增删慢。线程不安全，效率高。
+		LinkedList
+			底层由链表实现，查询慢，增删快。线程不安全，效率高。
+		Vector
+			底层由数组实现，查询块，增删慢。线程安全，效率低。
+	set（无序，唯一）
+		HashSet
+			底层由哈希表分配。
+			哈希表依赖两个方法：hashCode(),equals()
+				新增元素时，先判断集合内有无散列码相同的元素
+					有：判断equals是否相同
+						相同：不能添加
+						不同：使用链表，放入同一个桶内，影响查询性能。
+					无：添加
+			LinkedHashSet
+				底层有哈希表和链表实现。
+				由哈希表确保元素唯一。
+				由链表确定元素有序（地址）
+				
+		TreeSet
+			底层由平衡二叉树(红黑树)实现。
+			根据元素的Comparable方法来确保元素唯一，或者为其指定比较器
+			排序分为两种，一种是自然排序，即使用元素自身的Comparable方法
+			另一种是定制排序，为集合指定一个比较器（Comparator接口的实例）
+Map
+	HashMap
+		LinkedHashMap
+	Hashtable
+	TreeMap

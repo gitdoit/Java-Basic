@@ -20,6 +20,11 @@ public class Employees{
 		this.salary = salary;
 		hireDay = new Date();
 	}
+	public Employees(String name) {
+		this.name = name;
+		this.salary = 0;
+		hireDay = new Date();
+	}
 	public Employees(String name,double salary,int year,int month,int day){
 		this.name = name;
 		this.salary = salary;
@@ -39,5 +44,10 @@ public class Employees{
 	public void raisSalary(double byPercent){
 		double raise = salary * byPercent/100;
 		salary += raise;
+	}
+	
+	@Override
+	public String toString() {
+		return String.format("name:%s,salary:%f", name,salary);
 	}
 }

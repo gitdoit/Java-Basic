@@ -28,7 +28,7 @@ package thread;
  * */
 public class SafeOfThread {
 	public static void main(String[] args ){
-		Ticket rb = new Ticket(50);
+		Ticket rb = new Ticket(500);
 		Thread a = new Thread(rb,"售票员A");
 		Thread b = new Thread(rb,"售票员B");
 		a.start();
@@ -40,6 +40,7 @@ public class SafeOfThread {
 
 class Ticket implements Runnable{
 	private int tickets;
+	Object obj = new Object();
 	
 	public Ticket(){
 		this(0);
@@ -57,8 +58,8 @@ class Ticket implements Runnable{
 			System.out.println(Thread.currentThread().getName()+":"+this.tickets--);
 		}*/
 		
-		//安全的方式，synchronized块中的代码被视为一条语句，作为一个整体
-		Object obj = new Object();
+		//安全的方式，通过对同步代码块进行加锁达到同步的目的。
+		//Object obj = new Object();
 		synchronized(obj){
 			while(tickets > 0)
 			{

@@ -1,4 +1,6 @@
 package thread;
+
+
 /*
  * 本类的目的是演示多个线程并发执行时的问题。
  * 有两个生产者以及两个消费者，我们的目的是生产一个消费一个。
@@ -6,8 +8,10 @@ package thread;
  * 
  * 如果while 和 notifyAll 换成 if 和 notify 会出现如下现象。
  * 如果用if判断flag标志位，那么在同步函数内，t1开始执行获得资源判断flag为假，跳过wait，执行后面语句。并在时间片用光之前又执行到了if，此时flag为真
- * t1等待且释放锁。t2获得执行资源，判断flag也为真，也等待，释放锁。t3获得资源判断 ！flag 为假，跳过wait。执行消费。并唤醒最开始进入线程池的t1（并不代表t1有执行资源，要抢）。然后t3有执行了一次
- * 到if的时候判断flag并进入等待，释放资格。正好被t4抢到。t4一判断也进入等到放弃资格。此时只有t1活着，它运行之后生产了一个商品。唤醒了t2。之后又来一次判断并进入了等待。只有t2活着，拿到了资源。
+ * t1等待且释放锁。t2获得执行资源，判断flag也为真，也等待，释放锁。t3获得资源判断 ！flag 为假，跳过wait。
+ * 执行消费。并唤醒最开始进入线程池的t1（并不代表t1有执行资源，要抢）。然后t3有执行了一次
+ * 到if的时候判断flag并进入等待，释放资格。正好被t4抢到。t4一判断也进入等到放弃资格。此时只有t1活着，它运行之后生产了一个商品。
+ * 唤醒了t2。之后又来一次判断并进入了等待。只有t2活着，拿到了资源。
  * 因为等待之前已经判断过flag，所以直接向下执行，也生产了一个商品。所以这就出现了连续生产两个商品的现象。
  * 
  * */
@@ -15,18 +19,18 @@ public class SynchronizedDemo5 {
 	public static void main(String[] args){
 		Resource res = new Resource("商品");
 		
-		producer pro = new producer(res);
-		consumer con = new consumer(res);
+		//producer1 pro = new producer1(res);
+		//consumert con = new consumert(res);
 		
-		Thread t1 = new Thread(pro,"生产线1号");
-		Thread t2 = new Thread(pro,"生产线2号");
-		Thread t3 = new Thread(con,"消费者1号");
-		Thread t4 = new Thread(con,"消费者2号");
+		//Thread t1 = new Thread(pro,"生产线1号");
+		//Thread t2 = new Thread(pro,"生产线2号");
+		//Thread t3 = new Thread(con,"消费者1号");
+		//Thread t4 = new Thread(con,"消费者2号");
 		
-		t1.start();
-		t2.start();
-		t3.start();
-		t4.start();
+		//t1.start();
+		//t2.start();
+		//t3.start();
+		//t4.start();
 	}
 
 }
@@ -63,10 +67,10 @@ class Resource{
 	
 }
 
-class producer implements Runnable{
+/*class producer1 implements Runnable{
 	private Resource res;
 	
-	public producer(Resource res){
+	public producer1(Resource res){
 		this.res = res;
 	}
 	
@@ -76,9 +80,9 @@ class producer implements Runnable{
 	}
 }
 
-class consumer implements Runnable{
+class consumert implements Runnable{
 	private Resource res;
-	public consumer(Resource res){
+	public consumert(Resource res){
 		this.res = res;
 	}
 	
@@ -86,4 +90,4 @@ class consumer implements Runnable{
 		while(true)
 			res.consume();
 	}
-}
+}*/

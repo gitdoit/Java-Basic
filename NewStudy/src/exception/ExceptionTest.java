@@ -95,5 +95,5 @@ class IllegalValueException extends RuntimeException{//ÓÉÓÚÓÃ»§ÊäÈëµÄÎÊÌâ£¬ÔÚ³öÎ
 	private double len,wid;
 	IllegalValueException(double len,double wid){
 		super(String.format("º¬ÓĞ·Ç·¨ÊıÖµ%f»ò%f", len,wid));//Ö±½Óµ÷ÓÃ¸¸ÀàÖĞµÄ¹¹Ôì·½·¨
-	}
+	} 
 }

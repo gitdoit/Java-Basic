@@ -28,15 +28,15 @@ public class MyThread {
 		
 		new Thread(new Runnable(){//有参数构造。实例化匿名线程，在参数里直接实例化实参
 			public void run(){
-				System.out.print("zhijie");
+				System.out.print("匿名线程，匿名参数");
 			}
 		}).start();
 		
 		new Thread(){//无参构造，实例化的同时覆写其中run方法
 			public void run(){
-				System.out.println("dsdsd");
+				System.out.println("匿名线程，复写run");
 			}
-		}.start();;
+		}.start();
 	}
 }
 
@@ -45,6 +45,7 @@ class ThreadDemo extends Thread{//子类直接继承Thread方法，
 	public ThreadDemo(String name){
 		this.name = name;
 	}
+	@Override
 	public void run(){
 		for(int i = 0 ; i < 5 ; i++)
 			System.out.println(name + "run" + i);
@@ -56,6 +57,7 @@ class RunnableDemo implements Runnable{//实现Runnable接口的类
 	public RunnableDemo(String name){
 		this.name = name;
 	}
+	@Override
 	public void run(){
 		for(int i = 0; i < 5; i++)
 			System.out.println(name + "Runnable" + i);

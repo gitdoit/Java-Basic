@@ -4,7 +4,7 @@ package interface_abstract;
  * 一个接口可以继承另一个接口，甚至同时继承多个接口
  * 
  * 接口中常见的修饰符
- * 常亮：public static final
+ * 常量：public static final
  * 方法：public abstract 
  * */
 interface A{//接口A
@@ -22,7 +22,7 @@ interface C extends A,B{//接口C可同时继承A.B
 
 
 interface Interface {
-	public static final int n = 3;
+	public static final int n = 3;//接口是一个标准，则其中所有数据域都应该是不变的。需要定义为公共静态最终的
 	public abstract void show();
 }
 

@@ -52,7 +52,7 @@ class Res{
 	}
 }
 
-class Input implements Runnable{
+class Input implements Runnable{//ЩњВњеп
 	private Res r;
 	private int i = 0;
 	Input(Res r){
@@ -69,7 +69,7 @@ class Input implements Runnable{
 	}
 }
 
-class Output implements Runnable{
+class Output implements Runnable{//xiao'fei
 	private Res r;
 	Output(Res r){
 		this.r = r;

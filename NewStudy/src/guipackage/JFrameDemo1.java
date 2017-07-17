@@ -28,7 +28,7 @@ class SimpleFrame extends JFrame{
 		Toolkit kit = Toolkit.getDefaultToolkit();//Toolkit是一个抽象类，其中的静态方法会返回一个默认的工具箱实例
 		Dimension screenSize = kit.getScreenSize();//通过工具箱返回一个Dimension实例。
 		this.setSize(screenSize.width/2,screenSize.height/2);
-		Image img = new ImageIcon("d:\\yy.png").getImage();
+		Image img = new ImageIcon("g:\\r.jpg").getImage();
 		setIconImage(img);
 		
 		

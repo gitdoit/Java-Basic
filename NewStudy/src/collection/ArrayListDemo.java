@@ -1,4 +1,4 @@
-package arraypackage;
+package collection;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -55,5 +55,8 @@ public class ArrayListDemo {
 	System.out.println(java.util.Collections.max(aList));
 	System.out.println(java.util.Collections.max(Arrays.asList(a)));
 	//演示了Collections的两种使用方法，第一种需要创建列表，第二种更为方便
+	ArrayList<Double> num = new ArrayList<>();
+	
+	
 	}
 }

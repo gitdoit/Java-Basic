@@ -34,7 +34,7 @@ class NotWordsComponent extends JComponent{
 	@Override
 	public void paintComponent(Graphics g){//覆盖这个方法来描绘自己的组件，就相当父类中的构造方法。 
 		g.drawString("Hello world!", 75, 100);
-		g.drawImage(new ImageIcon("d:\\yy.png").getImage(), 55, 50, new JLabel("ddd"));
+		g.drawImage(new ImageIcon("g:\\r.jpg").getImage(), 55, 50, new JLabel("ddd"));
 	}
 	@Override
 	public Dimension getPreferredSize(){//为了配合pack()表演
