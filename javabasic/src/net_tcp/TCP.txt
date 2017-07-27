@@ -1,0 +1,8 @@
+TCP:两个地方通信需要通过服务器,而他们与服务器通信之前需要与服务器建立管道链接
+服务器与客户端可以通过彼此之间建立的管道进行通信.
+客户端:Socket sk = new Socket(ipAdress,port);指定服务器地址
+	 OuputStream out  = sk.getOutputStream();
+	 sk.write(byte[]);//向管道内写
+	 InputStream in = sk.getInputStream();
+	int len = in.read(byte[]);从管道内读取数据.
+	 

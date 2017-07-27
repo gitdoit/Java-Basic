@@ -1,0 +1,16 @@
+InetAddress类是用来包装IP地址的一个类,它并没有任何可供实例化的构造方法,想要得到一个IP地址对象
+需要:InetAddress ip = InetAddress.getByName("www.baidu.com")
+	可调用ip.isReachable(ms)判断是否可达,
+URLEncoder/URLDecodr.可以使用他们的方法将非西欧字符转换成可以在网址内表示的字符.
+
+UPD:单方面的向某个ip地址的某个端口发送数据,并不知道对方是否能够接收到,像是电视台信号塔
+发送端:DatagramSocket s = new DatagramSocket();不用指定目的地和端口,在数据包内指定
+	DatagramPacket dp = new DatagramPacket(mes,len,ip,port);
+	s.send(dp);
+	s.close;
+接收端:DatagramSocket ds = new DatagramSocket(port);需要指定监听接口
+	 DatagramPacket dp = new DatagramPacket(mes,len);只需要指定数据接收数据的容器数组,长度.
+	 ds.reveive(dp);放入包裹,此方法会造成阻塞,一直等待接收消息
+	 String ip = dp.getAddress().getHostAddress(); 
+	 String name = dp.getAddress().getHostName();可通过包裹获得发送方的IP和名字
+	 
