@@ -1,2 +1,2 @@
-# MyStudy
-This repository is used to be study
+# java基础部分知识
+学习总结代码
