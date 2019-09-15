@@ -1,14 +1,14 @@
-package regex;
+package top.seefly.javase.old2017.regex;
 
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /*
- * ÅĞ¶ÏÒ»¸öÊÖ»úºÅÊÇ·ñÊÇÒÔ136¿ªÍ·µÄºó¸ú6»ò8µÄ11Î»ºÏ·¨ÊÖ»úºÅÂë
- * ÅĞ¶ÏÒ»¸öÓÊÏäÊÇ·ñ·ûºÏ¹æÔò£ºseefly@vip.qq.com
+ * åˆ¤æ–­ä¸€ä¸ªæ‰‹æœºå·æ˜¯å¦æ˜¯ä»¥136å¼€å¤´çš„åè·Ÿ6æˆ–8çš„11ä½åˆæ³•æ‰‹æœºå·ç 
+ * åˆ¤æ–­ä¸€ä¸ªé‚®ç®±æ˜¯å¦ç¬¦åˆè§„åˆ™ï¼šseefly@vip.qq.com
  * 					413917463@qq.com
- * ÒÔÊı×é»ò×ÖÄ¸¿ªÍ·µÄÒ»¶Î×Ö·û£¬ºó¸ú@ºó¸úÓòÃû£¬ÒÔcom½áÎ²
+ * ä»¥æ•°ç»„æˆ–å­—æ¯å¼€å¤´çš„ä¸€æ®µå­—ç¬¦ï¼Œåè·Ÿ@åè·ŸåŸŸåï¼Œä»¥comç»“å°¾
  * 
  */
 public class MatchesDemo2 {
@@ -18,14 +18,14 @@ public class MatchesDemo2 {
 		String number = in.nextLine();
 		System.out.println(matchesMail(number));
 	}
-	//ÅĞ¶ÏÊÖ»úºÅ
+	//åˆ¤æ–­æ‰‹æœºå·
 	public static boolean matchesNumber(String number) {
 		return number.matches("(136)[68]\\d{7}");
 	}
 	
 	public static boolean matchesMail(String mail) {//([a-z]|\\d) {0,}@[a-z] {0,}\\.{0,}\\.(com)$"
 		//String regex = "[a-zA-Z_0-9]+@[a-zA-Z_0-9]{2,}(\\.[a-zA-Z_0-9]{2,6})+";
-		String regex = "\\w+@\\w{2,}(\\.\\w{2,6})+";//     \\wµÈÍ¬ÓÚ[a-zA-Z_0-9]
-		return mail.matches(regex);					//     \\WµÈÍ¬ÓÚ[^\\w]
+		String regex = "\\w+@\\w{2,}(\\.\\w{2,6})+";//     \\wç­‰åŒäº[a-zA-Z_0-9]
+		return mail.matches(regex);					//     \\Wç­‰åŒäº[^\\w]
 	}
 }

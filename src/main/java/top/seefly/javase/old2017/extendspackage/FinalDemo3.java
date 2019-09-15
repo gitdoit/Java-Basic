@@ -1,7 +1,7 @@
-package extendspackage;
+package top.seefly.javase.old2017.extendspackage;
 /*
- * ÓÉÓÚ²»¿É±äÊµÀıÔÚÊ¹ÓÃÆğÀ´·Ç³£·½±ã£¬ËùÒÔÓĞÊ±ºòÔÚ¾­³£Ê¹ÓÃµ½ËüÊ±£¬ÖØ¸´newÏàÍ¬µÄ¶ÔÏó¶ÔÏµÍ³µÄ
- * ¿ªÏú·Ç³£´ó¡£ËùÒÔ¿ÉÒÔÊ¹ÓÃ»º³å³ØÀ´½â¾öÕâ¸öÎÊÌâ£¬µ±»º³å³ØÖĞÒÑ¾­ÓĞÕâ¸ö¶ÔÏóµÄÊ±ºò¿ÉÒÔ²»±ØÔÚnew
+ * ç”±äºä¸å¯å˜å®ä¾‹åœ¨ä½¿ç”¨èµ·æ¥éå¸¸æ–¹ä¾¿ï¼Œæ‰€ä»¥æœ‰æ—¶å€™åœ¨ç»å¸¸ä½¿ç”¨åˆ°å®ƒæ—¶ï¼Œé‡å¤newç›¸åŒçš„å¯¹è±¡å¯¹ç³»ç»Ÿçš„
+ * å¼€é”€éå¸¸å¤§ã€‚æ‰€ä»¥å¯ä»¥ä½¿ç”¨ç¼“å†²æ± æ¥è§£å†³è¿™ä¸ªé—®é¢˜ï¼Œå½“ç¼“å†²æ± ä¸­å·²ç»æœ‰è¿™ä¸ªå¯¹è±¡çš„æ—¶å€™å¯ä»¥ä¸å¿…åœ¨new
  * */
 public class FinalDemo3 {
 	
@@ -20,24 +20,24 @@ public class FinalDemo3 {
 }
 
 class Cache{
-	private static int MAX_SIZE = 10;//Àà±äÁ¿
-	private static Cache[] cache = new Cache[MAX_SIZE];//Àà±äÁ¿£¬»º³å³Ø
-	private static int pos;//Àà±äÁ¿
-	private final String name;//²»¿É±äÊı¾İÓò
+	private static int MAX_SIZE = 10;//ç±»å˜é‡
+	private static Cache[] cache = new Cache[MAX_SIZE];//ç±»å˜é‡ï¼Œç¼“å†²æ± 
+	private static int pos;//ç±»å˜é‡
+	private final String name;//ä¸å¯å˜æ•°æ®åŸŸ
 	
-	private Cache() {//ÎŞ²Î¹¹Ôì
+	private Cache() {//æ— å‚æ„é€ 
 		this.name = "";
 	}
-	private Cache(String name) {//ÓĞ²Î¹¹Ôì
+	private Cache(String name) {//æœ‰å‚æ„é€ 
 		this.name = name;
 	}
-	public String getName() {//·ÃÎÊÆ÷
+	public String getName() {//è®¿é—®å™¨
 		return this.name;
 	}
 	public static int getPos() {
 		return pos;
 	}
-	public static Cache valueOf(String name){//µÃµ½Ò»¸öÓënameÏàÍ¬µÄ¶ÔÏó
+	public static Cache valueOf(String name){//å¾—åˆ°ä¸€ä¸ªä¸nameç›¸åŒçš„å¯¹è±¡
 		for(int i = 0;i < MAX_SIZE;i++)
 			if(cache[i] != null && cache[i].getName().equals(name))
 				return cache[i];
@@ -48,7 +48,7 @@ class Cache{
 	}
 	
 	@Override
-	public boolean equals(Object cc) {//ÖØĞ´equals·½·¨
+	public boolean equals(Object cc) {//é‡å†™equalsæ–¹æ³•
 		if(this == cc)
 			return true;
 		if(cc != null && cc.getClass() == this.getClass()) {

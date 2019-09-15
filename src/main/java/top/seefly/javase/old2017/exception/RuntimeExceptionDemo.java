@@ -1,8 +1,8 @@
-package exception;
-/*RuntimeExceptionºÍErrorÒì³£¶¼ÊÇÃâ¼ìÒì³££¬¼´¿ÉÒÔ²»Ê¹ÓÃtry-catch¿éÀ´×ö×¨ÃÅ´¦Àí
- * ¼´Ê¹ÊÇÔÚ·½·¨ÄÚÊÖ¶¯Å×³ö£¬·½·¨Í·²¿Ò²²»ÓÃÉùÃ÷¡£Ê¹ÓÃ¸Ã·½·¨µÄº¯ÊýÒ²²»ÓÃtry
+package top.seefly.javase.old2017.exception;
+/*RuntimeExceptionå’ŒErrorå¼‚å¸¸éƒ½æ˜¯å…æ£€å¼‚å¸¸ï¼Œå³å¯ä»¥ä¸ä½¿ç”¨try-catchå—æ¥åšä¸“é—¨å¤„ç†
+ * å³ä½¿æ˜¯åœ¨æ–¹æ³•å†…æ‰‹åŠ¨æŠ›å‡ºï¼Œæ–¹æ³•å¤´éƒ¨ä¹Ÿä¸ç”¨å£°æ˜Žã€‚ä½¿ç”¨è¯¥æ–¹æ³•çš„å‡½æ•°ä¹Ÿä¸ç”¨try
  * 
- * ×Ô¶¨ÒåÒì³££ºÈç¹ûÒì³£·¢ÉúÖÂÊ¹³ÌÐòÎÞ·¨ÔÙÔËÐÐÔò¶¨ÒåÔËÐÐÊ±Òì³£
+ * è‡ªå®šä¹‰å¼‚å¸¸ï¼šå¦‚æžœå¼‚å¸¸å‘ç”Ÿè‡´ä½¿ç¨‹åºæ— æ³•å†è¿è¡Œåˆ™å®šä¹‰è¿è¡Œæ—¶å¼‚å¸¸
  * */
 public class RuntimeExceptionDemo {
 	public static void main(String[] args){
@@ -13,10 +13,10 @@ public class RuntimeExceptionDemo {
 }
 
 class Demo{
-	static int div(int a,int b) //throws ArithmeticException ÊÇ·ñÔÚº¯ÊýÍ·²¿ÕâÑùÉùÃ÷ÒýÓÃËüµÄµØ·½¶¼²»±Ø×ötry´¦Àí
+	static int div(int a,int b) //throws ArithmeticException æ˜¯å¦åœ¨å‡½æ•°å¤´éƒ¨è¿™æ ·å£°æ˜Žå¼•ç”¨å®ƒçš„åœ°æ–¹éƒ½ä¸å¿…åštryå¤„ç†
 	{
 		if(b == 0)
-			throw new ArithmeticException("²»ÄÜ³ý0");//¼´Ê¹ÊÖ¶¯Å×³öÒ²²»ÓÃÔÙÍ·²¿ÉùÃ÷£¬ÔÙÒýÓÃµÄµØ·½×öÕë¶ÔÐÔ´¦Àí
+			throw new ArithmeticException("ä¸èƒ½é™¤0");//å³ä½¿æ‰‹åŠ¨æŠ›å‡ºä¹Ÿä¸ç”¨å†å¤´éƒ¨å£°æ˜Žï¼Œå†å¼•ç”¨çš„åœ°æ–¹åšé’ˆå¯¹æ€§å¤„ç†
 		return a / b;
 	}
 }

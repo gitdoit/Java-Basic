@@ -1,4 +1,4 @@
-package mypraxis;
+package top.seefly.javase.old2017.mypraxis;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -6,7 +6,7 @@ import java.util.Iterator;
 import java.util.TreeSet;
 
 /*
- * ½«£º"32 86 33 73 13 5 54"½øĞĞÉıĞòÅÅĞò
+ * å°†ï¼š"32 86 33 73 13 5 54"è¿›è¡Œå‡åºæ’åº
  * 
  */
 public class SplitTest {
@@ -15,7 +15,7 @@ public class SplitTest {
 		String src = "32 86 33 73 13 5 54";
 		String[] tar = src.split(" ");
 		TreeSet<Integer> tree = new TreeSet<>();
-		for(String e : tar) {//½«×Ö·û´®×ªÎªInteger½øĞĞÅÅĞò
+		for(String e : tar) {//å°†å­—ç¬¦ä¸²è½¬ä¸ºIntegerè¿›è¡Œæ’åº
 			tree.add(Integer.valueOf(e));
 		}
 		Iterator it = tree.iterator();
@@ -24,7 +24,7 @@ public class SplitTest {
 //		}
 		System.out.println(tree.toString());
 		
-		//Ä¿µÄÊÇÏëÓÃTreeSetÖ±½Ó±È½Ï×Ö·û´®½øĞĞÅÅĞò£¬µ«ÊÇ×Ö·û´®±ÈµÄÊÇ°´Î»±ÈµÄ£¬Èç¹ûÁ½¸öÊıÒ»¸ö33 Ò»¸ö 5ÓÃ×Ö·û´®±È£¬ÄÇ¾ÍÊÇ5±È33´ó
+		//ç›®çš„æ˜¯æƒ³ç”¨TreeSetç›´æ¥æ¯”è¾ƒå­—ç¬¦ä¸²è¿›è¡Œæ’åºï¼Œä½†æ˜¯å­—ç¬¦ä¸²æ¯”çš„æ˜¯æŒ‰ä½æ¯”çš„ï¼Œå¦‚æœä¸¤ä¸ªæ•°ä¸€ä¸ª33 ä¸€ä¸ª 5ç”¨å­—ç¬¦ä¸²æ¯”ï¼Œé‚£å°±æ˜¯5æ¯”33å¤§
 //		TreeSet<String> tree = new TreeSet<>();
 //		for(String e : tar) {
 //			System.out.println(e.length()+":"+e);

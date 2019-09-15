@@ -1,6 +1,6 @@
-package thread;
+package top.seefly.javase.old2017.thread;
 /*
- * ¸ÃÀàÑÝÊ¾ÁË£¬¶ÔÓÚ²»Í¬µÄÍ¬²½´úÂë¿é£¬Èç¹ûÊ¹ÓÃÏàÍ¬µÄËø£¬ÄÇÃ´¼´Ê¹ÓÐ¶à¸öÏß³ÌËûÃÇÒ²²»»á²¢·¢Ö´ÐÐ¡£
+ * è¯¥ç±»æ¼”ç¤ºäº†ï¼Œå¯¹äºŽä¸åŒçš„åŒæ­¥ä»£ç å—ï¼Œå¦‚æžœä½¿ç”¨ç›¸åŒçš„é”ï¼Œé‚£ä¹ˆå³ä½¿æœ‰å¤šä¸ªçº¿ç¨‹ä»–ä»¬ä¹Ÿä¸ä¼šå¹¶å‘æ‰§è¡Œã€‚
  * */
 public class SynchronizedDemo3 {
 
@@ -21,7 +21,7 @@ class runnable1 implements Runnable{
 	Object c = new Object();
 	public void run(){
 		if(Thread.currentThread().getName().compareTo("t1") == 0)
-			synchronized(this){//Ê¹ÓÃthis¹Ø¼ü×Ö´ú±íµ÷ÓÃÕß±¾Éí£¬ËùÒÔÃ¿¸öÏß³ÌÊ¹ÓÃµÄ¶¼ÊÇÍ¬Ò»°ÑËø
+			synchronized(this){//ä½¿ç”¨thiså…³é”®å­—ä»£è¡¨è°ƒç”¨è€…æœ¬èº«ï¼Œæ‰€ä»¥æ¯ä¸ªçº¿ç¨‹ä½¿ç”¨çš„éƒ½æ˜¯åŒä¸€æŠŠé”
 				while(a > 0){
 					try{Thread.sleep(10);}catch(Exception ex){}
 					System.out.println(Thread.currentThread().getName()+ "   ******   "+a--);

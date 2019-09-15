@@ -1,10 +1,10 @@
-package mypraxis;
+package top.seefly.javase.old2017.mypraxis;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ListIterator;
 
-public class ArrayListTest {//¿ÉÀ©Õ¹Êı×é£¬µ×²ãÓÉÊı×éÊµÏÖ£¬Ïß³Ì²»°²È«£¬Ğ§ÂÊ¸ß¡£ÊÊºÏËæ»ú·ÃÎÊ£¬²»ÊÊºÏ²åÈëÉ¾³ı¡£
+public class ArrayListTest {//å¯æ‰©å±•æ•°ç»„ï¼Œåº•å±‚ç”±æ•°ç»„å®ç°ï¼Œçº¿ç¨‹ä¸å®‰å…¨ï¼Œæ•ˆç‡é«˜ã€‚é€‚åˆéšæœºè®¿é—®ï¼Œä¸é€‚åˆæ’å…¥åˆ é™¤ã€‚
 
 	public static void main(String[] args) {
 		List<String> list = new ArrayList<>();

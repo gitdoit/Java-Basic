@@ -1,63 +1,62 @@
-package extendspackage;
-import java.util.*;
+package top.seefly.javase.old2017.extendspackage;
 /**
- * ÔÚÊ¹ÓÃ¼Ì³ÐÊ±£¬Êý¾ÝÓòÒ²»á³öÏÖ¸²¸ÇÏÖÏó¡£µ«ÊÇÔÚÊµÀý»¯Ê±Ò²»áÎªÆä·ÖÅä´æ´¢¿Õ¼ä
- * ÀàµÄÊý¾ÝÓò²»¾ßÓÐ¶àÌ¬ÐÔ¡£
- * ¶àÌ¬Ê±£¬ÒýÓÃ±äÁ¿Ö»ÄÜµ÷ÓÃÆäÉùÃ÷ÀàÐÍËùÓµÓÐµÄ·½·¨£¬µ«Èç¹ûÊµ¼ÊÀàÐÍÒ²ÓµÓÐÕâ¸ö·½·¨£¬ÄÇÃ´´ËÊ±»á³öÏÖ¶àÌ¬ÐÔ£¬¼´µ÷ÓÃÊµ¼ÊÀàÐÍÖÐµÄ·½·¨£¬¶øÍ¬Ê±
- * ÒòÎªÊý¾ÝÓòÃ»ÓÐ¶àÌ¬ÐÔ£¬ËùÒÔÊµ¼Êµ÷ÓÃµÄÄÇ¸ö·½·¨»áÊ¹ÓÃÍ¬ÀàÖÐµÄÊý¾ÝÓò¡£
+ * åœ¨ä½¿ç”¨ç»§æ‰¿æ—¶ï¼Œæ•°æ®åŸŸä¹Ÿä¼šå‡ºçŽ°è¦†ç›–çŽ°è±¡ã€‚ä½†æ˜¯åœ¨å®žä¾‹åŒ–æ—¶ä¹Ÿä¼šä¸ºå…¶åˆ†é…å­˜å‚¨ç©ºé—´
+ * ç±»çš„æ•°æ®åŸŸä¸å…·æœ‰å¤šæ€æ€§ã€‚
+ * å¤šæ€æ—¶ï¼Œå¼•ç”¨å˜é‡åªèƒ½è°ƒç”¨å…¶å£°æ˜Žç±»åž‹æ‰€æ‹¥æœ‰çš„æ–¹æ³•ï¼Œä½†å¦‚æžœå®žé™…ç±»åž‹ä¹Ÿæ‹¥æœ‰è¿™ä¸ªæ–¹æ³•ï¼Œé‚£ä¹ˆæ­¤æ—¶ä¼šå‡ºçŽ°å¤šæ€æ€§ï¼Œå³è°ƒç”¨å®žé™…ç±»åž‹ä¸­çš„æ–¹æ³•ï¼Œè€ŒåŒæ—¶
+ * å› ä¸ºæ•°æ®åŸŸæ²¡æœ‰å¤šæ€æ€§ï¼Œæ‰€ä»¥å®žé™…è°ƒç”¨çš„é‚£ä¸ªæ–¹æ³•ä¼šä½¿ç”¨åŒç±»ä¸­çš„æ•°æ®åŸŸã€‚
  * 
  * 
- * ÓÃÀ´Ñ§Ï°¼Ì³Ð
- * ×ÓÀàÖÐÓÐÁ©·½·¨£¬Ò»¸ö¹«¹²µÄshou·½·¨£º·µ»ØÒ»¶Î×Ö·û´®£¬Ò»¸öË½ÓÐµÄshow·½·¨£º·µ»ØÒ»¶Î×Ö·û´®
- * ¸¸ÀàÖÐÓÐËÄ¸ö·½·¨£¬¹«¹²µÄshou·½·¨£º·µ»ØÒ»¶Î×Ö·û´®£¬Ë½ÓÐµÄshow:·µ»ØÒ»¶Î×Ö·û´®£¬¹«¹²µÄprint£º´òÓ¡show£¨£©
- * ¹«¹²µÄprintDame:´òÓ¡shou()
+ * ç”¨æ¥å­¦ä¹ ç»§æ‰¿
+ * å­ç±»ä¸­æœ‰ä¿©æ–¹æ³•ï¼Œä¸€ä¸ªå…¬å…±çš„shouæ–¹æ³•ï¼šè¿”å›žä¸€æ®µå­—ç¬¦ä¸²ï¼Œä¸€ä¸ªç§æœ‰çš„showæ–¹æ³•ï¼šè¿”å›žä¸€æ®µå­—ç¬¦ä¸²
+ * çˆ¶ç±»ä¸­æœ‰å››ä¸ªæ–¹æ³•ï¼Œå…¬å…±çš„shouæ–¹æ³•ï¼šè¿”å›žä¸€æ®µå­—ç¬¦ä¸²ï¼Œç§æœ‰çš„show:è¿”å›žä¸€æ®µå­—ç¬¦ä¸²ï¼Œå…¬å…±çš„printï¼šæ‰“å°showï¼ˆï¼‰
+ * å…¬å…±çš„printDame:æ‰“å°shou()
  * 
- * ¸¸Àà  ÊµÀý = new ×ÓÀà();
- * Èç¹ûÒªÊ¹ÓÃ¶àÌ¬ÄÇÃ´±ØÐëÔÚ¸¸ÀàÖÐ¶¨ÒåÒ»¸ö·½·¨£¬²¢ÔÚ×ÓÀàÖÐ¸²¸Ç/ÖØÐ´.¼´×ÓÀàºÍ¸¸ÀàÖÐ¶¼ÓÐ ¡®·½·¨¡¯Õâ¸ö·½·¨
- * ÕâÑù¾Í¿ÉÒÔÓÃ¸¸Àà±äÁ¿ÒýÓÃ×ÓÀàÖÐµÄ¸²¸Ç·½·¨ £ºÊµÀý.·½·¨ £¨·½·¨ÔÚ×ÓÀàÖÐ±»ÖØÐ´ÁË²ÅÄÜÒýÓÃµ½×ÓÀàÖÐµÄÕâ¸ö·½·¨£©   
- * Èç¹û¸¸ÀàÖÐÃ»ÓÐÕâ¸ö·½·¨¶ø×ÓÀàÖÐÓÐ£¬ÄÇÃ´ÐèÒª½øÐÐÏÔÊ¾×ª»»²ÅÄÜÊ¹ÓÃ×ÓÀàÖÐµÄ·½·¨ ×¢£º×ª»»²»»á´´½¨Ò»¸öÐÂµÄ¶ÔÏó
- * (×ÓÀà)(ÊµÀý).·½·¨1
+ * çˆ¶ç±»  å®žä¾‹ = new å­ç±»();
+ * å¦‚æžœè¦ä½¿ç”¨å¤šæ€é‚£ä¹ˆå¿…é¡»åœ¨çˆ¶ç±»ä¸­å®šä¹‰ä¸€ä¸ªæ–¹æ³•ï¼Œå¹¶åœ¨å­ç±»ä¸­è¦†ç›–/é‡å†™.å³å­ç±»å’Œçˆ¶ç±»ä¸­éƒ½æœ‰ â€˜æ–¹æ³•â€™è¿™ä¸ªæ–¹æ³•
+ * è¿™æ ·å°±å¯ä»¥ç”¨çˆ¶ç±»å˜é‡å¼•ç”¨å­ç±»ä¸­çš„è¦†ç›–æ–¹æ³• ï¼šå®žä¾‹.æ–¹æ³• ï¼ˆæ–¹æ³•åœ¨å­ç±»ä¸­è¢«é‡å†™äº†æ‰èƒ½å¼•ç”¨åˆ°å­ç±»ä¸­çš„è¿™ä¸ªæ–¹æ³•ï¼‰   
+ * å¦‚æžœçˆ¶ç±»ä¸­æ²¡æœ‰è¿™ä¸ªæ–¹æ³•è€Œå­ç±»ä¸­æœ‰ï¼Œé‚£ä¹ˆéœ€è¦è¿›è¡Œæ˜¾ç¤ºè½¬æ¢æ‰èƒ½ä½¿ç”¨å­ç±»ä¸­çš„æ–¹æ³• æ³¨ï¼šè½¬æ¢ä¸ä¼šåˆ›å»ºä¸€ä¸ªæ–°çš„å¯¹è±¡
+ * (å­ç±»)(å®žä¾‹).æ–¹æ³•1
  * 
- * ±í´ïÊ½(ÊµÀý1 instanceof ÊµÀý2) µÃµ½µÄÊÇÒ»¸öbooleanÖµ£¬ÀàÐÍÏàÍ¬ÎªÕæ
- * ±í´ïÊ½(ÊµÀý1 == ÊµÀý2) µÄÒâË¼ÊÇÅÐ¶ÏÁ½¸ö±äÁ¿ÊÇ·ñÖ¸ÏòÍ¬Ò»¸öÊµÀý£¬¼´µØÖ·ÊÇ·ñÏàÍ¬ 
- * ±í´ïÊ½£ºÊµÀý.equals(ÊµÀý1) µÄÒâË¼ÊÇÅÐ¶ÏÁ½¸ö±äÁ¿ÊÇ·ñÖ¸ÏòÍ¬Ò»¸öÊµÀý£¬¼´µØÖ·ÊÇ·ñÏàÍ¬
- * ±í´ïÊ½£º×Ö·û´®.equals(×Ö·û´®1) ÅÐ¶ÏÁ½¸ö×Ö·û´®±äÁ¿µÄµØÖ·ÊÇ·ñÏàÍ¬
- * ±í´ïÊ½£º×Ö·û´® == ×Ö·û´®1 ÅÐ¶ÏÁ½¸ö×Ö·û´®µÄÄÚÈÝÊÇ·ñÒ»Ñù£¬²»¿¼ÂÇµØÖ·
+ * è¡¨è¾¾å¼(å®žä¾‹1 instanceof å®žä¾‹2) å¾—åˆ°çš„æ˜¯ä¸€ä¸ªbooleanå€¼ï¼Œç±»åž‹ç›¸åŒä¸ºçœŸ
+ * è¡¨è¾¾å¼(å®žä¾‹1 == å®žä¾‹2) çš„æ„æ€æ˜¯åˆ¤æ–­ä¸¤ä¸ªå˜é‡æ˜¯å¦æŒ‡å‘åŒä¸€ä¸ªå®žä¾‹ï¼Œå³åœ°å€æ˜¯å¦ç›¸åŒ 
+ * è¡¨è¾¾å¼ï¼šå®žä¾‹.equals(å®žä¾‹1) çš„æ„æ€æ˜¯åˆ¤æ–­ä¸¤ä¸ªå˜é‡æ˜¯å¦æŒ‡å‘åŒä¸€ä¸ªå®žä¾‹ï¼Œå³åœ°å€æ˜¯å¦ç›¸åŒ
+ * è¡¨è¾¾å¼ï¼šå­—ç¬¦ä¸².equals(å­—ç¬¦ä¸²1) åˆ¤æ–­ä¸¤ä¸ªå­—ç¬¦ä¸²å˜é‡çš„åœ°å€æ˜¯å¦ç›¸åŒ
+ * è¡¨è¾¾å¼ï¼šå­—ç¬¦ä¸² == å­—ç¬¦ä¸²1 åˆ¤æ–­ä¸¤ä¸ªå­—ç¬¦ä¸²çš„å†…å®¹æ˜¯å¦ä¸€æ ·ï¼Œä¸è€ƒè™‘åœ°å€
  * */
 public class JiChengDemo extends B{
 	public static void main(String[] args){
 		B demo = new JiChengDemo();
-		//¶àÌ¬£¬¸¸ÀàÐÍµÄ±äÁ¿¿ÉÒÔÒýÓÃ×ÓÀàÐÍµÄ¶ÔÏó£¬Ò²¿ÉÒÔ½«×ÓÀàÐÍ±äÁ¿¸³¸ø¸¸ÀàÐÍ£¬Ç°ÌáÊÇ×ÓÀàÐÍ±äÁ¿ÒªÓÐÖ¸Ïò¡£
+		//å¤šæ€ï¼Œçˆ¶ç±»åž‹çš„å˜é‡å¯ä»¥å¼•ç”¨å­ç±»åž‹çš„å¯¹è±¡ï¼Œä¹Ÿå¯ä»¥å°†å­ç±»åž‹å˜é‡èµ‹ç»™çˆ¶ç±»åž‹ï¼Œå‰ææ˜¯å­ç±»åž‹å˜é‡è¦æœ‰æŒ‡å‘ã€‚
 		demo.shou();
-		//¶¯Ì¬°ó¶¨£¬ËäÈ»ÉùÃ÷µÄÊÇ¸¸ÀàBÀàÐÍ£¬µ«ÊÇÊµ¼ÊÀàÐÍÎªJiChengDemo£¬ËùÒÔÊ¹ÓÃµÄshouÎª±¾ÀàÖÐµÄ
-		//µ«Èç¹û¸¸ÀàÖÐÃ»ÓÐshou()Õâ¸ö·½·¨ÄÇÃ´Õâ¸öÓï¾ä¾ÍÊÇ´íÎóµÄ¡£ÐèÒªÇ¿×ªÖ®ºó²ÅÐÐ
+		//åŠ¨æ€ç»‘å®šï¼Œè™½ç„¶å£°æ˜Žçš„æ˜¯çˆ¶ç±»Bç±»åž‹ï¼Œä½†æ˜¯å®žé™…ç±»åž‹ä¸ºJiChengDemoï¼Œæ‰€ä»¥ä½¿ç”¨çš„shouä¸ºæœ¬ç±»ä¸­çš„
+		//ä½†å¦‚æžœçˆ¶ç±»ä¸­æ²¡æœ‰shou()è¿™ä¸ªæ–¹æ³•é‚£ä¹ˆè¿™ä¸ªè¯­å¥å°±æ˜¯é”™è¯¯çš„ã€‚éœ€è¦å¼ºè½¬ä¹‹åŽæ‰è¡Œ
 		demo.printDemo();
-		//demoµÄÊµ¼ÊÀàÐÍÊÇ×ÓÀàÐÍ£¬µ«×ÓÀàÖÐÃ»ÓÐprintDemo·½·¨£¬ËùÒÔÊ¹ÓÃµÄÊÇ¸¸ÀàÖÐµÄÕâ¸ö·½·¨
-		//¶øprintDemo·½·¨ÓÖÊ¹ÓÃÁËshou·½·¨£¬×ÓÀàÖÐÓÐÕâ¸ö·½·¨£¬ËùÒÔshouÊ¹ÓÃµÄÊÇ×ÓÀàÖÐµÄ
+		//demoçš„å®žé™…ç±»åž‹æ˜¯å­ç±»åž‹ï¼Œä½†å­ç±»ä¸­æ²¡æœ‰printDemoæ–¹æ³•ï¼Œæ‰€ä»¥ä½¿ç”¨çš„æ˜¯çˆ¶ç±»ä¸­çš„è¿™ä¸ªæ–¹æ³•
+		//è€ŒprintDemoæ–¹æ³•åˆä½¿ç”¨äº†shouæ–¹æ³•ï¼Œå­ç±»ä¸­æœ‰è¿™ä¸ªæ–¹æ³•ï¼Œæ‰€ä»¥shouä½¿ç”¨çš„æ˜¯å­ç±»ä¸­çš„
 		demo.print();
-		//printÎª¸¸ÀàÖÐµÄ·½·¨£¬×ÓÀàÖÐÃ»ÓÐ¡£¶øprint·½·¨ÖÐÊ¹ÓÃÁËshow·½·¨£¬Õâ¸ö·½·¨×ÓÀàÖÐÓÐ
-		//µ«ÊÇËüÎªË½ÓÐµÄ£¬Ö»ÄÜÔÚ±¾ÀàÖÐÊ¹ÓÃ¡£¶øprint·½·¨È´ÔÚ¸¸ÀàÖ®ÖÐ£¬ËùÒÔÖ»ÄÜÊ¹ÓÃ¸¸ÀàÖÐµÄshow·½·¨
+		//printä¸ºçˆ¶ç±»ä¸­çš„æ–¹æ³•ï¼Œå­ç±»ä¸­æ²¡æœ‰ã€‚è€Œprintæ–¹æ³•ä¸­ä½¿ç”¨äº†showæ–¹æ³•ï¼Œè¿™ä¸ªæ–¹æ³•å­ç±»ä¸­æœ‰
+		//ä½†æ˜¯å®ƒä¸ºç§æœ‰çš„ï¼Œåªèƒ½åœ¨æœ¬ç±»ä¸­ä½¿ç”¨ã€‚è€Œprintæ–¹æ³•å´åœ¨çˆ¶ç±»ä¹‹ä¸­ï¼Œæ‰€ä»¥åªèƒ½ä½¿ç”¨çˆ¶ç±»ä¸­çš„showæ–¹æ³•
 		/*JiChengDemo a = new JiChengDemo();
 		if(a instanceof JiChengDemo)
-			System.out.println("ÊÇµÄ");
+			System.out.println("æ˜¯çš„");
 		else
-			System.out.println("²»ÊÇµÄ");*/
+			System.out.println("ä¸æ˜¯çš„");*/
 		B element = new B();
 		Object element1 = new B();
 		System.out.println(element.equals(element1));
 	}
 	
-	//ÎÞ²Î¹¹Ôì
+	//æ— å‚æž„é€ 
 	JiChengDemo(){
-		//superÒýÓÃ¸¸ÀàÓÐ²Î¹¹Ôì
+		//superå¼•ç”¨çˆ¶ç±»æœ‰å‚æž„é€ 
 		//super(2);
 	}
-	//ÓÐ²Î¹¹Ôì
+	//æœ‰å‚æž„é€ 
 	JiChengDemo(int a){
-		System.out.println("ÕâÊÇAÀà");
+		System.out.println("è¿™æ˜¯Aç±»");
 	}
 	private String show(){
-		return "×ÓÀàË½ÓÐ·½·¨";
+		return "å­ç±»ç§æœ‰æ–¹æ³•";
 	}
 	@Override
 	public String shou(){
@@ -66,12 +65,12 @@ public class JiChengDemo extends B{
 
 }
 class B{
-	//ÊµÀý»¯Ê±£¬×ÓÀàÔÚÖ´ÐÐ¹¹Ôìº¯ÊýÇ°»á½«¸¸ÀàÖÐµÄÎÞ²Î¹¹Ôìº¯ÊýÏÈÖ´ÐÐ¡£ËùÒÔÕâÀïÊ×ÏÈ´òÓ¡¡°BÀàÎÞ²Î¡±
+	//å®žä¾‹åŒ–æ—¶ï¼Œå­ç±»åœ¨æ‰§è¡Œæž„é€ å‡½æ•°å‰ä¼šå°†çˆ¶ç±»ä¸­çš„æ— å‚æž„é€ å‡½æ•°å…ˆæ‰§è¡Œã€‚æ‰€ä»¥è¿™é‡Œé¦–å…ˆæ‰“å°â€œBç±»æ— å‚â€
 	B(){
-		System.out.println("ÕâÊÇBÀàÎÞ²Î");
+		System.out.println("è¿™æ˜¯Bç±»æ— å‚");
 	}
 	B(int a){
-		System.out.println("ÕâÊÇBÀàÓÐ²Î");
+		System.out.println("è¿™æ˜¯Bç±»æœ‰å‚");
 	}
 	
 	
@@ -94,8 +93,8 @@ class B{
 
 /*class C{
 	C(){
-		this("ÕâÊÇCÀàµÄÎÞ²Îº¯ÊýÄÚµÄµ÷ÓÃ");
-		System.out.println("ÕâÊÇCÀà");
+		this("è¿™æ˜¯Cç±»çš„æ— å‚å‡½æ•°å†…çš„è°ƒç”¨");
+		System.out.println("è¿™æ˜¯Cç±»");
 	}
 	C(String s){
 		System.out.println(s);

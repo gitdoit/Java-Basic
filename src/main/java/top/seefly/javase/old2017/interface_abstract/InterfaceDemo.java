@@ -1,39 +1,39 @@
-package interface_abstract;
-/*½Ó¿Ú£º¿ÉÒÔÀí½âÎªÊÇÒ»ÖÖ±ê×¼£¬ÓÃËü¶¨ÒåµÄÀàÖĞËùÓĞ·½·¨È«²¿ÊÇ³éÏóµÄ£¬ÇÒÎŞ·¨Éú³ÉÊµÀı¡£ĞèÒª×ÓÀà¶ÔÆäÖĞµÄ·½·¨È«²¿ÊµÏÖÖ®ºó²ÅÄÜÓÃ×ÓÀàÊµÀı»¯¡£
- * Ò»¸öÀà¿ÉÒÔÊµÏÖ¶à¸ö½Ó¿Ú
- * Ò»¸ö½Ó¿Ú¿ÉÒÔ¼Ì³ĞÁíÒ»¸ö½Ó¿Ú£¬ÉõÖÁÍ¬Ê±¼Ì³Ğ¶à¸ö½Ó¿Ú
+package top.seefly.javase.old2017.interface_abstract;
+/*æ¥å£ï¼šå¯ä»¥ç†è§£ä¸ºæ˜¯ä¸€ç§æ ‡å‡†ï¼Œç”¨å®ƒå®šä¹‰çš„ç±»ä¸­æ‰€æœ‰æ–¹æ³•å…¨éƒ¨æ˜¯æŠ½è±¡çš„ï¼Œä¸”æ— æ³•ç”Ÿæˆå®ä¾‹ã€‚éœ€è¦å­ç±»å¯¹å…¶ä¸­çš„æ–¹æ³•å…¨éƒ¨å®ç°ä¹‹åæ‰èƒ½ç”¨å­ç±»å®ä¾‹åŒ–ã€‚
+ * ä¸€ä¸ªç±»å¯ä»¥å®ç°å¤šä¸ªæ¥å£
+ * ä¸€ä¸ªæ¥å£å¯ä»¥ç»§æ‰¿å¦ä¸€ä¸ªæ¥å£ï¼Œç”šè‡³åŒæ—¶ç»§æ‰¿å¤šä¸ªæ¥å£
  * 
- * ½Ó¿ÚÖĞ³£¼ûµÄĞŞÊÎ·û
- * ³£Á¿£ºpublic static final
- * ·½·¨£ºpublic abstract 
+ * æ¥å£ä¸­å¸¸è§çš„ä¿®é¥°ç¬¦
+ * å¸¸é‡ï¼špublic static final
+ * æ–¹æ³•ï¼špublic abstract 
  * */
-interface A{//½Ó¿ÚA
+interface A{//æ¥å£A
 	public abstract void method1();
 }
 
-interface B{//½Ó¿ÚB
+interface B{//æ¥å£B
 	public abstract void method2();
 }
 
 
-interface C extends A,B{//½Ó¿ÚC¿ÉÍ¬Ê±¼Ì³ĞA.B
+interface C extends A,B{//æ¥å£Cå¯åŒæ—¶ç»§æ‰¿A.B
 	
 }
 
 
 interface Interface {
-	public static final int n = 3;//½Ó¿ÚÊÇÒ»¸ö±ê×¼£¬ÔòÆäÖĞËùÓĞÊı¾İÓò¶¼Ó¦¸ÃÊÇ²»±äµÄ¡£ĞèÒª¶¨ÒåÎª¹«¹²¾²Ì¬×îÖÕµÄ
+	public static final int n = 3;//æ¥å£æ˜¯ä¸€ä¸ªæ ‡å‡†ï¼Œåˆ™å…¶ä¸­æ‰€æœ‰æ•°æ®åŸŸéƒ½åº”è¯¥æ˜¯ä¸å˜çš„ã€‚éœ€è¦å®šä¹‰ä¸ºå…¬å…±é™æ€æœ€ç»ˆçš„
 	public abstract void show();
 }
 
-class demo implements Interface{//ÀàdemoÊµÀı»¯½Ó¿Ú
+class demo implements Interface{//ç±»demoå®ä¾‹åŒ–æ¥å£
 	public  void show(){
-		System.out.print("ÊµÀı»¯\n");
+		System.out.print("å®ä¾‹åŒ–\n");
 	}
 }
 
-class D extends demo implements C{//ÀàD¼Ì³ĞµÄÍ¬Ê±¿ÉÒÔÊµÏÖ½Ó¿Ú
-	public void method1(){//ÓÉÓÚÊµÏÖµÄ½Ó¿ÚÖĞÓĞÁ½¸ö·½·¨ĞèÒªÊµÏÖ
+class D extends demo implements C{//ç±»Dç»§æ‰¿çš„åŒæ—¶å¯ä»¥å®ç°æ¥å£
+	public void method1(){//ç”±äºå®ç°çš„æ¥å£ä¸­æœ‰ä¸¤ä¸ªæ–¹æ³•éœ€è¦å®ç°
 		
 	}
 	public void method2(){
@@ -46,6 +46,6 @@ class InterfaceDemo{
 		t.show();
 		System.out.println(t.n);
 		System.out.println(Interface.n);
-		System.out.println(demo.n);//ÕâÈıÖÖµ÷ÓÃ¶¼ÊÇ¿ÉÒÔµÄ£¬ÒòÎªÊı¾İÓònÊÇ¾²Ì¬³£Á¿
+		System.out.println(demo.n);//è¿™ä¸‰ç§è°ƒç”¨éƒ½æ˜¯å¯ä»¥çš„ï¼Œå› ä¸ºæ•°æ®åŸŸnæ˜¯é™æ€å¸¸é‡
 	}
 }

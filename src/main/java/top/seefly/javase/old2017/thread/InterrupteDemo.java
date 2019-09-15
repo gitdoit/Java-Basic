@@ -1,6 +1,6 @@
-package thread;
+package top.seefly.javase.old2017.thread;
 /*
- * Èç¹ûÏß³Ì´¦ÓÚ×èÈû×´Ì¬Ê±µ÷ÓÃ¸ÃÏß³ÌµÄinterrupt·½·¨£¬»áÊ¹¸ÃÏß³Ì³öÏÖÒì³££¬È»ºó½áÊø¸ÃÏß³Ì¡£
+ * å¦‚æœçº¿ç¨‹å¤„äºé˜»å¡çŠ¶æ€æ—¶è°ƒç”¨è¯¥çº¿ç¨‹çš„interruptæ–¹æ³•ï¼Œä¼šä½¿è¯¥çº¿ç¨‹å‡ºç°å¼‚å¸¸ï¼Œç„¶åç»“æŸè¯¥çº¿ç¨‹ã€‚
  * */
 public class InterrupteDemo {
 
@@ -8,7 +8,7 @@ public class InterrupteDemo {
 		InterDemo r = new InterDemo();
 		Thread t = new Thread(r);
 		t.start();
-		t.interrupt();//ÖĞ¶Ï¸ÃÏß³Ì(²»ÊÇ½áÊø¸ÃÏß³Ì)£¬½«ÖĞ¶ÏÎ»ÖÃtrue
+		t.interrupt();//ä¸­æ–­è¯¥çº¿ç¨‹(ä¸æ˜¯ç»“æŸè¯¥çº¿ç¨‹)ï¼Œå°†ä¸­æ–­ä½ç½®true
 		
 	}
 
@@ -18,11 +18,11 @@ class InterDemo implements Runnable{
 	@Override
 	public void run() {
 		try {
-			for(int i = 0;i < 1000000;i++);//ÑÓÊ±£¬·ÀÖ¹Ö÷Ïß³ÌÖĞµÄ(t.interrupt)ÔÚ×ÓÏß³ÌÏÂÃæÓï¾äÖ´ĞĞºó²ÅÖ´ĞĞ
-			System.out.println("×ÓÏß³ÌÊÇ·ñ±»ÖĞ¶ÏÁË£º"+Thread.currentThread().interrupted());//´Ë·½·¨»á¼ì²âÖĞ¶Ï×´Ì¬Î»£¬ÇÒ·µ»Ø¸ÃÖĞ¶Ï×´Ì¬£¬È»ºó½«Ö®ÖØÖÃÎªfalse
-			System.out.println("Ïß³Ì½«½øÈëĞİÃß£¬ÇÒÖĞ¶Ï×´Ì¬Îª£º"+Thread.currentThread().isInterrupted());//¸Ã·½·¨Ö»·µ»ØÖĞ¶Ï×´Ì¬£¬µ«²»»á¶ÔÆä×öÈÎºÎ²Ù×÷
+			for(int i = 0;i < 1000000;i++);//å»¶æ—¶ï¼Œé˜²æ­¢ä¸»çº¿ç¨‹ä¸­çš„(t.interrupt)åœ¨å­çº¿ç¨‹ä¸‹é¢è¯­å¥æ‰§è¡Œåæ‰æ‰§è¡Œ
+			System.out.println("å­çº¿ç¨‹æ˜¯å¦è¢«ä¸­æ–­äº†ï¼š"+Thread.currentThread().interrupted());//æ­¤æ–¹æ³•ä¼šæ£€æµ‹ä¸­æ–­çŠ¶æ€ä½ï¼Œä¸”è¿”å›è¯¥ä¸­æ–­çŠ¶æ€ï¼Œç„¶åå°†ä¹‹é‡ç½®ä¸ºfalse
+			System.out.println("çº¿ç¨‹å°†è¿›å…¥ä¼‘çœ ï¼Œä¸”ä¸­æ–­çŠ¶æ€ä¸ºï¼š"+Thread.currentThread().isInterrupted());//è¯¥æ–¹æ³•åªè¿”å›ä¸­æ–­çŠ¶æ€ï¼Œä½†ä¸ä¼šå¯¹å…¶åšä»»ä½•æ“ä½œ
 			Thread.currentThread().sleep(1000);
-			System.out.println("Ïß³ÌĞİÃßÍê³É");
+			System.out.println("çº¿ç¨‹ä¼‘çœ å®Œæˆ");
 			
 		}
 		catch(InterruptedException  e) {

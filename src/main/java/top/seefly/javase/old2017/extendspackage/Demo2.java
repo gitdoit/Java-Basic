@@ -1,17 +1,17 @@
-package extendspackage;
+package top.seefly.javase.old2017.extendspackage;
 /*
- * ³õÊ¼»¯¿é
- * Óë¹¹Ôì·½·¨ÀàËÆ£¬µ«ÓÅÏÈÓë¹¹Ôì·½·¨Ç°Ö´ĞĞ£¬ÇÒ»áÑØ×Å¼Ì³ĞÁ´Ïñ¹¹Ôì·½·¨Ò»ÑùÈ¥Ö´ĞĞ¡£
- * Ëü²»ÄÜ½ÓÊÕÈÎºÎ²ÎÊı£¬ÇÒ×ÜÊÇÒşÊ½Ö´ĞĞµÄ¡£
- * Ã¿Ò»´Îµ÷ÓÃ¹¹Ôì·½·¨(ÓĞ²ÎÎŞ²Î)Ö®Ç°¶¼»áÖ´ĞĞÆÕÍ¨³õÊ¼»¯¿é£¬µ«¾²Ì¬³õÊ¼»¯¿éÖ»ÔÚ¸ÃÀà¼ÓÔØµÄÊ±ºòÖ´ĞĞÒ»´Î£¬ÇÒ½öÒ»´Î¡£ÏñÊÇÀà±äÁ¿
+ * åˆå§‹åŒ–å—
+ * ä¸æ„é€ æ–¹æ³•ç±»ä¼¼ï¼Œä½†ä¼˜å…ˆä¸æ„é€ æ–¹æ³•å‰æ‰§è¡Œï¼Œä¸”ä¼šæ²¿ç€ç»§æ‰¿é“¾åƒæ„é€ æ–¹æ³•ä¸€æ ·å»æ‰§è¡Œã€‚
+ * å®ƒä¸èƒ½æ¥æ”¶ä»»ä½•å‚æ•°ï¼Œä¸”æ€»æ˜¯éšå¼æ‰§è¡Œçš„ã€‚
+ * æ¯ä¸€æ¬¡è°ƒç”¨æ„é€ æ–¹æ³•(æœ‰å‚æ— å‚)ä¹‹å‰éƒ½ä¼šæ‰§è¡Œæ™®é€šåˆå§‹åŒ–å—ï¼Œä½†é™æ€åˆå§‹åŒ–å—åªåœ¨è¯¥ç±»åŠ è½½çš„æ—¶å€™æ‰§è¡Œä¸€æ¬¡ï¼Œä¸”ä»…ä¸€æ¬¡ã€‚åƒæ˜¯ç±»å˜é‡
  * 
- * ¾²Ì¬³õÊ¼»¯¿é£¬ÔÚĞéÄâ»ú¼ÓÔØ¸ÃÀàÊ±»áÖ´ĞĞ¸Ã¿é£¬ÇÒÖ»Ö´ĞĞÒ»´Î¡£
+ * é™æ€åˆå§‹åŒ–å—ï¼Œåœ¨è™šæ‹ŸæœºåŠ è½½è¯¥ç±»æ—¶ä¼šæ‰§è¡Œè¯¥å—ï¼Œä¸”åªæ‰§è¡Œä¸€æ¬¡ã€‚
  * */
 public class Demo2 {
 
 	public static void main(String[] args) {
 		new Leaf();
-		new Leaf();//ÊµÀı»¯Á½¸ö¶ÔÏó£¬µ«ÊÇËùÓĞ¾²Ì¬¿éÖ»¼ÓÔØÖ´ĞĞÒ»´Î
+		new Leaf();//å®ä¾‹åŒ–ä¸¤ä¸ªå¯¹è±¡ï¼Œä½†æ˜¯æ‰€æœ‰é™æ€å—åªåŠ è½½æ‰§è¡Œä¸€æ¬¡
 
 	}
 
@@ -19,40 +19,40 @@ public class Demo2 {
 
 class Root{
 	static {
-		System.out.println("RootµÄ¾²Ì¬³õÊ¼»¯¿é");
+		System.out.println("Rootçš„é™æ€åˆå§‹åŒ–å—");
 	}
 	{
-		System.out.println("RootµÄÆÕÍ¨³õÊ¼»¯¿é");
+		System.out.println("Rootçš„æ™®é€šåˆå§‹åŒ–å—");
 	}
 	public Root() {
-		System.out.println("RootµÄÎŞ²Î¹¹Ôì·½·¨");
+		System.out.println("Rootçš„æ— å‚æ„é€ æ–¹æ³•");
 	}
 }
 class Mid extends Root{
 	static {
-		System.out.println("MidµÄ¾²Ì¬³õÊ¼»¯¿é");
+		System.out.println("Midçš„é™æ€åˆå§‹åŒ–å—");
 	}
 	{
-		System.out.println("MidµÄÆÕÍ¨³õÊ¼»¯¿é");
+		System.out.println("Midçš„æ™®é€šåˆå§‹åŒ–å—");
 	}
 	public Mid() {
-		System.out.println("MidµÄÎŞ²Î¹¹Ôì·½·¨");
+		System.out.println("Midçš„æ— å‚æ„é€ æ–¹æ³•");
 	}
 	public Mid(String msg) {
 		this();
-		System.out.println("MidµÄÓĞ²Î¹¹Ôì·½·¨£¬Æä²ÎÊıÖµÎª:"+msg);
+		System.out.println("Midçš„æœ‰å‚æ„é€ æ–¹æ³•ï¼Œå…¶å‚æ•°å€¼ä¸º:"+msg);
 	}	
 }
 
 class Leaf extends Mid{
 	static {
-		System.out.println("LeafµÄ¾²Ì¬³õÊ¼»¯¿é");
+		System.out.println("Leafçš„é™æ€åˆå§‹åŒ–å—");
 	}
 	{
-		System.out.println("LeafµÄÆÕÍ¨³õÊ¼»¯¿é");
+		System.out.println("Leafçš„æ™®é€šåˆå§‹åŒ–å—");
 	}
 	public Leaf() {
-		super("²âÊÔ²âÊÔ");
-		System.out.println("LeafµÄÎŞ²Î¹¹Ôì·½·¨");
+		super("æµ‹è¯•æµ‹è¯•");
+		System.out.println("Leafçš„æ— å‚æ„é€ æ–¹æ³•");
 	}
 }

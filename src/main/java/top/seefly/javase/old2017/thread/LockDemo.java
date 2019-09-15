@@ -1,19 +1,19 @@
-package thread;
+package top.seefly.javase.old2017.thread;
 /*
- * ±¾Ïß³ÌÓÃÀ´ÑİÊ¾ReentrantLockµÄÊ¹ÓÃ·½·¨
- * ×¢Òâ£¬ÉÏËø½âËøÒ»¶¨ÊÇ³É¶Ô³öÏÖµÄ¡£¶øÇÒÒªÒª½«½âËø²½Öè·Å½øfinally¿éÄÚ£¬±£Ö¤Ò»¶¨»á±»Ö´ĞĞµ½¡£
+ * æœ¬çº¿ç¨‹ç”¨æ¥æ¼”ç¤ºReentrantLockçš„ä½¿ç”¨æ–¹æ³•
+ * æ³¨æ„ï¼Œä¸Šé”è§£é”ä¸€å®šæ˜¯æˆå¯¹å‡ºç°çš„ã€‚è€Œä¸”è¦è¦å°†è§£é”æ­¥éª¤æ”¾è¿›finallyå—å†…ï¼Œä¿è¯ä¸€å®šä¼šè¢«æ‰§è¡Œåˆ°ã€‚
  * 
- * ReentrantLockËø¾ßÓĞ¿ÉÖØÈëĞÔ£¬Ò²¾ÍÊÇËµÒ»¸öÏß³Ì¿ÉÒÔ¶ÔÒÑ¾­±»¼ÏËøµÄReentrantLockËøÔÙ´Î¼ÓËø£»
- * ¼´Ò»¶Î±»Ëø±£»¤µÄ´úÂë£¬¿ÉÒÔµ÷ÓÃÁíÒ»¸ö±»ÏàÍ¬Ëø±£»¤µÄ´úÂë 
+ * ReentrantLocké”å…·æœ‰å¯é‡å…¥æ€§ï¼Œä¹Ÿå°±æ˜¯è¯´ä¸€ä¸ªçº¿ç¨‹å¯ä»¥å¯¹å·²ç»è¢«æ·é”çš„ReentrantLocké”å†æ¬¡åŠ é”ï¼›
+ * å³ä¸€æ®µè¢«é”ä¿æŠ¤çš„ä»£ç ï¼Œå¯ä»¥è°ƒç”¨å¦ä¸€ä¸ªè¢«ç›¸åŒé”ä¿æŠ¤çš„ä»£ç  
  * Lock lock = new ReentrantLock();
- * lock.lock//¼ÓËø
+ * lock.lock//åŠ é”
  * try
  * {
- * 		ĞèÒªÍ¬²½µÄ´úÂë
+ * 		éœ€è¦åŒæ­¥çš„ä»£ç 
  * }
  * finally
  * {
- * 		lock.unlock;//ÊÍ·ÅËø
+ * 		lock.unlock;//é‡Šæ”¾é”
  * }
  * 
  *  * */
@@ -39,8 +39,8 @@ class TransferRunnable implements Runnable{
 	
 	public TransferRunnable(BankDemo b,int from,int max) {
 		bank = b;
-		fromAccount = from;//×ª³öµÄÕË»§
-		maxAmount = max;//³õÊ¼´æ¿î
+		fromAccount = from;//è½¬å‡ºçš„è´¦æˆ·
+		maxAmount = max;//åˆå§‹å­˜æ¬¾
 	}
 	
 	@Override
@@ -62,7 +62,7 @@ class BankDemo{
 	private int[] accounts;
 	private Lock bankLock = new ReentrantLock();
 	public BankDemo(int userNum,int initBalance) {
-		accounts = new int[userNum];//³õÊ¼»¯ÓÃ»§ÊıÁ¿
+		accounts = new int[userNum];//åˆå§‹åŒ–ç”¨æˆ·æ•°é‡
 		for(int i = 0;i < 100;i++)
 			accounts[i] = initBalance;
 	}
@@ -71,10 +71,10 @@ class BankDemo{
 		bankLock.lock();
 		try {
 			if(accounts[from] < money)return;
-			accounts[from] -=money;//×ª³ö
-			System.out.printf("%d¿éÇ®´Ó%d×ªÈë%d\n",money,from,to);
-			accounts[to] +=money;//×ªÈë
-			System.out.println("µ±Ç°ÒøĞĞ×Ü´æ¿îÎª£º"+getTotalBalance());
+			accounts[from] -=money;//è½¬å‡º
+			System.out.printf("%då—é’±ä»%dè½¬å…¥%d\n",money,from,to);
+			accounts[to] +=money;//è½¬å…¥
+			System.out.println("å½“å‰é“¶è¡Œæ€»å­˜æ¬¾ä¸ºï¼š"+getTotalBalance());
 			
 		} finally {
 			bankLock.unlock();

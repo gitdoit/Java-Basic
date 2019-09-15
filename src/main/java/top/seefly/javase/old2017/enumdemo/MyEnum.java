@@ -1,7 +1,7 @@
-package enumdemo;
-/*×Ô¶¨ÒåµÄÃ¶¾ÙÀàĞÍ£¬ÆäÖĞ°üº¬Êı¾İÓò£¬ÇÒÓĞ·ÃÎÊÆ÷
- * »¹ÑİÊ¾ÁËEnum.valueOf()·½·¨µÄÊ¹ÓÃ
- * ÒÔ¼°Ã¶¾Ù¶ÔÏó¿ÉÒÔÓÃ==±È½Ï
+package top.seefly.javase.old2017.enumdemo;
+/*è‡ªå®šä¹‰çš„æšä¸¾ç±»å‹ï¼Œå…¶ä¸­åŒ…å«æ•°æ®åŸŸï¼Œä¸”æœ‰è®¿é—®å™¨
+ * è¿˜æ¼”ç¤ºäº†Enum.valueOf()æ–¹æ³•çš„ä½¿ç”¨
+ * ä»¥åŠæšä¸¾å¯¹è±¡å¯ä»¥ç”¨==æ¯”è¾ƒ
  * 
  * */
 import java.util.*;
@@ -11,20 +11,20 @@ public class MyEnum {
 		Scanner in = new Scanner(System.in);
 		System.out.println("Enter a size(SAMLL,MEDIUM,LARGE,EXTRA_LARGE)");
 		String input = in .next().toUpperCase();
-		Size size = Enum.valueOf(Size.class, input);//Enum.valuesof(Ã¶¾ÙÀàĞÍ£¬Ã¶¾ÙÔªËØÃû)£»µÃµ½¸ÃÃ¶¾ÙÀàĞÍµÄÖĞÃûÎª¡°Ã¶¾ÙÔªËØÃû¡±µÄÃ¶¾Ù¶ÔÏó
-													//¸Ã¾²Ì¬·½·¨»áÅ×³öÒ»¸öÔËĞĞÊ±Òì³£ÔÚÃ»ÓĞ¶ÔÓ¦µÄÔªËØÃûÊ±
+		Size size = Enum.valueOf(Size.class, input);//Enum.valuesof(æšä¸¾ç±»å‹ï¼Œæšä¸¾å…ƒç´ å)ï¼›å¾—åˆ°è¯¥æšä¸¾ç±»å‹çš„ä¸­åä¸ºâ€œæšä¸¾å…ƒç´ åâ€çš„æšä¸¾å¯¹è±¡
+													//è¯¥é™æ€æ–¹æ³•ä¼šæŠ›å‡ºä¸€ä¸ªè¿è¡Œæ—¶å¼‚å¸¸åœ¨æ²¡æœ‰å¯¹åº”çš„å…ƒç´ åæ—¶
 		System.out.println("size:"+size);
-		System.out.println("size="+size.getSize());//·ÃÎÊÆ÷·ÃÎÊÃ¶¾Ù¶ÔÏóµÄÊı¾İÓò
+		System.out.println("size="+size.getSize());//è®¿é—®å™¨è®¿é—®æšä¸¾å¯¹è±¡çš„æ•°æ®åŸŸ
 		if(size == Size.SMALL)
-			System.out.println("Äã´©µÄÊÇSºÅ");
+			System.out.println("ä½ ç©¿çš„æ˜¯Så·");
 		
 	}
 	
 
 }
 
-enum Size{//×Ô¶¨ÒåÃ¶¾ÙÀàĞÍ°üÀ¨·½·¨¡£
-	//ÏÂÃæÕâÀï¾ÍÏàµ±ÓÚnew Ò»¸öÃ¶¾Ù¶ÔÏóÁË
+enum Size{//è‡ªå®šä¹‰æšä¸¾ç±»å‹åŒ…æ‹¬æ–¹æ³•ã€‚
+	//ä¸‹é¢è¿™é‡Œå°±ç›¸å½“äºnew ä¸€ä¸ªæšä¸¾å¯¹è±¡äº†
 	SMALL("S"),MEDIUM("M"),LARGE("L"),EXTRA_LARGE("LX");
 	private Size(String size){
 		this.size = size;

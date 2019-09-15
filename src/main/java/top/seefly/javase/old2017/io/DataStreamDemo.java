@@ -1,11 +1,11 @@
-package io;
+package top.seefly.javase.old2017.io;
 /*
- * DataInputStreamºÍDataOutputStream·Ö±ğ¼Ì³Ğ×ÔFileInputStreamºÍFileOutputStrem
- * ²¢ÇÒÊµÏÖÁËDataInputºÍDataOutpu½Ó¿Ú
- * ËûÃÇÊ¹ÓÃÓëÆ½Ì¨ÎŞ¹ØµÄ·½·¨£¬ÏòÎÄ¼şÖĞ¶ÁĞ´Ö¸¶¨×Ö½Ú³¤¶È£¬²¢×ª»»³É¶ÔÓ¦µÄÊı¾İÀàĞÍ¡£
+ * DataInputStreamå’ŒDataOutputStreamåˆ†åˆ«ç»§æ‰¿è‡ªFileInputStreamå’ŒFileOutputStrem
+ * å¹¶ä¸”å®ç°äº†DataInputå’ŒDataOutpuæ¥å£
+ * ä»–ä»¬ä½¿ç”¨ä¸å¹³å°æ— å…³çš„æ–¹æ³•ï¼Œå‘æ–‡ä»¶ä¸­è¯»å†™æŒ‡å®šå­—èŠ‚é•¿åº¦ï¼Œå¹¶è½¬æ¢æˆå¯¹åº”çš„æ•°æ®ç±»å‹ã€‚
  * 
- * ×¢Òâ£¬writeXXXºÍreadXXXÒª¶ÔÓ¦¡£ÏµÍ³²»»áÒòÎªÄãÖ¸¶¨ÁËwriteInt()¾Í´ÓÎÄ¼şÖĞÑ¡È¡ÏÂÒ»¶Î±íÊ¾intÖµµÄ×Ö½Ú½øĞĞ×ª»»¡£
- * ËüÖ»ÊÇ´ÓÉÏÒ»´Î¶ÁÈ¡¼ÇÂ¼Î»ÖÃ¿ªÊ¼£¬¸ù¾İÖ¸¶¨µÄ·½·¨¶ÁÈ¡Ö¸¶¨µÄ×Ö½Ú¸ù¾İUTF-8ĞŞ¸Ä°æ±àÂë±í½øĞĞ×ª»»¡£
+ * æ³¨æ„ï¼ŒwriteXXXå’ŒreadXXXè¦å¯¹åº”ã€‚ç³»ç»Ÿä¸ä¼šå› ä¸ºä½ æŒ‡å®šäº†writeInt()å°±ä»æ–‡ä»¶ä¸­é€‰å–ä¸‹ä¸€æ®µè¡¨ç¤ºintå€¼çš„å­—èŠ‚è¿›è¡Œè½¬æ¢ã€‚
+ * å®ƒåªæ˜¯ä»ä¸Šä¸€æ¬¡è¯»å–è®°å½•ä½ç½®å¼€å§‹ï¼Œæ ¹æ®æŒ‡å®šçš„æ–¹æ³•è¯»å–æŒ‡å®šçš„å­—èŠ‚æ ¹æ®UTF-8ä¿®æ”¹ç‰ˆç¼–ç è¡¨è¿›è¡Œè½¬æ¢ã€‚
  * 
  * 
  */
@@ -26,24 +26,24 @@ public class DataStreamDemo {
 	}
 	
 	public static void writer() throws IOException {
-		DataOutputStream dop = new DataOutputStream(new FileOutputStream("e:\\IOTest\\datatest.txt"));//²Ù×÷Êı¾İÁ÷
-		dop.writeChar(65);//Ğ´ÈëÁ½¸ö×Ö½Ú¡£´æ´¢char
-		dop.writeInt(33);//Ğ´Èë°Ë¸ö×Ö½Ú£¬´æ´¢intÖµ
-		dop.writeDouble(77);//Ğ´Èë8¸ö×Ö½Ú£¬´æ´¢doubleÖµ
-		dop.writeUTF("Áõ½¨öÎ");//Ê¹ÓÃÓë»úÆ÷ÎŞ¹ØµÄ·½Ê½£¬ÏòÎÄ¼şĞ´ÈëÒ»¶Î×Ö½Ú´®£¬¸Ã´®¿ªÍ·Ê¹ÓÃÁ½×Ö½Ú±íÊ¾×Ö·û³¤¶È¡£¶ÔÓ¦µÄreadUTF¿ÉÒÔ½â¶Á¡£
+		DataOutputStream dop = new DataOutputStream(new FileOutputStream("e:\\IOTest\\datatest.txt"));//æ“ä½œæ•°æ®æµ
+		dop.writeChar(65);//å†™å…¥ä¸¤ä¸ªå­—èŠ‚ã€‚å­˜å‚¨char
+		dop.writeInt(33);//å†™å…¥å…«ä¸ªå­—èŠ‚ï¼Œå­˜å‚¨intå€¼
+		dop.writeDouble(77);//å†™å…¥8ä¸ªå­—èŠ‚ï¼Œå­˜å‚¨doubleå€¼
+		dop.writeUTF("åˆ˜å»ºé‘«");//ä½¿ç”¨ä¸æœºå™¨æ— å…³çš„æ–¹å¼ï¼Œå‘æ–‡ä»¶å†™å…¥ä¸€æ®µå­—èŠ‚ä¸²ï¼Œè¯¥ä¸²å¼€å¤´ä½¿ç”¨ä¸¤å­—èŠ‚è¡¨ç¤ºå­—ç¬¦é•¿åº¦ã€‚å¯¹åº”çš„readUTFå¯ä»¥è§£è¯»ã€‚
 		dop.close();
 	}
 	
 	public static void reader() throws IOException{
 		DataInputStream dip = new DataInputStream(new FileInputStream("e:\\IOTest\\datatest.txt"));
-		byte[] bt = new byte[2];//´ÓÎÄ¼şÖĞ¶ÁÈ¡2¸ö×Ö½Ú£¬²¢Ê¹ÓÃÖ¸¶¨µÄ½âÂë·½Ê½×ª»»³É×Ö·û´®
+		byte[] bt = new byte[2];//ä»æ–‡ä»¶ä¸­è¯»å–2ä¸ªå­—èŠ‚ï¼Œå¹¶ä½¿ç”¨æŒ‡å®šçš„è§£ç æ–¹å¼è½¬æ¢æˆå­—ç¬¦ä¸²
 		dip.read(bt);
-		String  str = new String(bt,"GBK");//Èô²»Ö¸¶¨½âÂë·½Ê½£¬½«»áÑ¡ÓÃÆ½Ì¨Ä¬ÈÏ
+		String  str = new String(bt,"GBK");//è‹¥ä¸æŒ‡å®šè§£ç æ–¹å¼ï¼Œå°†ä¼šé€‰ç”¨å¹³å°é»˜è®¤
 		System.out.println(str);
 		
-		System.out.println(dip.readInt());//´ÓÎÄ¼şÖĞÄÇ¸ö¶ÁÈ¡8¸ö×Ö½Ú£¬×ª»»³Éint
-		System.out.println(dip.readDouble());//´ÓÎÄ¼şÖĞ¶ÁÈ¡8¸ö×Ö½Ú£¬×ª»»³Édouble
-		System.out.println(dip.readUTF());//´ÓÎÄ¼şÖĞ¶ÁÈ¡Ò»¶ÎÓÉUTF-8ĞŞ¸Ä°æ±àÂëµÄ×Ö·û´®(ÏêÏ¸¼ûDataInput½Ó¿Ú)
+		System.out.println(dip.readInt());//ä»æ–‡ä»¶ä¸­é‚£ä¸ªè¯»å–8ä¸ªå­—èŠ‚ï¼Œè½¬æ¢æˆint
+		System.out.println(dip.readDouble());//ä»æ–‡ä»¶ä¸­è¯»å–8ä¸ªå­—èŠ‚ï¼Œè½¬æ¢æˆdouble
+		System.out.println(dip.readUTF());//ä»æ–‡ä»¶ä¸­è¯»å–ä¸€æ®µç”±UTF-8ä¿®æ”¹ç‰ˆç¼–ç çš„å­—ç¬¦ä¸²(è¯¦ç»†è§DataInputæ¥å£)
 		dip.close();
 	}
 	

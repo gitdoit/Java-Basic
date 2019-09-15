@@ -1,7 +1,9 @@
-package object;
-import employee.Employees;
-/*¸ÃÀàÕ¹Ê¾ÁËÓÃ»§×Ô¼º¶¨ÒåµÄtoString·½·¨
- * ×Ô¶¨Òå¸Ã·½·¨µÄºÃ´¦ÊÇÊ¹ÓÃ»§ÄÜ¹»·½±ãµÄ»ñµÃ¶ÔÏóµÄ¸÷ÖÖÓĞÓÃĞÅÏ¢¡£
+package top.seefly.javase.old2017.object;
+
+import top.seefly.javase.old2017.employee.Employees;
+
+/*è¯¥ç±»å±•ç¤ºäº†ç”¨æˆ·è‡ªå·±å®šä¹‰çš„toStringæ–¹æ³•
+ * è‡ªå®šä¹‰è¯¥æ–¹æ³•çš„å¥½å¤„æ˜¯ä½¿ç”¨æˆ·èƒ½å¤Ÿæ–¹ä¾¿çš„è·å¾—å¯¹è±¡çš„å„ç§æœ‰ç”¨ä¿¡æ¯ã€‚
  * 
  * */
 public class ToStringDemo {
@@ -12,7 +14,7 @@ public class ToStringDemo {
 
 }
 
-class ToEmployee extends Employees{//Èô´ËÀàÓĞ×ÓÀàÔò×ÓÀàÖĞtoString Ö±½Ósuper.toString +[ĞÂÊı¾İÓò];
+class ToEmployee extends Employees {//è‹¥æ­¤ç±»æœ‰å­ç±»åˆ™å­ç±»ä¸­toString ç›´æ¥super.toString +[æ–°æ•°æ®åŸŸ];
 	public ToEmployee(){
 		super();
 	}

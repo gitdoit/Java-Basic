@@ -1,22 +1,23 @@
-package object;
+package top.seefly.javase.old2017.object;
+
+import top.seefly.javase.old2017.employee.Employees;
 
 import java.util.*;
 
-import employee.Employees;
 
 
-/*ÖØÔØÊÇ¸ù¾İº¯ÊıµÄ²»Í¬µÄ²ÎÊıÀàĞÍÀ´Ê¹ÓÃ²»Í¬µÄ·½·¨
- * µ«ÊÇÕâ¸öÀàĞÍµÄÅĞ¶ÏÒÀ¾İ ²»ÊÇÊµ¼ÊÀàĞÍ£¬¶øÊÇÉùÃ÷ÀàĞÍ
- *ObjectÖĞµÄequals·½·¨±È½ÏµÄÊÇÁ½¸öÊµÀıµÄµØÖ·ÊÇ·ñÏàÍ¬(Óë==Ò»Ñù)
- *¿ÉÒÔÔÚ×ÓÀàÖĞÖØĞ´Õâ¸ö·½·¨(StringÀàÖĞÖØĞ´ÁËÕâ¸ö·½·¨£¬Ö»Òª×Ö·û´®ÄÚ×Ö·ûĞòÁĞÏàÍ¬¾Í·µ»ØÕæ)Ê¹Ëû²»ÔÙ±È½ÏÁ½¸öµØÖ·£¬¶øÊÇÆäËû¶«Î÷¡£
+/*é‡è½½æ˜¯æ ¹æ®å‡½æ•°çš„ä¸åŒçš„å‚æ•°ç±»å‹æ¥ä½¿ç”¨ä¸åŒçš„æ–¹æ³•
+ * ä½†æ˜¯è¿™ä¸ªç±»å‹çš„åˆ¤æ–­ä¾æ® ä¸æ˜¯å®é™…ç±»å‹ï¼Œè€Œæ˜¯å£°æ˜ç±»å‹
+ *Objectä¸­çš„equalsæ–¹æ³•æ¯”è¾ƒçš„æ˜¯ä¸¤ä¸ªå®ä¾‹çš„åœ°å€æ˜¯å¦ç›¸åŒ(ä¸==ä¸€æ ·)
+ *å¯ä»¥åœ¨å­ç±»ä¸­é‡å†™è¿™ä¸ªæ–¹æ³•(Stringç±»ä¸­é‡å†™äº†è¿™ä¸ªæ–¹æ³•ï¼Œåªè¦å­—ç¬¦ä¸²å†…å­—ç¬¦åºåˆ—ç›¸åŒå°±è¿”å›çœŸ)ä½¿ä»–ä¸å†æ¯”è¾ƒä¸¤ä¸ªåœ°å€ï¼Œè€Œæ˜¯å…¶ä»–ä¸œè¥¿ã€‚
  *
- *¹ØÓÚequals·½·¨µÄ¶¨Òå×¼Ôò£º
- *×Ô·´ĞÔ£ºx.equals(x) ±Ø¶¨·µ»Øtrue
- *¶Ô³ÆĞÔ£ºx.equals(y) Óëy.equals(x)½á¹ûÒªÒ»ÖÂ
- *´«µİĞÔ£ºÈôx.equals(y)ºÍy.equals(z) ·µ»Øtrue   Ôòx.equals(z)·µ»Øtrue
- *Ò»ÖÂĞÔ£ºÈôx,ºÍyÃ»ÓĞ·¢Éú±ä»¯£¬µ±ÇÒ½öµ±x.equals(y)·µ»ØÖµÒªºÍy.equals(x)½á¹ûÒ»ÖÂ
+ *å…³äºequalsæ–¹æ³•çš„å®šä¹‰å‡†åˆ™ï¼š
+ *è‡ªåæ€§ï¼šx.equals(x) å¿…å®šè¿”å›true
+ *å¯¹ç§°æ€§ï¼šx.equals(y) ä¸y.equals(x)ç»“æœè¦ä¸€è‡´
+ *ä¼ é€’æ€§ï¼šè‹¥x.equals(y)å’Œy.equals(z) è¿”å›true   åˆ™x.equals(z)è¿”å›true
+ *ä¸€è‡´æ€§ï¼šè‹¥x,å’Œyæ²¡æœ‰å‘ç”Ÿå˜åŒ–ï¼Œå½“ä¸”ä»…å½“x.equals(y)è¿”å›å€¼è¦å’Œy.equals(x)ç»“æœä¸€è‡´
  * */
-class Employee extends Employees{
+class Employee extends Employees {
 	public Employee(){
 		
 	}
@@ -25,13 +26,13 @@ class Employee extends Employees{
 	}
 	
 	@Override
-	public boolean equals(Object otherObject){//±ê×¼¶¨Òå·½Ê½
-		if(this == otherObject) return true;//ÈôÒıÓÃµÄÊÇÍ¬Ò»¸ö¶ÔÏó£¬·µ»ØÕæ
-		if(otherObject == null) return false;//Èô²ÎÊıÎª¿Õ·µ»Ø¼Ù
-		if(getClass() != otherObject.getClass())return false;//Èô²ÎÊıÀàĞÍ²»Ò»ÖÂ£¬Ôò·µ»Ø¼Ù¡££¨getClassµÃµ½µÄÊÇÊµ¼ÊÀàĞÍÃû£©
+	public boolean equals(Object otherObject){//æ ‡å‡†å®šä¹‰æ–¹å¼
+		if(this == otherObject) return true;//è‹¥å¼•ç”¨çš„æ˜¯åŒä¸€ä¸ªå¯¹è±¡ï¼Œè¿”å›çœŸ
+		if(otherObject == null) return false;//è‹¥å‚æ•°ä¸ºç©ºè¿”å›å‡
+		if(getClass() != otherObject.getClass())return false;//è‹¥å‚æ•°ç±»å‹ä¸ä¸€è‡´ï¼Œåˆ™è¿”å›å‡ã€‚ï¼ˆgetClasså¾—åˆ°çš„æ˜¯å®é™…ç±»å‹åï¼‰
 		
-		Employee other = (Employee)otherObject;//ÒÔÉÏ¶¼Í¨¹ıÁËÔòËµÃ÷²ÎÊıÊÇÒ»¸öºÍthisÏàÍ¬ÀàĞÍ·Ç¿Õ²»ÊÇÍ¬Ò»¸ö¶ÔÏóµÄ¶ÔÏó¡£Ôò¿ÉÇ¿×ª
-		return Objects.equals(name, other.name)//¸Ã·½·¨±È½Ï¶ÔÏóÊı¾İÓò
+		Employee other = (Employee)otherObject;//ä»¥ä¸Šéƒ½é€šè¿‡äº†åˆ™è¯´æ˜å‚æ•°æ˜¯ä¸€ä¸ªå’Œthisç›¸åŒç±»å‹éç©ºä¸æ˜¯åŒä¸€ä¸ªå¯¹è±¡çš„å¯¹è±¡ã€‚åˆ™å¯å¼ºè½¬
+		return Objects.equals(name, other.name)//è¯¥æ–¹æ³•æ¯”è¾ƒå¯¹è±¡æ•°æ®åŸŸ
 				&&salary == other.salary
 				&&Objects.equals(hireDay, other.hireDay);
 	}

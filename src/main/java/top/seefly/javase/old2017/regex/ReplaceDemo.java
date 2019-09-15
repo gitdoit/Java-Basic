@@ -1,4 +1,4 @@
-package regex;
+package top.seefly.javase.old2017.regex;
 
 public class ReplaceDemo {
 

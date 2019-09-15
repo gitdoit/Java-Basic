@@ -1,26 +1,26 @@
-package thread;
-/*¸ÃÀàÕ¹Ê¾ÁËThreadÎŞ·¨¹²ÏíµÄÈ±µã¡£
- * ÊµÀıA,CÊÇThreadµÄ×ÓÀà£¬ËûÃÇ¶¼ÔÚÂòÆ±£¬µ«ÊÇÊ£ÓàÆ±ÊıÎŞ·¨¹²Ïí¡£
- * ¶øRunnableÊµÀıBËäÈ»¿ªÆôÁËÁ½¸öÏß³Ì£¬µ«ÊÇËûÃÇÈ´ÂôµÄÍ¬Ò»ÕÅÆ±¡£
- * ÒÔºóÒªÊ¹ÓÃRunnable´´½¨Ïß³Ì
+package top.seefly.javase.old2017.thread;
+/*è¯¥ç±»å±•ç¤ºäº†Threadæ— æ³•å…±äº«çš„ç¼ºç‚¹ã€‚
+ * å®ä¾‹A,Cæ˜¯Threadçš„å­ç±»ï¼Œä»–ä»¬éƒ½åœ¨ä¹°ç¥¨ï¼Œä½†æ˜¯å‰©ä½™ç¥¨æ•°æ— æ³•å…±äº«ã€‚
+ * è€ŒRunnableå®ä¾‹Bè™½ç„¶å¼€å¯äº†ä¸¤ä¸ªçº¿ç¨‹ï¼Œä½†æ˜¯ä»–ä»¬å´å–çš„åŒä¸€å¼ ç¥¨ã€‚
+ * ä»¥åè¦ä½¿ç”¨Runnableåˆ›å»ºçº¿ç¨‹
  * 
- * ÊµÏÖ¹²ÏíµÄ·½·¨¡£
- * ¶¨ÒåÀàÊµÏÖRunnable½Ó¿Ú£¬»òÕßÖ±½Ó¹¹½¨Runnable½Ó¿Ú
- * ¸²Ğ´ÆäÖĞrun·½·¨
- * Í¨¹ıThreadÀà½¨Á¢Ïß³Ì¶ÔÏó
- * ½«Runnable½Ó¿ÚµÄ¶ÔÏó×÷ÎªÊµ²Î¹¹½¨ThreadÀà¶ÔÏó
- * µ÷ÓÃThreadÀàµÄstart·½·¨¿ªÆô·½·¨£¬²¢µ÷ÓÃRunnable½Ó¿ÚµÄrun·½·¨
+ * å®ç°å…±äº«çš„æ–¹æ³•ã€‚
+ * å®šä¹‰ç±»å®ç°Runnableæ¥å£ï¼Œæˆ–è€…ç›´æ¥æ„å»ºRunnableæ¥å£
+ * è¦†å†™å…¶ä¸­runæ–¹æ³•
+ * é€šè¿‡Threadç±»å»ºç«‹çº¿ç¨‹å¯¹è±¡
+ * å°†Runnableæ¥å£çš„å¯¹è±¡ä½œä¸ºå®å‚æ„å»ºThreadç±»å¯¹è±¡
+ * è°ƒç”¨Threadç±»çš„startæ–¹æ³•å¼€å¯æ–¹æ³•ï¼Œå¹¶è°ƒç”¨Runnableæ¥å£çš„runæ–¹æ³•
  * */
 public class Runn_share {
 
 	public static void main(String[] args) {
-		//Thread¶ÔÏó×ÊÔ´²»¹²Ïí
+		//Threadå¯¹è±¡èµ„æºä¸å…±äº«
 		Thr c = new Thr(5);
 		Thr a = new Thr(5);
 		c.start();
 		a.start();
 		
-		//´´½¨Runnable¶ÔÏó£¬È»ºóÓÃ×÷Êµ²Î·Å½øThread¶ÔÏóÖĞ¡¢¿ÉÒÔÊµÏÖ¹²Ïí
+		//åˆ›å»ºRunnableå¯¹è±¡ï¼Œç„¶åç”¨ä½œå®å‚æ”¾è¿›Threadå¯¹è±¡ä¸­ã€å¯ä»¥å®ç°å…±äº«
 		Runn b = new Runn(5);
 		new Thread(b).start();
 		new Thread(b).start();
@@ -34,8 +34,8 @@ public class Runn_share {
 
 
 
-class Thr extends Thread{//¼Ì³ĞThreadµÄÀà
-	private int count;//Æ±Êı
+class Thr extends Thread{//ç»§æ‰¿Threadçš„ç±»
+	private int count;//ç¥¨æ•°
 	
 	public Thr(){
 		count = 0;
@@ -46,7 +46,7 @@ class Thr extends Thread{//¼Ì³ĞThreadµÄÀà
 	@Override
 	public void run(){
 		while(count > 0){
-			System.out.printf("Thread»¹Ê£%dÕÅÆ±\n",count);
+			System.out.printf("Threadè¿˜å‰©%då¼ ç¥¨\n",count);
 			System.out.println(Thread.currentThread().getName());
 
 			count--;
@@ -54,7 +54,7 @@ class Thr extends Thread{//¼Ì³ĞThreadµÄÀà
 	}
 }
 
-class Runn implements Runnable{//¼Ì³ĞRunnableµÄÀà
+class Runn implements Runnable{//ç»§æ‰¿Runnableçš„ç±»
 	private int count = 0;
 	public Runn(){
 		count = 0;
@@ -63,10 +63,10 @@ class Runn implements Runnable{//¼Ì³ĞRunnableµÄÀà
 		this.count = count;
 	}
 	
-	@Override//¸²Ğ´
+	@Override//è¦†å†™
 	public void run(){
 		while(count > 0){
-			System.out.printf("Runnable»¹Ê£%dÕÅÆ±\n",count);
+			System.out.printf("Runnableè¿˜å‰©%då¼ ç¥¨\n",count);
 			count--;
 		}
 	}

@@ -1,6 +1,6 @@
-package exception;
+package top.seefly.javase.old2017.exception;
 import java.util.*;
-//¸ÃÀàÊÇÔÚ2017Äê7ÔÂ7ÈÕ¸´Ï°Ê±ËùĞ´£¬²¢²»ÍêÈ«
+//è¯¥ç±»æ˜¯åœ¨2017å¹´7æœˆ7æ—¥å¤ä¹ æ—¶æ‰€å†™ï¼Œå¹¶ä¸å®Œå…¨
 public class MyException {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
@@ -13,7 +13,7 @@ public class MyException {
 			ex.printStackTrace();
 		}
 		finally {
-			System.out.println("finally¿é");
+			System.out.println("finallyå—");
 		}
 	}
 	public static boolean isNumber(int number)throws NumberException{
@@ -24,13 +24,13 @@ public class MyException {
 
 }
 
-class NumberException extends Exception{//×Ô¶¨ÒåÒì³£ĞèÒª¼Ì³Ğ¸¸Àà
+class NumberException extends Exception{//è‡ªå®šä¹‰å¼‚å¸¸éœ€è¦ç»§æ‰¿çˆ¶ç±»
 	private int number;
 	public NumberException(){
 		this(-1);
 	}
 	public NumberException(int number) {
-		super("ÊıÖµ·Ç·¨£º"+number);//ÓĞ²Î¹¹ÔìÖĞµ÷ÓÃÁË¸¸ÀàÖĞµÄ¹¹Ôì·½·¨ĞèÒª½«Ëû·ÅÔÚµÚÒ»¸öÎ»ÖÃ£»
+		super("æ•°å€¼éæ³•ï¼š"+number);//æœ‰å‚æ„é€ ä¸­è°ƒç”¨äº†çˆ¶ç±»ä¸­çš„æ„é€ æ–¹æ³•éœ€è¦å°†ä»–æ”¾åœ¨ç¬¬ä¸€ä¸ªä½ç½®ï¼›
 		this.number = number;
 	}
 	

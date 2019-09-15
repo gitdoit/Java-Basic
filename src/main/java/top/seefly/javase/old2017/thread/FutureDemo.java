@@ -1,24 +1,24 @@
-package thread;
+package top.seefly.javase.old2017.thread;
 /*
- * ·ºĞÍ½Ó¿ÚCallable<T> ÓëRunnable½Ó¿ÚÀàËÆ£¬Í¨¹ıÖØĞ´ÆäÖĞcall·½·¨À´Ê¹Ïß³ÌÖ´ĞĞÆäÖĞÄÚÈİ
- * ´Ë·½·¨Óërun·½·¨²»Í¬£¬Ëü¾ßÓĞ·µ»ØÖµ£¬·µ»ØÖµÀàĞÍÓë·ºĞÍÒ»ÖÂ
- * µ«ÊÇ´Ë½Ó¿ÚµÄÊµÏÖÊµÀı²»ÄÜÖ±½Ó·Å½øThreadÖĞÈ¥Ö´ĞĞ£¬ÒòÎªËü²»ÊÇRunnable½Ó¿ÚµÄ×Ó½Ó¿Ú¡£
- * FutureTaskÀàÊµÏÖÁËFuture½Ó¿Ú£¬ÓëRunnable½Ó¿Ú¡£²¢ÇÒFuture½Ó¿Ú¿ÉÒÔ¿ØÖÆcall·½·¨¡£
- * ËùÒÔÎÒÃÇÊÇCallableµÄÊµÏÖÊµÀı·ÅÈëFutureTaskµÄÊµÀıÖĞ£¬Í¨¹ıFutureTask¿ÉÒÔ²Ù×÷call·½·¨¡£
- * ÔÙ½«FutureTaskµÄÊµÀı·Å½øThreadÖĞÈ¥Æô¶¯¡£ÕâÑù¿´ÆğÀ´callab½Ó¿ÚÏñÊÇrunnableµÄÔöÇ¿
- * FutureTaksÖĞÓĞ¼¸¸ö·½·¨£º
- * boolean cancel(boolean mayInterruptIfRunning) È¡ÏûÕıÔÚÖ´ĞĞµÄcallabÈÎÎñ
- * V get() »ñÈ¡callableÖĞcallµÄ·µ»ØÖµ£¬Ö»ÓĞÔÚcallÔËĞĞÍê±Ïºó²Å»áµÃµ½·µ»ØÖµ£¬ËùÒÔ»áÒıÆğµ÷ÓÃ´Ë·½·¨µÄÏß³Ì×èÈûµÈ´ı
- * V get(long tiemout,timeUnti unit) »ñÈ¡call·½·¨µÄ·µ»ØÖµ£¬µ«ÊÇÈôÔÚtiemouºÍunitÖ¸¶¨Ê±¼äÄÚÃ»ÓĞ·µ»ØÖµ£¬Ôò»á±¨´íTimeOutException
- * boolean isCancelled() Èç¹ûÔÚÈÎÎñÍê³ÉÇ°±»È¡ÏûÁË£¬Ôò·µ»Øtrue
- * boolean isDone() Èç¹ûÈÎÎñÍê³ÉÔò·µ»Øtrue
+ * æ³›å‹æ¥å£Callable<T> ä¸Runnableæ¥å£ç±»ä¼¼ï¼Œé€šè¿‡é‡å†™å…¶ä¸­callæ–¹æ³•æ¥ä½¿çº¿ç¨‹æ‰§è¡Œå…¶ä¸­å†…å®¹
+ * æ­¤æ–¹æ³•ä¸runæ–¹æ³•ä¸åŒï¼Œå®ƒå…·æœ‰è¿”å›å€¼ï¼Œè¿”å›å€¼ç±»å‹ä¸æ³›å‹ä¸€è‡´
+ * ä½†æ˜¯æ­¤æ¥å£çš„å®ç°å®ä¾‹ä¸èƒ½ç›´æ¥æ”¾è¿›Threadä¸­å»æ‰§è¡Œï¼Œå› ä¸ºå®ƒä¸æ˜¯Runnableæ¥å£çš„å­æ¥å£ã€‚
+ * FutureTaskç±»å®ç°äº†Futureæ¥å£ï¼Œä¸Runnableæ¥å£ã€‚å¹¶ä¸”Futureæ¥å£å¯ä»¥æ§åˆ¶callæ–¹æ³•ã€‚
+ * æ‰€ä»¥æˆ‘ä»¬æ˜¯Callableçš„å®ç°å®ä¾‹æ”¾å…¥FutureTaskçš„å®ä¾‹ä¸­ï¼Œé€šè¿‡FutureTaskå¯ä»¥æ“ä½œcallæ–¹æ³•ã€‚
+ * å†å°†FutureTaskçš„å®ä¾‹æ”¾è¿›Threadä¸­å»å¯åŠ¨ã€‚è¿™æ ·çœ‹èµ·æ¥callabæ¥å£åƒæ˜¯runnableçš„å¢å¼º
+ * FutureTaksä¸­æœ‰å‡ ä¸ªæ–¹æ³•ï¼š
+ * boolean cancel(boolean mayInterruptIfRunning) å–æ¶ˆæ­£åœ¨æ‰§è¡Œçš„callabä»»åŠ¡
+ * V get() è·å–callableä¸­callçš„è¿”å›å€¼ï¼Œåªæœ‰åœ¨callè¿è¡Œå®Œæ¯•åæ‰ä¼šå¾—åˆ°è¿”å›å€¼ï¼Œæ‰€ä»¥ä¼šå¼•èµ·è°ƒç”¨æ­¤æ–¹æ³•çš„çº¿ç¨‹é˜»å¡ç­‰å¾…
+ * V get(long tiemout,timeUnti unit) è·å–callæ–¹æ³•çš„è¿”å›å€¼ï¼Œä½†æ˜¯è‹¥åœ¨tiemouå’ŒunitæŒ‡å®šæ—¶é—´å†…æ²¡æœ‰è¿”å›å€¼ï¼Œåˆ™ä¼šæŠ¥é”™TimeOutException
+ * boolean isCancelled() å¦‚æœåœ¨ä»»åŠ¡å®Œæˆå‰è¢«å–æ¶ˆäº†ï¼Œåˆ™è¿”å›true
+ * boolean isDone() å¦‚æœä»»åŠ¡å®Œæˆåˆ™è¿”å›true
  * */
 import java.util.concurrent.Callable;
 import java.util.concurrent.FutureTask;
 
-public class FutureDemo implements Callable<Integer>{//´´½¨callable½Ó¿ÚµÄÊµÏÖÀà
+public class FutureDemo implements Callable<Integer>{//åˆ›å»ºcallableæ¥å£çš„å®ç°ç±»
 	@Override
-	public Integer call() {//¸´Ğ´ÆäÖĞcall·½·¨£¬×¢Òâ·µ»ØÖµÀàĞÍÒªÓë·ºĞÍ¶¨ÒåµÄÒ»ÖÂ
+	public Integer call() {//å¤å†™å…¶ä¸­callæ–¹æ³•ï¼Œæ³¨æ„è¿”å›å€¼ç±»å‹è¦ä¸æ³›å‹å®šä¹‰çš„ä¸€è‡´
 		int i = 0;
 		for(; i < 100; i++) {
 			System.out.println(Thread.currentThread().getName() + ":i = "+ i);
@@ -26,11 +26,11 @@ public class FutureDemo implements Callable<Integer>{//´´½¨callable½Ó¿ÚµÄÊµÏÖÀà
 		return i;
 	}
 	public static void main(String[] args) {
-		FutureDemo f = new FutureDemo();//ÊµÀı»¯callableµÄÊµÏÖÀà
-		FutureTask<Integer> task = new FutureTask<>(f);//Ê¹ÓÃFutureTask¶ÔÏó¶ÔÆä½øĞĞ°ü×°
-		new Thread(task).start();//ÔÙÊ¹FutureTaksÊµÀı×÷ÎªThreadµÄtarget£¬²¢Æô¶¯
-		try {//get·½·¨»áÅ×³öÒì³£
-			System.out.println(task.get());//Í¨¹ı¿ØÖÆFutureTaskµÄÊµÀı¶Ôcall½øĞĞ²Ù×÷
+		FutureDemo f = new FutureDemo();//å®ä¾‹åŒ–callableçš„å®ç°ç±»
+		FutureTask<Integer> task = new FutureTask<>(f);//ä½¿ç”¨FutureTaskå¯¹è±¡å¯¹å…¶è¿›è¡ŒåŒ…è£…
+		new Thread(task).start();//å†ä½¿FutureTakså®ä¾‹ä½œä¸ºThreadçš„targetï¼Œå¹¶å¯åŠ¨
+		try {//getæ–¹æ³•ä¼šæŠ›å‡ºå¼‚å¸¸
+			System.out.println(task.get());//é€šè¿‡æ§åˆ¶FutureTaskçš„å®ä¾‹å¯¹callè¿›è¡Œæ“ä½œ
 		}
 		catch(Exception e) {
 			e.printStackTrace();

@@ -1,24 +1,24 @@
-package io;
+package top.seefly.javase.old2017.io;
 
 import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
 /*
- * ¸ÃÀàµÄÄ¿µÄÊÇÎªÊı¾İµÄÊäÈëÓëÊä³öÌá¹©Ò»¸ö»º³åÇø£¬ÏñÊÇÎ¢»ú½Ó¿ÚÖĞµÄ¸÷ÖÖ»º³åÇø¡£
- * »º³åÇøµÄÊµÏÖ¶Ô³ÌĞòµÄ¹¤×÷Ğ§ÂÊÌáÉı·Ç³£¸ß¡£
- * ¶ø»º³åÇøµÄ¹¹Ôì·½·¨ÊÇĞèÒªÌá¹©Ò»¸öµ×²ãµÄÊäÈë/Êä³öÁ÷¶ÔÏó£¨InputStream/OutputStream£©¡£ÕâËµÃ÷¸ÃÀà²¢²»ÊÇÖ±½ÓÓÃÀ´´«ÊäÊı¾İµÄ£¬¶øÊÇÌá¹©ÁËÒ»¸ö»º³å³Ø¡£
- * ¸Ã»º³å³ØµÄ¹¹Ôì·½·¨ÓĞÁ½ÖÖÒ»°ã£¬¿ÉÉè¶¨ÊÇ·ñÖ¸¶¨»º³å³Ø´óĞ¡£¬µ«Ò»°ã¶¼²»Ö¸¶¨£¬Ä¬ÈÏ¼´¿É¡£
+ * è¯¥ç±»çš„ç›®çš„æ˜¯ä¸ºæ•°æ®çš„è¾“å…¥ä¸è¾“å‡ºæä¾›ä¸€ä¸ªç¼“å†²åŒºï¼Œåƒæ˜¯å¾®æœºæ¥å£ä¸­çš„å„ç§ç¼“å†²åŒºã€‚
+ * ç¼“å†²åŒºçš„å®ç°å¯¹ç¨‹åºçš„å·¥ä½œæ•ˆç‡æå‡éå¸¸é«˜ã€‚
+ * è€Œç¼“å†²åŒºçš„æ„é€ æ–¹æ³•æ˜¯éœ€è¦æä¾›ä¸€ä¸ªåº•å±‚çš„è¾“å…¥/è¾“å‡ºæµå¯¹è±¡ï¼ˆInputStream/OutputStreamï¼‰ã€‚è¿™è¯´æ˜è¯¥ç±»å¹¶ä¸æ˜¯ç›´æ¥ç”¨æ¥ä¼ è¾“æ•°æ®çš„ï¼Œè€Œæ˜¯æä¾›äº†ä¸€ä¸ªç¼“å†²æ± ã€‚
+ * è¯¥ç¼“å†²æ± çš„æ„é€ æ–¹æ³•æœ‰ä¸¤ç§ä¸€èˆ¬ï¼Œå¯è®¾å®šæ˜¯å¦æŒ‡å®šç¼“å†²æ± å¤§å°ï¼Œä½†ä¸€èˆ¬éƒ½ä¸æŒ‡å®šï¼Œé»˜è®¤å³å¯ã€‚
  * 
  */
 public class BufferedOutputStreamDemo {
 	public static void main(String[] args) throws IOException {
 //		FileOutputStream fos = new FileOutputStream("e:\\liujianxin.txt");
-//		BufferedOutputStream bfos = new BufferedOutputStream(fos); µÚÒ»ÖĞ´´½¨·½Ê½
+//		BufferedOutputStream bfos = new BufferedOutputStream(fos); ç¬¬ä¸€ä¸­åˆ›å»ºæ–¹å¼
 		
-		BufferedOutputStream bfos = new BufferedOutputStream(new FileOutputStream("e:\\liujianxin.txt"));//ÄäÃûÄÚ²¿¶ÔÏó
-		bfos.write("ÓîÖæÎŞµĞ³¬¼¶µğ".getBytes());
-		bfos.close();//Ö»Òª¹Ø±Õ»º³å³Ø¾Í¿ÉÒÔ
+		BufferedOutputStream bfos = new BufferedOutputStream(new FileOutputStream("e:\\liujianxin.txt"));//åŒ¿åå†…éƒ¨å¯¹è±¡
+		bfos.write("å®‡å®™æ— æ•Œè¶…çº§å¼".getBytes());
+		bfos.close();//åªè¦å…³é—­ç¼“å†²æ± å°±å¯ä»¥
 		
 	}
 }

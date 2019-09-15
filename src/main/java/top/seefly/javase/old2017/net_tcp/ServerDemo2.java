@@ -1,4 +1,4 @@
-package net_tcp;
+package top.seefly.javase.old2017.net_tcp;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -15,21 +15,21 @@ public class ServerDemo2 {
 	public static void main(String[] args) throws IOException{
 		ServerSocket ss = new ServerSocket(8888);
 		Socket  sk = ss.accept();
-		//´Ó¿Í»§¶Ë½ÓÊÕÊı¾İ
+		//ä»å®¢æˆ·ç«¯æ¥æ”¶æ•°æ®
 		BufferedReader input = new BufferedReader(new InputStreamReader(sk.getInputStream()));
-		//Ö¸¶¨ÎÄ¼ş¼Ğ,¿ÉÒÔÊ¹ÓÃBufferedWriter°ü×°Ò»ÏÂ
+		//æŒ‡å®šæ–‡ä»¶å¤¹,å¯ä»¥ä½¿ç”¨BufferedWriteråŒ…è£…ä¸€ä¸‹
 		FileWriter fw = new FileWriter("e:\\IOTest\\TCP.txt");
 		fw.flush();
 		fw.write("gdffd");
 		String str = null;
-		//Ñ­»·ÏòÎÄ¼ş¼ĞÄÚĞ´Èë
+		//å¾ªç¯å‘æ–‡ä»¶å¤¹å†…å†™å…¥
 		while((str = input.readLine()) != null) {
 			fw.write(str);
 			fw.flush();
 		}
-		//¹Ø±ÕÎÄ¼ş²Ù×÷Á÷
+		//å…³é—­æ–‡ä»¶æ“ä½œæµ
 		fw.close();
-//		input.close(); Õâ¸ö¿ÉÒÔ²»¹Ø±Õ£¬ÒòÎª´Ó¿Í»§¶Ë½ÓÊÕµÄ£¬¿Í»§¶Ë·¢ËÍÍê±Ï£¬×Ô¶¯¹Ø±Õ
+//		input.close(); è¿™ä¸ªå¯ä»¥ä¸å…³é—­ï¼Œå› ä¸ºä»å®¢æˆ·ç«¯æ¥æ”¶çš„ï¼Œå®¢æˆ·ç«¯å‘é€å®Œæ¯•ï¼Œè‡ªåŠ¨å…³é—­
 		sk.close();
 	}
 

@@ -1,25 +1,25 @@
-package classdemo;
-import java.util.Date;
+package top.seefly.javase.old2017.classdemo;
 
-import employee.Employees;
-/* ±¾ÀàÓÃÀ´Ñ§Ï°ClassÀàµÄÊ¹ÓÃ
- * 1,¶ÔÏó.getClass() µÃµ½Ò»¸ö ClassÊµÀı£¬ËüÃèÊöÁË¶ÔÏóËùÊôµÄÀà
- * 2,Class.forName(ÀàÃû) ClassÖĞµÄforName()¾²Ì¬·½·¨»áÍ¨¹ıÆä²ÎÊı¹¹½¨Ò»¸ö¶ÔÓ¦µÄClassÊµÀı.Èô²ÎÊıÖĞµÄÀàÃ»ÓĞÕÒµ½£¬»áÅ×³öÒì³£
- * 3,ClassÀà.newInstance()»á¹¹½¨Ò»¸öc1ËùÃèÊöµÄÀàµÄÎŞ²ÎÊµÀı£¬Èôc1ÃèÊöµÄÀàÃ»ÓĞÎŞ²Î¹¹Ôìº¯Êı£¬Ôò»áÅ×³öIllegelAccessExcepiton
+import top.seefly.javase.old2017.employee.Employees;
+
+/* æœ¬ç±»ç”¨æ¥å­¦ä¹ Classç±»çš„ä½¿ç”¨
+ * 1,å¯¹è±¡.getClass() å¾—åˆ°ä¸€ä¸ª Classå®ä¾‹ï¼Œå®ƒæè¿°äº†å¯¹è±¡æ‰€å±çš„ç±»
+ * 2,Class.forName(ç±»å) Classä¸­çš„forName()é™æ€æ–¹æ³•ä¼šé€šè¿‡å…¶å‚æ•°æ„å»ºä¸€ä¸ªå¯¹åº”çš„Classå®ä¾‹.è‹¥å‚æ•°ä¸­çš„ç±»æ²¡æœ‰æ‰¾åˆ°ï¼Œä¼šæŠ›å‡ºå¼‚å¸¸
+ * 3,Classç±».newInstance()ä¼šæ„å»ºä¸€ä¸ªc1æ‰€æè¿°çš„ç±»çš„æ— å‚å®ä¾‹ï¼Œè‹¥c1æè¿°çš„ç±»æ²¡æœ‰æ— å‚æ„é€ å‡½æ•°ï¼Œåˆ™ä¼šæŠ›å‡ºIllegelAccessExcepiton
  * 
  * */
 public class ClassDemo {
 	public static void main(String[] args){
 		Employees emp = new Employees("liu",100,2017,5,9);
-		Class c = emp.getClass();//µÃµ½Ò»¸öclassÊµÀı£¬ËüÃèÊöÁËempËùÊôµÄÀà
-		System.out.println(c.getName());//´òÓ¡cËùÃèÊöµÄÀàµÄÃû×Ö
+		Class c = emp.getClass();//å¾—åˆ°ä¸€ä¸ªclasså®ä¾‹ï¼Œå®ƒæè¿°äº†empæ‰€å±çš„ç±»
+		System.out.println(c.getName());//æ‰“å°cæ‰€æè¿°çš„ç±»çš„åå­—
 		
 		String className = "java.util.Date";
-		try{//forName()·½·¨»áÅ×³öÒ»¸öÒì³£
-			Class c1 = Class.forName(className);//ClassÖĞµÄforName()¾²Ì¬·½·¨»áÍ¨¹ıÆä²ÎÊı¹¹½¨Ò»¸ö¶ÔÓ¦µÄClassÊµÀı
+		try{//forName()æ–¹æ³•ä¼šæŠ›å‡ºä¸€ä¸ªå¼‚å¸¸
+			Class c1 = Class.forName(className);//Classä¸­çš„forName()é™æ€æ–¹æ³•ä¼šé€šè¿‡å…¶å‚æ•°æ„å»ºä¸€ä¸ªå¯¹åº”çš„Classå®ä¾‹
 			System.out.println(c1.getName());
 			
-			Object o = c1.newInstance();//newInstance»á¹¹½¨Ò»¸öc1ËùÃèÊöµÄÀàµÄÎŞ²ÎÊµÀı£¬Èôc1ÃèÊöµÄÀàÃ»ÓĞÎŞ²Î¹¹Ôìº¯Êı£¬Ôò»áÅ×³öIllegelAccessExcepiton
+			Object o = c1.newInstance();//newInstanceä¼šæ„å»ºä¸€ä¸ªc1æ‰€æè¿°çš„ç±»çš„æ— å‚å®ä¾‹ï¼Œè‹¥c1æè¿°çš„ç±»æ²¡æœ‰æ— å‚æ„é€ å‡½æ•°ï¼Œåˆ™ä¼šæŠ›å‡ºIllegelAccessExcepiton
 			//Date d = (Date)Class.forName(className).newInstance();
 		}
 		catch(ClassNotFoundException | InstantiationException | IllegalAccessException ex){

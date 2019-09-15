@@ -1,4 +1,4 @@
-package io;
+package top.seefly.javase.old2017.io;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -8,24 +8,24 @@ import java.io.PrintStream;
 import java.util.Scanner;
 
 /*
- * public static final InputStream in  ¡°±ê×¼¡±ÊäÈëÁ÷¡£
- * public static final PrintStream out ¡°±ê×¼¡±Êä³öÁ÷¡£
+ * public static final InputStream in  â€œæ ‡å‡†â€è¾“å…¥æµã€‚
+ * public static final PrintStream out â€œæ ‡å‡†â€è¾“å‡ºæµã€‚
  * 
  */
 public class SystemIn_Out {
 
 	public static void main(String[] args) throws IOException {
-		//¾²Ì¬·½·¨£¬´òÓ¡Á÷¡£ÎªPrintStream
+		//é™æ€æ–¹æ³•ï¼Œæ‰“å°æµã€‚ä¸ºPrintStream
 		System.out.println("hello world!");
 		
-		//ÓëÉÏÃæµÈ¼Û£¬Ä¿±êÎªÏÔÊ¾Æ÷
+		//ä¸ä¸Šé¢ç­‰ä»·ï¼Œç›®æ ‡ä¸ºæ˜¾ç¤ºå™¨
 		PrintStream ps = System.out;
 		ps.println("hello world!");
 		
-		Scanner in = new Scanner(System.in);//ÕâÀï´«ÈëµÄ²ÎÊıÊÇInputStreamÀàĞÍ¡£¼´×Ö½ÚÁ÷
-		String str = in.nextLine();//Ö®Ç°Ò»Ö±¶¼ÊÇÕâÑùÊ¹ÓÃ£¬´Ó¼üÅÌ¶ÁÈëÊı¾İ£¬Ò»´Î¶ÁÒ»ĞĞ
+		Scanner in = new Scanner(System.in);//è¿™é‡Œä¼ å…¥çš„å‚æ•°æ˜¯InputStreamç±»å‹ã€‚å³å­—èŠ‚æµ
+		String str = in.nextLine();//ä¹‹å‰ä¸€ç›´éƒ½æ˜¯è¿™æ ·ä½¿ç”¨ï¼Œä»é”®ç›˜è¯»å…¥æ•°æ®ï¼Œä¸€æ¬¡è¯»ä¸€è¡Œ
 		
-		//Ê¹Êı¾İÔ´Ö¸Ïò¼üÅÌÂ¼Èë£¬¼´´Ó´ÓÇ°µÄ´ÓÎÄ¼şÖĞ¶ÁÊı¾İ£¬±ä³ÉÏÖÔÚµÄ´Ó¼üÅÌ¶ÁÊı¾İ
+		//ä½¿æ•°æ®æºæŒ‡å‘é”®ç›˜å½•å…¥ï¼Œå³ä»ä»å‰çš„ä»æ–‡ä»¶ä¸­è¯»æ•°æ®ï¼Œå˜æˆç°åœ¨çš„ä»é”®ç›˜è¯»æ•°æ®
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String str1;
 		

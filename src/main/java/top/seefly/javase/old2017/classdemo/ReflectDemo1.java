@@ -1,27 +1,27 @@
-package classdemo;
+package top.seefly.javase.old2017.classdemo;
 /*
- * Í¨¹ı·´Éä³õÊ¼»¯Àà£¬²¢µÃµ½Ò»¸öÀàµÄÊµÀı¡£
- * Í¨¹ı·´ÉäÀ´µ÷ÓÃÒ»¸öÀàµÄ·½·¨¡£
- * Í¨¹ı·´Éä»ñÈ¡ÀàµÄÄÚ²¿ĞÅÏ¢¡£
- * ÀàÄÚ²¿µÄ¸÷ÖÖÊôĞÔ¡¢¹¹Ôì·½·¨¡¢·½·¨¡¢ÀàĞÍ¡¢·µ»ØÖµ¡¢²ÎÊı¡£¡£¡£¡£¶¼¿Éµ±×÷¶ÔÏó´¦Àí¡£
+ * é€šè¿‡åå°„åˆå§‹åŒ–ç±»ï¼Œå¹¶å¾—åˆ°ä¸€ä¸ªç±»çš„å®ä¾‹ã€‚
+ * é€šè¿‡åå°„æ¥è°ƒç”¨ä¸€ä¸ªç±»çš„æ–¹æ³•ã€‚
+ * é€šè¿‡åå°„è·å–ç±»çš„å†…éƒ¨ä¿¡æ¯ã€‚
+ * ç±»å†…éƒ¨çš„å„ç§å±æ€§ã€æ„é€ æ–¹æ³•ã€æ–¹æ³•ã€ç±»å‹ã€è¿”å›å€¼ã€å‚æ•°ã€‚ã€‚ã€‚ã€‚éƒ½å¯å½“ä½œå¯¹è±¡å¤„ç†ã€‚
  */
 import java.lang.reflect.Method;
 
 public class ReflectDemo1 {
 
 	public static void main(String[] args) throws ReflectiveOperationException {
-		//forName»á½«¸ÃÀà¼ÓÔØÈëÄÚ´æ²¢Ö´ĞĞ³õÊ¼»¯£¬µÃµ½Ò»¸öÀà¶ÔÏó
+		//forNameä¼šå°†è¯¥ç±»åŠ è½½å…¥å†…å­˜å¹¶æ‰§è¡Œåˆå§‹åŒ–ï¼Œå¾—åˆ°ä¸€ä¸ªç±»å¯¹è±¡
 		Class c = Class.forName("classdemo.ReflectTest");
-		//Í¨¹ıÀà¶ÔÏó»ñÈ¡Ò»¸öÊµÀı
+		//é€šè¿‡ç±»å¯¹è±¡è·å–ä¸€ä¸ªå®ä¾‹
 		Object o = c.newInstance();
-		//getMethods·½·¨»ñÈ¡¸ÃÀàÄÚ²¿µÄËùÓĞ·½·¨
+		//getMethodsæ–¹æ³•è·å–è¯¥ç±»å†…éƒ¨çš„æ‰€æœ‰æ–¹æ³•
 		Method[] methods = c.getMethods();
 		for(Method e : methods) {
-			if(e.getName().equals("m")) {//Èô·½·¨Êı×éÖĞµÄ·½·¨ÃûÎªm
-				e.invoke(o);//¶Ôo¶ÔÏóµ÷ÓÃm·½·¨¡£
+			if(e.getName().equals("m")) {//è‹¥æ–¹æ³•æ•°ç»„ä¸­çš„æ–¹æ³•åä¸ºm
+				e.invoke(o);//å¯¹oå¯¹è±¡è°ƒç”¨mæ–¹æ³•ã€‚
 			}
 			if(e.getName().equals("m1")) {
-				for(Class m : e.getParameterTypes())//»ñÈ¡¸Ã·½·¨µÄËùÓĞ²ÎÊıÀàĞÍ£¬ÒÔClassÊı×éĞÎÊ½·µ»Ø
+				for(Class m : e.getParameterTypes())//è·å–è¯¥æ–¹æ³•çš„æ‰€æœ‰å‚æ•°ç±»å‹ï¼Œä»¥Classæ•°ç»„å½¢å¼è¿”å›
 					System.out.println(m.getName());
 			}
 			
@@ -32,17 +32,17 @@ public class ReflectDemo1 {
 
 class ReflectTest{
 	static {
-		System.out.println("ÎÒ±»³õÊ¼»¯ÁË£¡");
+		System.out.println("æˆ‘è¢«åˆå§‹åŒ–äº†ï¼");
 	}
 	int a;
 	public ReflectTest() {
-		System.out.println("ÎÒ±»ÊµÀı»¯ÁË£¡");
+		System.out.println("æˆ‘è¢«å®ä¾‹åŒ–äº†ï¼");
 	}
 	
 	public void m1(int i) {
 		System.out.println(i);
 	}
 	public void m() {
-		System.out.println("mÖ´ĞĞ");
+		System.out.println("mæ‰§è¡Œ");
 	}
 }

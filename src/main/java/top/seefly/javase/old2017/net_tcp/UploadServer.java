@@ -1,4 +1,4 @@
-package net_tcp;
+package top.seefly.javase.old2017.net_tcp;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -10,29 +10,29 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 /*
- * ±¾ÀàÓÃÀ´´Ó¿Í»§¶Ë½ÓÊÕÊı¾İ£¬²¢Ğ´ÈëÎÄ¼şÄÚ
+ * æœ¬ç±»ç”¨æ¥ä»å®¢æˆ·ç«¯æ¥æ”¶æ•°æ®ï¼Œå¹¶å†™å…¥æ–‡ä»¶å†…
  */
 public class UploadServer {
 
 	public static void main(String[] args)throws IOException {
 		ServerSocket ss = new ServerSocket(8888);
 		Socket sk = ss.accept();
-		//´Ó¹ÜµÀÄÚ½Ó¸ù¹Ü×Ó¶ÁÊı¾İ£¬²¢°ü×°Ò»ÏÂ
+		//ä»ç®¡é“å†…æ¥æ ¹ç®¡å­è¯»æ•°æ®ï¼Œå¹¶åŒ…è£…ä¸€ä¸‹
 		BufferedInputStream input = new BufferedInputStream(sk.getInputStream());
-		//½¨Á¢Ò»¸öÎÄ¼şÍ¨µÀ
-		BufferedOutputStream output = new BufferedOutputStream(new FileOutputStream("E:\\ÏîÄ¿\\ke.7z"));
+		//å»ºç«‹ä¸€ä¸ªæ–‡ä»¶é€šé“
+		BufferedOutputStream output = new BufferedOutputStream(new FileOutputStream("E:\\é¡¹ç›®\\ke.7z"));
 		byte[] bt = new byte[1024];
 		int len;
 		while((len = input.read(bt))!= -1) {
 			output.write(bt, 0, len);
 			output.flush();
 		}
-		//¹Ø±ÕÎÄ¼şÍ¨µÀ
+		//å…³é—­æ–‡ä»¶é€šé“
 		output.close();
-		//Ïò¿Í»§¶Ë·´À¡ÉÏ´«ĞÅÏ¢
+		//å‘å®¢æˆ·ç«¯åé¦ˆä¸Šä¼ ä¿¡æ¯
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(sk.getOutputStream()));
 		System.out.println("ssdfsf");
-		bw.write("ÉÏ´«³É¹¦");
+		bw.write("ä¸Šä¼ æˆåŠŸ");
 		bw.newLine();
 		bw.flush();
 		ss.close();

@@ -1,5 +1,5 @@
-package exception;
-//×Ô¶¨ÒåÒì³£
+package top.seefly.javase.old2017.exception;
+//è‡ªå®šä¹‰å¼‚å¸¸
 public class InvalidRadiusException extends Exception{
 	private double radius;
 	public InvalidRadiusException(){

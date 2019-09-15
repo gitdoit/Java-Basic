@@ -1,7 +1,7 @@
 package top.seefly.javase.thread.lev2;
 
 import org.junit.Test;
-import org.seefly.thread.ThreadUtils;
+import top.seefly.javase.thread.ThreadUtils;
 
 /**
  * 如何主动停止一个正在运行中的线程？

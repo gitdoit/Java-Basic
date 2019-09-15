@@ -1,7 +1,7 @@
-package net_tcp;
+package top.seefly.javase.old2017.net_tcp;
 /*
- * ÓÃÀ´Ä£·Â¿Í»§¶Ë£¬Ïò·şÎñÆ÷·¢ËÍÊı¾İ¡£
- * ÈôÒª·¢ËÍÊı¾İ£¬Ò»¶¨ÒªÏÈ¿ªÆô·şÎñÆ÷£¬½ÓÊÕÊı¾İ¡£·ñÔò±¨´í
+ * ç”¨æ¥æ¨¡ä»¿å®¢æˆ·ç«¯ï¼Œå‘æœåŠ¡å™¨å‘é€æ•°æ®ã€‚
+ * è‹¥è¦å‘é€æ•°æ®ï¼Œä¸€å®šè¦å…ˆå¼€å¯æœåŠ¡å™¨ï¼Œæ¥æ”¶æ•°æ®ã€‚å¦åˆ™æŠ¥é”™
  * 
  */
 import java.io.IOException;
@@ -13,14 +13,14 @@ public class ClientDemo {
 
 	public static void main(String[] args) throws IOException{
 		Socket sk = new Socket("192.168.3.4",8888);
-		//»ñÈ¡¹ÜµÀÊä³ö½Ó¿Ú£¬½«´Ó´Ë¹ÜµÀ·¢ËÍÊı¾İ¡£
+		//è·å–ç®¡é“è¾“å‡ºæ¥å£ï¼Œå°†ä»æ­¤ç®¡é“å‘é€æ•°æ®ã€‚
 		OutputStream out = sk.getOutputStream();
-		//·¢ËÍÊı¾İ
-		out.write("Áõ½¨öÎ".getBytes());
-		//»ñÈ¡¹ÜµÀÊäÈë½Ó¿Ú£¬×¼±¸´Ó´Ë¹ÜµÀ½ÓÊÕÊı¾İ
+		//å‘é€æ•°æ®
+		out.write("åˆ˜å»ºé‘«".getBytes());
+		//è·å–ç®¡é“è¾“å…¥æ¥å£ï¼Œå‡†å¤‡ä»æ­¤ç®¡é“æ¥æ”¶æ•°æ®
 		InputStream in = sk.getInputStream();
 		byte[] mes = new byte[1024];
-		int len = in.read(mes);//ÔÚ·şÎñÆ÷Ã»ÓĞ·¢ËÍÊı¾İµ½¿Í»§¶ËÖ®Ç°£¬´Ë·½·¨¶¼»áÔì³É×èÈû
+		int len = in.read(mes);//åœ¨æœåŠ¡å™¨æ²¡æœ‰å‘é€æ•°æ®åˆ°å®¢æˆ·ç«¯ä¹‹å‰ï¼Œæ­¤æ–¹æ³•éƒ½ä¼šé€ æˆé˜»å¡
 		System.out.println(new String(mes,0,len));
 		out.close();
 	}

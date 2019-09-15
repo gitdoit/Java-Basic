@@ -1,16 +1,16 @@
-InetAddressÀàÊÇÓÃÀ´°ü×°IPµØÖ·µÄÒ»¸öÀà,Ëü²¢Ã»ÓĞÈÎºÎ¿É¹©ÊµÀı»¯µÄ¹¹Ôì·½·¨,ÏëÒªµÃµ½Ò»¸öIPµØÖ·¶ÔÏó
-ĞèÒª:InetAddress ip = InetAddress.getByName("www.baidu.com")
-	¿Éµ÷ÓÃip.isReachable(ms)ÅĞ¶ÏÊÇ·ñ¿É´ï,
-URLEncoder/URLDecodr.¿ÉÒÔÊ¹ÓÃËûÃÇµÄ·½·¨½«·ÇÎ÷Å·×Ö·û×ª»»³É¿ÉÒÔÔÚÍøÖ·ÄÚ±íÊ¾µÄ×Ö·û.
+InetAddressç±»æ˜¯ç”¨æ¥åŒ…è£…IPåœ°å€çš„ä¸€ä¸ªç±»,å®ƒå¹¶æ²¡æœ‰ä»»ä½•å¯ä¾›å®ä¾‹åŒ–çš„æ„é€ æ–¹æ³•,æƒ³è¦å¾—åˆ°ä¸€ä¸ªIPåœ°å€å¯¹è±¡
+éœ€è¦:InetAddress ip = InetAddress.getByName("www.baidu.com")
+	å¯è°ƒç”¨ip.isReachable(ms)åˆ¤æ–­æ˜¯å¦å¯è¾¾,
+URLEncoder/URLDecodr.å¯ä»¥ä½¿ç”¨ä»–ä»¬çš„æ–¹æ³•å°†éè¥¿æ¬§å­—ç¬¦è½¬æ¢æˆå¯ä»¥åœ¨ç½‘å€å†…è¡¨ç¤ºçš„å­—ç¬¦.
 
-UPD:µ¥·½ÃæµÄÏòÄ³¸öipµØÖ·µÄÄ³¸ö¶Ë¿Ú·¢ËÍÊı¾İ,²¢²»ÖªµÀ¶Ô·½ÊÇ·ñÄÜ¹»½ÓÊÕµ½,ÏñÊÇµçÊÓÌ¨ĞÅºÅËş
-·¢ËÍ¶Ë:DatagramSocket s = new DatagramSocket();²»ÓÃÖ¸¶¨Ä¿µÄµØºÍ¶Ë¿Ú,ÔÚÊı¾İ°üÄÚÖ¸¶¨
+UPD:å•æ–¹é¢çš„å‘æŸä¸ªipåœ°å€çš„æŸä¸ªç«¯å£å‘é€æ•°æ®,å¹¶ä¸çŸ¥é“å¯¹æ–¹æ˜¯å¦èƒ½å¤Ÿæ¥æ”¶åˆ°,åƒæ˜¯ç”µè§†å°ä¿¡å·å¡”
+å‘é€ç«¯:DatagramSocket s = new DatagramSocket();ä¸ç”¨æŒ‡å®šç›®çš„åœ°å’Œç«¯å£,åœ¨æ•°æ®åŒ…å†…æŒ‡å®š
 	DatagramPacket dp = new DatagramPacket(mes,len,ip,port);
 	s.send(dp);
 	s.close;
-½ÓÊÕ¶Ë:DatagramSocket ds = new DatagramSocket(port);ĞèÒªÖ¸¶¨¼àÌı½Ó¿Ú
-	 DatagramPacket dp = new DatagramPacket(mes,len);Ö»ĞèÒªÖ¸¶¨Êı¾İ½ÓÊÕÊı¾İµÄÈİÆ÷Êı×é,³¤¶È.
-	 ds.reveive(dp);·ÅÈë°ü¹ü,´Ë·½·¨»áÔì³É×èÈû,Ò»Ö±µÈ´ı½ÓÊÕÏûÏ¢
+æ¥æ”¶ç«¯:DatagramSocket ds = new DatagramSocket(port);éœ€è¦æŒ‡å®šç›‘å¬æ¥å£
+	 DatagramPacket dp = new DatagramPacket(mes,len);åªéœ€è¦æŒ‡å®šæ•°æ®æ¥æ”¶æ•°æ®çš„å®¹å™¨æ•°ç»„,é•¿åº¦.
+	 ds.reveive(dp);æ”¾å…¥åŒ…è£¹,æ­¤æ–¹æ³•ä¼šé€ æˆé˜»å¡,ä¸€ç›´ç­‰å¾…æ¥æ”¶æ¶ˆæ¯
 	 String ip = dp.getAddress().getHostAddress(); 
-	 String name = dp.getAddress().getHostName();¿ÉÍ¨¹ı°ü¹ü»ñµÃ·¢ËÍ·½µÄIPºÍÃû×Ö
+	 String name = dp.getAddress().getHostName();å¯é€šè¿‡åŒ…è£¹è·å¾—å‘é€æ–¹çš„IPå’Œåå­—
 	 

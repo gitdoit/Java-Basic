@@ -25,8 +25,8 @@ public class JFrameDemo1 {
 class SimpleFrame extends JFrame{
 	public SimpleFrame(){
 		this.setLocationByPlatform(true);
-		Toolkit kit = Toolkit.getDefaultToolkit();//ToolkitÊÇÒ»¸ö³éÏóÀà£¬ÆäÖĞµÄ¾²Ì¬·½·¨»á·µ»ØÒ»¸öÄ¬ÈÏµÄ¹¤¾ßÏäÊµÀı
-		Dimension screenSize = kit.getScreenSize();//Í¨¹ı¹¤¾ßÏä·µ»ØÒ»¸öDimensionÊµÀı¡£
+		Toolkit kit = Toolkit.getDefaultToolkit();//Toolkitæ˜¯ä¸€ä¸ªæŠ½è±¡ç±»ï¼Œå…¶ä¸­çš„é™æ€æ–¹æ³•ä¼šè¿”å›ä¸€ä¸ªé»˜è®¤çš„å·¥å…·ç®±å®ä¾‹
+		Dimension screenSize = kit.getScreenSize();//é€šè¿‡å·¥å…·ç®±è¿”å›ä¸€ä¸ªDimensionå®ä¾‹ã€‚
 		this.setSize(screenSize.width/2,screenSize.height/2);
 		Image img = new ImageIcon("g:\\r.jpg").getImage();
 		setIconImage(img);

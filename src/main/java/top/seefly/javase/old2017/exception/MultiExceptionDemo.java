@@ -1,6 +1,6 @@
-package exception;
+package top.seefly.javase.old2017.exception;
 /*
- * ¸ÃÀàÑİÊ¾ÁËÒ»¸öcatch¿é¿ÉÒÔ²¶»ñ¶à¸öÒì³££¬µ«ÊÇ´ËÊ±µÄ²ÎÊıex±»ĞŞÊÎÎªfianl¡£ÎŞ·¨¶ÔÆä½øĞĞÖØĞÂ¸³Öµ
+ * è¯¥ç±»æ¼”ç¤ºäº†ä¸€ä¸ªcatchå—å¯ä»¥æ•è·å¤šä¸ªå¼‚å¸¸ï¼Œä½†æ˜¯æ­¤æ—¶çš„å‚æ•°exè¢«ä¿®é¥°ä¸ºfianlã€‚æ— æ³•å¯¹å…¶è¿›è¡Œé‡æ–°èµ‹å€¼
  * */
 public class MultiExceptionDemo {
 	public static void main(String[] args) {
@@ -12,7 +12,7 @@ public class MultiExceptionDemo {
 		}
 		catch(IndexOutOfBoundsException|NumberFormatException|ArithmeticException ex) {
 			//ex = new IndexOutOfBoundsException();
-			//¶àÒì³£²¶»ñÊ±£¬ex±»Ä¬ÈÏĞŞÊÎÎªfinal¡£ËùÒÔÎŞ·¨¶ÔÆä½øĞĞÖØĞÂ¸³Öµ£»
+			//å¤šå¼‚å¸¸æ•è·æ—¶ï¼Œexè¢«é»˜è®¤ä¿®é¥°ä¸ºfinalã€‚æ‰€ä»¥æ— æ³•å¯¹å…¶è¿›è¡Œé‡æ–°èµ‹å€¼ï¼›
 		}
 		catch(Exception ex) {
 			ex = new IndexOutOfBoundsException();

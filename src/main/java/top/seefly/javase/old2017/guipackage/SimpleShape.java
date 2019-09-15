@@ -1,11 +1,11 @@
-package guipackage;
+package top.seefly.javase.old2017.guipackage;
 
+import javax.swing.*;
 import java.awt.*;
-import java.awt.geom.*;
-
-
-import javax.swing.JComponent;
-import javax.swing.JFrame;
+import java.awt.geom.Ellipse2D;
+import java.awt.geom.Line2D;
+import java.awt.geom.Point2D;
+import java.awt.geom.Rectangle2D;
 
 public class SimpleShape {
 
@@ -14,9 +14,9 @@ public class SimpleShape {
 			public void run(){
 				JFrame f = new DrawFrame();
 				f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-				f.setTitle("Í¼ĞÎ");
+				f.setTitle("å›¾å½¢");
 				f.setVisible(true);
-				f.setLocationRelativeTo(null);//ÉèÖÃ¾ÓÖĞ
+				f.setLocationRelativeTo(null);//è®¾ç½®å±…ä¸­
 			}
 		});
 
@@ -42,20 +42,20 @@ class DrawComponent extends JComponent{
 		double topy = 100;
 		double width = 200;
 		double height = 150;
-		//»­Ò»¸ö¾ØĞÎ£¬³¤200£¬¸ß150£¬¾àÀë»­²¼¶¥²¿100£¬×ó±ß100
+		//ç”»ä¸€ä¸ªçŸ©å½¢ï¼Œé•¿200ï¼Œé«˜150ï¼Œè·ç¦»ç”»å¸ƒé¡¶éƒ¨100ï¼Œå·¦è¾¹100
 		Rectangle2D rect = new Rectangle2D.Double(leftx,topy,width,height);
 		g2.draw(rect);
-		//»­Ò»¸ö¾ØĞÎµÄÄÚ½ÓÍÖÔ²
+		//ç”»ä¸€ä¸ªçŸ©å½¢çš„å†…æ¥æ¤­åœ†
 		Ellipse2D ellipse = new Ellipse2D.Double();
-		ellipse.setFrame(rect);//ÍÖÔ²ÄÚ½ÓÓë¾ØĞÎ
+		ellipse.setFrame(rect);//æ¤­åœ†å†…æ¥ä¸çŸ©å½¢
 		g2.draw(ellipse);
 		
-		//»­Ò»ÌõÏß
-		Point2D  p1 = new Point2D.Double(leftx,topy);//ÏÈÈ·¶¨ÏßµÄÆğµãºÍÖÕµã
+		//ç”»ä¸€æ¡çº¿
+		Point2D  p1 = new Point2D.Double(leftx,topy);//å…ˆç¡®å®šçº¿çš„èµ·ç‚¹å’Œç»ˆç‚¹
 		Point2D p2 = new Point2D.Double(leftx+width,topy+height);
-		g2.draw(new Line2D.Double(p1,p2));//ĞÂ½¨Ò»ÌõÏß£¬²ÎÊı´«½øÈ¥
+		g2.draw(new Line2D.Double(p1,p2));//æ–°å»ºä¸€æ¡çº¿ï¼Œå‚æ•°ä¼ è¿›å»
 		
-		//»­Ò»¸öÍÖÔ²
+		//ç”»ä¸€ä¸ªæ¤­åœ†
 		Ellipse2D cicle = new Ellipse2D.Double();
 		cicle.setFrameFromCenter(rect.getCenterX(),rect.getCenterY(),rect.getCenterX()+150,rect.getCenterY()+150);
 		g2.draw(cicle);

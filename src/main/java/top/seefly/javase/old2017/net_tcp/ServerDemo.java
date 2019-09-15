@@ -1,7 +1,4 @@
-/**
- * 
- */
-package net_tcp;
+package top.seefly.javase.old2017.net_tcp;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -15,11 +12,11 @@ import java.net.Socket;
  */
 public class ServerDemo {
 	public static void main(String[] args) throws IOException{
-		//´´½¨·şÎñÆ÷¶ËSocket¶ÔÏó£¬Ö¸¶¨¼àÌı¶Ë¿Ú
+		//åˆ›å»ºæœåŠ¡å™¨ç«¯Socketå¯¹è±¡ï¼ŒæŒ‡å®šç›‘å¬ç«¯å£
 		ServerSocket ss = new ServerSocket(8888);
-		//¼àÌı¶Ë¿Ú£¬»ñµÃÖ¸¶¨µÄSocket¶ÔÏó
+		//ç›‘å¬ç«¯å£ï¼Œè·å¾—æŒ‡å®šçš„Socketå¯¹è±¡
 		Socket sk = ss.accept();
-		//»ñÈ¡Êä³öÁ÷£¬´òÓ¡´Ó½Ó¿Ú½ÓÊÕµ½µÄÊı¾İ
+		//è·å–è¾“å‡ºæµï¼Œæ‰“å°ä»æ¥å£æ¥æ”¶åˆ°çš„æ•°æ®
 		InputStream input = sk.getInputStream();
 		byte[] bt = new byte[1024];
 		int len = input.read(bt);
@@ -27,8 +24,8 @@ public class ServerDemo {
 		System.out.println(str);
 		
 		OutputStream out = sk.getOutputStream();
-		out.write("·şÎñÆ÷£ºÎÒÊÕµ½ÁË".getBytes());
-		//sk.close();·şÎñÆ÷²»Ó¦¸Ã¹Ø±Õ
+		out.write("æœåŠ¡å™¨ï¼šæˆ‘æ”¶åˆ°äº†".getBytes());
+		//sk.close();æœåŠ¡å™¨ä¸åº”è¯¥å…³é—­
 	}
 
 }

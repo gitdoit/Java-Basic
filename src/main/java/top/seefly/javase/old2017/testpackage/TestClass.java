@@ -1,8 +1,6 @@
-package testpackage;
+package top.seefly.javase.old2017.testpackage;
 
 import java.math.BigDecimal;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
 
 public	class TestClass {
 	public static void main(String[] args) {

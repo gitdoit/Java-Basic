@@ -1,4 +1,4 @@
-package mypraxis;
+package top.seefly.javase.old2017.mypraxis;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -17,13 +17,13 @@ public class GraphComparer {
 		while((tmp = input.read()) !=-1 && (tmp1 = input1.read()) != -1){
 			//System.out.println((char)tmp +"   " + (char)tmp1);
 			if((tmp ^ tmp1) > 0) {
-				System.out.println("≤ªµ»");
+				System.out.println("‰∏çÁ≠â");
 				break;
 			}
 		}
 		if(tmp != tmp1)
-			System.out.println("≤ªµ»");
-		System.out.println("µ»");
+			System.out.println("‰∏çÁ≠â");
+		System.out.println("Á≠â");
 		input.close();
 		input1.close();
 

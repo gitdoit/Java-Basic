@@ -1,11 +1,11 @@
-package collection;
+package top.seefly.javase.old2017.collection;
 /*
- * ÅÅĞòÊ÷£¬ºÍÊı¾İ½á¹¹ÀàËÆ£¬¶¼ÊÇÅÅĞòÊ±½¨Ê÷¡£
- * ÒòÎªĞèÒªÅÅĞò£¬ËùÒÔĞèÒªÔªËØÀàĞÍ¾ßÓĞ¿É±ÈĞÔ¡£
- * Èç¹ûÅÅĞòÊ÷ÖĞÔªËØ²»¿É±È£¨¸ÃÀàÃ»ÓĞÊµÏÖcomparable½Ó¿Ú£©£¬²¢ÇÒÃ»ÓĞÎªÅÅĞòÊ÷Ö¸¶¨±È½ÏÆ÷¡£ÄÇÃ´»á±¨´í
+ * æ’åºæ ‘ï¼Œå’Œæ•°æ®ç»“æ„ç±»ä¼¼ï¼Œéƒ½æ˜¯æ’åºæ—¶å»ºæ ‘ã€‚
+ * å› ä¸ºéœ€è¦æ’åºï¼Œæ‰€ä»¥éœ€è¦å…ƒç´ ç±»å‹å…·æœ‰å¯æ¯”æ€§ã€‚
+ * å¦‚æœæ’åºæ ‘ä¸­å…ƒç´ ä¸å¯æ¯”ï¼ˆè¯¥ç±»æ²¡æœ‰å®ç°comparableæ¥å£ï¼‰ï¼Œå¹¶ä¸”æ²¡æœ‰ä¸ºæ’åºæ ‘æŒ‡å®šæ¯”è¾ƒå™¨ã€‚é‚£ä¹ˆä¼šæŠ¥é”™
  * 
- * ×Ô¶¨ÒåÀàÈç¹ûÏëÒªÊ¹ÓÃÅÅĞòÊ÷£¬ÄÇÃ´ÒªÊµÏÖcomparable½Ó¿Ú£¬²¢ÇÒÒª¸´Ğ´toString·½·¨(´òÓ¡Ê÷µÄÊ±ºòÓÃ£¬·ñÔò¾Í´òÓ¡µØÖ·)¡£
- * ×Ô¼º¶¨ÒåÀà×îºÃ°ÑhashCoed,equals,toStringÈı¸ö·½·¨¶¼ÖØĞ´¡£
+ * è‡ªå®šä¹‰ç±»å¦‚æœæƒ³è¦ä½¿ç”¨æ’åºæ ‘ï¼Œé‚£ä¹ˆè¦å®ç°comparableæ¥å£ï¼Œå¹¶ä¸”è¦å¤å†™toStringæ–¹æ³•(æ‰“å°æ ‘çš„æ—¶å€™ç”¨ï¼Œå¦åˆ™å°±æ‰“å°åœ°å€)ã€‚
+ * è‡ªå·±å®šä¹‰ç±»æœ€å¥½æŠŠhashCoed,equals,toStringä¸‰ä¸ªæ–¹æ³•éƒ½é‡å†™ã€‚
  * */
 import java.util.*;
 
@@ -17,9 +17,9 @@ public class TreeSetDemo {
 		it.add(new Item("liuA",3));
 		
 		
-		TreeSet<Item> it1 = new TreeSet<>(new Comparator<Item>() {//ÊµÀı»¯ÄÚ²¿ÄäÃûÀà£¬ÎªÅÅĞòÊ÷Ö¸¶¨±È½ÏÆ÷
+		TreeSet<Item> it1 = new TreeSet<>(new Comparator<Item>() {//å®ä¾‹åŒ–å†…éƒ¨åŒ¿åç±»ï¼Œä¸ºæ’åºæ ‘æŒ‡å®šæ¯”è¾ƒå™¨
 			@Override
-			public int compare(Item o1, Item o2) {//ÊµÏÖ±È½Ï·½·¨£¬´Ë·½·¨ÓëItemÀàĞÍ×Ô´øµÄ±È½ÏÆ÷Ëù±ÈµÄ¶«Î÷²»Í¬
+			public int compare(Item o1, Item o2) {//å®ç°æ¯”è¾ƒæ–¹æ³•ï¼Œæ­¤æ–¹æ³•ä¸Itemç±»å‹è‡ªå¸¦çš„æ¯”è¾ƒå™¨æ‰€æ¯”çš„ä¸œè¥¿ä¸åŒ
 				String str1 = o1.getName();
 				String str2 = o2.getName();
 				return str1.compareTo(str2);
@@ -29,10 +29,10 @@ public class TreeSetDemo {
 		it1.add(new Item("liuC",1));
 		it1.add(new Item("liuB",2));
 		it1.add(new Item("liuA",3));
-		//it1.addAll(it);¿ÉÒÔÖ®¼ä½«Collection¶ÔÏóÌí¼Ó£¬»á×Ô¶¯ÓĞĞò»¯
+		//it1.addAll(it);å¯ä»¥ä¹‹é—´å°†Collectionå¯¹è±¡æ·»åŠ ï¼Œä¼šè‡ªåŠ¨æœ‰åºåŒ–
 		
-		System.out.println(it);//±Èid
-		System.out.println(it1);//±ÈÃû×Ö
+		System.out.println(it);//æ¯”id
+		System.out.println(it1);//æ¯”åå­—
 	}
 }
 

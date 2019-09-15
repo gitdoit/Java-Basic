@@ -1,10 +1,10 @@
-package exception;
+package top.seefly.javase.old2017.exception;
 import java.io.*;
 /*
- * ¸ÃÀàÑİÊ¾ÁË¼¸¸ö»ñÈ¡Òì³£ĞÅÏ¢µÄ·½·¨
- * getMessage():String ·µ»ØÒì³£ĞÅÏ¢ÏêÏ¸ÃèÊö×Ö
- * getStackTrace() ·µ»Ø¸ÃÒì³£µÄ¸ú×ÙĞÅÏ¢
- * printStackTrace() ´òÓ¡¸ÃÒì³£µÄ¸ú×ÙÕ»ĞÅÏ¢
+ * è¯¥ç±»æ¼”ç¤ºäº†å‡ ä¸ªè·å–å¼‚å¸¸ä¿¡æ¯çš„æ–¹æ³•
+ * getMessage():String è¿”å›å¼‚å¸¸ä¿¡æ¯è¯¦ç»†æè¿°å­—
+ * getStackTrace() è¿”å›è¯¥å¼‚å¸¸çš„è·Ÿè¸ªä¿¡æ¯
+ * printStackTrace() æ‰“å°è¯¥å¼‚å¸¸çš„è·Ÿè¸ªæ ˆä¿¡æ¯
  * */
 public class MessageOfException {
 	public static void main(String[] args) {

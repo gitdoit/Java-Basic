@@ -1,10 +1,10 @@
-package collection;
+package top.seefly.javase.old2017.collection;
 /*
- * list�е�retainAll�����ĺ����ǵ��ô˷����ļ����Ƿ��뷽�������еļ����н���
- * ����У���������߼��ϵ��ڸý�����������true����ζ�ŵ����߼��Ϸ����˸ı䣩.
- * ���޽�������������߼���Ϊ�ռ�����Ϊ���ǵĽ���Ϊ�ռ�����������true
+ * list中的retainAll方法的含义是调用此方法的集合是否与方法参数中的集合有交集
+ * 如果有，则领调用者集合等于该交集，并返回true（意味着调用者集合发生了改变）.
+ * 若无交集，则领调用者集合为空集（因为他们的交集为空集）。并返回true
  * 
- * �������߱������ǲ������ϵ��Ӽ�����ô�����߼��ϲ��ᷢ���κθı䣬�ҷ���false��
+ * 若调用者本身就是参数集合的子集，那么调用者集合不会发生任何改变，且返回false。
  * 
  * */
 import java.util.ArrayList;

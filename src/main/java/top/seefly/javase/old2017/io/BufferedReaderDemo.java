@@ -1,4 +1,4 @@
-package io;
+package top.seefly.javase.old2017.io;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
@@ -18,7 +18,7 @@ public class BufferedReaderDemo {
 //		br.close();
 		
 		String str;
-		while((str = br.readLine()) != null) {//一次读取一行，读到末尾返回null
+		while((str = br.readLine()) != null) {//涓�娆¤鍙栦竴琛岋紝璇诲埌鏈熬杩斿洖null
 			System.out.println(str);
 		}
 		

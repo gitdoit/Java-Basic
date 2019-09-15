@@ -1,6 +1,6 @@
-package net_tcp;
+package top.seefly.javase.old2017.net_tcp;
 /*
- * ±¾ÀàÑİÊ¾ÁËÔÚ¿Í»§¶Ë´Ó¼üÅÌÂ¼ÈëÊı¾İ£¬·¢ËÍµ½·şÎñ¶Ë£¬·şÎñ¶Ë½ÓÊÕµ½Ö®ºóĞ´ÈëÎÄ¼ş¡£
+ * æœ¬ç±»æ¼”ç¤ºäº†åœ¨å®¢æˆ·ç«¯ä»é”®ç›˜å½•å…¥æ•°æ®ï¼Œå‘é€åˆ°æœåŠ¡ç«¯ï¼ŒæœåŠ¡ç«¯æ¥æ”¶åˆ°ä¹‹åå†™å…¥æ–‡ä»¶ã€‚
  */
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -13,19 +13,19 @@ import java.net.Socket;
 public class ClientDemo2 {
 
 	public static void main(String[] args)throws IOException {
-		//Ö¸¶¨·şÎñÆ÷
+		//æŒ‡å®šæœåŠ¡å™¨
 		Socket sk = new Socket("192.168.3.4",8888);
-		//°ü×°Êä³öÁ÷,Ïò¹ÜµÀĞ´Êı¾İ
+		//åŒ…è£…è¾“å‡ºæµ,å‘ç®¡é“å†™æ•°æ®
 		BufferedWriter output = new BufferedWriter(new OutputStreamWriter(sk.getOutputStream()));
-		//°ü×°ÊäÈëÁ÷£¬´Ó¼üÅÌ¶ÁÊı¾İ
+		//åŒ…è£…è¾“å…¥æµï¼Œä»é”®ç›˜è¯»æ•°æ®
 		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
 		String str = null;
-		//Ñ­»·´Ó¼üÅÌ¶ÁÊı¾İ£¬²¢Ïò¹ÜµÀÄÚĞ´Èë
+		//å¾ªç¯ä»é”®ç›˜è¯»æ•°æ®ï¼Œå¹¶å‘ç®¡é“å†…å†™å…¥
 		while((str = input.readLine())!= null) {
 			if(str.equals("close"))
 				break;
 			output.write(str);
-			//¼ÇµÃ³åË¢¡£²»È»·şÎñÆ÷»áÒ»Ö±µÈ.
+			//è®°å¾—å†²åˆ·ã€‚ä¸ç„¶æœåŠ¡å™¨ä¼šä¸€ç›´ç­‰.
 			output.newLine();
 			output.flush();
 		}

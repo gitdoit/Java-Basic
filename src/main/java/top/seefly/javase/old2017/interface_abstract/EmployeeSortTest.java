@@ -1,31 +1,31 @@
-package interface_abstract;
-/*java.util.ArraysÀàÖĞÓĞÒ»¸ö·½·¨Arrays.sortËü¿ÉÒÔ¶Ô¶ÔÏóÊı×é½øĞĞÅÅĞò
- * µ«ÊÇÇ°ÌáÊÇĞèÒªÅÅĞòµÄÀàµÄÊµÀıÒªÊµÏÖ½Ó¿Újava.lang.Comparable<T>
- * ÎÒÃÇ¶ÔEmployeeÀàÊµÏÖÁË¸Ã½Ó¿Ú£¬²¢×Ô¼º¸ÄĞ´ÁËÆäÖĞµÄcompareTo·½·¨¡£
- * ´ËÊ±¿ÉÒÔÊ¹ÓÃArrays.sort¶Ô¸ÃÀàĞÍµÄ¶ÔÏóÊı×é½øĞĞÅÅĞò£¨ÉıĞò£©
+package top.seefly.javase.old2017.interface_abstract;
+/*java.util.Arraysç±»ä¸­æœ‰ä¸€ä¸ªæ–¹æ³•Arrays.sortå®ƒå¯ä»¥å¯¹å¯¹è±¡æ•°ç»„è¿›è¡Œæ’åº
+ * ä½†æ˜¯å‰ææ˜¯éœ€è¦æ’åºçš„ç±»çš„å®ä¾‹è¦å®ç°æ¥å£java.lang.Comparable<T>
+ * æˆ‘ä»¬å¯¹Employeeç±»å®ç°äº†è¯¥æ¥å£ï¼Œå¹¶è‡ªå·±æ”¹å†™äº†å…¶ä¸­çš„compareToæ–¹æ³•ã€‚
+ * æ­¤æ—¶å¯ä»¥ä½¿ç”¨Arrays.sortå¯¹è¯¥ç±»å‹çš„å¯¹è±¡æ•°ç»„è¿›è¡Œæ’åºï¼ˆå‡åºï¼‰
  * 
  * */
 import java.util.*;
 
-import employee.Employees;
+import top.seefly.javase.old2017.employee.Employees;
 
 public class EmployeeSortTest {
 	public static void main(String[] args){
-		Employee[] staff = new Employee[3];//¶ÔÏóÊı×é
+		Employee[] staff = new Employee[3];//å¯¹è±¡æ•°ç»„
 		staff[0] = new Employee("liu",10000);
 		staff[1] = new Employee("ma",11000);
 		staff[2] = new Employee("yang",8000);
-		System.out.println("ÅÅĞòÖ®Ç°");
+		System.out.println("æ’åºä¹‹å‰");
 		for(Employee e : staff)
 			System.out.printf("name:%-10s   salary:%f\n",e.getName(),e.getSalary());
 		Arrays.sort(staff);
-		System.out.println("ÅÅĞòÖ®ºó");
+		System.out.println("æ’åºä¹‹å");
 		for(Employee e : staff)
 			System.out.printf("name:%-10s   salary:%f\n",e.getName(),e.getSalary());
 	}
 }
 
-class Employee extends Employees implements Comparable<Employee>{//¼âÀ¨ºÅÖĞµÄ¶«Î÷¾ÍÏñÊı¾İ½á¹¹ÖĞ×Ô¶¨ÒåµÄEmleType
+class Employee extends Employees implements Comparable<Employee>{//å°–æ‹¬å·ä¸­çš„ä¸œè¥¿å°±åƒæ•°æ®ç»“æ„ä¸­è‡ªå®šä¹‰çš„EmleType
 
 	public Employee(){
 		super();
@@ -38,7 +38,7 @@ class Employee extends Employees implements Comparable<Employee>{//¼âÀ¨ºÅÖĞµÄ¶«Î
 	}
 	
 	@Override
-	public int compareTo(Employee other){//¸²Ğ´ÁËcompareTo²ÎÊıÀàĞÍ±ØĞëºÍ¼âÀ¨ºÅÖĞµÄÒ»ÖÂ
+	public int compareTo(Employee other){//è¦†å†™äº†compareToå‚æ•°ç±»å‹å¿…é¡»å’Œå°–æ‹¬å·ä¸­çš„ä¸€è‡´
 		return Double.compare(salary, other.salary);
 	}
 

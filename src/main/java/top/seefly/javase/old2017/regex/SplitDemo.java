@@ -1,6 +1,6 @@
-package regex;
+package top.seefly.javase.old2017.regex;
 /*
- * °´ÕÕ¸ø¶¨µÄÕıÔò±í´ïÊ½½«¸ø¶¨µÄ×Ö·û´®²ğ·Ö³Én¸ö×Ö·û´®£¬²¢·µ»ØÒ»¸ö×Ö·û´®Êı×é
+ * æŒ‰ç…§ç»™å®šçš„æ­£åˆ™è¡¨è¾¾å¼å°†ç»™å®šçš„å­—ç¬¦ä¸²æ‹†åˆ†æˆnä¸ªå­—ç¬¦ä¸²ï¼Œå¹¶è¿”å›ä¸€ä¸ªå­—ç¬¦ä¸²æ•°ç»„
  * 
  */
 import java.util.Arrays;
@@ -11,25 +11,25 @@ public class SplitDemo {
 		String knights = "Then,when you have found the shrubbery,you must "
 				+ "cut down the mightiest tree int hte forest..."
 				+ "with..a herring!";
-		String[] str = knights.split(" ");//°´¿Õ¸ñ·½Ê½ÇĞ·Ö,
+		String[] str = knights.split(" ");//æŒ‰ç©ºæ ¼æ–¹å¼åˆ‡åˆ†,
 		
 		String condition = "18-24";
 		String[] str1 = condition.split("-");
 		
 		
 		String src = "liu    jian    xin";
-		String[] str2 = src.split(" ");//°´Ò»¸ö¿Õ¸ñ·½Ê½½øĞĞÇĞ·Ö
+		String[] str2 = src.split(" ");//æŒ‰ä¸€ä¸ªç©ºæ ¼æ–¹å¼è¿›è¡Œåˆ‡åˆ†
 		for(int i = 0;i < str2.length ; i++) {
 			System.out.println(i+":"+str2[i]);
 		}
 		
-		String[] str3 = src.split(" +");//°´Ò»¸ö»ò¶à¸ö¿Õ¸ñ·½Ê½ÇĞ·Ö
+		String[] str3 = src.split(" +");//æŒ‰ä¸€ä¸ªæˆ–å¤šä¸ªç©ºæ ¼æ–¹å¼åˆ‡åˆ†
 		for(String e : str3) {
 			System.out.println(e);
 		}
 		
-		String src1 = "E:\\Ñ§Ï°×ÊÁÏ\\ÕıÔò\\avi";
-		String[] str4 = src1.split("\\\\");//×¢Òâ£¬javaÖĞµÄ\´ú±í×ªÒåµÄÒâË¼£¬\\Ôò´ú±íÎÒÃÇÈÏÎªµÄ'\'¡£ËùÒÔ'\\'Ó¦¸ÃÓÃ\\\\±íÊ¾
+		String src1 = "E:\\å­¦ä¹ èµ„æ–™\\æ­£åˆ™\\avi";
+		String[] str4 = src1.split("\\\\");//æ³¨æ„ï¼Œjavaä¸­çš„\ä»£è¡¨è½¬ä¹‰çš„æ„æ€ï¼Œ\\åˆ™ä»£è¡¨æˆ‘ä»¬è®¤ä¸ºçš„'\'ã€‚æ‰€ä»¥'\\'åº”è¯¥ç”¨\\\\è¡¨ç¤º
 		for(String e : str4) {
 			System.out.println(e);
 		}

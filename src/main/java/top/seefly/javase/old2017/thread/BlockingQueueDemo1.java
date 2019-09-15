@@ -1,6 +1,7 @@
-package thread;
+package top.seefly.javase.old2017.thread;
 
-import java.util.concurrent.*;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class BlockingQueueDemo1 {
@@ -20,8 +21,8 @@ public class BlockingQueueDemo1 {
 		//t3.start();
 		try {
 			Thread.currentThread().sleep(3000);
-			p.stop();//µ÷ÓÃÕâ¸ö·½·¨£¬Èı¸öÏß³Ì¿ÉÄÜÒ²²»»áÍ£Ö¹£¬ÒòÎªËûÃÇ¿ÉÄÜÒòÎªputºÍtake·½·¨Ê¹Ïß³Ì×èÈûÁË£¬¶øÏû·ÑÕâÏß³Ì²»ÔÚÏû·Ñ£¬Éú²úÕßÏß³Ì²»ÔÚÉú²ú
-			v.stop();//ËùÒÔ³öÏÖÁËËÀËø¡£
+			p.stop();//è°ƒç”¨è¿™ä¸ªæ–¹æ³•ï¼Œä¸‰ä¸ªçº¿ç¨‹å¯èƒ½ä¹Ÿä¸ä¼šåœæ­¢ï¼Œå› ä¸ºä»–ä»¬å¯èƒ½å› ä¸ºputå’Œtakeæ–¹æ³•ä½¿çº¿ç¨‹é˜»å¡äº†ï¼Œè€Œæ¶ˆè´¹è¿™çº¿ç¨‹ä¸åœ¨æ¶ˆè´¹ï¼Œç”Ÿäº§è€…çº¿ç¨‹ä¸åœ¨ç”Ÿäº§
+			v.stop();//æ‰€ä»¥å‡ºç°äº†æ­»é”ã€‚
 			Thread.currentThread().sleep(1000);
 			System.out.println("t:"+t.isAlive()+"t2:"+t2.isAlive()+"t3:"+t3.isAlive());
 		} catch (InterruptedException e) {
@@ -35,8 +36,8 @@ public class BlockingQueueDemo1 {
 class P implements Runnable{
 	private BlockingQueue<String> queue;
 	private AtomicInteger count;
-	private int i = 0;//Ê¹ÓÃi»áÔì³É¶ÁÔàÊı¾İ
-	private volatile int id = 0;//Ê¹ÓÃvolatile¹Ø¼ü×Ö¶¨ÒåµÄÊı¾İ£¬»áÊ¹Êı¾İ¸ü¸Ä³ÉÔ­×Ó²Ù×÷£¬Êı¾İ¶ÁĞ´³ÉÅÅËûĞÔ¡£²»»á³öÏÖ¶ÁÔàÏÖÏó
+	private int i = 0;//ä½¿ç”¨iä¼šé€ æˆè¯»è„æ•°æ®
+	private volatile int id = 0;//ä½¿ç”¨volatileå…³é”®å­—å®šä¹‰çš„æ•°æ®ï¼Œä¼šä½¿æ•°æ®æ›´æ”¹æˆåŸå­æ“ä½œï¼Œæ•°æ®è¯»å†™æˆæ’ä»–æ€§ã€‚ä¸ä¼šå‡ºç°è¯»è„ç°è±¡
 	boolean flag = true;
 	public P(BlockingQueue queue,AtomicInteger count) {
 		this.queue = queue;
@@ -47,14 +48,14 @@ class P implements Runnable{
 	public void run() {
 		String data;
 		try {
-			System.out.println("Æô¶¯Éú²úÕßÏß³Ì");
+			System.out.println("å¯åŠ¨ç”Ÿäº§è€…çº¿ç¨‹");
 			while(flag) {
-				//data = "²úÆ·"+i++;ÈôÊ¹ÓÃ i ÔòÔÚ¶àÏß³Ì»·¾³ÏÂ»áÔì³É¶ÁÔàÊı¾İ
-				data = "²úÆ·" + count.incrementAndGet();//Ê¹ÓÃ´Ë·½·¨Ôò²»»áÔÚ»áÊ¹×ÔÔö²Ù×÷³ÉÔ­×Ó²Ù×÷¡£²»»áÔì³É¶ÁÔàÊı¾İ
-				//data = "²úÆ·" + id++;¶à¸öÉú²úÕßÏß³Ì¶Ôid½øĞĞ¸ü¸Ä£¬Ôò»á³öÏÖÅÅËûÏÖÏó¡£²»»á³öÏÖ¶¼ÔàÊı¾İ
+				//data = "äº§å“"+i++;è‹¥ä½¿ç”¨ i åˆ™åœ¨å¤šçº¿ç¨‹ç¯å¢ƒä¸‹ä¼šé€ æˆè¯»è„æ•°æ®
+				data = "äº§å“" + count.incrementAndGet();//ä½¿ç”¨æ­¤æ–¹æ³•åˆ™ä¸ä¼šåœ¨ä¼šä½¿è‡ªå¢æ“ä½œæˆåŸå­æ“ä½œã€‚ä¸ä¼šé€ æˆè¯»è„æ•°æ®
+				//data = "äº§å“" + id++;å¤šä¸ªç”Ÿäº§è€…çº¿ç¨‹å¯¹idè¿›è¡Œæ›´æ”¹ï¼Œåˆ™ä¼šå‡ºç°æ’ä»–ç°è±¡ã€‚ä¸ä¼šå‡ºç°éƒ½è„æ•°æ®
 				
 				queue.put(data);
-				System.out.println("Éú²úÁË²úÆ·"+data+"£¬²Ö¿âÖĞÓĞ"+queue.size());
+				System.out.println("ç”Ÿäº§äº†äº§å“"+data+"ï¼Œä»“åº“ä¸­æœ‰"+queue.size());
 				Thread.currentThread().sleep(200);
 			}
 		}
@@ -76,13 +77,13 @@ class V implements Runnable{
 	}
 	@Override
 	public void run() {
-		System.out.println("Ïû·ÑÕßÏß³ÌÆô¶¯");
+		System.out.println("æ¶ˆè´¹è€…çº¿ç¨‹å¯åŠ¨");
 		String data;
 		try {
 			while(flag) {
 				data = queue.take();
 				Thread.currentThread().sleep(200);
-				System.out.println("Ïû·Ñ²úÆ·"+data);
+				System.out.println("æ¶ˆè´¹äº§å“"+data);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

@@ -1,24 +1,25 @@
-package collection;
+package top.seefly.javase.old2017.collection;
 /*
- * HashMap±£´æ¾ßÓĞÓ³Éä¹ØÏµµÄÊı¾İ(Key-Values)
- * ÆäÖĞKeyÊ¹ÓÃsetµÄ´æ´¢ĞÎÊ½£¬ËùÒÔ²»ÄÜÓĞÏàÍ¬Öµ¡£
- * ¶øValuesÏñÊÇListµÄ´æ´¢ĞÎÊ½£¬¿ÉÒÔÍ¨¹ıKeyµÄÖµÀ´Ë÷Òı£¬ÔªËØ¿ÉÒÔÏàÍ¬¡£
+ * HashMapä¿å­˜å…·æœ‰æ˜ å°„å…³ç³»çš„æ•°æ®(Key-Values)
+ * å…¶ä¸­Keyä½¿ç”¨setçš„å­˜å‚¨å½¢å¼ï¼Œæ‰€ä»¥ä¸èƒ½æœ‰ç›¸åŒå€¼ã€‚
+ * è€ŒValuesåƒæ˜¯Listçš„å­˜å‚¨å½¢å¼ï¼Œå¯ä»¥é€šè¿‡Keyçš„å€¼æ¥ç´¢å¼•ï¼Œå…ƒç´ å¯ä»¥ç›¸åŒã€‚
  * <
- * KeyµÄÖµ¿ÉÒÔÎªNull,µ«Ò²Ö»ÄÜÓĞÒ»¸ökeyµÄÖµÊÇnull
+ * Keyçš„å€¼å¯ä»¥ä¸ºNull,ä½†ä¹Ÿåªèƒ½æœ‰ä¸€ä¸ªkeyçš„å€¼æ˜¯null
  * 
- * HashMpyÏß³Ì²»°²È«
+ * HashMpyçº¿ç¨‹ä¸å®‰å…¨
  * */
+import top.seefly.javase.old2017.employee.Employees;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 import java.util.function.Consumer;
 
-import employee.Employees;
 
 public class HashMapDemo {
 
 	public static void main(String[] args) {
-		Map<String,Employees> staff = new HashMap<>();
+		Map<String, Employees> staff = new HashMap<>();
 		staff.put("2016120074",new Employees("liujianxin") );
 		staff.put("2016120075", new Employees("liuwei"));
 		staff.put("2016120076",new Employees("maozedong"));

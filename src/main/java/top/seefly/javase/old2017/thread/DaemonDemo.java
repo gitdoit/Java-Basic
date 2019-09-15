@@ -1,12 +1,12 @@
-package thread;
+package top.seefly.javase.old2017.thread;
 /*
- * ºóÌ¨Ïß³ÌÓÖ³ÆÎªÊØ»¤Ïß³Ì
- * ¸ÃÏß³ÌÓĞÒ»¸öÌØµãÄÇ¾ÍÊÇ£¬ÔÚÖ÷Ïß³ÌËÀÍöºóÄÇÃ´ËüÒ²»áËÀÍö¡£
- * ÀıÈçÓĞÁ½¸öÏß³Ìt1,t2
- * ÔÚt1Ïß³ÌÖĞnew³öt2Ïß³Ì£¬²¢ÔÚµ÷ÓÃstart·½·¨Ç°
- * ÉèÖÃ£ºt2.setDaemon(true) È»ºót2.start()
- * ´ËÊ±t2Ïß³Ì¾Í±»ÉèÖÃÎªt1Ïß³ÌµÄÊØ»¤Ïß³Ì£¬ÔÚt1ËÀÍöºót2Ò²»áËÀÍö
- * ×¢Òâ²»ÒªÔÚÏß³ÌÎª¾ÍĞ÷Ì¬ºóÉèÖÃDaemon·ñÔò»á±¨IllegalThreadStateException
+ * åå°çº¿ç¨‹åˆç§°ä¸ºå®ˆæŠ¤çº¿ç¨‹
+ * è¯¥çº¿ç¨‹æœ‰ä¸€ä¸ªç‰¹ç‚¹é‚£å°±æ˜¯ï¼Œåœ¨ä¸»çº¿ç¨‹æ­»äº¡åé‚£ä¹ˆå®ƒä¹Ÿä¼šæ­»äº¡ã€‚
+ * ä¾‹å¦‚æœ‰ä¸¤ä¸ªçº¿ç¨‹t1,t2
+ * åœ¨t1çº¿ç¨‹ä¸­newå‡ºt2çº¿ç¨‹ï¼Œå¹¶åœ¨è°ƒç”¨startæ–¹æ³•å‰
+ * è®¾ç½®ï¼št2.setDaemon(true) ç„¶åt2.start()
+ * æ­¤æ—¶t2çº¿ç¨‹å°±è¢«è®¾ç½®ä¸ºt1çº¿ç¨‹çš„å®ˆæŠ¤çº¿ç¨‹ï¼Œåœ¨t1æ­»äº¡åt2ä¹Ÿä¼šæ­»äº¡
+ * æ³¨æ„ä¸è¦åœ¨çº¿ç¨‹ä¸ºå°±ç»ªæ€åè®¾ç½®Daemonå¦åˆ™ä¼šæŠ¥IllegalThreadStateException
  * 
  * */
 public class DaemonDemo implements Runnable{
@@ -16,18 +16,18 @@ public class DaemonDemo implements Runnable{
 		t.start();
 	}
 	@Override
-	public void run() {//ÓÉÇ°Ì¨Ïß³Ì´´½¨µÄÏß³Ì¶¼ÎªÇ°Ì¨Ïß³Ì£¬·´Ö®¶¼ÎªºóÌ¨Ïß³Ì
-		Thread t2 = new Thread(new Runnable() {//ÔÚt1Ïß³ÌÄÚ´´t2Ïß³Ì
+	public void run() {//ç”±å‰å°çº¿ç¨‹åˆ›å»ºçš„çº¿ç¨‹éƒ½ä¸ºå‰å°çº¿ç¨‹ï¼Œåä¹‹éƒ½ä¸ºåå°çº¿ç¨‹
+		Thread t2 = new Thread(new Runnable() {//åœ¨t1çº¿ç¨‹å†…åˆ›t2çº¿ç¨‹
 			@Override
 			public void run() {
 				for(int t2 = 0; t2 < 1000; t2++)
-					System.out.println(Thread.currentThread().getName()+":t2="+t2);//ÉèÖÃÑ­»·1000´Î£¬±Èt1Ïß³Ì¶à
+					System.out.println(Thread.currentThread().getName()+":t2="+t2);//è®¾ç½®å¾ªç¯1000æ¬¡ï¼Œæ¯”t1çº¿ç¨‹å¤š
 			}
 		},"t2");
-		t2.setDaemon(true);//ÉèÖÃÎªºóÌ¨Ïß³Ì
-		t2.start();//Æô¶¯
+		t2.setDaemon(true);//è®¾ç½®ä¸ºåå°çº¿ç¨‹
+		t2.start();//å¯åŠ¨
 		for(int t1 = 0;t1 < 100; t1++)
-			System.out.println(Thread.currentThread().getName()+"t1:"+t1);//t1Ïß³ÌÑ­»·100´Î
+			System.out.println(Thread.currentThread().getName()+"t1:"+t1);//t1çº¿ç¨‹å¾ªç¯100æ¬¡
 	}
 	
 }

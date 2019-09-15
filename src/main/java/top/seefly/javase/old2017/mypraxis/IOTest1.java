@@ -1,27 +1,27 @@
-package mypraxis;
+package top.seefly.javase.old2017.mypraxis;
 
 import java.io.File;
 
 /*
- * ½«Ä³ÎÄ¼ş¼ĞÏÂËùÓĞÂú×ãÌõ¼şµÄÎÄ¼ş¸üÃû¡£
+ * å°†æŸæ–‡ä»¶å¤¹ä¸‹æ‰€æœ‰æ»¡è¶³æ¡ä»¶çš„æ–‡ä»¶æ›´åã€‚
  */
 public class IOTest1 {
 
 	public static void main(String[] args) {
-//			File file = new File("e:\\Ñ§Ï°×ÊÁÏ");
+//			File file = new File("e:\\å­¦ä¹ èµ„æ–™");
 //			File[] fileArr = file.listFiles();
 //			String[] name = file.list();
 //			int i = 1;
 //			for(File e : fileArr) {
-//				e.renameTo(new File(file,"ÊÓÆµ"+ i++));
+//				e.renameTo(new File(file,"è§†é¢‘"+ i++));
 //			}
 		
-		File file = new File("e:\\Ñ§Ï°×ÊÁÏ");
-		File[] fileArr = file.listFiles();//×ÓÎÄ¼ş¼ĞÄ¿Â¼ÁĞ±í
-		for(int i = 0; i < fileArr.length; i++) {//±éÀú¸÷¸ö×ÓÎÄ¼ş¼Ğ
-			File[] chaiFile = fileArr[i].listFiles();//È¡³ö×ÓÎÄ¼ş¼ĞÖĞËùÓĞÎÄ¼ş
-			 File[] ccFile = chaiFile[0].listFiles();//ÌáÈ¡×ÓÎÄ¼ş¼ĞÖĞµÚÒ»¸öÎÄ¼şÖĞËùÓĞÎÄ¼ş
-			 String name = ccFile[0].getName().substring(0,2);//ÌáÈ¡ËïÎÄ¼ş¼ĞÖĞµÚÒ»¸öÎÄ¼şÃûµÄÇ°Á½¸ö×Ö·û
+		File file = new File("e:\\å­¦ä¹ èµ„æ–™");
+		File[] fileArr = file.listFiles();//å­æ–‡ä»¶å¤¹ç›®å½•åˆ—è¡¨
+		for(int i = 0; i < fileArr.length; i++) {//éå†å„ä¸ªå­æ–‡ä»¶å¤¹
+			File[] chaiFile = fileArr[i].listFiles();//å–å‡ºå­æ–‡ä»¶å¤¹ä¸­æ‰€æœ‰æ–‡ä»¶
+			 File[] ccFile = chaiFile[0].listFiles();//æå–å­æ–‡ä»¶å¤¹ä¸­ç¬¬ä¸€ä¸ªæ–‡ä»¶ä¸­æ‰€æœ‰æ–‡ä»¶
+			 String name = ccFile[0].getName().substring(0,2);//æå–å­™æ–‡ä»¶å¤¹ä¸­ç¬¬ä¸€ä¸ªæ–‡ä»¶åçš„å‰ä¸¤ä¸ªå­—ç¬¦
 			fileArr[i].renameTo(new File(file,name));
 			//System.out.println(new File(file,name).getAbsolutePath());
 			

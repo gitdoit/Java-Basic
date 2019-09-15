@@ -1,12 +1,12 @@
-package collection;
+package top.seefly.javase.old2017.collection;
 /*
- * ±¾ÀàÊ¹ÓÃµÄÊÇCollectionsÖĞµÄÒ»Ğ©·½·¨£¬×¢Òâ²»ÊÇCollection
+ * æœ¬ç±»ä½¿ç”¨çš„æ˜¯Collectionsä¸­çš„ä¸€äº›æ–¹æ³•ï¼Œæ³¨æ„ä¸æ˜¯Collection
  * 
- *		static <T> int binarySearch(List<? extends Comparable<? super T>> list, T key) 			¶ş·Ö²éÕÒ 
- *		static void shuffle(List<?> list)  														´òÂÒ¼¯ºÏÖĞÔªËØµÄË³Ğò
- *		static <T extends Object & Comparable<? super T>> T max(Collection<? extends T> coll) 	·µ»Ø×î´óÖµ
- *		static void reverse(List<?> list)  														·´×ª
- *		static <T extends Comparable<? super T>> void sort(List<T> list) 						ÅÅĞò
+ *		static <T> int binarySearch(List<? extends Comparable<? super T>> list, T key) 			äºŒåˆ†æŸ¥æ‰¾ 
+ *		static void shuffle(List<?> list)  														æ‰“ä¹±é›†åˆä¸­å…ƒç´ çš„é¡ºåº
+ *		static <T extends Object & Comparable<? super T>> T max(Collection<? extends T> coll) 	è¿”å›æœ€å¤§å€¼
+ *		static void reverse(List<?> list)  														åè½¬
+ *		static <T extends Comparable<? super T>> void sort(List<T> list) 						æ’åº
  
  * 
  */

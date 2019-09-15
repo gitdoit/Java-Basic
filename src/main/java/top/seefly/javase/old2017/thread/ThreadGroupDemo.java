@@ -1,18 +1,18 @@
-package thread;
+package top.seefly.javase.old2017.thread;
 
 public class ThreadGroupDemo {
 	public static void main(String[] argws) {
-		//ĞÂ½¨Ïß³Ì×é£¬Ö¸¶¨Æä¸¸Ïß³Ì×éÎªÖ÷Ïß³Ì×é¡£ÉèÖÃ¸¸Ïß³Ì×éµÄÄ¿µÄÊÇÎªÁËÊ¹ÓÃ¸¸Ïß³Ì×éÖĞµÄuncaugthExceptionµÄ´¦Àí·½·¨
-		//¼´Ê¹³öÏÖÁËÏß³ÌÎ´²¶»ñÒì³£±»Ïß³Ì×éµÄuncaughtException²¶»ñÁË£¬ÄÇÃ´³öÏÖÏß³ÌµÄÒì³£Ò²»áÍ£Ö¹¡£½«Òì³£Å×ÏòÉÏ¼¶
-		ThreadGroup g = new ThreadGroup(Thread.currentThread().getThreadGroup(),"MyThreadGroup") {//ÖØĞ´Ïß³Ì×éµÄÎ´²¶»ñÒì³£´¦ÀíÆ÷
+		//æ–°å»ºçº¿ç¨‹ç»„ï¼ŒæŒ‡å®šå…¶çˆ¶çº¿ç¨‹ç»„ä¸ºä¸»çº¿ç¨‹ç»„ã€‚è®¾ç½®çˆ¶çº¿ç¨‹ç»„çš„ç›®çš„æ˜¯ä¸ºäº†ä½¿ç”¨çˆ¶çº¿ç¨‹ç»„ä¸­çš„uncaugthExceptionçš„å¤„ç†æ–¹æ³•
+		//å³ä½¿å‡ºç°äº†çº¿ç¨‹æœªæ•è·å¼‚å¸¸è¢«çº¿ç¨‹ç»„çš„uncaughtExceptionæ•è·äº†ï¼Œé‚£ä¹ˆå‡ºç°çº¿ç¨‹çš„å¼‚å¸¸ä¹Ÿä¼šåœæ­¢ã€‚å°†å¼‚å¸¸æŠ›å‘ä¸Šçº§
+		ThreadGroup g = new ThreadGroup(Thread.currentThread().getThreadGroup(),"MyThreadGroup") {//é‡å†™çº¿ç¨‹ç»„çš„æœªæ•è·å¼‚å¸¸å¤„ç†å™¨
 			@Override
 			public void uncaughtException(Thread t, Throwable e) {
-				System.out.println("Ïß³Ì×égµÄÎ´²¶»ñÒì³£´¦ÀíÆ÷,Òì³£Ïß³ÌÎª"+t.getName()+"  "+e);
+				System.out.println("çº¿ç¨‹ç»„gçš„æœªæ•è·å¼‚å¸¸å¤„ç†å™¨,å¼‚å¸¸çº¿ç¨‹ä¸º"+t.getName()+"  "+e);
 			}
 		};
 		
 		
-		g.setDaemon(true);//ÉèÖÃÊÇ·ñÎªºóÌ¨Ïß³Ì×é£¬×éÄÚËùÓĞÏß³Ì½ÔÊÜ¸Ä±ä
+		g.setDaemon(true);//è®¾ç½®æ˜¯å¦ä¸ºåå°çº¿ç¨‹ç»„ï¼Œç»„å†…æ‰€æœ‰çº¿ç¨‹çš†å—æ”¹å˜
 		
 		
 		Thread t1 = new Thread(g,new Runnable() {
@@ -32,7 +32,7 @@ public class ThreadGroupDemo {
 			
 			@Override
 			public void uncaughtException(Thread t, Throwable e) {
-				System.out.println("ÖØĞ´ThreadÀàµÄÄ¬ÈÏÎ´²¶»ñÒì³£´¦ÀíÆ÷");
+				System.out.println("é‡å†™Threadç±»çš„é»˜è®¤æœªæ•è·å¼‚å¸¸å¤„ç†å™¨");
 				
 			}
 		});
@@ -48,17 +48,17 @@ public class ThreadGroupDemo {
 		t1.start();
 		t2.start();
 		ThreadGroup g1 = Thread.currentThread().getThreadGroup();
-		System.out.println("Ö÷Ïß³Ì×éÃû³Æ:"+g1.getName()+"ÊÇ·ñÎªºóÌ¨Ïß³Ì"+g1.isDaemon());
-		System.out.println("×Ô¶¨ÒåÏß³Ì×éÃû³Æ:"+g.getName()+"ÊÇ·ñÎªºóÌ¨Ïß³Ì"+g.isDaemon());
-		System.out.println("Ïß³Ì×é£º"+g.getName()+"»î¶¯µÄÏß³ÌÊıÎª"+g.activeCount());
-		g.interrupt();//Èç¹ûÏß³ÌÄÚÓĞ±»×èÈûµÄÏß³Ì£¬ÄÇÃ´µ÷ÓÃ¸Ã·½·¨£¬»áÈÃ±»×èÈûµÄÏß³ÌÅ×³öÒì³£µ¼ÖÂ¸ÃÏß³Ì½áÊø¡£
-					//Èç¹ûÏß³Ì×éÄÚËùÓĞÏß³Ì¶¼Ã»ÓĞ±»×èÈû£¬ÄÇÃ´µ÷ÓÃ´Ë·½·¨½«²»ÆğÈÎºÎ×÷ÓÃ
+		System.out.println("ä¸»çº¿ç¨‹ç»„åç§°:"+g1.getName()+"æ˜¯å¦ä¸ºåå°çº¿ç¨‹"+g1.isDaemon());
+		System.out.println("è‡ªå®šä¹‰çº¿ç¨‹ç»„åç§°:"+g.getName()+"æ˜¯å¦ä¸ºåå°çº¿ç¨‹"+g.isDaemon());
+		System.out.println("çº¿ç¨‹ç»„ï¼š"+g.getName()+"æ´»åŠ¨çš„çº¿ç¨‹æ•°ä¸º"+g.activeCount());
+		g.interrupt();//å¦‚æœçº¿ç¨‹å†…æœ‰è¢«é˜»å¡çš„çº¿ç¨‹ï¼Œé‚£ä¹ˆè°ƒç”¨è¯¥æ–¹æ³•ï¼Œä¼šè®©è¢«é˜»å¡çš„çº¿ç¨‹æŠ›å‡ºå¼‚å¸¸å¯¼è‡´è¯¥çº¿ç¨‹ç»“æŸã€‚
+					//å¦‚æœçº¿ç¨‹ç»„å†…æ‰€æœ‰çº¿ç¨‹éƒ½æ²¡æœ‰è¢«é˜»å¡ï¼Œé‚£ä¹ˆè°ƒç”¨æ­¤æ–¹æ³•å°†ä¸èµ·ä»»ä½•ä½œç”¨
 		try {
 			Thread.currentThread().sleep(30);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		System.out.println("µ÷ÓÃinterruptÖ®ºó»î¶¯µÄÏß³ÌÊıÎª:"+g.activeCount());
+		System.out.println("è°ƒç”¨interruptä¹‹åæ´»åŠ¨çš„çº¿ç¨‹æ•°ä¸º:"+g.activeCount());
 	}
 }
 

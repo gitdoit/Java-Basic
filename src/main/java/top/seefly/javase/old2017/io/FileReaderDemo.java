@@ -1,4 +1,4 @@
-package io;
+package top.seefly.javase.old2017.io;
 
 import java.io.File;
 import java.io.FileReader;
@@ -9,7 +9,7 @@ public class FileReaderDemo {
 		FileReader frd = new FileReader(new File("writer.txt"));
 		char[] ch = new char[1024];
 		while(frd.read(ch) != -1) {
-			System.out.println(ch);//ÓÉÓÚÎŞ·¨Ö¸¶¨½âÂë·½Ê½£¬Ê¹ÓÃµÄÊÇÄ¬ÈÏµÄGBK£¬¶øÔ´ÎÄ¼şÊÇÍ¨¹ıUTF-8±àÂëµÄ¡£ËùÒÔ³öÏÖÂÒÂë
+			System.out.println(ch);//ç”±äºæ— æ³•æŒ‡å®šè§£ç æ–¹å¼ï¼Œä½¿ç”¨çš„æ˜¯é»˜è®¤çš„GBKï¼Œè€Œæºæ–‡ä»¶æ˜¯é€šè¿‡UTF-8ç¼–ç çš„ã€‚æ‰€ä»¥å‡ºç°ä¹±ç 
 		}
 		frd.close();
 	}

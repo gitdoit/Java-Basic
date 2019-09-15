@@ -1,23 +1,23 @@
-package collection;
+package top.seefly.javase.old2017.collection;
 import java.util.ArrayDeque;
 /*
- * ArrayDeque<>ÊµÏÖÁËDeque<>(Ë«¶Ë¶ÓÁĞ)½Ó¿Ú£¬¶øÕâ¸ö½Ó¿Ú¼Ì³ĞÁËQueue<>½Ó¿Ú
+ * ArrayDeque<>å®ç°äº†Deque<>(åŒç«¯é˜Ÿåˆ—)æ¥å£ï¼Œè€Œè¿™ä¸ªæ¥å£ç»§æ‰¿äº†Queue<>æ¥å£
  * 
- * ÔÚQueueÖĞ¶¨ÒåÁËÈçÏÂ¼¸¸ö·½·¨
- * ÕâÈı¸ö·½·¨»á±¨Òì³£
- * add()Ìí¼Ó
- * remove()ÒÆ³ı
- * element() ¼ì²é
+ * åœ¨Queueä¸­å®šä¹‰äº†å¦‚ä¸‹å‡ ä¸ªæ–¹æ³•
+ * è¿™ä¸‰ä¸ªæ–¹æ³•ä¼šæŠ¥å¼‚å¸¸
+ * add()æ·»åŠ 
+ * remove()ç§»é™¤
+ * element() æ£€æŸ¥
  
- * offer() Ìí¼Ó£¬·µ»ØÕæ¼Ù
- * poll()ÒÆ³ı£¬·µ»Ø¶ÔÏó»ònull
- * peek ¼ì²é£¬·µ»Ø¶ÔÏó»ònull
+ * offer() æ·»åŠ ï¼Œè¿”å›çœŸå‡
+ * poll()ç§»é™¤ï¼Œè¿”å›å¯¹è±¡æˆ–null
+ * peek æ£€æŸ¥ï¼Œè¿”å›å¯¹è±¡æˆ–null
  * 
- * ÒòÎª¸ÃÀàÊµÏÖÁËË«¶Ë¶ÓÁĞ½Ó¿Ú£¬ËùÒÔ¸Ã¶ÓÁĞ¿ÉÒÔÔÚÁ½¶Ë²åÈë»òÉ¾³ı
- *  Å×³öÒì³£				ÌØÊâÖµ 				Å×³öÒì³£ 			ÌØÊâÖµ 
-²åÈë addFirst(e) 		offerFirst(e) 		addLast(e) 		offerLast(e) 
-ÒÆ³ı removeFirst() 	pollFirst() 		removeLast() 	pollLast() 
-¼ì²é getFirst() 		peekFirst() 		getLast() 		peekLast() 
+ * å› ä¸ºè¯¥ç±»å®ç°äº†åŒç«¯é˜Ÿåˆ—æ¥å£ï¼Œæ‰€ä»¥è¯¥é˜Ÿåˆ—å¯ä»¥åœ¨ä¸¤ç«¯æ’å…¥æˆ–åˆ é™¤
+ *  æŠ›å‡ºå¼‚å¸¸				ç‰¹æ®Šå€¼ 				æŠ›å‡ºå¼‚å¸¸ 			ç‰¹æ®Šå€¼ 
+æ’å…¥ addFirst(e) 		offerFirst(e) 		addLast(e) 		offerLast(e) 
+ç§»é™¤ removeFirst() 	pollFirst() 		removeLast() 	pollLast() 
+æ£€æŸ¥ getFirst() 		peekFirst() 		getLast() 		peekLast() 
 
  * */
 import java.util.Queue;
@@ -25,12 +25,12 @@ import java.util.Queue;
 public class ArrayDequeDemo {
 	public static void main(String[] args) {
 		ArrayDeque<Integer> queue = new ArrayDeque<>();
-		queue.addLast(3);//µÈĞ§ÓÚ queue.add(3);
+		queue.addLast(3);//ç­‰æ•ˆäº queue.add(3);
 		queue.add(4);
 		queue.addFirst(5);
 		queue.addLast(6);
 		queue.add(7);
-		queue.removeLast();//µÈĞ§Óëqueue.remove();
+		queue.removeLast();//ç­‰æ•ˆä¸queue.remove();
 		System.out.println(queue);
 		
 	}

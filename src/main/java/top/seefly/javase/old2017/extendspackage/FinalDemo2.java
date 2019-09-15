@@ -1,11 +1,11 @@
-package extendspackage;
+package top.seefly.javase.old2017.extendspackage;
 /*
- * final�������ʱ��(String��)�������޷����̳У������������޷����޸ġ�
- * �����ڶ������ʱ����Ҫ����һ�¼���
- * ʹ��private final���θ���������򣬼���һ��ʵ����֮��Ͳ��ɸı���������
- * �ṩ�вι��췽������������г�ʼ��
- * ��Ҫ�ṩ�޸���
- * ��Ҫ��ʱ����Ҫ��дtoString(),equals(),hashCode()
+ * final修饰类的时候(String类)，此类无法被继承，且其数据域无法被修改。
+ * 所以在定义此类时候，需要做到一下几点
+ * 使用private final修饰该类的数据域，即类一经实例化之后就不可改变其数据域。
+ * 提供有参构造方法对数据域进行初始化
+ * 不要提供修改器
+ * 必要的时候需要重写toString(),equals(),hashCode()
  * 
  * */
 public class FinalDemo2 {

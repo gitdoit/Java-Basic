@@ -1,11 +1,11 @@
-package thread;
+package top.seefly.javase.old2017.thread;
 /*
- * yield()�����ǽ����Լ���ִ��Ȩ�ޣ�ʹ�Լ���ִ��̬ǿ��ת��Ϊ����̬��������������Դ��
- * �ò������õ��ֵ���Դ��yield�������ˣ����ó���ִ��Ȩֻ�ܱ�ͬ�Ȼ�ߵ����ȼ����߳����ᡣ(������ʱû��������������߳�ʱ��������ȼ����߳�Ҳ��õ�ִ��Ȩ)
- * �������ʹ�������߳���ͣһ��
- * ע�⣬����sleep������ͬ��sleep������ʹ���߳�ǿ�ƽ�������̬������ָ��ʱ����ת��Ϊ����̬��
- * ��yield������ʹ���̴߳�ִ��̬תΪ����������������
- * ����Ȼ������ͬ��������ڵ���yield��ô���̲߳����ͷ���
+ * yield()方法是交出自己的执行权限，使自己从执行态强制转换为就绪态，即重新抢夺资源。
+ * 好不容易拿到手的资源被yield给夺走了，且让出的执行权只能被同等或高等优先级的线程抢夺。(但当此时没有满足此条件的线程时，则低优先级的线程也会得到执行权)
+ * 这更想是使被调用线程暂停一下
+ * 注意，它与sleep方法不同，sleep方法是使该线程强制进入阻塞态，经过指定时间后才转换为就绪态。
+ * 而yield方法，使该线程从执行态转为就绪，而不阻塞。
+ * 很显然，若在同步代码块内调用yield那么该线程不会释放锁
  * 
  * */
 public class YieldDemo {
@@ -13,8 +13,8 @@ public class YieldDemo {
 		YieldRun r = new YieldRun();
 		Thread t = new Thread(r);
 		Thread t2 = new Thread(r);
-		t.setPriority(Thread.MAX_PRIORITY);//�����߳����ȼ���JAVA�н�֮��Ϊ10�������ṩ���������ȼ����������ڲ�ͬ��OS�ж�������ͬ������û�����ȼ���
-		t2.setPriority(Thread.MIN_PRIORITY);//����΢����OS�������ȼ���Ϊ7�������ߵ����ȼ������Ÿ����ִ�л���
+		t.setPriority(Thread.MAX_PRIORITY);//设置线程优先级，JAVA中将之分为10级，且提供了三个优先级常量。但在不同的OS中都不尽相同，或者没有优先级。
+		t2.setPriority(Thread.MIN_PRIORITY);//像是微软的OS，将优先级分为7级。更高的优先级代表着更多的执行机会
 		t.start();
 		t2.start();
 	}
@@ -26,7 +26,7 @@ class YieldRun implements Runnable{
 		int i = 0;
 		while(i < 50) {
 			if(i == 20)
-				Thread.yield();//�� i == 20ʱ��������ͣһ��
+				Thread.yield();//当 i == 20时，都会暂停一下
 			System.out.println(Thread.currentThread().getName()+"  :"+i++);
 		}
 		

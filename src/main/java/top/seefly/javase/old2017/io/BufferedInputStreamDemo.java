@@ -1,4 +1,4 @@
-package io;
+package top.seefly.javase.old2017.io;
 
 import java.io.BufferedInputStream;
 import java.io.FileInputStream;
@@ -10,7 +10,7 @@ public class BufferedInputStreamDemo {
 
 	public static void main(String[] args) throws IOException {
 		BufferedInputStream bfis = new BufferedInputStream(new FileInputStream("e:\\liujianxin.txt"));
-		byte[] bt = new byte[8];//ËäÈ»Ê¹ÓÃÁË»º³å³Ø£¬µ«Ò²ÒªÎªµ×²ãµÄÁ÷Ìá¹©Ò»¸ö»º³åÊı×é
+		byte[] bt = new byte[8];//è™½ç„¶ä½¿ç”¨äº†ç¼“å†²æ± ï¼Œä½†ä¹Ÿè¦ä¸ºåº•å±‚çš„æµæä¾›ä¸€ä¸ªç¼“å†²æ•°ç»„
 //		while(bfis.read(bt) != -1)
 //			System.out.println(new String(bt));
 		int by;

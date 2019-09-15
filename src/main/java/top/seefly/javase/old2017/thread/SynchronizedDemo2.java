@@ -1,6 +1,6 @@
-package thread;
+package top.seefly.javase.old2017.thread;
 /*
- * ¸ÃÀàÑÝÊ¾ÁË¶ÔÓÚÍ¬Ò»¸öÍ¬²½´úÂë¿é£¬Èç¹û¶à¸öÏß³ÌÊ¹ÓÃ²»Í¬µÄËø£¬ÄÇÃ´¶à¸öÏß³Ì»á²¢·¢Ö´ÐÐÕâ¸öÍ¬²½´úÂë¿é
+ * è¯¥ç±»æ¼”ç¤ºäº†å¯¹äºŽåŒä¸€ä¸ªåŒæ­¥ä»£ç å—ï¼Œå¦‚æžœå¤šä¸ªçº¿ç¨‹ä½¿ç”¨ä¸åŒçš„é”ï¼Œé‚£ä¹ˆå¤šä¸ªçº¿ç¨‹ä¼šå¹¶å‘æ‰§è¡Œè¿™ä¸ªåŒæ­¥ä»£ç å—
  * 
  * */
 public class SynchronizedDemo2 {
@@ -19,7 +19,7 @@ public class SynchronizedDemo2 {
 class runnable implements Runnable{
 	private int count = 100;
 	public void run(){
-		Object a = new Object();//Ã¿Ò»¸öÏß³Ì½øÀ´¶¼»áÐÂ½¨Ò»¸ö¶ÔÏó£¬Ã¿¸öÏß³ÌµÄËø²¢²»Ò»Ñù
+		Object a = new Object();//æ¯ä¸€ä¸ªçº¿ç¨‹è¿›æ¥éƒ½ä¼šæ–°å»ºä¸€ä¸ªå¯¹è±¡ï¼Œæ¯ä¸ªçº¿ç¨‹çš„é”å¹¶ä¸ä¸€æ ·
 		synchronized(a){
 			while(count > 0){
 				try{Thread.sleep(10);}catch(Exception ex){}

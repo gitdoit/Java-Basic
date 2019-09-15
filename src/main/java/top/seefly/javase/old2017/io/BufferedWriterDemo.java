@@ -1,4 +1,4 @@
-package io;
+package top.seefly.javase.old2017.io;
 
 import java.io.BufferedWriter;
 import java.io.FileOutputStream;
@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 
 /*
- * ¸ßĞ§»º³å¼¼Êõ£¬Ìá¸ßIOËÙ¶È
+ * é«˜æ•ˆç¼“å†²æŠ€æœ¯ï¼Œæé«˜IOé€Ÿåº¦
  * BufferedWriter(OutputStreamWriter )
  * OutputStreamWriter(FileOutputStream)
  * FileOutputStream(File)
@@ -16,10 +16,10 @@ public class BufferedWriterDemo {
 	public static void main(String[] args) throws IOException{
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("buffwriter.txt")));
 //		BufferedWriter bw1 = new BufferedWriter(new FileWriter("e:\\liujianxin.txt",true));
-		String str = "Áõ½¨öÎË§";
+		String str = "åˆ˜å»ºé‘«å¸…";
 		bw.write(str);
 		bw.write(65);
-		bw.newLine();//»»ĞĞ·û£¬¸ù¾İÆ½Ì¨Ñ¡Ôñ»»ĞĞ·û£¬²¢²»µ¥µ¥ÊÇ \n
+		bw.newLine();//æ¢è¡Œç¬¦ï¼Œæ ¹æ®å¹³å°é€‰æ‹©æ¢è¡Œç¬¦ï¼Œå¹¶ä¸å•å•æ˜¯ \n
 		bw.write(str, 0, 1);
 		bw.close();
 	}

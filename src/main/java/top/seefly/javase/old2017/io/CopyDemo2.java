@@ -1,4 +1,4 @@
-package io;
+package top.seefly.javase.old2017.io;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
@@ -9,33 +9,33 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 /*
- * ¸´ÖÆÎÄ±¾ÎÄ¼ş£¬Ê¹ÓÃ´òÓ¡Á÷¶ÔÆäÔöÇ¿
- * ´Óe:\\IOTest\\src.txtµ½Í¬Ä¿Â¼ÏÂµÄtar.txt
+ * å¤åˆ¶æ–‡æœ¬æ–‡ä»¶ï¼Œä½¿ç”¨æ‰“å°æµå¯¹å…¶å¢å¼º
+ * ä»e:\\IOTest\\src.txtåˆ°åŒç›®å½•ä¸‹çš„tar.txt
  */
 public class CopyDemo2 {
 
 	public static void main(String[] args) throws IOException{
-		//Ô­À´µÄ·½·¨
+		//åŸæ¥çš„æ–¹æ³•
 //		BufferedReader br = new BufferedReader(new FileReader("e:\\IOTest\\src.txt"));
 //		BufferedWriter bw = new BufferedWriter(new FileWriter("e:\\IOTEst\\tar.txt"));
 //		
 //		String str = null;
 //		while((str = br.readLine()) != null) {
-//			bw.write(str);//Ğ´ÈëÒ»ÕûĞĞ
-//			bw.newLine();//ÔÙĞÂ½¨Ò»ĞĞ
-//			bw.flush();//³åË¢Ò»ĞĞ
+//			bw.write(str);//å†™å…¥ä¸€æ•´è¡Œ
+//			bw.newLine();//å†æ–°å»ºä¸€è¡Œ
+//			bw.flush();//å†²åˆ·ä¸€è¡Œ
 //		}
 //		br.close();
 //		bw.close();
 		
 
 		BufferedReader br = new BufferedReader(new FileReader("e:\\IOTest\\src.txt"));
-		PrintWriter pw = new PrintWriter(new FileOutputStream("e:\\IOTest\\tar.txt"),true);//ÉèÖÃ´òÓ¡Á÷£¬ÇÒ×Ô¶¯³åË¢
-																							//ËäÈ»Ã»ÓĞÃ÷È·Ö¸Ã÷´Ë´òÓ¡Á÷ÓĞ»º³å³Ø£¬µ«ÄÚ²¿ÒÑ¾­°ü×°ºÃÁË
+		PrintWriter pw = new PrintWriter(new FileOutputStream("e:\\IOTest\\tar.txt"),true);//è®¾ç½®æ‰“å°æµï¼Œä¸”è‡ªåŠ¨å†²åˆ·
+																							//è™½ç„¶æ²¡æœ‰æ˜ç¡®æŒ‡æ˜æ­¤æ‰“å°æµæœ‰ç¼“å†²æ± ï¼Œä½†å†…éƒ¨å·²ç»åŒ…è£…å¥½äº†
 		
 		String str = null;
 		while((str = br.readLine()) != null) {
-			pw.println(str);//ÕâÀïÒ»ĞĞµÈÍ¬ÓÚÉÏÃæÍ¬Î»ÖÃµÄÈıĞĞ
+			pw.println(str);//è¿™é‡Œä¸€è¡Œç­‰åŒäºä¸Šé¢åŒä½ç½®çš„ä¸‰è¡Œ
 		}
 		br.close();
 		pw.close();

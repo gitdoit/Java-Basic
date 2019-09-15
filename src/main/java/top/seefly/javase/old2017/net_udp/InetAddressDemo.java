@@ -1,13 +1,13 @@
-package net_udp;
+package top.seefly.javase.old2017.net_udp;
 import java.io.IOException;
 /*
- * ±¾ÀàÓÃÀ´ÑİÊ¾javaÊÇÈçºÎ·â×°Ò»¸öIPµØÖ·
- * ¿ÉÒÔÓÃInetAddress ÖĞµÄ¾²Ì¬·½·¨½«ÍøÖ··â×°³ÉÒ»¸öIP¶ÔÏó
+ * æœ¬ç±»ç”¨æ¥æ¼”ç¤ºjavaæ˜¯å¦‚ä½•å°è£…ä¸€ä¸ªIPåœ°å€
+ * å¯ä»¥ç”¨InetAddress ä¸­çš„é™æ€æ–¹æ³•å°†ç½‘å€å°è£…æˆä¸€ä¸ªIPå¯¹è±¡
  * 
- * PID µçÄÔÖĞÎªÃ¿Ò»¸ö½ø³Ì·ÖÅäµÄÒ»¸öID£¬Ëü²»´ú±í¶Ë¿ÚºÅ
- * ÃüÁî£ºnetstat -nao ²é¿´PIDÓë¶ÔÓ¦µÄ¶Ë¿ÚºÅ
- * 0-1024ÎªÏµÍ³±£Áô£¬½ö¹©ÏµÍ³½ø³ÌÊ¹ÓÃµÄ¶Ë¿ÚºÅ¡£
- * 1025-65535Îª³ÌĞòÊ¹ÓÃ
+ * PID ç”µè„‘ä¸­ä¸ºæ¯ä¸€ä¸ªè¿›ç¨‹åˆ†é…çš„ä¸€ä¸ªIDï¼Œå®ƒä¸ä»£è¡¨ç«¯å£å·
+ * å‘½ä»¤ï¼šnetstat -nao æŸ¥çœ‹PIDä¸å¯¹åº”çš„ç«¯å£å·
+ * 0-1024ä¸ºç³»ç»Ÿä¿ç•™ï¼Œä»…ä¾›ç³»ç»Ÿè¿›ç¨‹ä½¿ç”¨çš„ç«¯å£å·ã€‚
+ * 1025-65535ä¸ºç¨‹åºä½¿ç”¨
  * 
  */
 import java.net.InetAddress;
@@ -16,18 +16,18 @@ import java.net.UnknownHostException;
 public class InetAddressDemo {
 
 	public static void main(String[] args) throws Exception {
-		//¸ù¾İÖ¸¶¨µÄÖ÷»úÃû³Æ£¬»ñµÃµØÖ·
+		//æ ¹æ®æŒ‡å®šçš„ä¸»æœºåç§°ï¼Œè·å¾—åœ°å€
 		InetAddress ip = InetAddress.getByName("DESKTOP-K7IID8L");
 		InetAddress ip2 = InetAddress.getByName("www.baidu.com");
 		InetAddress ip3 = InetAddress.getByName("180.97.33.107");
 		InetAddress ip4 = InetAddress.getByAddress(new byte[] {117,67,11,17});
 		System.out.println(ip2.getHostAddress());
-		//ÅĞ¶ÏÊÇ·ñ¿É´ï
+		//åˆ¤æ–­æ˜¯å¦å¯è¾¾
 		System.out.println(ip.isReachable(2000));
-		//»ñÈ¡ÊµÀıµÄIPµØÖ·+Ö÷»úÃû
+		//è·å–å®ä¾‹çš„IPåœ°å€+ä¸»æœºå
 		System.out.println(ip.getHostAddress()+"---"+ip.getHostName());
 		
-		//¶ÔÓ¦µÄÈ«ÏŞ¶¨ÓòÃû
+		//å¯¹åº”çš„å…¨é™å®šåŸŸå
 		System.out.println(ip.getCanonicalHostName());
 		
 		

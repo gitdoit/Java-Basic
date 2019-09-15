@@ -1,24 +1,24 @@
-package io;
+package top.seefly.javase.old2017.io;
 /*
- * IOÁ÷µÄ·ÖÀà
- * 	Á÷Ïò£º
- * 		ÊäÈëÁ÷£ºÁ÷Ïò³ÌÐò
- * 		Êä³öÁ÷£º´Ó³ÌÐòÁ÷³ö
- * 	Êý¾ÝÀàÐÍ£º
- * 		×Ö½ÚÁ÷(µ×²ãÁ÷)
- * 			×Ö½ÚÊäÈëÁ÷  	³¬Àà(abstract) £º InputStream
+ * IOæµçš„åˆ†ç±»
+ * 	æµå‘ï¼š
+ * 		è¾“å…¥æµï¼šæµå‘ç¨‹åº
+ * 		è¾“å‡ºæµï¼šä»Žç¨‹åºæµå‡º
+ * 	æ•°æ®ç±»åž‹ï¼š
+ * 		å­—èŠ‚æµ(åº•å±‚æµ)
+ * 			å­—èŠ‚è¾“å…¥æµ  	è¶…ç±»(abstract) ï¼š InputStream
  * 										----FileInputStream(File f\String filePathName)
- * 			×Ö½ÚÊä³öÁ÷ 	³¬Àà (abstract)£º OutputStream
+ * 			å­—èŠ‚è¾“å‡ºæµ 	è¶…ç±» (abstract)ï¼š OutputStream
  * 										----FileOutputStream(File f\String filePathName)
  * 
- * 		×Ö·ûÁ÷(×ª»»Á÷)							
- * 			×Ö·ûÊäÈëÁ÷  ³¬Àà(abstract) £ºReader
+ * 		å­—ç¬¦æµ(è½¬æ¢æµ)							
+ * 			å­—ç¬¦è¾“å…¥æµ  è¶…ç±»(abstract) ï¼šReader
  * 										----InputStreamReader(InputStream in)
- * 			×Ö·ûÊä³öÁ÷  ³¬Àà(abstract) £ºWriter
+ * 			å­—ç¬¦è¾“å‡ºæµ  è¶…ç±»(abstract) ï¼šWriter
  * 										----OutputStreamWriter(OutputStream out)
  * 
- * Ò»°ãÔÚÌÖÂÛIOµÄÊ±ºò£¬Ã»ÓÐÖ¸Ã÷°´ÄÇÖÖ·½Ê½·ÖÀà£¬Ä¬ÈÏÎª°´Êý¾ÝÀàÐÍ·ÖÀà
- * ×¢Òâ£ºÒ»¸öFileInputStream¶ÔÏó´ÓÎÄ¼þÖÐ¶ÁÊý¾Ý£¬Èç¹û¶ÁÍêÖ®ºóÔÚ¶ÔÆäµ÷ÓÃread£¬ÄÇÃ´½«Ê²Ã´¶¼¶Á²»³öÀ´£¬ÒòÎªËüµÄÖ¸ÕëÒÑ¾­ÒÆ¶¯µ½Ä©Î²¡£
+ * ä¸€èˆ¬åœ¨è®¨è®ºIOçš„æ—¶å€™ï¼Œæ²¡æœ‰æŒ‡æ˜ŽæŒ‰é‚£ç§æ–¹å¼åˆ†ç±»ï¼Œé»˜è®¤ä¸ºæŒ‰æ•°æ®ç±»åž‹åˆ†ç±»
+ * æ³¨æ„ï¼šä¸€ä¸ªFileInputStreamå¯¹è±¡ä»Žæ–‡ä»¶ä¸­è¯»æ•°æ®ï¼Œå¦‚æžœè¯»å®Œä¹‹åŽåœ¨å¯¹å…¶è°ƒç”¨readï¼Œé‚£ä¹ˆå°†ä»€ä¹ˆéƒ½è¯»ä¸å‡ºæ¥ï¼Œå› ä¸ºå®ƒçš„æŒ‡é’ˆå·²ç»ç§»åŠ¨åˆ°æœ«å°¾ã€‚
  */
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -27,15 +27,15 @@ import java.io.IOException;
 public class FileInputDemo {
 
 	public static void main(String[] args) throws Exception {
-		FileInputStream fis  = new FileInputStream("e:\\liujianxin.txt");//Èç¹ûÌá¹©Ô´ÎÄ¼þ²»´æÔÚ£¬Ôò±¨FileNotFoundException
-		byte[] bt = new byte[2];//»º³å×Ö½ÚÊý×é
-		System.out.println("¿É¹©ÏÂ´Î¶ÁÈ¡µÄ×Ö½ÚÊýÎª£º"+fis.available());
+		FileInputStream fis  = new FileInputStream("e:\\liujianxin.txt");//å¦‚æžœæä¾›æºæ–‡ä»¶ä¸å­˜åœ¨ï¼Œåˆ™æŠ¥FileNotFoundException
+		byte[] bt = new byte[2];//ç¼“å†²å­—èŠ‚æ•°ç»„
+		System.out.println("å¯ä¾›ä¸‹æ¬¡è¯»å–çš„å­—èŠ‚æ•°ä¸ºï¼š"+fis.available());
 		 int  hasRead;
-		 //read(bt,starIndex,len),ÔÚÊý×éstarIndexÎ»ÖÃ¿ªÊ¼Ð´Èë³¤¶ÈÎªlen¸ö×Ö½Ú¡£µ±¶ÁÈ¡ÍêËùÓÐÊý¾ÝÊ±£¬·µ»Ø-1
-		 //read() ÎÞ²Î·½·¨£¬·µ»ØÖµÊÇÒ»¸öint£¬¼´¶ÁÈ¡µÄ×Ö½Ú¡£µ±¶ÁÈ¡ÍêËùÓÐÊý¾ÝÊ±£¬·µ»Ø-1
-		 while((hasRead = fis.read(bt)) > 0) {//read(byte[])·½·¨½«Ö¸¶¨ÎÄ¼þÒÔ×Ö½ÚÁ÷µÄÐÎÊ½Ð´ÈëbyteÊä³ö£¬Ð´Èë³¤¶ÈÊÇÊý×é³¤¶È¡£·µ»ØÖµÊÇ±¾´ÎÐ´Èë³¤¶È¡£
-			 									//µ±¶ÁÈ¡½áÊøÊÇ£¬·µ»ØÖµÎª-1
-			 System.out.print(new String(bt,0,hasRead));//String(×Ö½ÚÊý×é£¬Ä¬ÈÏ½âÂë·½Ê½£¬´ÓÊý×éÖÐ¶ÁÈ¡µÄ³¤¶È)
+		 //read(bt,starIndex,len),åœ¨æ•°ç»„starIndexä½ç½®å¼€å§‹å†™å…¥é•¿åº¦ä¸ºlenä¸ªå­—èŠ‚ã€‚å½“è¯»å–å®Œæ‰€æœ‰æ•°æ®æ—¶ï¼Œè¿”å›ž-1
+		 //read() æ— å‚æ–¹æ³•ï¼Œè¿”å›žå€¼æ˜¯ä¸€ä¸ªintï¼Œå³è¯»å–çš„å­—èŠ‚ã€‚å½“è¯»å–å®Œæ‰€æœ‰æ•°æ®æ—¶ï¼Œè¿”å›ž-1
+		 while((hasRead = fis.read(bt)) > 0) {//read(byte[])æ–¹æ³•å°†æŒ‡å®šæ–‡ä»¶ä»¥å­—èŠ‚æµçš„å½¢å¼å†™å…¥byteè¾“å‡ºï¼Œå†™å…¥é•¿åº¦æ˜¯æ•°ç»„é•¿åº¦ã€‚è¿”å›žå€¼æ˜¯æœ¬æ¬¡å†™å…¥é•¿åº¦ã€‚
+			 									//å½“è¯»å–ç»“æŸæ˜¯ï¼Œè¿”å›žå€¼ä¸º-1
+			 System.out.print(new String(bt,0,hasRead));//String(å­—èŠ‚æ•°ç»„ï¼Œé»˜è®¤è§£ç æ–¹å¼ï¼Œä»Žæ•°ç»„ä¸­è¯»å–çš„é•¿åº¦)
 		 }
 		fis.close();
 		 

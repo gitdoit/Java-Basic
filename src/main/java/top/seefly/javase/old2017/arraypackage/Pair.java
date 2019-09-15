@@ -1,15 +1,15 @@
-package arraypackage;
-/* ¸ÃÀàÎª×Ô¶¨ÒåµÄ·ºĞÍ»ù´¡Àà
- * ÓĞÁ½¸öË½ÓĞÊı¾İÓò
- * Á½¸ö¹¹Ôì·½·¨
- * Á½¸ö·ÃÎÊÆ÷
- * ¼âÀ¨ºÅÄÚµÄT Îª´ı¶¨ÒåµÄÀàĞÍ
+package top.seefly.javase.old2017.arraypackage;
+/* è¯¥ç±»ä¸ºè‡ªå®šä¹‰çš„æ³›å‹åŸºç¡€ç±»
+ * æœ‰ä¸¤ä¸ªç§æœ‰æ•°æ®åŸŸ
+ * ä¸¤ä¸ªæ„é€ æ–¹æ³•
+ * ä¸¤ä¸ªè®¿é—®å™¨
+ * å°–æ‹¬å·å†…çš„T ä¸ºå¾…å®šä¹‰çš„ç±»å‹
  * 
  * */          //Pair<T extends Comparable> \<T super String>
-public class Pair<T> {/*Pair<T extends Comparable> ËµÃ÷TÖ»ÄÜÊÇComparableµÄ×ÓÀàĞÍ£¬Èç¹û²Á³ıÀàĞÍ¡£ÔòTÖ»ÄÜÊÇComparable
-					Èç¹ûÏëÈÃTÖ»ÄÜ½ÓÊÜÊı×ÖÀàĞÍµÄ»°£¬¾ÍPair<T extends Number> ÕâÑùTÖ»ÄÜÊÇDouble Integer Short Long Float Byte
-					ÕâÖÖ·½·¨½Ğ×öÉÏÏŞÅäÖÃ¡£¼´TµÄÉÏÏŞ¾ÍÊÇNumber£¬·ºĞÍÀàĞÍ²»ÄÜÔÙ±ÈËû¸ü¸ß¼¶£¬Ö»ÄÜÊÇËû»òÊÇËûµÄ×ÓÀà
-					Pair<T super String> ÕâÖÖ·½·¨½Ğ×öÏÂÏŞÅäÖÃ£¬·ºĞÍÀàĞÍTÖ»ÄÜÊÇString»òÕßÊÇËûµÄ¸¸Àà
+public class Pair<T> {/*Pair<T extends Comparable> è¯´æ˜Tåªèƒ½æ˜¯Comparableçš„å­ç±»å‹ï¼Œå¦‚æœæ“¦é™¤ç±»å‹ã€‚åˆ™Tåªèƒ½æ˜¯Comparable
+					å¦‚æœæƒ³è®©Tåªèƒ½æ¥å—æ•°å­—ç±»å‹çš„è¯ï¼Œå°±Pair<T extends Number> è¿™æ ·Tåªèƒ½æ˜¯Double Integer Short Long Float Byte
+					è¿™ç§æ–¹æ³•å«åšä¸Šé™é…ç½®ã€‚å³Tçš„ä¸Šé™å°±æ˜¯Numberï¼Œæ³›å‹ç±»å‹ä¸èƒ½å†æ¯”ä»–æ›´é«˜çº§ï¼Œåªèƒ½æ˜¯ä»–æˆ–æ˜¯ä»–çš„å­ç±»
+					Pair<T super String> è¿™ç§æ–¹æ³•å«åšä¸‹é™é…ç½®ï¼Œæ³›å‹ç±»å‹Tåªèƒ½æ˜¯Stringæˆ–è€…æ˜¯ä»–çš„çˆ¶ç±»
 					*/
 	
 	private T first;

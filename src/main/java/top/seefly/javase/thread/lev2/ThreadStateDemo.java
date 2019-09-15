@@ -1,7 +1,7 @@
 package top.seefly.javase.thread.lev2;
 
 import org.junit.Test;
-import org.seefly.thread.ThreadUtils;
+import top.seefly.javase.thread.ThreadUtils;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 

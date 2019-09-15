@@ -1,4 +1,4 @@
-package mypraxis;
+package top.seefly.javase.old2017.mypraxis;
 
 import java.io.File;
 import java.io.*;
@@ -6,16 +6,16 @@ import java.util.HashSet;
 import java.util.Iterator;
 
 /*
- * ÎÊÌâ£º½«Ö¸¶¨ÎÄ¼şÄÚµÄÃô¸Ğ´Ê»ãºÍĞ³³É*
- * Ë¼Â·£ºÃô¸Ğ´Ê»ã³¤¶È²»¹Ì¶¨£¬ÄÚÈİ²»¹Ì¶¨£¬Èô²ÉÓÃÑ­»·Æ¥ÅäÔòĞ§ÂÊ¼«µÍ¡£
- * Ãô¸Ğ´Ê»ãÂ¼ÈëÃô¸Ğ´Ê»ã¿â£¬ÄÇÔõÃ´´Ó×Ö·û´®ÖĞ×¼È·ÕÒµ½Ãô¸Ğ´Ê»ãÄØ£¿
- * ÎÒ¾õµÃ¿ÉÒÔÊ¹ÓÃ¶à¼¶Ó³Éä£¡
- * 		Ò»¼¶Ó³Éä£º´æ´¢Ãô¸Ğµ¥´ÊÊ××Ö·û£¬Ê¹ÓÃHashSet
- * 		¶ş¼¶Ó³Éä£º´æ´¢Ãô¸Ğµ¥´Ê³¤¶ÈÎª2,»ò¸ü³¤Ãô¸Ğ´ÊµÄÇ°Á½¸ö×Ö·û.Ê¹ÓÃHashSet
- * 		Èı¼¶Ó³Éä£º´æ´¢Ãô¸Ğµ¥´Ê³¤¶ÈÎª3µÄµ¥´Ê£¬ÕâÀïÖ»¿¼ÂÇÃô¸Ğµ¥´Ê³¤¶È×î¶àÎª3¡£Ê¹ÓÃHashSet
- * ±éÀú¸÷¸öÅĞ¶Ï¸÷¸ö×Ö·û£¬½øĞĞÒ»¼¶Ó³Éä¡£ÈôÎªÃô¸Ğµ¥´ÊÊ××Ö·û£¬Ôò´Ó×Ö·û´®ÖĞÈ¡´Ó´Ë×Ö·û¿ªÊ¼µÄÁ½¸ö×Ö·û½øĞĞ¶ş¼¶Ó³Éä¡£ÈôÎŞ£¬ÔòÌø¹ı£¬ÈôÓĞÔò½øĞĞÈı¼¶Ó³Éä¡£Èı¼¶Ó³ÉäÈôÎŞ£¬ÔòÆÁ±Î
- * ÕâÁ½¸ö×Ö·û£¬ÈôÓĞÔòÆÁ±ÎÕâÈı¸ö×Ö·û¡£
- * ½ñÌìÎÒ¿´¼ûÒ»¸öÈË³¬¼¶Å£±Æ£¬ÎÒ²ÙÄãÂèµÄ£¬ÔõÃ´ÕâÃ´Å£±Æ£¬Ï°½üÆ½¿´ÁË¶¼¾õµÃÅ£±ÆµÄ²»ĞĞ£¡¹²²úµ³¶¼¾õµÃŒÅ£¡Å£±Æ
+ * é—®é¢˜ï¼šå°†æŒ‡å®šæ–‡ä»¶å†…çš„æ•æ„Ÿè¯æ±‡å’Œè°æˆ*
+ * æ€è·¯ï¼šæ•æ„Ÿè¯æ±‡é•¿åº¦ä¸å›ºå®šï¼Œå†…å®¹ä¸å›ºå®šï¼Œè‹¥é‡‡ç”¨å¾ªç¯åŒ¹é…åˆ™æ•ˆç‡æä½ã€‚
+ * æ•æ„Ÿè¯æ±‡å½•å…¥æ•æ„Ÿè¯æ±‡åº“ï¼Œé‚£æ€ä¹ˆä»å­—ç¬¦ä¸²ä¸­å‡†ç¡®æ‰¾åˆ°æ•æ„Ÿè¯æ±‡å‘¢ï¼Ÿ
+ * æˆ‘è§‰å¾—å¯ä»¥ä½¿ç”¨å¤šçº§æ˜ å°„ï¼
+ * 		ä¸€çº§æ˜ å°„ï¼šå­˜å‚¨æ•æ„Ÿå•è¯é¦–å­—ç¬¦ï¼Œä½¿ç”¨HashSet
+ * 		äºŒçº§æ˜ å°„ï¼šå­˜å‚¨æ•æ„Ÿå•è¯é•¿åº¦ä¸º2,æˆ–æ›´é•¿æ•æ„Ÿè¯çš„å‰ä¸¤ä¸ªå­—ç¬¦.ä½¿ç”¨HashSet
+ * 		ä¸‰çº§æ˜ å°„ï¼šå­˜å‚¨æ•æ„Ÿå•è¯é•¿åº¦ä¸º3çš„å•è¯ï¼Œè¿™é‡Œåªè€ƒè™‘æ•æ„Ÿå•è¯é•¿åº¦æœ€å¤šä¸º3ã€‚ä½¿ç”¨HashSet
+ * éå†å„ä¸ªåˆ¤æ–­å„ä¸ªå­—ç¬¦ï¼Œè¿›è¡Œä¸€çº§æ˜ å°„ã€‚è‹¥ä¸ºæ•æ„Ÿå•è¯é¦–å­—ç¬¦ï¼Œåˆ™ä»å­—ç¬¦ä¸²ä¸­å–ä»æ­¤å­—ç¬¦å¼€å§‹çš„ä¸¤ä¸ªå­—ç¬¦è¿›è¡ŒäºŒçº§æ˜ å°„ã€‚è‹¥æ— ï¼Œåˆ™è·³è¿‡ï¼Œè‹¥æœ‰åˆ™è¿›è¡Œä¸‰çº§æ˜ å°„ã€‚ä¸‰çº§æ˜ å°„è‹¥æ— ï¼Œåˆ™å±è”½
+ * è¿™ä¸¤ä¸ªå­—ç¬¦ï¼Œè‹¥æœ‰åˆ™å±è”½è¿™ä¸‰ä¸ªå­—ç¬¦ã€‚
+ * ä»Šå¤©æˆ‘çœ‹è§ä¸€ä¸ªäººè¶…çº§ç‰›é€¼ï¼Œæˆ‘æ“ä½ å¦ˆçš„ï¼Œæ€ä¹ˆè¿™ä¹ˆç‰›é€¼ï¼Œä¹ è¿‘å¹³çœ‹äº†éƒ½è§‰å¾—ç‰›é€¼çš„ä¸è¡Œï¼å…±äº§å…šéƒ½è§‰å¾—å±Œï¼ç‰›é€¼
  */
 public class HexieTest {
 
@@ -23,10 +23,10 @@ public class HexieTest {
 		double startima = System.currentTimeMillis();
 		BufferedReader input = new BufferedReader(new InputStreamReader(new FileInputStream("E:\\IOTest\\src.txt")));
 		BufferedWriter output = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("E:\\IOTest\\tar.txt")));
-		BufferedReader input1 = new BufferedReader(new InputStreamReader(new FileInputStream("E:\\IOTest\\Ãô¸Ğ´Ê¿â.txt")));
+		BufferedReader input1 = new BufferedReader(new InputStreamReader(new FileInputStream("E:\\IOTest\\æ•æ„Ÿè¯åº“.txt")));
 		StringBuffer words = new StringBuffer();
 		String str1 = null;
-		while((str1=input.readLine()) != null) {//´ı±È½ÏÎÄ¼ş¶ÁÈë½øwords»º´æÊı×é
+		while((str1=input.readLine()) != null) {//å¾…æ¯”è¾ƒæ–‡ä»¶è¯»å…¥è¿›wordsç¼“å­˜æ•°ç»„
 			words.append(str1);
 		}
 		//System.out.println(words);
@@ -34,17 +34,17 @@ public class HexieTest {
 		HashSet<String> base = new HashSet<>();
 		HashSet<String> mid = new HashSet<>();
 		HashSet<Character> top = new HashSet<>();
-		//Â¼ÈëÃô¸Ğ´Ê»ã£¬´Ë²Ù×÷Ó¦ÎªÓÃ»§²Ù×÷¡£ÍêÉÆ¹¦ÄÜºó¿ÉÒÔÅúÁ¿²Ù×÷
-//		base.add("Å£±Æ");
-//		base.add("Éµ±Æ");
-//		base.add("²ÙÄãÂè");
-//		base.add("Ï°½üÆ½");
-//		base.add("¹²²úµ³");
-		while((str1 = input1.readLine()) != null){//Ãô¸Ğ´Ê¿â´æÈëbase
+		//å½•å…¥æ•æ„Ÿè¯æ±‡ï¼Œæ­¤æ“ä½œåº”ä¸ºç”¨æˆ·æ“ä½œã€‚å®Œå–„åŠŸèƒ½åå¯ä»¥æ‰¹é‡æ“ä½œ
+//		base.add("ç‰›é€¼");
+//		base.add("å‚»é€¼");
+//		base.add("æ“ä½ å¦ˆ");
+//		base.add("ä¹ è¿‘å¹³");
+//		base.add("å…±äº§å…š");
+		while((str1 = input1.readLine()) != null){//æ•æ„Ÿè¯åº“å­˜å…¥base
 			base.add(str1);
 		}
 		
-		//ÌáÈ¡Ãô¸Ğ´Ê»ãÊ××Ö·ûºÍÇ°Á½¸ö×Ö·û£¬´Ë²Ù×÷Ó¦Îª×Ô¶¯²Ù×÷
+		//æå–æ•æ„Ÿè¯æ±‡é¦–å­—ç¬¦å’Œå‰ä¸¤ä¸ªå­—ç¬¦ï¼Œæ­¤æ“ä½œåº”ä¸ºè‡ªåŠ¨æ“ä½œ
 		Iterator<String> it = base.iterator();
 		String str = null;
 		while(it.hasNext()) {
@@ -53,10 +53,10 @@ public class HexieTest {
 			mid.add(str.substring(0, 2));
 		}
 		//System.out.println(mid);
-		//±éÀú×Ö·û´®
+		//éå†å­—ç¬¦ä¸²
 		int index;
-		for(index = 0; index < words.length();index++) {//»¹Òª×öĞŞ¸Ä£¬
-			if(top.contains(words.charAt(index)) && index < words.length() - 1) {//°üº¬£¬ÇÒ²»ÊÇ×îºóÒ»¸ö×Ö·û
+		for(index = 0; index < words.length();index++) {//è¿˜è¦åšä¿®æ”¹ï¼Œ
+			if(top.contains(words.charAt(index)) && index < words.length() - 1) {//åŒ…å«ï¼Œä¸”ä¸æ˜¯æœ€åä¸€ä¸ªå­—ç¬¦
 				if(mid.contains(words.substring(index,index+2))) {
 					if(index < words.length() - 2 && base.contains(words.substring(index,index+3))) {
 						words.replace(index, index+3, "***");

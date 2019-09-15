@@ -1,4 +1,4 @@
-package guipackage;
+package top.seefly.javase.old2017.guipackage;
 import java.awt.*;
 import java.awt.image.ImageObserver;
 
@@ -23,7 +23,7 @@ class NotWordsFrame extends JFrame{
 	public NotWordsFrame(){
 		this.add(new NotWordsComponent());
 		//this.setSize(300,500);
-		pack();//´Ë·½·¨ÊÇwindowÀàÖĞµÄ£¬Ëü»áµ÷ÓÃ×Ó×é¼şÖĞµÄgetPreferredSize·½·¨£¬Í¨¹ıÆä·µ»Ø²ÎÊıÈ·¶¨´Ë×é¼şµÄ´óĞ¡
+		pack();//æ­¤æ–¹æ³•æ˜¯windowç±»ä¸­çš„ï¼Œå®ƒä¼šè°ƒç”¨å­ç»„ä»¶ä¸­çš„getPreferredSizeæ–¹æ³•ï¼Œé€šè¿‡å…¶è¿”å›å‚æ•°ç¡®å®šæ­¤ç»„ä»¶çš„å¤§å°
 		
 	}
 }
@@ -32,12 +32,12 @@ class NotWordsComponent extends JComponent{
 	
 
 	@Override
-	public void paintComponent(Graphics g){//¸²¸ÇÕâ¸ö·½·¨À´Ãè»æ×Ô¼ºµÄ×é¼ş£¬¾ÍÏàµ±¸¸ÀàÖĞµÄ¹¹Ôì·½·¨¡£ 
+	public void paintComponent(Graphics g){//è¦†ç›–è¿™ä¸ªæ–¹æ³•æ¥æç»˜è‡ªå·±çš„ç»„ä»¶ï¼Œå°±ç›¸å½“çˆ¶ç±»ä¸­çš„æ„é€ æ–¹æ³•ã€‚ 
 		g.drawString("Hello world!", 75, 100);
 		g.drawImage(new ImageIcon("g:\\r.jpg").getImage(), 55, 50, new JLabel("ddd"));
 	}
 	@Override
-	public Dimension getPreferredSize(){//ÎªÁËÅäºÏpack()±íÑİ
+	public Dimension getPreferredSize(){//ä¸ºäº†é…åˆpack()è¡¨æ¼”
 		return new Dimension(300,150);
 	}
 }

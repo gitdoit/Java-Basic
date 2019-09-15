@@ -1,4 +1,4 @@
-package io;
+package top.seefly.javase.old2017.io;
 
 import java.io.File;
 import java.io.FileFilter;
@@ -6,15 +6,15 @@ import java.io.FilenameFilter;
 import java.io.IOException;
 
 /*
- * ±¾ÀàÓÃÀ´ÑİÊ¾File¶ÔÏóµÄ´´½¨£¬ÒÔ¼°ÎÄ¼ş¼ĞºÍÎÄ¼şµÄ´´½¨
- * File:ÎÄ¼şºÍÄ¿Â¼Â·¾¶µÄ³éÏó±íÊ¾ĞÎÊ½
- * ¹¹Ôì·½·¨
- *	File(String pathname)  ¸ù¾İÂ·¾¶ÃûµÃµ½Ò»¸öFild¶ÔÏó
- * 	File(String parent, String child) ¸ù¾İÒ»¸öÎÄ¼ş¼ĞÂ·¾¶£¬ºÍÎÄ¼ş¼ĞÄÚµÄÎÄ¼ş»òÎÄ¼ş¼ĞµÃµ½Ò»¸öFil¶ÔÏó
- * 	File(File parent, String child) ¸ù¾İFil¶ÔÏóºÍ´Ë¶ÔÏóµÄ×ÓÎÄ¼ş»òÄ¿Â¼µÃµ½Fil¶ÔÏó
- *	ĞÂ½¨File¶ÔÏó²¢²»»áÔÚÓ²ÅÌÉÏ´´½¨¶ÔÓ¦µÄÎÄ¼ş»òÎÄ¼ş¼Ğ£¬ËüÖ»ÊÇÎÄ¼ş»òÎÄ¼ş¼ĞÂ·¾¶µÄ³éÏó±íÊ¾ĞÎÊ½£¬¶øÒ»¸öFile¶ÔÏóÔòÊÇ¶ÔÆäµÄ·â×°
+ * æœ¬ç±»ç”¨æ¥æ¼”ç¤ºFileå¯¹è±¡çš„åˆ›å»ºï¼Œä»¥åŠæ–‡ä»¶å¤¹å’Œæ–‡ä»¶çš„åˆ›å»º
+ * File:æ–‡ä»¶å’Œç›®å½•è·¯å¾„çš„æŠ½è±¡è¡¨ç¤ºå½¢å¼
+ * æ„é€ æ–¹æ³•
+ *	File(String pathname)  æ ¹æ®è·¯å¾„åå¾—åˆ°ä¸€ä¸ªFildå¯¹è±¡
+ * 	File(String parent, String child) æ ¹æ®ä¸€ä¸ªæ–‡ä»¶å¤¹è·¯å¾„ï¼Œå’Œæ–‡ä»¶å¤¹å†…çš„æ–‡ä»¶æˆ–æ–‡ä»¶å¤¹å¾—åˆ°ä¸€ä¸ªFilå¯¹è±¡
+ * 	File(File parent, String child) æ ¹æ®Filå¯¹è±¡å’Œæ­¤å¯¹è±¡çš„å­æ–‡ä»¶æˆ–ç›®å½•å¾—åˆ°Filå¯¹è±¡
+ *	æ–°å»ºFileå¯¹è±¡å¹¶ä¸ä¼šåœ¨ç¡¬ç›˜ä¸Šåˆ›å»ºå¯¹åº”çš„æ–‡ä»¶æˆ–æ–‡ä»¶å¤¹ï¼Œå®ƒåªæ˜¯æ–‡ä»¶æˆ–æ–‡ä»¶å¤¹è·¯å¾„çš„æŠ½è±¡è¡¨ç¤ºå½¢å¼ï¼Œè€Œä¸€ä¸ªFileå¯¹è±¡åˆ™æ˜¯å¯¹å…¶çš„å°è£…
  *	
- *	creatNewFile() ÓÃÀ´´´½¨File¶ÔÏó¶ÔÓ¦µÄ[ÎÄ¼ş]£¬Èç¹ûÎÄ¼şÒÑ¾­´æÔÚ£¬ÄÇÃ´·µ»Øfalse£¬·ñÔòtrue¡£¸Ã·½·¨»áÅ×³öIOException
+ *	creatNewFile() ç”¨æ¥åˆ›å»ºFileå¯¹è±¡å¯¹åº”çš„[æ–‡ä»¶]ï¼Œå¦‚æœæ–‡ä»¶å·²ç»å­˜åœ¨ï¼Œé‚£ä¹ˆè¿”å›falseï¼Œå¦åˆ™trueã€‚è¯¥æ–¹æ³•ä¼šæŠ›å‡ºIOException
  *	
  */
 public class FileDemo1 {
@@ -24,40 +24,40 @@ public class FileDemo1 {
 //		File file1 = new File("e:\\git","a.txt");
 //		File file2 = new File(file,"b.txt");
 //		File file3 = new File("e:\\git\\mkdirs\\test");
-//		File file4 = new File("file.txt");//Èç¹û²»¸ø³ö¾ø¶ÔÂ·¾¶£¬ÄÇÃ´»áÔÚµ±Ç°¹¤×÷¿Õ¼äÄÚµÄ±¾ÏîÄ¿ÎÄ¼ş¼ĞÄÚ´´½¨
+//		File file4 = new File("file.txt");//å¦‚æœä¸ç»™å‡ºç»å¯¹è·¯å¾„ï¼Œé‚£ä¹ˆä¼šåœ¨å½“å‰å·¥ä½œç©ºé—´å†…çš„æœ¬é¡¹ç›®æ–‡ä»¶å¤¹å†…åˆ›å»º
 //		
-//		System.out.println("File¶ÔÏóÊÇ·ñ´æÔÚ-file1.exists:"+file1.exists());//File¶ÔÏó¶ÔÓ¦µÄÎÄ¼ş»òÎÄ¼ş¼ĞÊÇ·ñ´æÔÚ£¬´æÔÚtrue
-//		System.out.println("´´½¨ÎÄ¼ş¼Ğ-file1.mkdir:"+file1.mkdir());//´´½¨µÄÊÇ[ÎÄ¼ş¼Ğ]£¬²»ÄÜÊ¹ÓÃ´Ë·½·¨´´½¨ÎÄ¼ş¼´Ê¹×ÓÂ·¾¶ÊÇa.txt£¬Ëü»á´´½¨Õâ¸öÃûµÄÎÄ¼ş¼Ğ¡£´´½¨³É¹¦·µ»Øtrue
-//		System.out.println("´´½¨ÎÄ¼ş-file2.createNewFile:"+file2.createNewFile());//ÈôÎÄ¼şËùÊôÄ¿Â¼²»´æÔÚÔòÅ×Òì³££¬ÓÃÀ´´´½¨ÎÄ¼ş£¬³É¹¦·µ»Øtrue
-//		System.out.println("´´½¨ÎÄ¼ş¼Ğ-file3.mkdirs:"+file3.mkdirs());//´´½¨ÎÄ¼ş¼Ğ£¬Èç¹ûËù´´ÎÄ¼ş¼Ğ¸¸Ä¿Â¼²»´æÔÚ£¬Ôò×Ô¶¯´´½¨¡£´´½¨³É¹¦·µ»Øtrue
-//		System.out.println("Ïà¶ÔÂ·¾¶´´½¨-file4.createNewFile:"+file4.createNewFile());//´ËÎÄ¼ş´´½¨ÔÚe://workspace//NewStudy
-//		System.out.println("µÃµ½¾ø¶ÔÂ·¾¶-file4.getAbsolutePath:"+file4.getAbsolutePath());//µÃµ½¾ø¶ÔÂ·¾¶
-//		System.out.println("É¾³ı-file4.delete:"+file4.delete());//É¾³ı£¬javaÖĞµÄÉ¾³ı²Ù×÷£¬²»»áÊ¹ÎÄ¼ş»òÎÄ¼ş¼Ğ³öÏÖÔÚ»ØÊÕÕ¾
-//		//System.out.println("É¾³ımkdirs-file3.delete:"+file3.delete());
-//		System.out.println("É¾³ımkdirs-file3.delete:"+new File("mkdirs").delete());//Èç¹ûÎÄ¼ş¼Ğ·Ç¿Õ£¬ÔòÎŞ·¨Ö±½ÓÉ¾³ı
+//		System.out.println("Fileå¯¹è±¡æ˜¯å¦å­˜åœ¨-file1.exists:"+file1.exists());//Fileå¯¹è±¡å¯¹åº”çš„æ–‡ä»¶æˆ–æ–‡ä»¶å¤¹æ˜¯å¦å­˜åœ¨ï¼Œå­˜åœ¨true
+//		System.out.println("åˆ›å»ºæ–‡ä»¶å¤¹-file1.mkdir:"+file1.mkdir());//åˆ›å»ºçš„æ˜¯[æ–‡ä»¶å¤¹]ï¼Œä¸èƒ½ä½¿ç”¨æ­¤æ–¹æ³•åˆ›å»ºæ–‡ä»¶å³ä½¿å­è·¯å¾„æ˜¯a.txtï¼Œå®ƒä¼šåˆ›å»ºè¿™ä¸ªåçš„æ–‡ä»¶å¤¹ã€‚åˆ›å»ºæˆåŠŸè¿”å›true
+//		System.out.println("åˆ›å»ºæ–‡ä»¶-file2.createNewFile:"+file2.createNewFile());//è‹¥æ–‡ä»¶æ‰€å±ç›®å½•ä¸å­˜åœ¨åˆ™æŠ›å¼‚å¸¸ï¼Œç”¨æ¥åˆ›å»ºæ–‡ä»¶ï¼ŒæˆåŠŸè¿”å›true
+//		System.out.println("åˆ›å»ºæ–‡ä»¶å¤¹-file3.mkdirs:"+file3.mkdirs());//åˆ›å»ºæ–‡ä»¶å¤¹ï¼Œå¦‚æœæ‰€åˆ›æ–‡ä»¶å¤¹çˆ¶ç›®å½•ä¸å­˜åœ¨ï¼Œåˆ™è‡ªåŠ¨åˆ›å»ºã€‚åˆ›å»ºæˆåŠŸè¿”å›true
+//		System.out.println("ç›¸å¯¹è·¯å¾„åˆ›å»º-file4.createNewFile:"+file4.createNewFile());//æ­¤æ–‡ä»¶åˆ›å»ºåœ¨e://workspace//NewStudy
+//		System.out.println("å¾—åˆ°ç»å¯¹è·¯å¾„-file4.getAbsolutePath:"+file4.getAbsolutePath());//å¾—åˆ°ç»å¯¹è·¯å¾„
+//		System.out.println("åˆ é™¤-file4.delete:"+file4.delete());//åˆ é™¤ï¼Œjavaä¸­çš„åˆ é™¤æ“ä½œï¼Œä¸ä¼šä½¿æ–‡ä»¶æˆ–æ–‡ä»¶å¤¹å‡ºç°åœ¨å›æ”¶ç«™
+//		//System.out.println("åˆ é™¤mkdirs-file3.delete:"+file3.delete());
+//		System.out.println("åˆ é™¤mkdirs-file3.delete:"+new File("mkdirs").delete());//å¦‚æœæ–‡ä»¶å¤¹éç©ºï¼Œåˆ™æ— æ³•ç›´æ¥åˆ é™¤
 //		
 //		File file6 = new File("yy.txt");
 //		file6.createNewFile();
 //		File tmpFile = new File("qq.txt");
-//		file6.renameTo(tmpFile);//renameToµÄĞÎ²ÎÊÇFileÀàĞÍµÄ£¬Èç¹ûÂ·¾¶ÏàÍ¬£¬ÄÇÃ´Ö±½ÓÊ¹ÓÃĞÎ²ÎµÄÃû³Æ¡£Èç¹ûºÍĞÎ²ÎÂ·¾¶²»Í¬£¬ÄÇÃ´ÊÇ½«ÎÄ¼ş¼ôÇĞµ½ĞÎ²ÎÂ·¾¶²¢¸ÄÃû
+//		file6.renameTo(tmpFile);//renameToçš„å½¢å‚æ˜¯Fileç±»å‹çš„ï¼Œå¦‚æœè·¯å¾„ç›¸åŒï¼Œé‚£ä¹ˆç›´æ¥ä½¿ç”¨å½¢å‚çš„åç§°ã€‚å¦‚æœå’Œå½¢å‚è·¯å¾„ä¸åŒï¼Œé‚£ä¹ˆæ˜¯å°†æ–‡ä»¶å‰ªåˆ‡åˆ°å½¢å‚è·¯å¾„å¹¶æ”¹å
 //		
-		File file7 = new File("e:\\Ñ§Ï°×ÊÁÏ");
+		File file7 = new File("e:\\å­¦ä¹ èµ„æ–™");
 		System.out.println(file7.exists());
-		String[] list = file7.list();//·µ»Ø¸ÃÄ¿Â¼ÏÂËùÓĞµÄÎÄ¼ş¼ĞÒÔ¼°ÎÄ¼şÃû³Æ£¬ÒÔ×Ö·û´®Êı×é·µ»Ø
+		String[] list = file7.list();//è¿”å›è¯¥ç›®å½•ä¸‹æ‰€æœ‰çš„æ–‡ä»¶å¤¹ä»¥åŠæ–‡ä»¶åç§°ï¼Œä»¥å­—ç¬¦ä¸²æ•°ç»„è¿”å›
 		for(String e:list)
 			System.out.println(e);
-		String[] list1 = file7.list(new FilenameFilter() {//½«file7ÎÄ¼ş¼ĞÖĞÂúÌõ¼şµÄFile¶ÔÏó·ÅÈëlist1Êı×é
+		String[] list1 = file7.list(new FilenameFilter() {//å°†file7æ–‡ä»¶å¤¹ä¸­æ»¡æ¡ä»¶çš„Fileå¯¹è±¡æ”¾å…¥list1æ•°ç»„
 			@Override
 			public boolean accept(File dir, String name) {
-				//ÅĞ¶ÏÌõ¼ş
+				//åˆ¤æ–­æ¡ä»¶
 				return false;
 			}
 		});
-		//File[] fileArr1 = file7.listFiles();½«file7ÏÂµÄËùÓĞfile¶ÔÏóÒÔfileÊı×éĞÎÊ½·µ»Ø£¬²»¾­¹ıÅĞ¶Ï
-		File[] fileArr = file7.listFiles(new FileFilter() {//¾­¹ıÅĞ¶Ï£¬·µ»Ø¸ÃÄ¿Â¼ÏÂËùÓĞÂú×ãÌõ¼şµÄFile¶ÔÏó
+		//File[] fileArr1 = file7.listFiles();å°†file7ä¸‹çš„æ‰€æœ‰fileå¯¹è±¡ä»¥fileæ•°ç»„å½¢å¼è¿”å›ï¼Œä¸ç»è¿‡åˆ¤æ–­
+		File[] fileArr = file7.listFiles(new FileFilter() {//ç»è¿‡åˆ¤æ–­ï¼Œè¿”å›è¯¥ç›®å½•ä¸‹æ‰€æœ‰æ»¡è¶³æ¡ä»¶çš„Fileå¯¹è±¡
 			@Override
-			public boolean accept(File f) {//FileFIlterÊÇÒ»¸ö½Ó¿Ú£¬½Ó¿ÚÄÚµÄaccept·½·¨ÓÃÀ´ÅĞ¶Ïfile7ÎÄ¼ş¼ĞÄÚÂú×ãÌõ¼şµÄfile¶ÔÏó¡£²¢
-											//²¢Âú×ãÌõ¼şµÄ¶ÔÏó·ÅÈëFileÊı×é
+			public boolean accept(File f) {//FileFIlteræ˜¯ä¸€ä¸ªæ¥å£ï¼Œæ¥å£å†…çš„acceptæ–¹æ³•ç”¨æ¥åˆ¤æ–­file7æ–‡ä»¶å¤¹å†…æ»¡è¶³æ¡ä»¶çš„fileå¯¹è±¡ã€‚å¹¶
+											//å¹¶æ»¡è¶³æ¡ä»¶çš„å¯¹è±¡æ”¾å…¥Fileæ•°ç»„
 				if(f.isDirectory() && f.getName().equals("day16"))
 					return true;
 				else

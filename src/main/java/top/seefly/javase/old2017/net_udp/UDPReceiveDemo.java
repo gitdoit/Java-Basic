@@ -1,17 +1,17 @@
-package net_udp;
-/* 2017Äê7ÔÂ24ÈÕ
- * ²½Öè£º
- * 1£¬´´½¨½ÓÊÜ¶ËSocket¶ÔÏó£¬Ö¸¶¨½ÓÊÕ¶Ë¿Ú
- * 2£¬´´½¨Êı¾İ°üÓÃÀ´´æ´¢½ÓÊÕµÄÊı¾İ
- * 3£¬socket·½·¨ÓÃÀ´½ÓÊÕÊı¾İ
- * 4£¬½âÎö²¢Êä³ö
- * 5£¬¹Ø±Õ×ÊÔ´
+package top.seefly.javase.old2017.net_udp;
+/* 2017å¹´7æœˆ24æ—¥
+ * æ­¥éª¤ï¼š
+ * 1ï¼Œåˆ›å»ºæ¥å—ç«¯Socketå¯¹è±¡ï¼ŒæŒ‡å®šæ¥æ”¶ç«¯å£
+ * 2ï¼Œåˆ›å»ºæ•°æ®åŒ…ç”¨æ¥å­˜å‚¨æ¥æ”¶çš„æ•°æ®
+ * 3ï¼Œsocketæ–¹æ³•ç”¨æ¥æ¥æ”¶æ•°æ®
+ * 4ï¼Œè§£æå¹¶è¾“å‡º
+ * 5ï¼Œå…³é—­èµ„æº
  * 
- * 		UDPÖĞµÄsocketÔÚÓÃÓÚ½ÓÊÕÊı¾İÊ±ÒªÖ¸¶¨´ÓÄÄ¸ö¶Ë¿Ú½ÓÊÕÊı¾İ¡£
-		¶øÈİÆ÷Êı¾İ°ü£¬¼´½ÓÊÕÊı¾İ°üÖ»ÒªÖ¸¶¨×Ö½ÚÊı×é£¬½ÓÊÕÊı¾İµÄ×î´ó³¤¶È¼´¿É¡£
+ * 		UDPä¸­çš„socketåœ¨ç”¨äºæ¥æ”¶æ•°æ®æ—¶è¦æŒ‡å®šä»å“ªä¸ªç«¯å£æ¥æ”¶æ•°æ®ã€‚
+		è€Œå®¹å™¨æ•°æ®åŒ…ï¼Œå³æ¥æ”¶æ•°æ®åŒ…åªè¦æŒ‡å®šå­—èŠ‚æ•°ç»„ï¼Œæ¥æ”¶æ•°æ®çš„æœ€å¤§é•¿åº¦å³å¯ã€‚
 		
-		¿ÉÒÔÍ¨¹ıµ÷ÓÃÊı¾İ°üµÄgetLength·½·¨»ñÈ¡½ÓÊÕÊı¾İµÄÕæÊµ³¤¶È¡£
-		Í¨¹ıµ÷ÓÃgetData»ñÈ¡Êı¾İµÄ×Ö½ÚÊı×é¡£
+		å¯ä»¥é€šè¿‡è°ƒç”¨æ•°æ®åŒ…çš„getLengthæ–¹æ³•è·å–æ¥æ”¶æ•°æ®çš„çœŸå®é•¿åº¦ã€‚
+		é€šè¿‡è°ƒç”¨getDataè·å–æ•°æ®çš„å­—èŠ‚æ•°ç»„ã€‚
  */
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
@@ -20,19 +20,19 @@ import java.net.InetAddress;
 public class UDPReceiveDemo {
 
 	public static void main(String[] args) throws Exception{
-		//1 ´´½¨socket¶ÔÏó£¬Ö¸¶¨¶Ë¿Ú
+		//1 åˆ›å»ºsocketå¯¹è±¡ï¼ŒæŒ‡å®šç«¯å£
 		DatagramSocket get = new DatagramSocket(10086);
-		//2´´½¨°ü¹ü
+		//2åˆ›å»ºåŒ…è£¹
 		byte[] bt = new byte[1024];
 		DatagramPacket pg = new DatagramPacket(bt,1024);
-		//3,×èÈûÊ±·½·¨£¬µ÷ÓÃ´Ë·½·¨»áÔì³É³ÌĞò×èÈû£¬Ò»Ö±´¦ÓÚ½ÓÊÕ×´Ì¬£¬ÖªµÀÊÕµ½Êı¾İ
+		//3,é˜»å¡æ—¶æ–¹æ³•ï¼Œè°ƒç”¨æ­¤æ–¹æ³•ä¼šé€ æˆç¨‹åºé˜»å¡ï¼Œä¸€ç›´å¤„äºæ¥æ”¶çŠ¶æ€ï¼ŒçŸ¥é“æ”¶åˆ°æ•°æ®
 		get.receive(pg);
-		//4½âÎöÊı¾İ£¬²¢Êä³ö
+		//4è§£ææ•°æ®ï¼Œå¹¶è¾“å‡º
 		String ip = pg.getAddress().getHostAddress(); 
 		String name = pg.getAddress().getHostName();
 		System.out.println(ip+":" + name +  ":"  +new String(pg.getData(),0,pg.getLength()));
-		System.out.println("°ü³¤£º"+pg.getLength()+"Êı¾İ³¤:"+pg.getData().length);
-		//5¹Ø±Õ×ÊÔ´
+		System.out.println("åŒ…é•¿ï¼š"+pg.getLength()+"æ•°æ®é•¿:"+pg.getData().length);
+		//5å…³é—­èµ„æº
 		get.close();
 	}
 

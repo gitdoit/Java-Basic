@@ -1,4 +1,4 @@
-package thread;
+package top.seefly.javase.old2017.thread;
 
 import java.util.ArrayList;
 import java.util.concurrent.Callable;

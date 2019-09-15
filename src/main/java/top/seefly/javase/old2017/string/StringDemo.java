@@ -1,33 +1,33 @@
-package string;
+package top.seefly.javase.old2017.string;
 /**
- * ±¾ÀàÓÃÀ´ÑÝÊ¾StringÀàµÄ¸÷ÖÖÊ¹ÓÃ·½·¨*/
+ * æœ¬ç±»ç”¨æ¥æ¼”ç¤ºStringç±»çš„å„ç§ä½¿ç”¨æ–¹æ³•*/
 public class StringDemo {
 	public static void main(String[] args){
 		String arr = new String("java demo");
 		String arr1 = "java demo";
-		//arr1 Óëarr¡¢"java demo"µÄº¬Òå²î²»¶àÊÇÏàÍ¬µÄ£¬ËûÃÇ¶¼¿ÉÒÔÓÃStringÀàÖÐµÄ·½·¨¡£
-		//String arr2 = "java demo"; Õâ¸öÓï¾ä²»»á´´½¨ÐÂµÄ¶ÔÏó£¬¶øÊÇÖ¸Ïòarr1ÖÐµÄ¶ÔÏó
+		//arr1 ä¸Žarrã€"java demo"çš„å«ä¹‰å·®ä¸å¤šæ˜¯ç›¸åŒçš„ï¼Œä»–ä»¬éƒ½å¯ä»¥ç”¨Stringç±»ä¸­çš„æ–¹æ³•ã€‚
+		//String arr2 = "java demo"; è¿™ä¸ªè¯­å¥ä¸ä¼šåˆ›å»ºæ–°çš„å¯¹è±¡ï¼Œè€Œæ˜¯æŒ‡å‘arr1ä¸­çš„å¯¹è±¡
 		arr1 = "java good";
-		//Õâ¸öÓï¾ä²¢²»»á¸Ä±äarr1ÖÐËùÖ¸µÄ¶ÔÏó£¬¶øÊÇÖØÐÂ½¨Á¢ÁËÒ»¸ö¶ÔÏó²¢Ö¸ÏòÁËËü¡£Ô­À´µÄ×Ö·û´®½«±»»ØÊÕ
+		//è¿™ä¸ªè¯­å¥å¹¶ä¸ä¼šæ”¹å˜arr1ä¸­æ‰€æŒ‡çš„å¯¹è±¡ï¼Œè€Œæ˜¯é‡æ–°å»ºç«‹äº†ä¸€ä¸ªå¯¹è±¡å¹¶æŒ‡å‘äº†å®ƒã€‚åŽŸæ¥çš„å­—ç¬¦ä¸²å°†è¢«å›žæ”¶
 		arr.replace('j', 'J');
-		//´´½¨Ò»¸öÐÂµÄ×Ö·û´®£¬½«Ô­À´µÄ×Ö·û´®ÖÐËùÓÐµÄ×Ö·ûj¶¼»áÌæ»»ÎªJÖ®ºó¸³¸øËü¡£
+		//åˆ›å»ºä¸€ä¸ªæ–°çš„å­—ç¬¦ä¸²ï¼Œå°†åŽŸæ¥çš„å­—ç¬¦ä¸²ä¸­æ‰€æœ‰çš„å­—ç¬¦jéƒ½ä¼šæ›¿æ¢ä¸ºJä¹‹åŽèµ‹ç»™å®ƒã€‚
 		arr.replace("Ja", "ja");
-		//´´½¨Ò»¸öÐÂµÄ×Ö·û´®£¬½«Ô­À´µÄ×Ö·û´®ÖÐËùÓÐµÄ×Ö·û´®"JA"¶¼»áÌæ»»Îª"ja"Ö®ºó¸³¸øËü¡£
+		//åˆ›å»ºä¸€ä¸ªæ–°çš„å­—ç¬¦ä¸²ï¼Œå°†åŽŸæ¥çš„å­—ç¬¦ä¸²ä¸­æ‰€æœ‰çš„å­—ç¬¦ä¸²"JA"éƒ½ä¼šæ›¿æ¢ä¸º"ja"ä¹‹åŽèµ‹ç»™å®ƒã€‚
 		arr.replaceFirst("e", "AB");
-		//´´½¨Ò»¸öÐÂµÄ×Ö·û´®£¬½«Ô­À´µÄ×Ö·û´®ÖÐµÚÒ»¸ö×Ö·û´®"e"Ìæ»»Îª"AB"Ö®ºó¸³¸øËü¡£
+		//åˆ›å»ºä¸€ä¸ªæ–°çš„å­—ç¬¦ä¸²ï¼Œå°†åŽŸæ¥çš„å­—ç¬¦ä¸²ä¸­ç¬¬ä¸€ä¸ªå­—ç¬¦ä¸²"e"æ›¿æ¢ä¸º"AB"ä¹‹åŽèµ‹ç»™å®ƒã€‚
 		String[]  arr3 = "java#is#good".split("#");
-		//½«×Ö·û´®ÖÐÖ¸¶¨·ûºÅ×÷Îª·Ö¸ô·ûÀ´²ð·Ö³É×Ö·û´®Êý×é´æ´¢¡£
+		//å°†å­—ç¬¦ä¸²ä¸­æŒ‡å®šç¬¦å·ä½œä¸ºåˆ†éš”ç¬¦æ¥æ‹†åˆ†æˆå­—ç¬¦ä¸²æ•°ç»„å­˜å‚¨ã€‚
 		String[] arr4 = "java@is#very$good".split("[@#$]");
-		//Ö»Òª³öÏÖÕýÔò±í´ïÊ½[@#$]ÖÐÈÎÒâÒ»¸ö×Ö·û¶¼¿ÉÒÔ×÷Îª·Ö¸ô·ûÀ´²ð·Ö×Ö·û´®
+		//åªè¦å‡ºçŽ°æ­£åˆ™è¡¨è¾¾å¼[@#$]ä¸­ä»»æ„ä¸€ä¸ªå­—ç¬¦éƒ½å¯ä»¥ä½œä¸ºåˆ†éš”ç¬¦æ¥æ‹†åˆ†å­—ç¬¦ä¸²
 		
 		char[] arr5 = arr1.toCharArray();
-		//½«×Ö·û´®×ª»»ÎªÊý×é
+		//å°†å­—ç¬¦ä¸²è½¬æ¢ä¸ºæ•°ç»„
 		
 		boolean a = false;
 		String arr6 = String.valueOf(a);
-		//¾²Ì¬·½·¨¡£½«¸÷ÖÖ»ù±¾ÀàÐÍµÄÊý¾Ý×ª»»³É×Ö·û´®¡£
+		//é™æ€æ–¹æ³•ã€‚å°†å„ç§åŸºæœ¬ç±»åž‹çš„æ•°æ®è½¬æ¢æˆå­—ç¬¦ä¸²ã€‚
 		char b = arr1.charAt(0);
-		//»ñÈ¡×Ö·û´®ÖÐÖ¸¶¨ÏÂ±êµÄ×Ö·û
+		//èŽ·å–å­—ç¬¦ä¸²ä¸­æŒ‡å®šä¸‹æ ‡çš„å­—ç¬¦
 		System.out.println(arr6);
 		
 	}

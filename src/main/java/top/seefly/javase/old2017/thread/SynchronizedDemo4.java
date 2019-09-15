@@ -1,14 +1,14 @@
-package thread;
+package top.seefly.javase.old2017.thread;
 /*
- * ±¾ÀàÑÝÊ¾ÁËÖ»ÓÐÒ»¸öÏû·ÑÕß£¬ºÍÒ»¸öÉú²úÕßÖÐµÄ    wait()--µÈ´ý,ºÍnotify()--»½ÐÑ  ·½·¨µÄÊ¹ÓÃ£¬
- * ÕâÁ½¸ö·½·¨¶¼¶¨ÒåÔÚObjectÀàÖÐ£¬ÒòÎªÈÎºÎ¶ÔÏó¶¼¾ßÓÐËøµÄÐÔÖÊ£¬¶øÕâÁ½¸ö·½·¨ÊÇÒÔËøÎª²Ù×÷¶ÔÏóµÄ·½·¨¡£
+ * æœ¬ç±»æ¼”ç¤ºäº†åªæœ‰ä¸€ä¸ªæ¶ˆè´¹è€…ï¼Œå’Œä¸€ä¸ªç”Ÿäº§è€…ä¸­çš„    wait()--ç­‰å¾…,å’Œnotify()--å”¤é†’  æ–¹æ³•çš„ä½¿ç”¨ï¼Œ
+ * è¿™ä¸¤ä¸ªæ–¹æ³•éƒ½å®šä¹‰åœ¨Objectç±»ä¸­ï¼Œå› ä¸ºä»»ä½•å¯¹è±¡éƒ½å…·æœ‰é”çš„æ€§è´¨ï¼Œè€Œè¿™ä¸¤ä¸ªæ–¹æ³•æ˜¯ä»¥é”ä¸ºæ“ä½œå¯¹è±¡çš„æ–¹æ³•ã€‚
  * 
- * wait·½·¨»á½«µ±Ç°Ïß³Ì·ÅÈëÏß³Ì³ØÖÐ£¬²¢½«ËøÊÍ·Å¡£
- * ¶ønotify»á½«Ïß³Ì³ØÖÐµÄµÚÒ»¸öÏß³Ì»½ÐÑ¡£²¢½«Ëø½»¸øËû
+ * waitæ–¹æ³•ä¼šå°†å½“å‰çº¿ç¨‹æ”¾å…¥çº¿ç¨‹æ± ä¸­ï¼Œå¹¶å°†é”é‡Šæ”¾ã€‚
+ * è€Œnotifyä¼šå°†çº¿ç¨‹æ± ä¸­çš„ç¬¬ä¸€ä¸ªçº¿ç¨‹å”¤é†’ã€‚å¹¶å°†é”äº¤ç»™ä»–
  * 
- * ×¢Òâ£¬ÕâÁ½¸ö·½·¨Ö»ÄÜÊ¹ÓÃÔÚsynchronized¿é»ò·½·¨ÖÐ¡£ÒòÎªÔÚËüÖ®Íâ¾ÍÃ»ÓÐËøÕâ¸ö¸ÅÄîÁË¡£¶øÕâÁ½¸ö·½·¨ÕýÊÇ»ùÓÚËø¶ø²Ù×÷µÄ¡£
+ * æ³¨æ„ï¼Œè¿™ä¸¤ä¸ªæ–¹æ³•åªèƒ½ä½¿ç”¨åœ¨synchronizedå—æˆ–æ–¹æ³•ä¸­ã€‚å› ä¸ºåœ¨å®ƒä¹‹å¤–å°±æ²¡æœ‰é”è¿™ä¸ªæ¦‚å¿µäº†ã€‚è€Œè¿™ä¸¤ä¸ªæ–¹æ³•æ­£æ˜¯åŸºäºŽé”è€Œæ“ä½œçš„ã€‚
  * 
- * Ð§¹ûÊÇinputÖ®ºóÖ´ÐÐoutput£¬ÊµÏÖÁË½»Ìæ¹¤×÷¡£¶ø²»ÊÇÓÉCPUËæ»ú·ÖÅä×ÊÔ´
+ * æ•ˆæžœæ˜¯inputä¹‹åŽæ‰§è¡Œoutputï¼Œå®žçŽ°äº†äº¤æ›¿å·¥ä½œã€‚è€Œä¸æ˜¯ç”±CPUéšæœºåˆ†é…èµ„æº
  * 
  * */
 public class SynchronizedDemo4 {
@@ -52,7 +52,7 @@ class Res{
 	}
 }
 
-class Input implements Runnable{//Éú²úÕß
+class Input implements Runnable{//ç”Ÿäº§è€…
 	private Res r;
 	private int i = 0;
 	Input(Res r){
@@ -61,7 +61,7 @@ class Input implements Runnable{//Éú²úÕß
 	public void run(){
 		while(true){
 			if(i == 0)
-				r.set("ÕÅÈý", "Å®");
+				r.set("å¼ ä¸‰", "å¥³");
 			else
 				r.set("Michael", "men");
 			i = (i+1)%2;

@@ -1,46 +1,46 @@
-package thread;
-/*ÑİÊ¾ÁË¶àÏß³ÌµÄ»ù±¾²Ù×÷
- * ThreadµÄ¶¨Òå£ºpublic class Thread extends Object implements Runnable
- * Thread¹¹Ôì·½·¨:public Thread(Runnable target,String name)
+package top.seefly.javase.old2017.thread;
+/*æ¼”ç¤ºäº†å¤šçº¿ç¨‹çš„åŸºæœ¬æ“ä½œ
+ * Threadçš„å®šä¹‰ï¼špublic class Thread extends Object implements Runnable
+ * Threadæ„é€ æ–¹æ³•:public Thread(Runnable target,String name)
  * 				public Thread(Runnable target)
- * ThreadÖĞÓĞÁ½¸öÖØÒª·½·¨£¬Ò»¸öÊÇ×ÔÉíµÄstart,¿ÉÒÔÍ¨¹ı¸Ãº¯ÊıÆô¶¯Ïß³Ì£¬µ«Êµ¼ÊÉÏÆô¶¯µÄÊÇrunº¯Êı£¬ÒÔÔËĞĞrunÄÚ×Ô¶¨ÒåµÄº¯ÊıÌå
- * ÁíÒ»¸öÊÇrun£¬¿ÉÒÔ¿´³öÊÇÊµÏÖÁËRunnable½Ó¿Ú¡£
- * ÓĞÁ½ÖÖÆô¶¯Ïß³ÌµÄ·½Ê½£¬ÒÔÏÂ´úÂë¿ÉÒÔÌáÏÖ
+ * Threadä¸­æœ‰ä¸¤ä¸ªé‡è¦æ–¹æ³•ï¼Œä¸€ä¸ªæ˜¯è‡ªèº«çš„start,å¯ä»¥é€šè¿‡è¯¥å‡½æ•°å¯åŠ¨çº¿ç¨‹ï¼Œä½†å®é™…ä¸Šå¯åŠ¨çš„æ˜¯runå‡½æ•°ï¼Œä»¥è¿è¡Œrunå†…è‡ªå®šä¹‰çš„å‡½æ•°ä½“
+ * å¦ä¸€ä¸ªæ˜¯runï¼Œå¯ä»¥çœ‹å‡ºæ˜¯å®ç°äº†Runnableæ¥å£ã€‚
+ * æœ‰ä¸¤ç§å¯åŠ¨çº¿ç¨‹çš„æ–¹å¼ï¼Œä»¥ä¸‹ä»£ç å¯ä»¥æç°
  * 
  * interface Runnable
- * ½Ó¿ÚRunnableÖĞÖ»ÓĞÒ»¸ö³éÏó·½·¨£¬public abstract run();
- * ÊµÏÖ¸Ã³éÏó·½·¨µÄÀàÊµÏÖrun£¬ÆäÖĞ·ÅÏß³ÌĞèÒªÅÜµÄ¶«Î÷
+ * æ¥å£Runnableä¸­åªæœ‰ä¸€ä¸ªæŠ½è±¡æ–¹æ³•ï¼Œpublic abstract run();
+ * å®ç°è¯¥æŠ½è±¡æ–¹æ³•çš„ç±»å®ç°runï¼Œå…¶ä¸­æ”¾çº¿ç¨‹éœ€è¦è·‘çš„ä¸œè¥¿
  * 
- * ×¢Òâ£¬Èô¶¨ÒåºÃÒ»¸öÏß³Ì¶ÔÏóÖ®ºó£¬Èç¹ûÖ±½Óµ÷ÓÃrun·½·¨£¬ÄÇÃ´Ëû¾ÍÏàµ±ÓÚÃ»ÓĞ¿ªÆôÏß³Ì£¬»¹ÊÇÔÚÖ÷Ïß³ÌÄÚÖ´ĞĞ£¬Õâ¾ÍºÍÆÕÍ¨µÄµ÷ÓÃÃ»ÓĞÇø±ğÁË
- * Ö»ÓĞµ÷ÓÃstart·½·¨²ÅÄÜ¿ªÆôÒ»¸öĞÂÏß³Ì
+ * æ³¨æ„ï¼Œè‹¥å®šä¹‰å¥½ä¸€ä¸ªçº¿ç¨‹å¯¹è±¡ä¹‹åï¼Œå¦‚æœç›´æ¥è°ƒç”¨runæ–¹æ³•ï¼Œé‚£ä¹ˆä»–å°±ç›¸å½“äºæ²¡æœ‰å¼€å¯çº¿ç¨‹ï¼Œè¿˜æ˜¯åœ¨ä¸»çº¿ç¨‹å†…æ‰§è¡Œï¼Œè¿™å°±å’Œæ™®é€šçš„è°ƒç”¨æ²¡æœ‰åŒºåˆ«äº†
+ * åªæœ‰è°ƒç”¨startæ–¹æ³•æ‰èƒ½å¼€å¯ä¸€ä¸ªæ–°çº¿ç¨‹
  * */
 
 public class MyThread {
 	public static void main(String[] args){
-		ThreadDemo A = new ThreadDemo("A");//ÊµÀı»¯ThreadµÄÒ»¸ö×ÓÀàÊµÌå
+		ThreadDemo A = new ThreadDemo("A");//å®ä¾‹åŒ–Threadçš„ä¸€ä¸ªå­ç±»å®ä½“
 		
-		RunnableDemo B = new RunnableDemo("B");//ÊµÀı»¯½Ó¿ÚRunnable
+		RunnableDemo B = new RunnableDemo("B");//å®ä¾‹åŒ–æ¥å£Runnable
 		
-		A.start();//Í¨¹ıAÄÚµÄ·½·¨startÖ±½ÓÆô¶¯Ïß³Ì
+		A.start();//é€šè¿‡Aå†…çš„æ–¹æ³•startç›´æ¥å¯åŠ¨çº¿ç¨‹
 		
-		new Thread(B).start();//ÓÉÓÚÊµÀıBÎªRunnable½Ó¿ÚÊµÀı£¬×ÔÉíÎŞ·¨Æô¶¯¡£¿ÉÍ¨¹ıÊµÀı»¯Thread¶ÔÏó£¬½«Runnable²ÎÊı´«ÈëÆô¶¯
+		new Thread(B).start();//ç”±äºå®ä¾‹Bä¸ºRunnableæ¥å£å®ä¾‹ï¼Œè‡ªèº«æ— æ³•å¯åŠ¨ã€‚å¯é€šè¿‡å®ä¾‹åŒ–Threadå¯¹è±¡ï¼Œå°†Runnableå‚æ•°ä¼ å…¥å¯åŠ¨
 		
 		
-		new Thread(new Runnable(){//ÓĞ²ÎÊı¹¹Ôì¡£ÊµÀı»¯ÄäÃûÏß³Ì£¬ÔÚ²ÎÊıÀïÖ±½ÓÊµÀı»¯Êµ²Î
+		new Thread(new Runnable(){//æœ‰å‚æ•°æ„é€ ã€‚å®ä¾‹åŒ–åŒ¿åçº¿ç¨‹ï¼Œåœ¨å‚æ•°é‡Œç›´æ¥å®ä¾‹åŒ–å®å‚
 			public void run(){
-				System.out.print("ÄäÃûÏß³Ì£¬ÄäÃû²ÎÊı");
+				System.out.print("åŒ¿åçº¿ç¨‹ï¼ŒåŒ¿åå‚æ•°");
 			}
 		}).start();
 		
-		new Thread(){//ÎŞ²Î¹¹Ôì£¬ÊµÀı»¯µÄÍ¬Ê±¸²Ğ´ÆäÖĞrun·½·¨
+		new Thread(){//æ— å‚æ„é€ ï¼Œå®ä¾‹åŒ–çš„åŒæ—¶è¦†å†™å…¶ä¸­runæ–¹æ³•
 			public void run(){
-				System.out.println("ÄäÃûÏß³Ì£¬¸´Ğ´run");
+				System.out.println("åŒ¿åçº¿ç¨‹ï¼Œå¤å†™run");
 			}
 		}.start();
 	}
 }
 
-class ThreadDemo extends Thread{//×ÓÀàÖ±½Ó¼Ì³ĞThread·½·¨£¬
+class ThreadDemo extends Thread{//å­ç±»ç›´æ¥ç»§æ‰¿Threadæ–¹æ³•ï¼Œ
 	private String name;
 	public ThreadDemo(String name){
 		this.name = name;
@@ -52,7 +52,7 @@ class ThreadDemo extends Thread{//×ÓÀàÖ±½Ó¼Ì³ĞThread·½·¨£¬
 	}
 }
 
-class RunnableDemo implements Runnable{//ÊµÏÖRunnable½Ó¿ÚµÄÀà
+class RunnableDemo implements Runnable{//å®ç°Runnableæ¥å£çš„ç±»
 	private String name;
 	public RunnableDemo(String name){
 		this.name = name;

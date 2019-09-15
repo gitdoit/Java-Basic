@@ -1,24 +1,24 @@
-package string;
+package top.seefly.javase.old2017.string;
 /*
- * ¸ÃÀàÑİÊ¾ÁË×Ö·û´®µÄ½ØÈ¡ÓëÆ´½Ó
+ * è¯¥ç±»æ¼”ç¤ºäº†å­—ç¬¦ä¸²çš„æˆªå–ä¸æ‹¼æ¥
  * substring(begaindex,enddex);
  * substring(begaindex);
  * 
- * ×Ö·û´®³£Á¿ÊÇ·ÅÔÚ´æ´¢³ØÖĞ¹²ÏíµÄ
+ * å­—ç¬¦ä¸²å¸¸é‡æ˜¯æ”¾åœ¨å­˜å‚¨æ± ä¸­å…±äº«çš„
  * */
 public class Demo1 {
 	public static void main(String[] args) {
-		String str = "Hello";//HelloÊÇ²»¿É±äµÄ£¬µ«ÊÇstrÊÇ¿É±äÒıÓÃ
-							//ÈôÓĞÁíÒ»¸öÒıÓÃÒ²Ö¸ÏòHelloÄÇÃ´²¢²»»á¿ª±ÙĞÂ¿Õ¼ä
-		String s = str.substring(0,3);//½ØÈ¡0£¬1£¬2
-		String s1 = str.substring(2);//½ØÈ¡´Ó2¿ªÊ¼,°üÀ¨2
+		String str = "Hello";//Helloæ˜¯ä¸å¯å˜çš„ï¼Œä½†æ˜¯stræ˜¯å¯å˜å¼•ç”¨
+							//è‹¥æœ‰å¦ä¸€ä¸ªå¼•ç”¨ä¹ŸæŒ‡å‘Helloé‚£ä¹ˆå¹¶ä¸ä¼šå¼€è¾Ÿæ–°ç©ºé—´
+		String s = str.substring(0,3);//æˆªå–0ï¼Œ1ï¼Œ2
+		String s1 = str.substring(2);//æˆªå–ä»2å¼€å§‹,åŒ…æ‹¬2
 		
 		
-		String demo = s + s1;//×Ö·û´®¿ÉÒÔÊ¹ÓÃ+Æ´½Ó
+		String demo = s + s1;//å­—ç¬¦ä¸²å¯ä»¥ä½¿ç”¨+æ‹¼æ¥
 		demo = str + " world";
 		
-		boolean flag = demo.equals(str);//±È½ÏÁ½¸ö×Ö·û´®ÖĞµÄÄÚÈİÏàµÈ·ñ
-										//²»ÄÜÊ¹ÓÃ==£¬ÒòÎªËü±È½ÏµÄÊÇµØÖ·
+		boolean flag = demo.equals(str);//æ¯”è¾ƒä¸¤ä¸ªå­—ç¬¦ä¸²ä¸­çš„å†…å®¹ç›¸ç­‰å¦
+										//ä¸èƒ½ä½¿ç”¨==ï¼Œå› ä¸ºå®ƒæ¯”è¾ƒçš„æ˜¯åœ°å€
 		
 	}
 }

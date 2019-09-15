@@ -1,35 +1,35 @@
-package io;
+package top.seefly.javase.old2017.io;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 
 /*
- * ±¾ÀàÓÃÀ´ÑİÊ¾´ÓÒ»¸öÎÄ¼ş¶Á£¬ÏòÒ»¸öÎÄ¼şĞ´
+ * æœ¬ç±»ç”¨æ¥æ¼”ç¤ºä»ä¸€ä¸ªæ–‡ä»¶è¯»ï¼Œå‘ä¸€ä¸ªæ–‡ä»¶å†™
  */
 public class CopyDemo {
 
 	public static void main(String[] args) throws IOException {
-		FileInputStream fis = new FileInputStream("e:\\liujianxin.txt");//ÎÄ¼ş²»´æÔÚÔò±¨Òì³£
-		FileOutputStream fos = new FileOutputStream("e:\\liuyifei.txt");//ÎÄ¼ş²»´æÔÚÔòĞÂ½¨
+		FileInputStream fis = new FileInputStream("e:\\liujianxin.txt");//æ–‡ä»¶ä¸å­˜åœ¨åˆ™æŠ¥å¼‚å¸¸
+		FileOutputStream fos = new FileOutputStream("e:\\liuyifei.txt");//æ–‡ä»¶ä¸å­˜åœ¨åˆ™æ–°å»º
 		
-		byte[] byt = new byte[1024];//¸´ÖÆÎÄ±¾ÑİÊ¾
-//		while(fis.read(byt) > 0) ÕâÖÖ·½·¨¸´ÖÆ»áÔÚ×îºóÒ»´Î¸´ÖÆµÄÊ±ºò£¬Èç¹ûÊı×éÃ»ÓĞÌîÂú£¬ÄÇÃ´»á½«¿Õ¸ñÒ²¸´ÖÆ½øÈ¥¡£
+		byte[] byt = new byte[1024];//å¤åˆ¶æ–‡æœ¬æ¼”ç¤º
+//		while(fis.read(byt) > 0) è¿™ç§æ–¹æ³•å¤åˆ¶ä¼šåœ¨æœ€åä¸€æ¬¡å¤åˆ¶çš„æ—¶å€™ï¼Œå¦‚æœæ•°ç»„æ²¡æœ‰å¡«æ»¡ï¼Œé‚£ä¹ˆä¼šå°†ç©ºæ ¼ä¹Ÿå¤åˆ¶è¿›å»ã€‚
 //			fos.write(byt);
 		int len;
 		while((len = fis.read(byt)) != -1)
-			fos.write(byt,0,len);//Ê¹ÓÃÕâÖÖ·½·¨£¬Ã¿´Î¶¼ÊÇ½«Êı×éÖĞÓĞµÄÊı¾İĞ´Èë£¬¿ÕµÄ²»Ğ´
+			fos.write(byt,0,len);//ä½¿ç”¨è¿™ç§æ–¹æ³•ï¼Œæ¯æ¬¡éƒ½æ˜¯å°†æ•°ç»„ä¸­æœ‰çš„æ•°æ®å†™å…¥ï¼Œç©ºçš„ä¸å†™
 		fis.close();
 		fos.close();
 		
-//		FileInputStream fis1 = new FileInputStream("e:\\laopogif.gif");//×Ö½ÚÁ÷¸´ÖÆÍ¼Æ¬
+//		FileInputStream fis1 = new FileInputStream("e:\\laopogif.gif");//å­—èŠ‚æµå¤åˆ¶å›¾ç‰‡
 //		FileOutputStream fos1 = new FileOutputStream("e:\\laopofuben.gif");
 //		while(fis1.read(byt) != -1)
 //			fos1.write(byt);
 //		fis1.close();
 //		fos1.close();
 		
-		//¸´ÖÆÊÓÆµÒ²ÊÇÒ»¸öÁ÷³Ì£¬²»×öÁË
+		//å¤åˆ¶è§†é¢‘ä¹Ÿæ˜¯ä¸€ä¸ªæµç¨‹ï¼Œä¸åšäº†
 	}
 
 }

@@ -1,8 +1,8 @@
-package classdemo;
+package top.seefly.javase.old2017.classdemo;
 import java.lang.reflect.*;
 import java.util.*;
 /*
- *¸ÃÀàÖĞµÄ·½·¨ÓÃÀ´µÃµ½Ò»¸öÀàµÄÈ«²¿ĞÅÏ¢¡£ 
+ *è¯¥ç±»ä¸­çš„æ–¹æ³•ç”¨æ¥å¾—åˆ°ä¸€ä¸ªç±»çš„å…¨éƒ¨ä¿¡æ¯ã€‚ 
  *
  * */
 public class ReflectDemo {
@@ -14,7 +14,7 @@ public class ReflectDemo {
 		try{
 			Class c = Class.forName(name);
 			Class superc = c.getSuperclass();
-			//Class.getModifiers()µÃµ½ĞŞÊÎ·û¶ÔÓ¦µÄIntÖµ£¬Ò²¿ÉÒÔÓÃÓÚ±äÁ¿»ò·½·¨ÉÏ£¬Modifier.toString½«intÖµ×ªÎª¶ÔÓ¦×Ö·û
+			//Class.getModifiers()å¾—åˆ°ä¿®é¥°ç¬¦å¯¹åº”çš„Intå€¼ï¼Œä¹Ÿå¯ä»¥ç”¨äºå˜é‡æˆ–æ–¹æ³•ä¸Šï¼ŒModifier.toStringå°†intå€¼è½¬ä¸ºå¯¹åº”å­—ç¬¦
 			String modifiers = Modifier.toString(superc.getModifiers());
 	
 			if(modifiers.length() > 0) System.out.print(modifiers + " ");
@@ -23,10 +23,10 @@ public class ReflectDemo {
 			
 			System.out.print("\n{\n");
 			printFields(c);
-			//´òÓ¡¹¹Ôìº¯Êı
+			//æ‰“å°æ„é€ å‡½æ•°
 			printConstructors(c);
 			System.out.println();
-			//´òÓ¡·½·¨
+			//æ‰“å°æ–¹æ³•
 			printMethods(c);
 			System.out.println();
 			System.out.println("}");
@@ -37,18 +37,18 @@ public class ReflectDemo {
 	}
 
 	public static void printConstructors(Class c1){
-		Constructor[] constructors = c1.getDeclaredConstructors();//·µ»ØÒ»¸ö Constructor ¶ÔÏó£¬¸Ã¶ÔÏó·´Ó³´Ë Class 
-		 //ConstructorÀàÃèÊöÀàµÄ¹¹Ôì·½·¨	   							          ¶ÔÏóËù±íÊ¾µÄÀà»ò½Ó¿ÚµÄÖ¸¶¨¹¹Ôì·½·¨¡£
+		Constructor[] constructors = c1.getDeclaredConstructors();//è¿”å›ä¸€ä¸ª Constructor å¯¹è±¡ï¼Œè¯¥å¯¹è±¡åæ˜ æ­¤ Class 
+		 //Constructorç±»æè¿°ç±»çš„æ„é€ æ–¹æ³•	   							          å¯¹è±¡æ‰€è¡¨ç¤ºçš„ç±»æˆ–æ¥å£çš„æŒ‡å®šæ„é€ æ–¹æ³•ã€‚
 		for(Constructor c : constructors){
-			String name = c.getName();//µÃµ½¹¹Ôì·½·¨µÄÃû³Æ
+			String name = c.getName();//å¾—åˆ°æ„é€ æ–¹æ³•çš„åç§°
 			System.out.print("   ");
-			String modifiers = Modifier.toString(c.getModifiers());//·µ»Ø´ËÀà»ò½Ó¿ÚÒÔÕûÊı±àÂëµÄ Java ÓïÑÔĞŞÊÎ·û¡£
-																   //È»ºótoStringÔÙ½âÂë£¬È»ºóµÃµ½ĞŞÊÎ·ûÊÇpublic »¹ÊÇÉ¶µÄ
+			String modifiers = Modifier.toString(c.getModifiers());//è¿”å›æ­¤ç±»æˆ–æ¥å£ä»¥æ•´æ•°ç¼–ç çš„ Java è¯­è¨€ä¿®é¥°ç¬¦ã€‚
+																   //ç„¶åtoStringå†è§£ç ï¼Œç„¶åå¾—åˆ°ä¿®é¥°ç¬¦æ˜¯public è¿˜æ˜¯å•¥çš„
 			if(modifiers.length() > 0) System.out.print(modifiers + " ");
 			System.out.print(name +  "(");
 			
 			//print parameter types
-			Class[] parameTypes = c.getParameterTypes();//°´ÕÕÉùÃ÷Ë³Ğò·µ»ØÒ»×é Class¶ÔÏó,ÕâĞ©¶ÔÏó±íÊ¾´Ë Constructor¶ÔÏóËù±íÊ¾¹¹Ôì·½·¨µÄĞÎ²ÎÀàĞÍ¡£
+			Class[] parameTypes = c.getParameterTypes();//æŒ‰ç…§å£°æ˜é¡ºåºè¿”å›ä¸€ç»„ Classå¯¹è±¡,è¿™äº›å¯¹è±¡è¡¨ç¤ºæ­¤ Constructorå¯¹è±¡æ‰€è¡¨ç¤ºæ„é€ æ–¹æ³•çš„å½¢å‚ç±»å‹ã€‚
 			for(int j = 0 ;j < parameTypes.length; j++){
 				if(j > 0) System.out.print(", ");
 				System.out.print(parameTypes[j].getName());
@@ -58,19 +58,19 @@ public class ReflectDemo {
 	}
 	
 	public static void printMethods(Class c1){
-		Method[] methods = c1.getDeclaredMethods();//µÃµ½¸ÃÀàµÄËùÓĞ·½·¨£¬ÒÔMethod¶ÔÏóÊı×éĞÎÊ½·µ»Ø
+		Method[] methods = c1.getDeclaredMethods();//å¾—åˆ°è¯¥ç±»çš„æ‰€æœ‰æ–¹æ³•ï¼Œä»¥Methodå¯¹è±¡æ•°ç»„å½¢å¼è¿”å›
 		for(Method m : methods){
-			Class retType = m.getReturnType();//µÃµ½·½·¨µÄ·µ»ØÖµÀàĞÍ£¬·µ»ØÖµÀàĞÍ¿Ï¶¨ÊÇClassÀà°¡
-			String name = m.getName();//µÃµ½·½·¨Ãû³Æ
+			Class retType = m.getReturnType();//å¾—åˆ°æ–¹æ³•çš„è¿”å›å€¼ç±»å‹ï¼Œè¿”å›å€¼ç±»å‹è‚¯å®šæ˜¯Classç±»å•Š
+			String name = m.getName();//å¾—åˆ°æ–¹æ³•åç§°
 			
 			System.out.print("   ");
-			//print modifiers(ĞŞÊÎ·û),return type and method name
-			String modifiers = Modifier.toString(m.getModifiers());//µÃµ½ĞŞÊÎ·û
-			if(modifiers.length() > 0) System.out.print(modifiers + " ");//´òÓ¡ĞŞÊÎ·û
-			System.out.print(retType.getName() + " " + name + "(");//´òÓ¡·µ»ØÖµÀàĞÍ
+			//print modifiers(ä¿®é¥°ç¬¦),return type and method name
+			String modifiers = Modifier.toString(m.getModifiers());//å¾—åˆ°ä¿®é¥°ç¬¦
+			if(modifiers.length() > 0) System.out.print(modifiers + " ");//æ‰“å°ä¿®é¥°ç¬¦
+			System.out.print(retType.getName() + " " + name + "(");//æ‰“å°è¿”å›å€¼ç±»å‹
 			
 			//print parameter types
-			Class[] paramTypes = m.getParameterTypes();//µÃµ½²ÎÊıÀàĞÍ£¬ÒÔClass¶ÔÏóÊı×éĞÎÊ½·µ»Ø
+			Class[] paramTypes = m.getParameterTypes();//å¾—åˆ°å‚æ•°ç±»å‹ï¼Œä»¥Classå¯¹è±¡æ•°ç»„å½¢å¼è¿”å›
 			for(int j = 0; j < paramTypes.length; j++){
 				if(j > 0) System.out.print(", "); 
 				System.out.print(paramTypes[j].getName());
@@ -80,12 +80,12 @@ public class ReflectDemo {
 	}
 	
 	public static void printFields(Class c1){
-		Field[] fields = c1.getDeclaredFields();//·µ»ØÒ»×éÊı¾İÓòÀà
+		Field[] fields = c1.getDeclaredFields();//è¿”å›ä¸€ç»„æ•°æ®åŸŸç±»
 		for(Field f : fields){
-			Class type = f.getType();//µÃµ½Êı¾İÓòÀàĞÍ£¬ÒÔClass¶ÔÏó·µ»Ø
-			String name = f.getName();//µÃµ½Êı¾İÓòÃû³Æ
+			Class type = f.getType();//å¾—åˆ°æ•°æ®åŸŸç±»å‹ï¼Œä»¥Classå¯¹è±¡è¿”å›
+			String name = f.getName();//å¾—åˆ°æ•°æ®åŸŸåç§°
 			System.out.print("   ");
-			String modifiers = Modifier.toString(f.getModifiers());//µÃµ½ĞŞÊÎ·ûÃû
+			String modifiers = Modifier.toString(f.getModifiers());//å¾—åˆ°ä¿®é¥°ç¬¦å
 			if(modifiers.length() > 0) System.out.print(modifiers + " ");
 			System.out.println(type.getName() + " " + name + ";");
 		}

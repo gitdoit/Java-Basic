@@ -1,28 +1,29 @@
-package object;
+package top.seefly.javase.old2017.object;
+import top.seefly.javase.old2017.employee.Employees;
+
 import java.util.Objects;
-import employee.Employees;
-/*hashÊÇÉ¢ÁĞÂë
- * ÊÇÓÉ¶ÔÏóµ½´¦µÄÒ»¸öÕûĞÍÖµ£¬ËûÊÇÃ»ÓĞ¹æÂÉµÄ£¬¾ßÓĞ¶ÀÌØĞÔ£¨ÏñÊÇÉí·İÖ¤ºÅ£©¡£
- * Èôx,yÊÇÁ½¸ö²»Í¬µÄ¶ÔÏó£¬ÔòËûÃÇ»ù±¾ÉÏ²»»áÓĞÏàÍ¬µÄÉ¢ÁĞÂë¡£
- * ×Ô¼ºÖØĞ´É¢ÁĞÂëÊ±Ò»°ãÊÇÓÉ¶ÔÏóµÄÊı¾İÓòÓÉÄ³ÖÖËã·¨µÃ³ö¡£
+/*hashæ˜¯æ•£åˆ—ç 
+ * æ˜¯ç”±å¯¹è±¡åˆ°å¤„çš„ä¸€ä¸ªæ•´å‹å€¼ï¼Œä»–æ˜¯æ²¡æœ‰è§„å¾‹çš„ï¼Œå…·æœ‰ç‹¬ç‰¹æ€§ï¼ˆåƒæ˜¯èº«ä»½è¯å·ï¼‰ã€‚
+ * è‹¥x,yæ˜¯ä¸¤ä¸ªä¸åŒçš„å¯¹è±¡ï¼Œåˆ™ä»–ä»¬åŸºæœ¬ä¸Šä¸ä¼šæœ‰ç›¸åŒçš„æ•£åˆ—ç ã€‚
+ * è‡ªå·±é‡å†™æ•£åˆ—ç æ—¶ä¸€èˆ¬æ˜¯ç”±å¯¹è±¡çš„æ•°æ®åŸŸç”±æŸç§ç®—æ³•å¾—å‡ºã€‚
  * 
- * ÈôÓÉ×Ô¼ºĞ´µÄEquals·½·¨µÃ³öÁ½¸ö¶ÔÏóÏàµÈ£¬ÄÇÃ´ËûÁ©µÄÉ¢ÁĞÂëÒ²ÒªÏàµÈ¡£
- * EqualsÓÉÊ²Ã´·½Ê½µÃ³öµÄ½áÂÛ£¬ÄÇÃ´É¢ÁĞÂëÒ²Òª¸ù¾İÕâ¸ö·½Ê½À´
- * ¾ÍÏñ
+ * è‹¥ç”±è‡ªå·±å†™çš„Equalsæ–¹æ³•å¾—å‡ºä¸¤ä¸ªå¯¹è±¡ç›¸ç­‰ï¼Œé‚£ä¹ˆä»–ä¿©çš„æ•£åˆ—ç ä¹Ÿè¦ç›¸ç­‰ã€‚
+ * Equalsç”±ä»€ä¹ˆæ–¹å¼å¾—å‡ºçš„ç»“è®ºï¼Œé‚£ä¹ˆæ•£åˆ—ç ä¹Ÿè¦æ ¹æ®è¿™ä¸ªæ–¹å¼æ¥
+ * å°±åƒ
  * */
 
 public class HashCodeDemo {
 	public static void main(String[] args){
 		HashEmployee p1 = new HashEmployee("liu",100,2017,5,9);
-		HashEmployee p2 = new HashEmployee("liu",100,2017,5,9);//p1 p2Êı¾İÓòÏàÍ¬£¬¿ÉÒÔÀí½âÎªÊÇÍ¬Ò»¸ö¹ÍÔ±
+		HashEmployee p2 = new HashEmployee("liu",100,2017,5,9);//p1 p2æ•°æ®åŸŸç›¸åŒï¼Œå¯ä»¥ç†è§£ä¸ºæ˜¯åŒä¸€ä¸ªé›‡å‘˜
 		HashEmployee p3 = new HashEmployee("liu",55500,2017,5,9);
-		System.out.println("ÑİÊ¾É¢ÁĞÂëÈçÏÂ" + p1.toString());
+		System.out.println("æ¼”ç¤ºæ•£åˆ—ç å¦‚ä¸‹" + p1.toString());
 		System.out.println(p1.hashCode()+"\n" + p2.hashCode() + "\n" + p3.hashCode());
 	}
 	
 }
 
-class HashEmployee extends Employees{
+class HashEmployee extends Employees {
 	public HashEmployee(){
 		super();
 	}
@@ -31,17 +32,17 @@ class HashEmployee extends Employees{
 	}
 	
 	@Override
-	public int hashCode(){//×îºÃµÄ·½Ê½,ÖØĞ´ÁËObjectÖĞµÄ·½·¨
+	public int hashCode(){//æœ€å¥½çš„æ–¹å¼,é‡å†™äº†Objectä¸­çš„æ–¹æ³•
 		return Objects.hash(name,salary,hireDay);
 	}
 	
-	public int hashCode1(){//ÕâÖÖ·½·¨²»ÄÜÈ·±£Êı¾İÓòÎª¿ÕÊÇµÄ×¼È·ĞÔ
-		return 	  7 * name.hashCode()//String¶ÔÏóÓÉ×ÔÉíµÄÉ¢ÁĞÂëËã·¨
-				+ 11 * new Double(salary).hashCode()//double×ª»»ÎªDouble¶ÔÏó£¬ÔÙÊ¹ÓÃDoubleÖĞµÄÉ¢ÁĞÂëËã·¨
-				+ 13 * Objects.hashCode(hireDay);//DateÀàÖĞÃ»ÓĞÉ¢ÁĞÂëËã·¨£¬Ê¹ÓÃObjectsÀàÖĞµÄ¾²Ì¬É¢ÁĞÂëËã·¨
+	public int hashCode1(){//è¿™ç§æ–¹æ³•ä¸èƒ½ç¡®ä¿æ•°æ®åŸŸä¸ºç©ºæ˜¯çš„å‡†ç¡®æ€§
+		return 	  7 * name.hashCode()//Stringå¯¹è±¡ç”±è‡ªèº«çš„æ•£åˆ—ç ç®—æ³•
+				+ 11 * new Double(salary).hashCode()//doubleè½¬æ¢ä¸ºDoubleå¯¹è±¡ï¼Œå†ä½¿ç”¨Doubleä¸­çš„æ•£åˆ—ç ç®—æ³•
+				+ 13 * Objects.hashCode(hireDay);//Dateç±»ä¸­æ²¡æœ‰æ•£åˆ—ç ç®—æ³•ï¼Œä½¿ç”¨Objectsç±»ä¸­çš„é™æ€æ•£åˆ—ç ç®—æ³•
 	}
 	
-	public int hashCode2(){//ÕâÖÖ·½·¨½ÏºÃ£¬µ±Êı¾İÓòÎªnullÊ±ºòhashCode·µ»Ø0£¬·ñÔòÊ¹ÓÃÆä±¾ÉíµÄÉ¢ÁĞÂëËã·¨
+	public int hashCode2(){//è¿™ç§æ–¹æ³•è¾ƒå¥½ï¼Œå½“æ•°æ®åŸŸä¸ºnullæ—¶å€™hashCodeè¿”å›0ï¼Œå¦åˆ™ä½¿ç”¨å…¶æœ¬èº«çš„æ•£åˆ—ç ç®—æ³•
 		return 7 * Objects.hashCode(name)
 				+ 11 * new Double(salary).hashCode()
 				+ 13 * Objects.hashCode(hireDay);

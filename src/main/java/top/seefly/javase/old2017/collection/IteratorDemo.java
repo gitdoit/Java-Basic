@@ -1,23 +1,23 @@
-package collection;
+package top.seefly.javase.old2017.collection;
 /*
- * µü´úµÄ¸ÅÄîÊÇÒÀ¸½ÓëCollectionºÍMap¡£ÍÑÀëµÄËü¾ÍÃ»ÓÐµü´úÕâ¸ö¸ÅÄî,¼´µü´úÆ÷²»ÄÜ×ÔÎÒÉú³É
- * ËùÒÔµü´úÆ÷µÄÊµÀýÖ»ÄÜ´Ó¼¯ºÏ¶ÔÏóÖÐÈ¡£¬ËùÓÐCollectionÊµÀýÖÐ¶¼º¬ÓÐµü´ú·½·¨Iterator£¬ÒòÎª´Ë·½·¨¶¨ÒåÔÚCollectionÖÐ£¬×ÓÀàº¬ÓÐ´Ë·½·¨µÄÕë¶Ô°æ
- * ÔÚµü´ú¹ý³ÌÖÐ¼¯ºÏ²»ÄÜ·¢Éú¸Ä±ä£¬³ý·ÇÊ¹ÓÃµü´úÆ÷µÄremove·½·¨¡£Ê¹ÓÃ¼¯ºÏµÄremove·½·¨»áÅ×³öÒì³£
- * hasNext·½·¨Ö»»á¼ì²âÓÐÎÞÏÂ¸öÔªËØ£¬²»»á¸Ä±äµü´úÁ´±íÖ¸Õë¡£¼´Ö¸Õë²»»áºóÒÆ
- * Ö»ÓÐµ÷ÓÃnext·½·¨²Å»áÊÇÖ¸ÕëºóÒÆ£¬ÇÒ»á·µ»ØÖ¸Õë¿ç¹ýµÄÄÄ¸öÔªËØ
+ * è¿­ä»£çš„æ¦‚å¿µæ˜¯ä¾é™„ä¸ŽCollectionå’ŒMapã€‚è„±ç¦»çš„å®ƒå°±æ²¡æœ‰è¿­ä»£è¿™ä¸ªæ¦‚å¿µ,å³è¿­ä»£å™¨ä¸èƒ½è‡ªæˆ‘ç”Ÿæˆ
+ * æ‰€ä»¥è¿­ä»£å™¨çš„å®žä¾‹åªèƒ½ä»Žé›†åˆå¯¹è±¡ä¸­å–ï¼Œæ‰€æœ‰Collectionå®žä¾‹ä¸­éƒ½å«æœ‰è¿­ä»£æ–¹æ³•Iteratorï¼Œå› ä¸ºæ­¤æ–¹æ³•å®šä¹‰åœ¨Collectionä¸­ï¼Œå­ç±»å«æœ‰æ­¤æ–¹æ³•çš„é’ˆå¯¹ç‰ˆ
+ * åœ¨è¿­ä»£è¿‡ç¨‹ä¸­é›†åˆä¸èƒ½å‘ç”Ÿæ”¹å˜ï¼Œé™¤éžä½¿ç”¨è¿­ä»£å™¨çš„removeæ–¹æ³•ã€‚ä½¿ç”¨é›†åˆçš„removeæ–¹æ³•ä¼šæŠ›å‡ºå¼‚å¸¸
+ * hasNextæ–¹æ³•åªä¼šæ£€æµ‹æœ‰æ— ä¸‹ä¸ªå…ƒç´ ï¼Œä¸ä¼šæ”¹å˜è¿­ä»£é“¾è¡¨æŒ‡é’ˆã€‚å³æŒ‡é’ˆä¸ä¼šåŽç§»
+ * åªæœ‰è°ƒç”¨nextæ–¹æ³•æ‰ä¼šæ˜¯æŒ‡é’ˆåŽç§»ï¼Œä¸”ä¼šè¿”å›žæŒ‡é’ˆè·¨è¿‡çš„å“ªä¸ªå…ƒç´ 
  * 
- * ÎÞÐò¼¯ºÏHashSetÖÐµÄµü´ú£¬Ö»ÄÜ´ÓÖÐremove ²»ÄÜÌí¼Ó
- * Á´±í¼¯ºÏLinkedListÖÐµÄListIteratorµü´úÆ÷£¬¿ÉÒÔÔÚµü´ú¹ý³ÌÖÐÏòÁ´±í²åÈëÔªËØ,¿ÉÒÔÖ¸ÕëÇ°ÒÆ
- * ×¢Òâ£ºÈÎºÎµü´úÆ÷¶¼²»ÄÜÁ¬ÐøÁ½´Îµ÷ÓÃremove£¬removeµÄ³öÏÖ¶¼ÒªÓÐ¶ÔÓ¦µÄnext¡£ÇÒÔÚÕâÁ½¸ö·½·¨ÖÐ¼ä²»ÄÜ¶Ô
+ * æ— åºé›†åˆHashSetä¸­çš„è¿­ä»£ï¼Œåªèƒ½ä»Žä¸­remove ä¸èƒ½æ·»åŠ 
+ * é“¾è¡¨é›†åˆLinkedListä¸­çš„ListIteratorè¿­ä»£å™¨ï¼Œå¯ä»¥åœ¨è¿­ä»£è¿‡ç¨‹ä¸­å‘é“¾è¡¨æ’å…¥å…ƒç´ ,å¯ä»¥æŒ‡é’ˆå‰ç§»
+ * æ³¨æ„ï¼šä»»ä½•è¿­ä»£å™¨éƒ½ä¸èƒ½è¿žç»­ä¸¤æ¬¡è°ƒç”¨removeï¼Œremoveçš„å‡ºçŽ°éƒ½è¦æœ‰å¯¹åº”çš„nextã€‚ä¸”åœ¨è¿™ä¸¤ä¸ªæ–¹æ³•ä¸­é—´ä¸èƒ½å¯¹
  * 
  * 
- * Iterator½Ó¿ÚÖÐ¶¨ÒåÁËÈý¸ö³éÏó·½·¨,ºÍÒ»¸ö¹¹Ôì·½·¨
- * Collection½Ó¿Ú¼Ì³ÐÁËIterator½Ó¿Ú
- * List½Ó¿Ú¼Ì³ÐÁËCollection½Ó¿Ú
- * ArrayList ÊµÏÖÁË List ½Ó¿Ú
- * ËùÒÔArrayListÀàÊµÏÖÁËIterator½Ó¿ÚÖÐµÄÈý¸ö·½·¨£¬ºÍÒ»¸ö¹¹Ôì·½·¨
- * ´ËÈý¸ö·½·¨±»ÊµÏÖÔÚËüµÄÄÚ²¿ÀàItrÖÐ¡£
- * ArrayList.Iterator·µ»ØItrµÄÊµÀý
+ * IteratoræŽ¥å£ä¸­å®šä¹‰äº†ä¸‰ä¸ªæŠ½è±¡æ–¹æ³•,å’Œä¸€ä¸ªæž„é€ æ–¹æ³•
+ * CollectionæŽ¥å£ç»§æ‰¿äº†IteratoræŽ¥å£
+ * ListæŽ¥å£ç»§æ‰¿äº†CollectionæŽ¥å£
+ * ArrayList å®žçŽ°äº† List æŽ¥å£
+ * æ‰€ä»¥ArrayListç±»å®žçŽ°äº†IteratoræŽ¥å£ä¸­çš„ä¸‰ä¸ªæ–¹æ³•ï¼Œå’Œä¸€ä¸ªæž„é€ æ–¹æ³•
+ * æ­¤ä¸‰ä¸ªæ–¹æ³•è¢«å®žçŽ°åœ¨å®ƒçš„å†…éƒ¨ç±»Iträ¸­ã€‚
+ * ArrayList.Iteratorè¿”å›žItrçš„å®žä¾‹
  * */
 import java.util.*;
 
@@ -25,37 +25,37 @@ public class IteratorDemo {
 
 	public static void main(String[] args) {
 		Collection<String> book = new HashSet<String>();
-		book.add("Áõ½¨öÎ");
-		book.add("ÕæË§");
-		book.add("ÕâÊÇÕæµÄ");
-		book.add("ÕâÃ»»°Ëµ");
+		book.add("åˆ˜å»ºé‘«");
+		book.add("çœŸå¸…");
+		book.add("è¿™æ˜¯çœŸçš„");
+		book.add("è¿™æ²¡è¯è¯´");
 		book.add("dd");
 		Iterator itr = book.iterator();
-		while(itr.hasNext()) {							//hasNext·½·¨Ö»»á¼ì²âÓÐÃ»ÓÐÏÂÒ»¸öÔªËØ£¬²»»áÊ¹µü´úÖ¸ÕëºóÒÆ
-			//System.out.println(itr.next());			Ö»ÓÐnext·½·¨²Å»áÊ¹µü´úÖ¸ÕëºóÒÆ£¬ËùÒÔ²»ÒªÔÙÒ»´ÎÑ­»·ÖÐµ÷ÓÃÁ½´Înext·½·¨£¬
-			if(itr.next().equals("dd"))					//ÏñÊÇÉÏÃæµÄÊä³öÓï¾äºÍÕâÌõÅÐ¶ÏÓï¾äÊ¹ÓÃÁËÁ½´ÎnextÔòÔÚwhileÑ­»·ÖÐ»á³öÏÖNoSuchElementException
-				itr.remove();							//ÒòÎªµü´úÆ÷»áÉú³ÉÒ»¸öÁ´±íÖ¸ÕëÖ¸ÏòÔ­¼¯ºÏ£¬ÇÒÔª¼¯ºÏ·¢ÉúÁË¸Ä±äÊ±Á´±íÒÀ¾É²»»á¸Ä±äÖ¸Ïò¡£ËùÒÔÔÚÊ¹ÓÃ´Ë·½·¨Ê¹£¬Ôª¼¯ºÏ²»ÄÜ·¢Éú¸Ä±ä£¬·ñÔòÒì³£
-														//book.remove("Áõ½¨öÎ");µü´úÊ±£¬¼¯ºÏ²»ÄÜ·¢Éú¸Ä±ä¡£ÈôÒª¸Ä±ä£¬Ö»ÄÜÊ¹ÓÃµü´úÆ÷µÄremove·½·¨
+		while(itr.hasNext()) {							//hasNextæ–¹æ³•åªä¼šæ£€æµ‹æœ‰æ²¡æœ‰ä¸‹ä¸€ä¸ªå…ƒç´ ï¼Œä¸ä¼šä½¿è¿­ä»£æŒ‡é’ˆåŽç§»
+			//System.out.println(itr.next());			åªæœ‰nextæ–¹æ³•æ‰ä¼šä½¿è¿­ä»£æŒ‡é’ˆåŽç§»ï¼Œæ‰€ä»¥ä¸è¦å†ä¸€æ¬¡å¾ªçŽ¯ä¸­è°ƒç”¨ä¸¤æ¬¡nextæ–¹æ³•ï¼Œ
+			if(itr.next().equals("dd"))					//åƒæ˜¯ä¸Šé¢çš„è¾“å‡ºè¯­å¥å’Œè¿™æ¡åˆ¤æ–­è¯­å¥ä½¿ç”¨äº†ä¸¤æ¬¡nextåˆ™åœ¨whileå¾ªçŽ¯ä¸­ä¼šå‡ºçŽ°NoSuchElementException
+				itr.remove();							//å› ä¸ºè¿­ä»£å™¨ä¼šç”Ÿæˆä¸€ä¸ªé“¾è¡¨æŒ‡é’ˆæŒ‡å‘åŽŸé›†åˆï¼Œä¸”å…ƒé›†åˆå‘ç”Ÿäº†æ”¹å˜æ—¶é“¾è¡¨ä¾æ—§ä¸ä¼šæ”¹å˜æŒ‡å‘ã€‚æ‰€ä»¥åœ¨ä½¿ç”¨æ­¤æ–¹æ³•ä½¿ï¼Œå…ƒé›†åˆä¸èƒ½å‘ç”Ÿæ”¹å˜ï¼Œå¦åˆ™å¼‚å¸¸
+														//book.remove("åˆ˜å»ºé‘«");è¿­ä»£æ—¶ï¼Œé›†åˆä¸èƒ½å‘ç”Ÿæ”¹å˜ã€‚è‹¥è¦æ”¹å˜ï¼Œåªèƒ½ä½¿ç”¨è¿­ä»£å™¨çš„removeæ–¹æ³•
 		}
 		System.out.println(book);
 		
-		List<String> list = new LinkedList<>();			//´Ë¼¯ºÏÊÇÓÐÐòµÄ£¬ÊÊºÏÈÎÒâÎ»ÖÃÉÏµÄ²åÈëÓëÉ¾³ý
-		list.addAll(book);								//³õÊ¼»¯¼¯ºÏ
+		List<String> list = new LinkedList<>();			//æ­¤é›†åˆæ˜¯æœ‰åºçš„ï¼Œé€‚åˆä»»æ„ä½ç½®ä¸Šçš„æ’å…¥ä¸Žåˆ é™¤
+		list.addAll(book);								//åˆå§‹åŒ–é›†åˆ
 		
-		ListIterator<String> lit = list.listIterator();//ÐÂ½¨Á´±íµü´úÆ÷£¬´Ëµü´úÆ÷±ÈÊÇÁ´±íµÄÌØÓÐµü´úÆ÷£¬ÐÂÔöadd/previous¹¦ÄÜ¡£Ò»µ©¼¯ºÏÓÐÁËµü´úÆ÷£¬´Ë¼¯ºÏ²»ÔÊÐí×ÔÐÐ¸Ä±ä
+		ListIterator<String> lit = list.listIterator();//æ–°å»ºé“¾è¡¨è¿­ä»£å™¨ï¼Œæ­¤è¿­ä»£å™¨æ¯”æ˜¯é“¾è¡¨çš„ç‰¹æœ‰è¿­ä»£å™¨ï¼Œæ–°å¢žadd/previousåŠŸèƒ½ã€‚ä¸€æ—¦é›†åˆæœ‰äº†è¿­ä»£å™¨ï¼Œæ­¤é›†åˆä¸å…è®¸è‡ªè¡Œæ”¹å˜
 		System.out.println("next:"+lit.next());
-		//list.add(0,"see");							ÔÚµü´ú¹ý³ÌÖÐ²»ÄÜÍ¨¹ýÁ´±í±¾ÉíµÄ·½·¨¸Ä±äÁ´±í½á¹¹
+		//list.add(0,"see");							åœ¨è¿­ä»£è¿‡ç¨‹ä¸­ä¸èƒ½é€šè¿‡é“¾è¡¨æœ¬èº«çš„æ–¹æ³•æ”¹å˜é“¾è¡¨ç»“æž„
 		System.out.println("next:"+lit.next());
-		list.set(0, "best");							//ÔÚµü´úÖÐËäÈ»²»ÄÜ¸ü¸Ä¼¯ºÏ½á¹¹£¬µ«È´¿ÉÒÔ¸Ä±ä¼¯ºÏÖ¸¶¨Î»ÖÃÉÏµÄÄÚÈÝ¡£
-		lit.add("see");									//´ËÊ±¾­¹ýÁ½´Înext²Ù×÷£¬ËùÒÔsee±»Ìí¼ÓÔÚÁ´±íµÄµÚ¶þ¸öÎ»ÖÃÖ®ºó
-		System.out.println("previous:"+lit.previous());;//´Ë·½·¨Óënext·½·¨ÕýºÃÏà·´£¬Ëü»áÊ¹Ö¸ÕëÇ°ÒÆ£¬²¢·µ»ØÖ¸Õë¿çµÄÔªËØ
+		list.set(0, "best");							//åœ¨è¿­ä»£ä¸­è™½ç„¶ä¸èƒ½æ›´æ”¹é›†åˆç»“æž„ï¼Œä½†å´å¯ä»¥æ”¹å˜é›†åˆæŒ‡å®šä½ç½®ä¸Šçš„å†…å®¹ã€‚
+		lit.add("see");									//æ­¤æ—¶ç»è¿‡ä¸¤æ¬¡nextæ“ä½œï¼Œæ‰€ä»¥seeè¢«æ·»åŠ åœ¨é“¾è¡¨çš„ç¬¬äºŒä¸ªä½ç½®ä¹‹åŽ
+		System.out.println("previous:"+lit.previous());;//æ­¤æ–¹æ³•ä¸Žnextæ–¹æ³•æ­£å¥½ç›¸åï¼Œå®ƒä¼šä½¿æŒ‡é’ˆå‰ç§»ï¼Œå¹¶è¿”å›žæŒ‡é’ˆè·¨çš„å…ƒç´ 
 		lit.add("fly");
 		
 		
 		
 		
 		//System.out.println(list);
-		for(String e:list) {							//ÈÎºÎÊµÏÖÁËIterator½Ó¿ÚµÄÀà¶¼ÄÜÊ¹ÓÃfor eachÑ­»·±éÀú
+		for(String e:list) {							//ä»»ä½•å®žçŽ°äº†IteratoræŽ¥å£çš„ç±»éƒ½èƒ½ä½¿ç”¨for eachå¾ªçŽ¯éåŽ†
 			System.out.print(e);
 		}
 	}

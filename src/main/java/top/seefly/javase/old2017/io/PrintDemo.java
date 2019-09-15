@@ -1,4 +1,4 @@
-package io;
+package top.seefly.javase.old2017.io;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -6,31 +6,31 @@ import java.io.PrintStream;
 import java.io.PrintWriter;
 
 /*
- * ´òÓ¡Á÷£º
- * 	printStream ×Ö½Ú´òÓ¡Á÷
- * 	printWrite	×Ö·û´òÓ¡Á÷
- * 			ÕâÁ½¸öÀà»ù±¾ÉÏÊÇ¿ÉÒÔ»ìÓÃµÄ£¬Î¨Ò»µÄ²î±ğ¾ÍÊÇÒ»¸ö¿ÉÒÔĞ´×Ö½Ú£¬Ò»¸ö²»ÄÜ¡£Ò²¾ÍÊÇËµprintStream¸üµõÒ»µã£¬¿ÉÒÔĞ´×Ö½ÚºÍ×Ö·û¡£ÁíÒ»¸öÖ»ÄÜĞ´×Ö½Ú
- * 			·½·¨¶¼²î²»¶à¡£
+ * æ‰“å°æµï¼š
+ * 	printStream å­—èŠ‚æ‰“å°æµ
+ * 	printWrite	å­—ç¬¦æ‰“å°æµ
+ * 			è¿™ä¸¤ä¸ªç±»åŸºæœ¬ä¸Šæ˜¯å¯ä»¥æ··ç”¨çš„ï¼Œå”¯ä¸€çš„å·®åˆ«å°±æ˜¯ä¸€ä¸ªå¯ä»¥å†™å­—èŠ‚ï¼Œä¸€ä¸ªä¸èƒ½ã€‚ä¹Ÿå°±æ˜¯è¯´printStreamæ›´åŠä¸€ç‚¹ï¼Œå¯ä»¥å†™å­—èŠ‚å’Œå­—ç¬¦ã€‚å¦ä¸€ä¸ªåªèƒ½å†™å­—èŠ‚
+ * 			æ–¹æ³•éƒ½å·®ä¸å¤šã€‚
  * 	
- * 	´òÓ¡Á÷µÄÌØµã£º
- * 			Ö»ÓĞĞ´Êı¾İ£¬Ã»ÓĞ¶ÁÊı¾İ¡£Ö»ÄÜ²Ù×÷Ä¿µÄµØ£¬²»ÄÜ²Ù×÷Êı¾İÔ´¡£
- * 			¿ÉÒÔ²Ù×÷ÈÎÒâµÄÊı¾İÀàĞÍ
- * 			Èç¹ûÆô¶¯ÁË×Ô¶¯Ë¢ĞÂ£¬ÄÜ¹»×Ô¶¯Ë¢ĞÂ
- * 			¸ÃÁ÷¿ÉÒÔÖ±½Ó²Ù×÷ÎÄ±¾ÎÄ¼ş
+ * 	æ‰“å°æµçš„ç‰¹ç‚¹ï¼š
+ * 			åªæœ‰å†™æ•°æ®ï¼Œæ²¡æœ‰è¯»æ•°æ®ã€‚åªèƒ½æ“ä½œç›®çš„åœ°ï¼Œä¸èƒ½æ“ä½œæ•°æ®æºã€‚
+ * 			å¯ä»¥æ“ä½œä»»æ„çš„æ•°æ®ç±»å‹
+ * 			å¦‚æœå¯åŠ¨äº†è‡ªåŠ¨åˆ·æ–°ï¼Œèƒ½å¤Ÿè‡ªåŠ¨åˆ·æ–°
+ * 			è¯¥æµå¯ä»¥ç›´æ¥æ“ä½œæ–‡æœ¬æ–‡ä»¶
  */
 public class PrintDemo {
 
 	public static void main(String[] args) throws IOException{
 		
-		PrintStream ps = new PrintStream(new FileOutputStream("wirter.txt"),true);//¿ÉÒÔÊµÏÖ×Ô¶¯Ë¢ĞÂ£¬µ«Òªµ÷ÓÃ´øln»òfµÄ·½·¨
-		ps.print("Áõ½¨öÎ");//´Ë·½·¨Ã»ÓĞln£¬²»Ë¢ĞÂ
-		ps.println(true);//Ğ´ÈëbooleanÖµ£¬²¢Ë¢ĞÂ£¬ÏÂÃæ²»ÓÃµ÷ÓÃclose»òflush½øĞĞ³åË¢
+		PrintStream ps = new PrintStream(new FileOutputStream("wirter.txt"),true);//å¯ä»¥å®ç°è‡ªåŠ¨åˆ·æ–°ï¼Œä½†è¦è°ƒç”¨å¸¦lnæˆ–fçš„æ–¹æ³•
+		ps.print("åˆ˜å»ºé‘«");//æ­¤æ–¹æ³•æ²¡æœ‰lnï¼Œä¸åˆ·æ–°
+		ps.println(true);//å†™å…¥booleanå€¼ï¼Œå¹¶åˆ·æ–°ï¼Œä¸‹é¢ä¸ç”¨è°ƒç”¨closeæˆ–flushè¿›è¡Œå†²åˆ·
 		ps.close();
 		
-		PrintWriter pw = new PrintWriter(new FileOutputStream("wirter.txt",true));//²»Ö¸¶¨×Ô¶¯³åË¢,µ«ÉèÖÃ×·¼Ó¡£·ñÔòÉÏÃæĞ´µÄ¾ÍÃ»ÁË
-		pw.write(65);// Ô­°æµÄwirte·½·¨Ö»ÄÜĞ´×Ö·û»ò×Ö·ûÊı×é»ò×Ö·û´®,´ËĞĞĞ´ÈëASCIIÎª65µÄ×Ö·û
-		pw.print(65);//´ËĞĞĞ´Èë65
-		pw.print(true);//¶øĞÂµÄprint·½·¨¿ÉÒÔĞ´ÈÎÒâÊı¾İÀàĞÍ¡£
+		PrintWriter pw = new PrintWriter(new FileOutputStream("wirter.txt",true));//ä¸æŒ‡å®šè‡ªåŠ¨å†²åˆ·,ä½†è®¾ç½®è¿½åŠ ã€‚å¦åˆ™ä¸Šé¢å†™çš„å°±æ²¡äº†
+		pw.write(65);// åŸç‰ˆçš„wirteæ–¹æ³•åªèƒ½å†™å­—ç¬¦æˆ–å­—ç¬¦æ•°ç»„æˆ–å­—ç¬¦ä¸²,æ­¤è¡Œå†™å…¥ASCIIä¸º65çš„å­—ç¬¦
+		pw.print(65);//æ­¤è¡Œå†™å…¥65
+		pw.print(true);//è€Œæ–°çš„printæ–¹æ³•å¯ä»¥å†™ä»»æ„æ•°æ®ç±»å‹ã€‚
 		pw.close();
 	}
 

@@ -1,4 +1,4 @@
-package io;
+package top.seefly.javase.old2017.io;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -10,8 +10,8 @@ public class InputStreamReaderDemo {
 		InputStreamReader read = new InputStreamReader(new FileInputStream("writer.txt"),"UTF-8");
 		char[] cr = new char[1024];
 		int len;
-		while((len = read.read(cr)) != -1) {//Ò»´Î¶ÁÒ»¸ö×Ö·ûÊı×é³¤¶ÈµÄÄÚÈİ
-			System.out.println(cr);			//int read()Ò»¸ö¶ÁÈ¡Ò»¸ö×Ö·û
+		while((len = read.read(cr)) != -1) {//ä¸€æ¬¡è¯»ä¸€ä¸ªå­—ç¬¦æ•°ç»„é•¿åº¦çš„å†…å®¹
+			System.out.println(cr);			//int read()ä¸€ä¸ªè¯»å–ä¸€ä¸ªå­—ç¬¦
 		}
 		char cc;
 		read.close();

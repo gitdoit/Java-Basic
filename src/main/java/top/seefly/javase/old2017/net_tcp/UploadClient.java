@@ -1,4 +1,4 @@
-package net_tcp;
+package top.seefly.javase.old2017.net_tcp;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
@@ -9,34 +9,34 @@ import java.io.InputStreamReader;
 import java.net.Socket;
 
 /*
- * ±¾ÀàÓÃÀ´ÉÏ´«ÎÄ¼şµ½·şÎñÆ÷
- * ¶à¸öµØ·½¶¼ÒªÅ×Òì³£µÄ»°£¬½¨ÒéÕë¶ÔÃ¿¸öµØ·½¶¼×ö¶ÔÓ¦µÄ´¦Àí£¬»òÕßÊ¹ÓÃ¶ÔÓ¦µÄÒì³£½ÓÊÕ
+ * æœ¬ç±»ç”¨æ¥ä¸Šä¼ æ–‡ä»¶åˆ°æœåŠ¡å™¨
+ * å¤šä¸ªåœ°æ–¹éƒ½è¦æŠ›å¼‚å¸¸çš„è¯ï¼Œå»ºè®®é’ˆå¯¹æ¯ä¸ªåœ°æ–¹éƒ½åšå¯¹åº”çš„å¤„ç†ï¼Œæˆ–è€…ä½¿ç”¨å¯¹åº”çš„å¼‚å¸¸æ¥æ”¶
  */
 public class UploadClient {
 
 	public static void main(String[] args) throws IOException{
 		Socket sk = new Socket("192.168.3.4",8888);
-		//´ÓÎÄ¼ş¶ÁÊı¾İ
+		//ä»æ–‡ä»¶è¯»æ•°æ®
 		BufferedInputStream input = new BufferedInputStream(new FileInputStream("e:\\IOTest\\httpclient.pdf"));
-		//Ïò¹ÜµÀĞ´Êı¾İ
+		//å‘ç®¡é“å†™æ•°æ®
 		BufferedOutputStream output = new BufferedOutputStream(sk.getOutputStream());
 		byte[] bt = new byte[1024];
 		int len;
 		while((len = input.read(bt)) != -1) {
 			output.write(bt, 0, len);
-			//´ø»º³åµÄ¶¼ÒªË¢ĞÂÒ»ÏÂ
+			//å¸¦ç¼“å†²çš„éƒ½è¦åˆ·æ–°ä¸€ä¸‹
 			output.flush();
 		}
-		//************Í¨Öª·şÎñÆ÷ÉÏ´«Íê±Ï£¬Ã»ÓĞÒªĞ´µÄÁË******************** //
+		//************é€šçŸ¥æœåŠ¡å™¨ä¸Šä¼ å®Œæ¯•ï¼Œæ²¡æœ‰è¦å†™çš„äº†******************** //
 		sk.shutdownOutput();
-		//½¨Á¢¹ÜµÀ¶ÁÈë
+		//å»ºç«‹ç®¡é“è¯»å…¥
 		BufferedReader in = new BufferedReader(new InputStreamReader(sk.getInputStream()));
-		//´Ó¹ÜµÀ¶ÁÈëÏÔÊ¾,in.readLine()²»ÄÜÖ±½Ó·Å½øSystem.out.println(),»á³öÎÊÌâ£¬²»ÖªµÀÎªÊ²Ã´
+		//ä»ç®¡é“è¯»å…¥æ˜¾ç¤º,in.readLine()ä¸èƒ½ç›´æ¥æ”¾è¿›System.out.println(),ä¼šå‡ºé—®é¢˜ï¼Œä¸çŸ¥é“ä¸ºä»€ä¹ˆ
 		String str = in.readLine();
 		System.out.println(str);
-		//¹Ø±ÕÎÄ¼şÍ¨µÀ
+		//å…³é—­æ–‡ä»¶é€šé“
 		input.close();
-		//¹Ø±Õ¿Í»§¶Ë
+		//å…³é—­å®¢æˆ·ç«¯
 		sk.close();
 	}
 

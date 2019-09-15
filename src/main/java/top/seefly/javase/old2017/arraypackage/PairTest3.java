@@ -1,21 +1,21 @@
-package arraypackage;
+package top.seefly.javase.old2017.arraypackage;
 
 public class PairTest3 {
 	public static void main(String[] args){
 		Pair<String> i = new Pair<>();
 		Pair<?> b = new Pair<String>();
 		System.out.println(b.getClass().getName());
-		//b.setFirst("first") ERROR ÓÃ?½ÓÊÜ·ºĞÍ¶ÔÏóÊ±£¬²»ÄÜÉèÖÃ¸Ã·ºĞÍ¶ÔÏó¡£ÒòÎª²»ÖªµÀ£¿ÊÇÊ²Ã´¶«Î÷£¬ËüµÄÊôĞÔÎŞ·¨È·¶¨ÄÜ·ñÕâÑùÉèÖÃ
-		b.setFirst(null);//µ«ÊÇ¿ÉÒÔÉèÖÃnull
+		//b.setFirst("first") ERROR ç”¨?æ¥å—æ³›å‹å¯¹è±¡æ—¶ï¼Œä¸èƒ½è®¾ç½®è¯¥æ³›å‹å¯¹è±¡ã€‚å› ä¸ºä¸çŸ¥é“ï¼Ÿæ˜¯ä»€ä¹ˆä¸œè¥¿ï¼Œå®ƒçš„å±æ€§æ— æ³•ç¡®å®šèƒ½å¦è¿™æ ·è®¾ç½®
+		b.setFirst(null);//ä½†æ˜¯å¯ä»¥è®¾ç½®null
 		i.setFirst("first");
 		fun(i);
 		fun1(i);
 		fun2(i);
 		
 		
-		/************************ÏÂÃæÈı¸ö¸³ÖµÓë¸üÏÂÃæµÄÈı¸ö·½·¨Ïà±È½Ï****************************/
+		/************************ä¸‹é¢ä¸‰ä¸ªèµ‹å€¼ä¸æ›´ä¸‹é¢çš„ä¸‰ä¸ªæ–¹æ³•ç›¸æ¯”è¾ƒ****************************/
 		//Pair<Object> c = null;
-		//c = i; ÕâÑùÎŞ·¨Í¨¹ı±àÒë
+		//c = i; è¿™æ ·æ— æ³•é€šè¿‡ç¼–è¯‘
 		
 		Pair c = null;
 		c = i;
@@ -24,20 +24,20 @@ public class PairTest3 {
 		d = i;
 	}
 	
-	/*public static void fun(Pair<Object> temp){ ĞÎ²ÎµÄ·ºĞÍ±ØĞëÊÇÊµ²ÎµÄ¸¸Àà»òÕßÍ¬Àà£¬ÕâÑùÎŞ·¨Í¨¹ı±àÒë¡£
+	/*public static void fun(Pair<Object> temp){ å½¢å‚çš„æ³›å‹å¿…é¡»æ˜¯å®å‚çš„çˆ¶ç±»æˆ–è€…åŒç±»ï¼Œè¿™æ ·æ— æ³•é€šè¿‡ç¼–è¯‘ã€‚
 		System.out.println(temp.getFirst());
 	}*/
 	
-	public static  void fun(Pair<String> temp){//Í¬Àà¿ÉÒÔ±àÒëÍ¨¹ı
+	public static  void fun(Pair<String> temp){//åŒç±»å¯ä»¥ç¼–è¯‘é€šè¿‡
 		System.out.println(temp.getFirst());
 	}
 	
-	public static void fun1(Pair<?> temp){//¿ÉÒÔÊ¹ÓÃ? ÕâÑù¿ÉÒÔ½ÓÊÜÈÎÒâÀàĞÍµÄ·ºĞÍ
-		System.out.println(temp.getFirst());//¿ÉÒÔ·ÃÎÊ£¬µ«ÊÇÎŞ·¨ĞŞ¸Ä
-		//temp.setFirst("dd");Î´È·¶¨µÄ·ºĞÍ£¬ÎŞ·¨È·¶¨TÊÇ¸öÊ²Ã´¶«Î÷£¬¶øÊı¾İÓòÊÇÓÉT¶¨ÒåµÄ£¬ËùÒÔ²»ÄÜ¸ü¸Ä
+	public static void fun1(Pair<?> temp){//å¯ä»¥ä½¿ç”¨? è¿™æ ·å¯ä»¥æ¥å—ä»»æ„ç±»å‹çš„æ³›å‹
+		System.out.println(temp.getFirst());//å¯ä»¥è®¿é—®ï¼Œä½†æ˜¯æ— æ³•ä¿®æ”¹
+		//temp.setFirst("dd");æœªç¡®å®šçš„æ³›å‹ï¼Œæ— æ³•ç¡®å®šTæ˜¯ä¸ªä»€ä¹ˆä¸œè¥¿ï¼Œè€Œæ•°æ®åŸŸæ˜¯ç”±Tå®šä¹‰çš„ï¼Œæ‰€ä»¥ä¸èƒ½æ›´æ”¹
 	}
 	
-	public static void fun2(Pair temp){//¿ÉÒÔ²Á³ı·ºĞÍ¡£ÕâÑùÒ²¿ÉÒÔ
+	public static void fun2(Pair temp){//å¯ä»¥æ“¦é™¤æ³›å‹ã€‚è¿™æ ·ä¹Ÿå¯ä»¥
 		System.out.println(temp.getFirst());
 	}
 	

@@ -1,12 +1,12 @@
-package io;
+package top.seefly.javase.old2017.io;
 
 import java.io.FileWriter;
 import java.io.IOException;
 
 public class FileWriterDemo {
 	public static void main(String[] args) throws IOException{
-		FileWriter fw = new FileWriter("writer.txt");//Ä¬ÈÏ²»×·¼Ó£¬¸²¸Ç
-		//FileWriter fw1  = new FileWriter("writer.txt",true);Ö¸¶¨¿É×·¼Ó
+		FileWriter fw = new FileWriter("writer.txt");//é»˜è®¤ä¸è¿½åŠ ï¼Œè¦†ç›–
+		//FileWriter fw1  = new FileWriter("writer.txt",true);æŒ‡å®šå¯è¿½åŠ 
 		char[] ch = {'d','d'};
 		fw.write("liu");
 		fw.write(65);

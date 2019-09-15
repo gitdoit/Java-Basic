@@ -1,6 +1,6 @@
-package thread;
-//ThreadÖĞµÄ¾²Ì¬·½·¨£¬´Ë·½·¨»áÅ×³öÒ»¸ö±Ø¼ìÒì³£InterruptedException
-//sleep(delayMs) Èç¹û´Ë·½·¨ÔÚÍ¬²½´úÂë¿éÄÚ±»µ÷ÓÃ£¬ÄÇÃ´¸ÃÏß³Ì»á³ÖËøĞİÃß¡£1000ms = 1s
+package top.seefly.javase.old2017.thread;
+//Threadä¸­çš„é™æ€æ–¹æ³•ï¼Œæ­¤æ–¹æ³•ä¼šæŠ›å‡ºä¸€ä¸ªå¿…æ£€å¼‚å¸¸InterruptedException
+//sleep(delayMs) å¦‚æœæ­¤æ–¹æ³•åœ¨åŒæ­¥ä»£ç å—å†…è¢«è°ƒç”¨ï¼Œé‚£ä¹ˆè¯¥çº¿ç¨‹ä¼šæŒé”ä¼‘çœ ã€‚1000ms = 1s
 public class SleepDemo {
 	public static void main(String[] args) {
 		for(int i = 0; i < 10; i++)

@@ -1,12 +1,12 @@
-package exception;
+package top.seefly.javase.old2017.exception;
 
 import java.util.*;
 
-//»ù±¾µÄÒì³£ÑİÊ¾
+//åŸºæœ¬çš„å¼‚å¸¸æ¼”ç¤º
 public class Try {
-	public static int BaseException(int i,int j) throws Exception{//ÉùÃ÷»áÅ×³öÒ»¸öException£¬ÒªÔÚtryÄÚÖ´ĞĞ
+	public static int BaseException(int i,int j) throws Exception{//å£°æ˜ä¼šæŠ›å‡ºä¸€ä¸ªExceptionï¼Œè¦åœ¨tryå†…æ‰§è¡Œ
 		if(j == 0)
-			throw new ArithmeticException("·ÖÄ¸²»ÄÜÎªÁã");//¸ÃÒì³£ÊÇÃâ¼ìÒì³£¡£¿É²»±ØÔÙtry¿éÄÚÖ´ĞĞ¡£µ«ÉùÃ÷ExceptionÁË
+			throw new ArithmeticException("åˆ†æ¯ä¸èƒ½ä¸ºé›¶");//è¯¥å¼‚å¸¸æ˜¯å…æ£€å¼‚å¸¸ã€‚å¯ä¸å¿…å†tryå—å†…æ‰§è¡Œã€‚ä½†å£°æ˜Exceptionäº†
 		return i / j;
 	}
 	
@@ -15,27 +15,27 @@ public class Try {
 		System.out.print("Enter two inteters:");
 		int i = 0,j = 0;
 		
-		try{//ÓÉÓÚÓÃµ½µÄ·½·¨»áÅ×³öÒ»¸ö±Ø¼ìÒì³££¬ËùÒÔÒªÔÚtryÄÚÖ´ĞĞ
+		try{//ç”±äºç”¨åˆ°çš„æ–¹æ³•ä¼šæŠ›å‡ºä¸€ä¸ªå¿…æ£€å¼‚å¸¸ï¼Œæ‰€ä»¥è¦åœ¨tryå†…æ‰§è¡Œ
 			i = input.nextInt();
 			j = input.nextInt();
-			int result = BaseException(i,j);//Èç¹û¸Ã·½·¨Å×³öÒì³££¬Ôò²»»áÖ´ĞĞÏÂÒ»ÌõÓï¾ä£¬×ª¶ø½øÈëcatch
+			int result = BaseException(i,j);//å¦‚æœè¯¥æ–¹æ³•æŠ›å‡ºå¼‚å¸¸ï¼Œåˆ™ä¸ä¼šæ‰§è¡Œä¸‹ä¸€æ¡è¯­å¥ï¼Œè½¬è€Œè¿›å…¥catch
 			System.out.println(result);
 		}
-		catch(ArithmeticException ex){//ÓĞÒì³£Å×³ö»á±»catch×¥×¡
+		catch(ArithmeticException ex){//æœ‰å¼‚å¸¸æŠ›å‡ºä¼šè¢«catchæŠ“ä½
 			System.out.println(ex);
 		}
 		catch(InputMismatchException ex){
 			
-			System.out.println("ÊäÈë²»ºÏ·¨");
-			throw ex;//´Ómainº¯ÊıÅ×³öÒì³££¬½»ÓÉÉÏ¼¶´¦Àí¡£
+			System.out.println("è¾“å…¥ä¸åˆæ³•");
+			throw ex;//ä»mainå‡½æ•°æŠ›å‡ºå¼‚å¸¸ï¼Œäº¤ç”±ä¸Šçº§å¤„ç†ã€‚
 		}
-		catch(Exception ex){//×¢Òâ´ÓInputMismatchExceptionÅ×³öµÄÒì³£²»»áÅÜµ½ÕâÀï£¬ËûÃÇÊÇÍ¬¼¶¡£»á´Óµ÷ÓÃËüµÄº¯ÊıÖĞÅ×³ö
+		catch(Exception ex){//æ³¨æ„ä»InputMismatchExceptionæŠ›å‡ºçš„å¼‚å¸¸ä¸ä¼šè·‘åˆ°è¿™é‡Œï¼Œä»–ä»¬æ˜¯åŒçº§ã€‚ä¼šä»è°ƒç”¨å®ƒçš„å‡½æ•°ä¸­æŠ›å‡º
 			System.out.println(ex);
 		}
 		finally{
-			System.out.println("ÕâÊÇfinally¿é");//²»¹ØÓĞÃ»ÓĞÒì³£Å×³ö£¬»òÓĞÃ»ÓĞ±»²¶»ñ¶¼»áÖ´ĞĞfinally
+			System.out.println("è¿™æ˜¯finallyå—");//ä¸å…³æœ‰æ²¡æœ‰å¼‚å¸¸æŠ›å‡ºï¼Œæˆ–æœ‰æ²¡æœ‰è¢«æ•è·éƒ½ä¼šæ‰§è¡Œfinally
 		}
-		System.out.println("ÕâÊÇfinallyÖ®ºóµÄÓï¾ä");
+		System.out.println("è¿™æ˜¯finallyä¹‹åçš„è¯­å¥");
 	}
 
 }

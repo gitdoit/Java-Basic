@@ -1,4 +1,4 @@
-package mypraxis;
+package top.seefly.javase.old2017.mypraxis;
 
 public class CopyPicture {
 	public static void main(String[] args) {

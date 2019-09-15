@@ -1,18 +1,18 @@
-package classdemo;
+package top.seefly.javase.old2017.classdemo;
 
 import java.lang.reflect.Array;
 
 /*
  * java.lang.reflect.Array
- * ¿ÉÒÔÍ¨¹ı¶¯Ì¬µÄ·½Ê½´´½¨Êı×é
+ * å¯ä»¥é€šè¿‡åŠ¨æ€çš„æ–¹å¼åˆ›å»ºæ•°ç»„
  * 
  */
 public class ReflectArrayDemo {
 
 	public static void main(String[] args) {
-		//´´½¨Ò»¸öStringÀàĞÍµÄ³¤¶ÈÎª10µÄÊı×é
+		//åˆ›å»ºä¸€ä¸ªStringç±»å‹çš„é•¿åº¦ä¸º10çš„æ•°ç»„
 		Object arr = Array.newInstance(String.class, 10);
-		Array.set(arr, 4, "Áõ½¨öÎ");
+		Array.set(arr, 4, "åˆ˜å»ºé‘«");
 		Array.set(arr, 6, "liujianxin");
 		Object str = Array.get(arr, 4);
 		Object str1 = Array.get(arr, 6);

@@ -1,6 +1,6 @@
-package employee;
+package top.seefly.javase.old2017.employee;
 /*
- * ¸ÃÀàÊÇEmployeeÓÃÀ´·½±ãÆäËûÀàÊ¹ÓÃ£¬Ö±½Ó¼Ì³Ğ¸ÃÀà¾ÍĞĞÁË¡£
+ * è¯¥ç±»æ˜¯Employeeç”¨æ¥æ–¹ä¾¿å…¶ä»–ç±»ä½¿ç”¨ï¼Œç›´æ¥ç»§æ‰¿è¯¥ç±»å°±è¡Œäº†ã€‚
  * */
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -37,7 +37,7 @@ public class Employees{
 		return this.name;
 	}
 	
-	public double getSalary(){//Á½¸ö·ÃÎÊÆ÷
+	public double getSalary(){//ä¸¤ä¸ªè®¿é—®å™¨
 		return this.salary;
 	}
 	

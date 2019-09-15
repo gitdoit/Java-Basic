@@ -1,44 +1,44 @@
-package net_udp;
+package top.seefly.javase.old2017.net_udp;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 
-/*2017Äê7ÔÂ24ÈÕ
- * UDP£º
+/*2017å¹´7æœˆ24æ—¥
+ * UDPï¼š
  *
- *		°ÑÊı¾İ´ò°ü
- *	           Êı¾İÓĞÏŞÖÆ
- *		²»½¨Á¢Á¬½Ó
- *		ËÙ¶È¿ì
- *		²»¿É¿¿
+ *		æŠŠæ•°æ®æ‰“åŒ…
+ *	           æ•°æ®æœ‰é™åˆ¶
+ *		ä¸å»ºç«‹è¿æ¥
+ *		é€Ÿåº¦å¿«
+ *		ä¸å¯é 
  *
- *		SocketÔÚÓÃÓÚUDPµÄ·¢ËÍÊ±£¬²»ĞèÒªÖ¸¶¨¶Ë¿Ú»òIPµØÖ·
- *		IPµØÖ·ÒÔ¼°¶Ë¿ÚºÅĞèÒªÔÚ½¨°üÊ±±»Ö¸¶¨¡£
- *		½¨°üÊ±ĞèÒªÖ¸¶¨·¢ËÍµÄÊı¾İ£¬Êı¾İµÄÕæÊµ³¤¶È£¬Ö¸¶¨·¢ËÍµØÖ·£¬ÒÔ¼°¶Ë¿ÚºÅ
+ *		Socketåœ¨ç”¨äºUDPçš„å‘é€æ—¶ï¼Œä¸éœ€è¦æŒ‡å®šç«¯å£æˆ–IPåœ°å€
+ *		IPåœ°å€ä»¥åŠç«¯å£å·éœ€è¦åœ¨å»ºåŒ…æ—¶è¢«æŒ‡å®šã€‚
+ *		å»ºåŒ…æ—¶éœ€è¦æŒ‡å®šå‘é€çš„æ•°æ®ï¼Œæ•°æ®çš„çœŸå®é•¿åº¦ï¼ŒæŒ‡å®šå‘é€åœ°å€ï¼Œä»¥åŠç«¯å£å·
  */
 public class UDPSendDemo {
 
 	public static void main(String[] args) throws IOException{
-	//1.ĞÂ½¨·¢ËÍ·½UDPµÄSocket¶ÔÏó
+	//1.æ–°å»ºå‘é€æ–¹UDPçš„Socketå¯¹è±¡
 		DatagramSocket sen = new DatagramSocket();
-		//2.´´½¨Êı¾İ
-		byte[] mes = "Áõ½¨öÎ".getBytes();
+		//2.åˆ›å»ºæ•°æ®
+		byte[] mes = "åˆ˜å»ºé‘«".getBytes();
 		int len = mes.length;
 		InetAddress ip = InetAddress.getByName("192.168.3.4");
-		int port = 10086;//¶Ë¿Ú£¬Ëæ±ã¶¨¡£¿ÉÄÜ³åÍ»
-	    //3.°ü×°Êı¾İ£¬°üº¬Êı¾İ£¬³¤¶È£¬µØÖ·£¬¶Ë¿Ú
+		int port = 10086;//ç«¯å£ï¼Œéšä¾¿å®šã€‚å¯èƒ½å†²çª
+	    //3.åŒ…è£…æ•°æ®ï¼ŒåŒ…å«æ•°æ®ï¼Œé•¿åº¦ï¼Œåœ°å€ï¼Œç«¯å£
 		DatagramPacket dp = new DatagramPacket(mes,len,ip,port);
-		//4.·¢ËÍÊı¾İ
+		//4.å‘é€æ•°æ®
 		sen.send(dp);
-		//¹Ø±Õ×ÊÔ´
+		//å…³é—­èµ„æº
 		sen.close();
 		
 		
 		
 //		DatagramSocket ds  = new DatagramSocket();
-//		byte[] mes = "Áõ½¨öÎÕæË§".getBytes();
+//		byte[] mes = "åˆ˜å»ºé‘«çœŸå¸…".getBytes();
 //		DatagramPacket pg = new DatagramPacket(mes, mes.length,InetAddress.getByName("192.168.3.1"),10086);
 //		ds.send(pg);
 //		ds.close();

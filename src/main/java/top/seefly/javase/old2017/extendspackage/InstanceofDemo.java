@@ -1,29 +1,29 @@
-package extendspackage;
+package top.seefly.javase.old2017.extendspackage;
 /*
- * ¸ÃÀàÓÃÀ´ÑİÊ¾instanceofµÄÓÃ·¨
+ * è¯¥ç±»ç”¨æ¥æ¼”ç¤ºinstanceofçš„ç”¨æ³•
  * 
- * 1.ÊµÀı instanceof Àà/½Ó¿Ú
- * ÓÃÀ´ÅĞ¶ÏÇ°ÃæµÄÊµÀıÊÇ·ñÓëºóÃæµÄÀàÓĞÏßĞÔ¼Ì³Ğ¹ØÏµ£¬»òÊÇ½Ó¿ÚÊµÏÖ¡£
- * ÈôÊµÀıÊÇÀàµÄ×æÏÈÔò·µ»Øfalse£¬·ñÔò·µ»Øtrue
- * µ±ÊµÀıÓëÀàÃ»ÓĞÏßĞÔ¼Ì³Ğ¹ØÏµÊ±ºò£¬ÏñÊÇStringÀàµÄÊµÀıÓëMath×ö±È½Ï£¬ÄÇÃ´½«»á±àÒëÊ§°Ü
+ * 1.å®ä¾‹ instanceof ç±»/æ¥å£
+ * ç”¨æ¥åˆ¤æ–­å‰é¢çš„å®ä¾‹æ˜¯å¦ä¸åé¢çš„ç±»æœ‰çº¿æ€§ç»§æ‰¿å…³ç³»ï¼Œæˆ–æ˜¯æ¥å£å®ç°ã€‚
+ * è‹¥å®ä¾‹æ˜¯ç±»çš„ç¥–å…ˆåˆ™è¿”å›falseï¼Œå¦åˆ™è¿”å›true
+ * å½“å®ä¾‹ä¸ç±»æ²¡æœ‰çº¿æ€§ç»§æ‰¿å…³ç³»æ—¶å€™ï¼Œåƒæ˜¯Stringç±»çš„å®ä¾‹ä¸Mathåšæ¯”è¾ƒï¼Œé‚£ä¹ˆå°†ä¼šç¼–è¯‘å¤±è´¥
  * */
 public class InstanceofDemo {
 
 	public static void main(String[] args) {
-		//ËäÈ»ÉùÃ÷ÀàĞÍÎªObject£¬µ«ÊÇinstanceof±È½ÏµÄÊÇÊµ¼ÊÀàĞÍ¡£Ôò·µ»ØµÄÊÇture
+		//è™½ç„¶å£°æ˜ç±»å‹ä¸ºObjectï¼Œä½†æ˜¯instanceofæ¯”è¾ƒçš„æ˜¯å®é™…ç±»å‹ã€‚åˆ™è¿”å›çš„æ˜¯ture
 		Object str = new String();
 		System.out.println(str instanceof String);
 		
 		//true
 		System.out.println(str instanceof Object);
-		//strµÄÊµ¼ÊÀàĞÍÊÇString²¢ÇÒËüÊµÏÖÁËComparable½Ó¿Ú£¬ËùÒÔ·µ»ØµÄÊÇture
+		//strçš„å®é™…ç±»å‹æ˜¯Stringå¹¶ä¸”å®ƒå®ç°äº†Comparableæ¥å£ï¼Œæ‰€ä»¥è¿”å›çš„æ˜¯ture
 		System.out.println(str instanceof Comparable);
 		
-		//ËäÈ»µ±ÊµÀıÓëÀàÃ»ÓĞ¼Ì³Ğ»òÕßÊµÏÖ¹ØÏµÊ±»á±àÒë´íÎó£¬µ«ÊÇÕâÀïµÄÉùÃ÷ÀàĞÍÎªObjectÔÚ±àÒëÊ±»áÆ­¹ı±àÒëÆ÷¡£½á¹û·µ»Øfalse
+		//è™½ç„¶å½“å®ä¾‹ä¸ç±»æ²¡æœ‰ç»§æ‰¿æˆ–è€…å®ç°å…³ç³»æ—¶ä¼šç¼–è¯‘é”™è¯¯ï¼Œä½†æ˜¯è¿™é‡Œçš„å£°æ˜ç±»å‹ä¸ºObjectåœ¨ç¼–è¯‘æ—¶ä¼šéª—è¿‡ç¼–è¯‘å™¨ã€‚ç»“æœè¿”å›false
 		System.out.println(str instanceof Math);
 		
 		String s = "Hello";
-		//System.out.println(s instanceof Math);±àÒëÊ§°Ü
+		//System.out.println(s instanceof Math);ç¼–è¯‘å¤±è´¥
 
 	}
 

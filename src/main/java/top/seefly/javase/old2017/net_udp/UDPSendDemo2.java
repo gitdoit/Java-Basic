@@ -1,5 +1,5 @@
-package net_udp;
-/*2017Äê7ÔÂ24ÈÕ
+package top.seefly.javase.old2017.net_udp;
+/*2017å¹´7æœˆ24æ—¥
  * 
  */
 import java.io.BufferedReader;
@@ -11,20 +11,20 @@ import java.net.InetAddress;
 public class UDPSendDemo2 {
 
 	public static void main(String[] args) throws IOException{
-		//newÒ»¸ösocket¶ÔÏó
+		//newä¸€ä¸ªsocketå¯¹è±¡
 		DatagramSocket ds = new DatagramSocket();
 		String str = "";
 		byte[] bt = new byte[1024];
-		//ÊäÈëÁ÷Ö¸Ïò¼üÅÌ
+		//è¾“å…¥æµæŒ‡å‘é”®ç›˜
 		BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
 		do {
-			System.out.print("Äã£º");
-			//´Ó¼üÅÌµÃµ½×Ö·û´®
+			System.out.print("ä½ ï¼š");
+			//ä»é”®ç›˜å¾—åˆ°å­—ç¬¦ä¸²
 			str = input.readLine();
 			bt = str.getBytes();
-			//Êı¾İ´ò°ü
+			//æ•°æ®æ‰“åŒ…
 			DatagramPacket pg = new DatagramPacket(bt,bt.length,InetAddress.getByName("192.168.3.4"),10086);
-			//·¢ËÍ
+			//å‘é€
 			ds.send(pg);
 			
 		}while(!str.equals("close"));

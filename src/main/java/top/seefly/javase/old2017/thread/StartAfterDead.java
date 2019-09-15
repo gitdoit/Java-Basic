@@ -1,8 +1,8 @@
-package thread;
+package top.seefly.javase.old2017.thread;
 /*
- *Ò»¸öÏß³ÌËÀÍöÖ®ºó²»ÄÜÔÙÍ¨¹ıstar()·½·¨ÊÔÍ¼Ê¹ËûÔÙ´ÎÔËĞĞ¡£·ñÔò³öÏÖIllegalThreadStateException
- *Ò»¸öÏß³ÌÔÚÕı³£½áÊøºó£¬Å×³öÒ»¸öÎ´²¶»ñµÄÒì³££¬µ÷ÓÃstopºó»áËÀÍö¡£
- *Ïß³ÌÔÚĞÂ½¨Ì¬ÒÔ¼°ËÀÍöÌ¬Ê±µ÷ÓÃisAlive·½·¨Ê±·µ»Øfalse
+ *ä¸€ä¸ªçº¿ç¨‹æ­»äº¡ä¹‹åä¸èƒ½å†é€šè¿‡star()æ–¹æ³•è¯•å›¾ä½¿ä»–å†æ¬¡è¿è¡Œã€‚å¦åˆ™å‡ºç°IllegalThreadStateException
+ *ä¸€ä¸ªçº¿ç¨‹åœ¨æ­£å¸¸ç»“æŸåï¼ŒæŠ›å‡ºä¸€ä¸ªæœªæ•è·çš„å¼‚å¸¸ï¼Œè°ƒç”¨stopåä¼šæ­»äº¡ã€‚
+ *çº¿ç¨‹åœ¨æ–°å»ºæ€ä»¥åŠæ­»äº¡æ€æ—¶è°ƒç”¨isAliveæ–¹æ³•æ—¶è¿”å›false
  * */
 public class StartAfterDead {
 	public static void main(String[] args) {
@@ -15,8 +15,8 @@ public class StartAfterDead {
 		} catch (Exception e) {
 			// TODO: handle exception
 		}
-		System.out.println("isAlive after join:"+t.isAlive());;//´Ë´¦ÓÉÓÚÊ¹ÓÃÁËjoin·½·¨£¬¿Ï¶¨·µ»Øfalse
-		t.start();//ÕâÀïÊÔÍ¼Ê¹ÒÑ¾­ËÀÍöµÄÏß³ÌÖØĞÂÆô¶¯¡£±¨´í£ºIllegalThreadStateException
+		System.out.println("isAlive after join:"+t.isAlive());;//æ­¤å¤„ç”±äºä½¿ç”¨äº†joinæ–¹æ³•ï¼Œè‚¯å®šè¿”å›false
+		t.start();//è¿™é‡Œè¯•å›¾ä½¿å·²ç»æ­»äº¡çš„çº¿ç¨‹é‡æ–°å¯åŠ¨ã€‚æŠ¥é”™ï¼šIllegalThreadStateException
 	}
 }
 

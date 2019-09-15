@@ -1,11 +1,11 @@
-package arraypackage;
+package top.seefly.javase.old2017.arraypackage;
 /* 
  * 
- * ¸ÃÀàÑİÊ¾ÁË¶ÔÓÚ·½·¨µÄ·ºĞÍ¶¨Òå£¬ÒÔ¼°¶ÔÓÚÀàĞÍ±äÁ¿µÄÏŞÖÆ
- * public static ºóÃæ¸ú<T> returnType MethodName(T e)¼´·½·¨µÄTµÄÃèÊö
+ * è¯¥ç±»æ¼”ç¤ºäº†å¯¹äºæ–¹æ³•çš„æ³›å‹å®šä¹‰ï¼Œä»¥åŠå¯¹äºç±»å‹å˜é‡çš„é™åˆ¶
+ * public static åé¢è·Ÿ<T> returnType MethodName(T e)å³æ–¹æ³•çš„Tçš„æè¿°
  * public static <T extends Class> classname<T> methodName(T e)
  * 
- * ¶ø¶ÔÓÚ×Ô¶¨Òå·ºĞÍÀà£¬¼âÀ¨ºÅÒª¸úÔÚÀàÃûºóÃæ
+ * è€Œå¯¹äºè‡ªå®šä¹‰æ³›å‹ç±»ï¼Œå°–æ‹¬å·è¦è·Ÿåœ¨ç±»ååé¢
  * */
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -15,8 +15,8 @@ public class PairTest2 {
 		GregorianCalendar[] birthdays = {new GregorianCalendar(1906,Calendar.DECEMBER,9),
 				new GregorianCalendar(1906,Calendar.DECEMBER,8)
 		};
-		//¿ÉÒÔĞ´³ÉArrayAlg.<GregorianCalendar>minmax(birthdays);¼´ÏÔÊ½µÄ¸ø³ö¸Ã·½·¨µÄÀàĞÍ±äÁ¿¡£
-		//µ«ÊÇ±àÒëÆ÷¿ÉÒÔ¸ù¾İ·½·¨µÄ²ÎÊıÀàĞÍÍÆ³öTµÄÀàĞÍ£¬ËùÒÔ¿ÉÒÔÊ¡ÂÔ¡£
+		//å¯ä»¥å†™æˆArrayAlg.<GregorianCalendar>minmax(birthdays);å³æ˜¾å¼çš„ç»™å‡ºè¯¥æ–¹æ³•çš„ç±»å‹å˜é‡ã€‚
+		//ä½†æ˜¯ç¼–è¯‘å™¨å¯ä»¥æ ¹æ®æ–¹æ³•çš„å‚æ•°ç±»å‹æ¨å‡ºTçš„ç±»å‹ï¼Œæ‰€ä»¥å¯ä»¥çœç•¥ã€‚
 		Pair<GregorianCalendar> mm = ArrayAlg2.minmax(birthdays);
 		System.out.println("min ="+mm.getFirst().getTime());
 		System.out.println("max ="+mm.getSecond().getTime());
@@ -27,9 +27,9 @@ public class PairTest2 {
 }
 
 class ArrayAlg2{
-	public static <T extends Comparable> Pair<T> minmax(T[] a){//public static ºóµÄ¼âÀ¨ºÅÄÚÀàĞÍ±äÁ¿ÃèÊöÁËºóÃæËùÓĞµÄT
-																	//¶øextends ComparableÔòËµÃ÷´ËÀàĞÍ±äÁ¿±ØĞëÓĞComparable½Ó¿Ú
-																	//Pair<T>ÊÇ·µ»ØÀàĞÍ£¬¿ÉÒÔ¿´³ÉÊÇ×Ô¶¨ÒåÀà£¨ÏñÊÇ£ºEmployeesÀà£©
+	public static <T extends Comparable> Pair<T> minmax(T[] a){//public static åçš„å°–æ‹¬å·å†…ç±»å‹å˜é‡æè¿°äº†åé¢æ‰€æœ‰çš„T
+																	//è€Œextends Comparableåˆ™è¯´æ˜æ­¤ç±»å‹å˜é‡å¿…é¡»æœ‰Comparableæ¥å£
+																	//Pair<T>æ˜¯è¿”å›ç±»å‹ï¼Œå¯ä»¥çœ‹æˆæ˜¯è‡ªå®šä¹‰ç±»ï¼ˆåƒæ˜¯ï¼šEmployeesç±»ï¼‰
 		if(a == null || a.length == 0 ) return null;
 		T min = a[0];
 		T max = a[0];
@@ -40,7 +40,7 @@ class ArrayAlg2{
 		return new Pair(min,max);
 	}
 	
-	/*public static <T> T min(T[] a){//¸Ã·½·¨Ã»ÓĞÔÚ¼âÀ¨ºÅÄÚ¶ÔÀàĞÍ±äÁ¿½øĞĞÏŞÖÆ£¬¼´Ã»ÓĞÃèÊöËû¼Ì³ĞÁËComparable½Ó¿Ú£¬ËùÒÔÒ»ÔÚifÀï²»ÄÜÓÃcompareTo·½·¨
+	/*public static <T> T min(T[] a){//è¯¥æ–¹æ³•æ²¡æœ‰åœ¨å°–æ‹¬å·å†…å¯¹ç±»å‹å˜é‡è¿›è¡Œé™åˆ¶ï¼Œå³æ²¡æœ‰æè¿°ä»–ç»§æ‰¿äº†Comparableæ¥å£ï¼Œæ‰€ä»¥ä¸€åœ¨ifé‡Œä¸èƒ½ç”¨compareToæ–¹æ³•
 		if(a == null || a.length == 0) return null;
 		T min = a[0];
 		for(int i = 0; i < a.length ; i++)

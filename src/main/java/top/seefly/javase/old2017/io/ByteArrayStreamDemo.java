@@ -1,7 +1,7 @@
-package io;
+package top.seefly.javase.old2017.io;
 /*
- * ¸ÃÁ÷Ò²³ÆÎªÄÚ´æÁ÷£¬¼´²»»á½«Êı¾İĞ´ÈëÎÄ¼şÖĞ£¬¶øÊÇÔÚÄÚ´æÖĞ¿ª±ÙÒ»¸ö»º³å³Ø£¬ÔÚĞ´µÄÊ±ºò½«Êı¾İĞ´Èë¸Ã»º³å³Ø£¬³ÌĞò½áÊø£¬Êı¾İ¶ªÊ§¡£
-	ÇÒ²»ÓÃÊ¹ÓÃclose·½·¨
+ * è¯¥æµä¹Ÿç§°ä¸ºå†…å­˜æµï¼Œå³ä¸ä¼šå°†æ•°æ®å†™å…¥æ–‡ä»¶ä¸­ï¼Œè€Œæ˜¯åœ¨å†…å­˜ä¸­å¼€è¾Ÿä¸€ä¸ªç¼“å†²æ± ï¼Œåœ¨å†™çš„æ—¶å€™å°†æ•°æ®å†™å…¥è¯¥ç¼“å†²æ± ï¼Œç¨‹åºç»“æŸï¼Œæ•°æ®ä¸¢å¤±ã€‚
+	ä¸”ä¸ç”¨ä½¿ç”¨closeæ–¹æ³•
  * 
  * 
  */
@@ -12,14 +12,14 @@ import java.io.IOException;
 public class ByteArrayStreamDemo {
 
 	public static void main(String[] args) throws IOException{
-		ByteArrayOutputStream baos = new ByteArrayOutputStream();//²»ÓÃÖ¸¶¨Ä¿±ê
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();//ä¸ç”¨æŒ‡å®šç›®æ ‡
 		for(int i = 0; i < 10; i++) {
-			baos.write(("Áõ½¨öÎ").getBytes());//getBytes()Ê¹ÓÃÆ½Ì¨Ä¬ÈÏ±àÂë£¨±¾»úGBK£©£¬½«×Ö·û´®×ª»»³ÉbyteÊı×é¡£write()½«byteÊı×é´æÈë»º³åÇø
+			baos.write(("åˆ˜å»ºé‘«").getBytes());//getBytes()ä½¿ç”¨å¹³å°é»˜è®¤ç¼–ç ï¼ˆæœ¬æœºGBKï¼‰ï¼Œå°†å­—ç¬¦ä¸²è½¬æ¢æˆbyteæ•°ç»„ã€‚write()å°†byteæ•°ç»„å­˜å…¥ç¼“å†²åŒº
 		}
-		ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());//Êı¾İÔ´ÎªÄÚ´æ»º³åÇø¡£
-		byte[] bt = new byte[2];//GBK±àÂë±í£º×ÖÄ¸Êı×ÖÊ¹ÓÃÒ»¸ö×Ö½Ú£¬ÖĞÎÄÊ¹ÓÃÁ½¸ö¡£ÒòÎª»º³å³ØÖĞÈ«²¿ÎªÖĞÎÄ£¬ËùÒÔÖ¸¶¨byteÊı×é³¤¶ÈÎª2.ÈôÖĞÓ¢ÎÄ¶¼ÓĞ£¬»á³öÎÊÌâ
+		ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());//æ•°æ®æºä¸ºå†…å­˜ç¼“å†²åŒºã€‚
+		byte[] bt = new byte[2];//GBKç¼–ç è¡¨ï¼šå­—æ¯æ•°å­—ä½¿ç”¨ä¸€ä¸ªå­—èŠ‚ï¼Œä¸­æ–‡ä½¿ç”¨ä¸¤ä¸ªã€‚å› ä¸ºç¼“å†²æ± ä¸­å…¨éƒ¨ä¸ºä¸­æ–‡ï¼Œæ‰€ä»¥æŒ‡å®šbyteæ•°ç»„é•¿åº¦ä¸º2.è‹¥ä¸­è‹±æ–‡éƒ½æœ‰ï¼Œä¼šå‡ºé—®é¢˜
 		while(bais.read(bt) != -1) {
-			System.out.println(new String(bt));//Ê¹ÓÃÆ½Ì¨Ä¬ÈÏ½âÂë£¨±¾»úGBK£©£¬½«byte½âÂë³É×Ö·û´®
+			System.out.println(new String(bt));//ä½¿ç”¨å¹³å°é»˜è®¤è§£ç ï¼ˆæœ¬æœºGBKï¼‰ï¼Œå°†byteè§£ç æˆå­—ç¬¦ä¸²
 		}
 	}
 

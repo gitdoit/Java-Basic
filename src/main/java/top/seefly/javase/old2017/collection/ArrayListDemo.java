@@ -1,15 +1,15 @@
-package collection;
+package top.seefly.javase.old2017.collection;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
- * ¸ÃÀàÓÃÀ´ÑİÊ¾APIÖĞµÄArrayListÀàµÄÊ¹ÓÃ·½·¨
- * ArrayListÊÇÓÃÀ´´æ´¢ ¶ÔÏó µÄÒ»¸öÁĞ±í£¡
- * Ò»¸öÁĞ±íÄÚÖ»ÄÜ´æ´¢ÏàÍ¬ÀàĞÍµÄ¶ÔÏó
- * ¿ÉÒÔÔÚ¶¨ÒåµÄÊ±ºòÒ»´ÎĞÔ½«ËùÓĞ¶ÔÏó·ÅÔÚÁĞ±íÄÚ£¬»òÕß¶¨ÒåÖ®ºó·Ö´ÎÌí¼Ó
- * java.util.CollectionsµÄ²Ù×÷¶ÔÏóÊÇArrayListÀàĞÍ±äÁ¿,»òÕß¿ÉÒÔ½«¶ÔÏóÊı¾İ×ª»»ÎªÁĞ±í Arrays.asList(¶ÔÏóÊı×é);
+ * è¯¥ç±»ç”¨æ¥æ¼”ç¤ºAPIä¸­çš„ArrayListç±»çš„ä½¿ç”¨æ–¹æ³•
+ * ArrayListæ˜¯ç”¨æ¥å­˜å‚¨ å¯¹è±¡ çš„ä¸€ä¸ªåˆ—è¡¨ï¼
+ * ä¸€ä¸ªåˆ—è¡¨å†…åªèƒ½å­˜å‚¨ç›¸åŒç±»å‹çš„å¯¹è±¡
+ * å¯ä»¥åœ¨å®šä¹‰çš„æ—¶å€™ä¸€æ¬¡æ€§å°†æ‰€æœ‰å¯¹è±¡æ”¾åœ¨åˆ—è¡¨å†…ï¼Œæˆ–è€…å®šä¹‰ä¹‹ååˆ†æ¬¡æ·»åŠ 
+ * java.util.Collectionsçš„æ“ä½œå¯¹è±¡æ˜¯ArrayListç±»å‹å˜é‡,æˆ–è€…å¯ä»¥å°†å¯¹è±¡æ•°æ®è½¬æ¢ä¸ºåˆ—è¡¨ Arrays.asList(å¯¹è±¡æ•°ç»„);
  * 
- * ArrayListµÄÊ¹ÓÃ·½·¨
+ * ArrayListçš„ä½¿ç”¨æ–¹æ³•
  * ***********
  * add(o:E) void
  * add(index:int,o:E) void
@@ -18,7 +18,7 @@ import java.util.Arrays;
  * get(index:int):E
  * indexOf(o:Object):int
  * isEmpty():boolean
- * lastIndexOf(o:Object):int ·µ»ØÁĞ±íÖĞ×îºó³öÏÖ¸Ã¶ÔÏóµÄÏÂ±ê
+ * lastIndexOf(o:Object):int è¿”å›åˆ—è¡¨ä¸­æœ€åå‡ºç°è¯¥å¯¹è±¡çš„ä¸‹æ ‡
  * remove(o:Object):boolean
  * size():int
  * remove(index:int):E
@@ -29,32 +29,32 @@ public class ArrayListDemo {
 	String[] arr = {"A","B","A","A"};
 	ArrayList<String> list = new ArrayList<>();
 	ArrayList<String> list1 = new ArrayList<>(Arrays.asList(arr));
-	//½«×Ö·û´®Êı×é×ª»¯ÎªÁĞ±í´«¸øArrayListµÄ¹¹Ôì·½·¨ÓÃÓÚ´´½¨Ò»¸öArrayList¡£´Ó×Ö·û´®Êı×éµ½ArrayList
+	//å°†å­—ç¬¦ä¸²æ•°ç»„è½¬åŒ–ä¸ºåˆ—è¡¨ä¼ ç»™ArrayListçš„æ„é€ æ–¹æ³•ç”¨äºåˆ›å»ºä¸€ä¸ªArrayListã€‚ä»å­—ç¬¦ä¸²æ•°ç»„åˆ°ArrayList
 	list.add("A");
 	list.add("B");
 	list.add("A");
 	list.add("A");
-	//Õâ¶Î´úÂë¸úÉÏÃæµÄlist1µÄĞ§¹ûÊÇÒ»ÑùµÄ
+	//è¿™æ®µä»£ç è·Ÿä¸Šé¢çš„list1çš„æ•ˆæœæ˜¯ä¸€æ ·çš„
 	
 	list.toArray(arr);
-	//´ÓArrayListµ½×Ö·û´®Êı×é£¬½«listÖĞµÄÄÚÈİ¸´ÖÆµ½arrÀï
+	//ä»ArrayListåˆ°å­—ç¬¦ä¸²æ•°ç»„ï¼Œå°†listä¸­çš„å†…å®¹å¤åˆ¶åˆ°arré‡Œ
 	
 	java.util.Collections.sort(list);
-	//Èç¹ûÁĞ±íÖĞµÄÔªËØÊÇ¿É±ÈµÄÄÇÃ´Õâ¸ö·½·¨»á¶ÔÁĞ±íÖĞµÄÔªËØ½øĞĞÅÅĞò
+	//å¦‚æœåˆ—è¡¨ä¸­çš„å…ƒç´ æ˜¯å¯æ¯”çš„é‚£ä¹ˆè¿™ä¸ªæ–¹æ³•ä¼šå¯¹åˆ—è¡¨ä¸­çš„å…ƒç´ è¿›è¡Œæ’åº
 	System.out.println(list);
 	
 	System.out.println(java.util.Collections.max(list));
-	//µÃµ½Ò»¸öÁĞ±íÖĞ×î´óµÄÔªËØ
+	//å¾—åˆ°ä¸€ä¸ªåˆ—è¡¨ä¸­æœ€å¤§çš„å…ƒç´ 
 	
 	java.util.Collections.shuffle(list);
 	System.out.println(list);
-	//´òÂÒÁĞ±íÖĞµÄÔªËØ,CollectionsÖĞµÄ¸÷ÖÖ·½·¨²»ÊÊÓÃÓÚÊı×é£¬ÈôÒªÊ¹ÓÃ´ËÀàÖĞµÄ·½·¨£¬ĞèÒª×ª»¯ÎªÁĞ±íArrays.asList(a)
+	//æ‰“ä¹±åˆ—è¡¨ä¸­çš„å…ƒç´ ,Collectionsä¸­çš„å„ç§æ–¹æ³•ä¸é€‚ç”¨äºæ•°ç»„ï¼Œè‹¥è¦ä½¿ç”¨æ­¤ç±»ä¸­çš„æ–¹æ³•ï¼Œéœ€è¦è½¬åŒ–ä¸ºåˆ—è¡¨Arrays.asList(a)
 	
 	Integer[] a = {1,2,3,4,5,6};
 	ArrayList<Integer> aList = new ArrayList<>(Arrays.asList(a));
 	System.out.println(java.util.Collections.max(aList));
 	System.out.println(java.util.Collections.max(Arrays.asList(a)));
-	//ÑİÊ¾ÁËCollectionsµÄÁ½ÖÖÊ¹ÓÃ·½·¨£¬µÚÒ»ÖÖĞèÒª´´½¨ÁĞ±í£¬µÚ¶şÖÖ¸üÎª·½±ã
+	//æ¼”ç¤ºäº†Collectionsçš„ä¸¤ç§ä½¿ç”¨æ–¹æ³•ï¼Œç¬¬ä¸€ç§éœ€è¦åˆ›å»ºåˆ—è¡¨ï¼Œç¬¬äºŒç§æ›´ä¸ºæ–¹ä¾¿
 	ArrayList<Double> num = new ArrayList<>();
 	
 	

@@ -1,7 +1,4 @@
-package testpackage;
-
-import java.nio.ByteBuffer;
-
+package top.seefly.javase.old2017.testpackage;
 
 public class Test {
 	public static void main(String[] args) throws ReflectiveOperationException, Exception {

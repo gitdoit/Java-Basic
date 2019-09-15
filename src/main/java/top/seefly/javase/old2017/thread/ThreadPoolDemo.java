@@ -1,25 +1,25 @@
-package thread;
+package top.seefly.javase.old2017.thread;
 
 import java.util.concurrent.*;
 
 /*
- * javaÍ¨¹ıExecutorsÌá¹©ËÄÖÖÏß³Ì³Ø
- * newCacheThreadPool´´½¨Ò»¸ö¿É»º´æµÄÏß³Ì³Ø£¬ÈİÁ¿¿ÉÁé»î¸ü¸Ä£¬ÈôÈİÁ¿²»¹»´¦ÀíĞèÒª£¬ÔòĞÂ¿ª±ÙÏß³Ì¡£Èô´óÓÚ´¦ÀíĞèÒªÔò»ØÊÕ¡£
- * newFixedThreadPool´´½¨Ò»¸öÈİÁ¿¹Ì¶¨µÄÏß³Ì³Ø£¬¿ÉÒÔÏŞÖÆÏß³Ì×î´ó²¢·¢Á¿£¬³¬³öµÄÏß³ÌÔÚ¶ÓÁĞÖĞµÈ´ı¡£
- * newScheduledThreadPool ´´½¨Ò»¸öÈİÁ¿¹Ì¶¨µÄÏß³Ì³Ø£¬Ö§³Ö¶¨Ê±ÒÔ¼°ÖÜÆÚ´¦ÀíÈÎÎñ
- * newSingleThreadExecutors´´½¨ÈİÁ¿Îª1µÄÏß³Ì³Ø£¬Ê¹ÓÃÕâÎ¨Ò»µÄÏß³Ì´¦ÀíÈÎÎñ£¬±£Ö¤ËùÓĞÈÎÎñ°´Ö¸¶¨Ë³ĞòÖ´ĞĞÈÎÎñ(FIFO,LIFO,ÓÅÏÈ¼¶)
+ * javaé€šè¿‡Executorsæä¾›å››ç§çº¿ç¨‹æ± 
+ * newCacheThreadPoolåˆ›å»ºä¸€ä¸ªå¯ç¼“å­˜çš„çº¿ç¨‹æ± ï¼Œå®¹é‡å¯çµæ´»æ›´æ”¹ï¼Œè‹¥å®¹é‡ä¸å¤Ÿå¤„ç†éœ€è¦ï¼Œåˆ™æ–°å¼€è¾Ÿçº¿ç¨‹ã€‚è‹¥å¤§äºå¤„ç†éœ€è¦åˆ™å›æ”¶ã€‚
+ * newFixedThreadPoolåˆ›å»ºä¸€ä¸ªå®¹é‡å›ºå®šçš„çº¿ç¨‹æ± ï¼Œå¯ä»¥é™åˆ¶çº¿ç¨‹æœ€å¤§å¹¶å‘é‡ï¼Œè¶…å‡ºçš„çº¿ç¨‹åœ¨é˜Ÿåˆ—ä¸­ç­‰å¾…ã€‚
+ * newScheduledThreadPool åˆ›å»ºä¸€ä¸ªå®¹é‡å›ºå®šçš„çº¿ç¨‹æ± ï¼Œæ”¯æŒå®šæ—¶ä»¥åŠå‘¨æœŸå¤„ç†ä»»åŠ¡
+ * newSingleThreadExecutorsåˆ›å»ºå®¹é‡ä¸º1çš„çº¿ç¨‹æ± ï¼Œä½¿ç”¨è¿™å”¯ä¸€çš„çº¿ç¨‹å¤„ç†ä»»åŠ¡ï¼Œä¿è¯æ‰€æœ‰ä»»åŠ¡æŒ‰æŒ‡å®šé¡ºåºæ‰§è¡Œä»»åŠ¡(FIFO,LIFO,ä¼˜å…ˆçº§)
  *http://cuisuqiang.iteye.com/blog/2019372
  * */
 public class ThreadPoolDemo {
 	public static void main(String[] args) {
 		//ExecutorService cachedThreadPool = Executors.newCachedThreadPool();
 		ExecutorService FixedThreadPool = Executors.newFixedThreadPool(3);
-		for(int i = 0; i < 100; i++) {//Ñ­»·´´½¨Ïß³Ì£¬±»FixedThreadPool°ü×°¡£Ïß³Ì³ØÈİÁ¿Îª3£¬ËùÒÔÍ¬Ê±²¢·¢µÄÏß³Ì×î¶àÖ»ÓĞÈı¸ö£¬ÆäÓàµÄµÈ´ı
+		for(int i = 0; i < 100; i++) {//å¾ªç¯åˆ›å»ºçº¿ç¨‹ï¼Œè¢«FixedThreadPoolåŒ…è£…ã€‚çº¿ç¨‹æ± å®¹é‡ä¸º3ï¼Œæ‰€ä»¥åŒæ—¶å¹¶å‘çš„çº¿ç¨‹æœ€å¤šåªæœ‰ä¸‰ä¸ªï¼Œå…¶ä½™çš„ç­‰å¾…
 			//cachedThreadPool.execute(new CacheThread());
 			FixedThreadPool.execute(new CacheThread());
 			//if(i == 7)
-				//FixedThreadPool.shutdown();//´Ë·½·¨»áÊ¹Ïß³ÌÍ£Ö¹½ÓÊÜĞÂÈÎÎñ(Èô¼ÌĞøÌí¼ÓÔò»á±¨´í)£¬ÇÒÍê³ÉÕıÔÚÖ´ĞĞÓëµÈ´ıÁĞ¶ÓÖĞµÄÈÎÎñ¡£
-		ExecutorService CachePool = Executors.newCachedThreadPool();//shutdownNow»áÊ¹ÕıÔÚÖ´ĞĞµÄÏß³Ì´¦ÓÚÖĞ¶Ï×´Ì¬£¬·µ»Ø²¢Çå³ıµÈ´ıÁĞ¶ÓÖĞµÄÏß³Ì
+				//FixedThreadPool.shutdown();//æ­¤æ–¹æ³•ä¼šä½¿çº¿ç¨‹åœæ­¢æ¥å—æ–°ä»»åŠ¡(è‹¥ç»§ç»­æ·»åŠ åˆ™ä¼šæŠ¥é”™)ï¼Œä¸”å®Œæˆæ­£åœ¨æ‰§è¡Œä¸ç­‰å¾…åˆ—é˜Ÿä¸­çš„ä»»åŠ¡ã€‚
+		ExecutorService CachePool = Executors.newCachedThreadPool();//shutdownNowä¼šä½¿æ­£åœ¨æ‰§è¡Œçš„çº¿ç¨‹å¤„äºä¸­æ–­çŠ¶æ€ï¼Œè¿”å›å¹¶æ¸…é™¤ç­‰å¾…åˆ—é˜Ÿä¸­çš„çº¿ç¨‹
 		CachePool.execute(new Runnable() {
 			@Override
 			public void run() {

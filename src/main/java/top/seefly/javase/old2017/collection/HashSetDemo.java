@@ -1,16 +1,16 @@
-package collection;
+package top.seefly.javase.old2017.collection;
 
 import java.util.HashSet;
 
 /*
- * setÊÇÖ¸ÎÞÐòµÄÒâË¼£¬ÀàËÆÒ»¸ö¹Þ×Ó£¬¹Þ×ÓÄÚµÄÔªËØ±ØÐë¸÷²»ÏàÍ¬(equals,hashCode)¡£ËûÃÇÖ®¼äÃ»ÓÐË³Ðò¡£
- * ÈçºÎÅÐ¶ÏÁ½¸öÔªËØÊÇ·ñÏàÍ¬£¿
- * 	¸ù¾Ý¸ÃÔªËØµÄequals£¬hashCode·½·¨
- * 	Èç¹ûÁ½¸öÔªËØÍ¨¹ýequals·½·¨±È½ÏÏàÍ¬£¬µ«hashCode·½·¨·µ»ØÖµ²»Í¬£¬ÄÇÃ´»¹ÊÇ»á½«¸ÃÔªËØ·ÅÈë¹Þ×ÓÄÚ£¬¸ù¾ÝhashCode·µ»ØÖµ·ÖÅäÎ»ÖÃ
- * 	µ«ÊÇÈç¹ûÁ½¸öÔªËØequals±È½Ï²»Í¬£¬µ«ÊÇhashCode·½·¨·µ»ØÖµÏàÍ¬£¬ÄÇÃ´»á½«¸ÃÔªËØÍ¬¹ýÁ´±íÐÎÊ½¹ÒÔÚ³åÍ»Î»ÖÃ¡£ÕâÑùÓ°ÏìÁË²éÕÒÐÔÄÜ¡£
+ * setæ˜¯æŒ‡æ— åºçš„æ„æ€ï¼Œç±»ä¼¼ä¸€ä¸ªç½å­ï¼Œç½å­å†…çš„å…ƒç´ å¿…é¡»å„ä¸ç›¸åŒ(equals,hashCode)ã€‚ä»–ä»¬ä¹‹é—´æ²¡æœ‰é¡ºåºã€‚
+ * å¦‚ä½•åˆ¤æ–­ä¸¤ä¸ªå…ƒç´ æ˜¯å¦ç›¸åŒï¼Ÿ
+ * 	æ ¹æ®è¯¥å…ƒç´ çš„equalsï¼ŒhashCodeæ–¹æ³•
+ * 	å¦‚æžœä¸¤ä¸ªå…ƒç´ é€šè¿‡equalsæ–¹æ³•æ¯”è¾ƒç›¸åŒï¼Œä½†hashCodeæ–¹æ³•è¿”å›žå€¼ä¸åŒï¼Œé‚£ä¹ˆè¿˜æ˜¯ä¼šå°†è¯¥å…ƒç´ æ”¾å…¥ç½å­å†…ï¼Œæ ¹æ®hashCodeè¿”å›žå€¼åˆ†é…ä½ç½®
+ * 	ä½†æ˜¯å¦‚æžœä¸¤ä¸ªå…ƒç´ equalsæ¯”è¾ƒä¸åŒï¼Œä½†æ˜¯hashCodeæ–¹æ³•è¿”å›žå€¼ç›¸åŒï¼Œé‚£ä¹ˆä¼šå°†è¯¥å…ƒç´ åŒè¿‡é“¾è¡¨å½¢å¼æŒ‚åœ¨å†²çªä½ç½®ã€‚è¿™æ ·å½±å“äº†æŸ¥æ‰¾æ€§èƒ½ã€‚
  * 
  * 
- * Ê¹ÓÃHashSetµÄÄ¿µÄÊÇ¿ìËÙ²éÕÒ£¬ËùÒÔÒªÖØÐ´equals£¬hashCode·½·¨¡£Òª±£Ö¤Á½¸ö·½·¨µÄÒ»ÖÂÐÔ¡£
+ * ä½¿ç”¨HashSetçš„ç›®çš„æ˜¯å¿«é€ŸæŸ¥æ‰¾ï¼Œæ‰€ä»¥è¦é‡å†™equalsï¼ŒhashCodeæ–¹æ³•ã€‚è¦ä¿è¯ä¸¤ä¸ªæ–¹æ³•çš„ä¸€è‡´æ€§ã€‚
  * 
  * */
 public class HashSetDemo {
@@ -29,7 +29,7 @@ public class HashSetDemo {
 	
 }
 
-class A{//¸ÃÀàÖ»ÄÜÌí¼Ó1¸ö£¬ÒòÎª·µ»ØÉ¢ÁÐÂëºÍequals×ÜÏàÍ¬
+class A{//è¯¥ç±»åªèƒ½æ·»åŠ 1ä¸ªï¼Œå› ä¸ºè¿”å›žæ•£åˆ—ç å’Œequalsæ€»ç›¸åŒ
 	@Override
 	public int hashCode() {
 		return 1;
@@ -41,7 +41,7 @@ class A{//¸ÃÀàÖ»ÄÜÌí¼Ó1¸ö£¬ÒòÎª·µ»ØÉ¢ÁÐÂëºÍequals×ÜÏàÍ¬
 	}
 }
 
-class B{//¸ÃÀàºÍÒ»Ìí¼ÓÎÞÊý¸ö£¬µ«¶¼»áÊ¹ÓÃÍ¬Ò»¸öÉ¢ÁÐÂë£¬Ó°Ïì²éÑ¯ÐÔÄÜ
+class B{//è¯¥ç±»å’Œä¸€æ·»åŠ æ— æ•°ä¸ªï¼Œä½†éƒ½ä¼šä½¿ç”¨åŒä¸€ä¸ªæ•£åˆ—ç ï¼Œå½±å“æŸ¥è¯¢æ€§èƒ½
 	@Override
 	public int hashCode() {
 		return 2;
@@ -53,6 +53,6 @@ class B{//¸ÃÀàºÍÒ»Ìí¼ÓÎÞÊý¸ö£¬µ«¶¼»áÊ¹ÓÃÍ¬Ò»¸öÉ¢ÁÐÂë£¬Ó°Ïì²éÑ¯ÐÔÄÜ
 	}
 }
 
-class C{//¸ÃÀà¿ÉÒÔÌí¼ÓÎÞÊý¸ö£¬¶¼ÔÚ²»Í¬µÄÎ»ÖÃ
+class C{//è¯¥ç±»å¯ä»¥æ·»åŠ æ— æ•°ä¸ªï¼Œéƒ½åœ¨ä¸åŒçš„ä½ç½®
 	
 }

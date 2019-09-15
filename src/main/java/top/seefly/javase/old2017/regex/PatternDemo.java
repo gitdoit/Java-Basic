@@ -1,30 +1,30 @@
-package regex;
+package top.seefly.javase.old2017.regex;
 
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /*
- * ½«Ö¸¶¨µÄÕıÔò±í´ïÊ½°ü×°³ÉÄ£Ê½£¬Ê¹ÓÃ´ËÄ£Ê½Óë×Ö·û´®½øĞĞ±È½Ï
+ * å°†æŒ‡å®šçš„æ­£åˆ™è¡¨è¾¾å¼åŒ…è£…æˆæ¨¡å¼ï¼Œä½¿ç”¨æ­¤æ¨¡å¼ä¸å­—ç¬¦ä¸²è¿›è¡Œæ¯”è¾ƒ
  */
 public class PatternDemo {
 
 	public static void main(String[] args) {
-		//½«Ä£Ê½±àÒë³É¶ÔÏó
-		Pattern p = Pattern.compile("a*b");//*´ú±íÒ»´Î»ò¶à´Î
-		//Í¨¹ıÄ£Ê½¶ÔÏó£¬µÃµ½Æ¥ÅäÆ÷¶ÔÏó
+		//å°†æ¨¡å¼ç¼–è¯‘æˆå¯¹è±¡
+		Pattern p = Pattern.compile("a*b");//*ä»£è¡¨ä¸€æ¬¡æˆ–å¤šæ¬¡
+		//é€šè¿‡æ¨¡å¼å¯¹è±¡ï¼Œå¾—åˆ°åŒ¹é…å™¨å¯¹è±¡
 		Matcher m = p.matcher("aaab");
-		//Í¨¹ıÆ¥ÅäÆ÷ÖĞµÄ¸÷ÖÖ·½·¨£¬Íê³É¸÷ÖÖ²Ù×÷
-		System.out.println(m.matches());//ÕâÁ½¾äµÈÍ¬ÏÂÓëÏÂÃæÓï¾ä
+		//é€šè¿‡åŒ¹é…å™¨ä¸­çš„å„ç§æ–¹æ³•ï¼Œå®Œæˆå„ç§æ“ä½œ
+		System.out.println(m.matches());//è¿™ä¸¤å¥ç­‰åŒä¸‹ä¸ä¸‹é¢è¯­å¥
 		//System.out.println(p.matcher("aaaab").matches());
 		
-		//½«×Ö·û´®ÖĞÂú×ãÒªÇóµÄ×ÓĞòÁĞ³éÈ¡³öÀ´£¬×é³ÉÒ»¸ö×Ö·û´®Êı×é
+		//å°†å­—ç¬¦ä¸²ä¸­æ»¡è¶³è¦æ±‚çš„å­åºåˆ—æŠ½å–å‡ºæ¥ï¼Œç»„æˆä¸€ä¸ªå­—ç¬¦ä¸²æ•°ç»„
 		String str = "lao zi jin tian hen kai xin,wo jiu yao qu gan liang bei";
 		ArrayList<String> list = new ArrayList<>();
-		Pattern p1 = Pattern.compile("\\b\\w{3}\\b");//°ü×°¹æÔò£ºµ¥´ÊÓÉÈı¸ö×ÖÄ¸×é³ÉµÄ,×¢Òâ\\w{3}ÊÇ°üº¬Èı¸ö×Ö·û¡£±ØĞëÏŞ¶¨±ß½ç
-		Matcher m1 = p1.matcher(str);//´«ÈëÄ¿±ê×Ö·û´®
-		while(m1.find()) {//ÕÒµ½Óë¹æÔòÆ¥ÅäµÄ×ÔĞòÁĞ
-			list.add(m1.group());//½«Ö®È¡³ö¡£×¢Òâ£¡£¡ÔÚµ÷ÓÃgroupÖ®Ç°Ò»¶¨ÒªÏÈµ÷ÓÃfind£¬²»È»»á±¨´í
+		Pattern p1 = Pattern.compile("\\b\\w{3}\\b");//åŒ…è£…è§„åˆ™ï¼šå•è¯ç”±ä¸‰ä¸ªå­—æ¯ç»„æˆçš„,æ³¨æ„\\w{3}æ˜¯åŒ…å«ä¸‰ä¸ªå­—ç¬¦ã€‚å¿…é¡»é™å®šè¾¹ç•Œ
+		Matcher m1 = p1.matcher(str);//ä¼ å…¥ç›®æ ‡å­—ç¬¦ä¸²
+		while(m1.find()) {//æ‰¾åˆ°ä¸è§„åˆ™åŒ¹é…çš„è‡ªåºåˆ—
+			list.add(m1.group());//å°†ä¹‹å–å‡ºã€‚æ³¨æ„ï¼ï¼åœ¨è°ƒç”¨groupä¹‹å‰ä¸€å®šè¦å…ˆè°ƒç”¨findï¼Œä¸ç„¶ä¼šæŠ¥é”™
 		}
 		System.out.println(list);
 	}

@@ -1,4 +1,4 @@
-package arraypackage;
+package top.seefly.javase.old2017.arraypackage;
 
 public class PairTest1 {
 	
@@ -14,7 +14,7 @@ public class PairTest1 {
 }
 
 class ArrayAlg{
-	public static Pair<String> minmax(String[] a){//·µ»ØÀàĞÍÎªPair<String>
+	public static Pair<String> minmax(String[] a){//è¿”å›ç±»å‹ä¸ºPair<String>
 		if(a == null || a.length == 0) return null;
 		String min = a[0];
 		String max = a[0];
@@ -22,6 +22,6 @@ class ArrayAlg{
 			if(min.compareTo(a[i]) > 0) min = a[i];
 			if(max.compareTo(a[i]) < 0) max = a[i];
 		}
-		return new Pair<String>(min,max);//·µ»Ø×Ô¶¨ÒåPair·ºĞÍ¶ÔÏó¡£
+		return new Pair<String>(min,max);//è¿”å›è‡ªå®šä¹‰Pairæ³›å‹å¯¹è±¡ã€‚
 	}
 }

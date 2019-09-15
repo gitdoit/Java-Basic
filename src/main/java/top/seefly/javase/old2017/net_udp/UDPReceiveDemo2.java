@@ -1,4 +1,4 @@
-package net_udp;
+package top.seefly.javase.old2017.net_udp;
 
 import java.io.IOException;
 import java.net.DatagramPacket;
@@ -7,18 +7,18 @@ import java.net.DatagramSocket;
 public class UDPReceiveDemo2 {
 	public static void main(String[] args) throws IOException {
 		String strMes = "";
-		//ĞÂ½¨socket¶ÔÏó
+		//æ–°å»ºsocketå¯¹è±¡
 		DatagramSocket ds = new DatagramSocket(10086);
 		byte[] bytMes = new byte[1024];
-		//¿Õ°üÓÃÀ´½ÓÊı¾İ
+		//ç©ºåŒ…ç”¨æ¥æ¥æ•°æ®
 		DatagramPacket pg = new DatagramPacket(bytMes,1024);
 		
 		do{
-			//½ÓÊÕÊı¾İ
+			//æ¥æ”¶æ•°æ®
 			ds.receive(pg);
-			//½âÂë
+			//è§£ç 
 			strMes = new String(pg.getData(),0,pg.getLength());
-			//ÏÔÊ¾
+			//æ˜¾ç¤º
 			System.out.printf("form %s message:%s/n",pg.getAddress().getHostName(),strMes);
 		}while(!strMes.equals("close"));
 		ds.close();

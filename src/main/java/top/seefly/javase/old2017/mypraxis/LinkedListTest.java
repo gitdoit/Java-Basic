@@ -1,10 +1,10 @@
-package mypraxis;
+package top.seefly.javase.old2017.mypraxis;
 
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
 
-public class LinkedListTest {//Á´±í£¬ÊÊºÏ´óÁ¿µÄÔöÉ¾¡£²»ÊÊºÏ²éÕÒ
+public class LinkedListTest {//é“¾è¡¨ï¼Œé€‚åˆå¤§é‡çš„å¢åˆ ã€‚ä¸é€‚åˆæŸ¥æ‰¾
 
 	public static void main(String[] args) {
 		List<String> list = new LinkedList<>();
@@ -17,11 +17,11 @@ public class LinkedListTest {//Á´±í£¬ÊÊºÏ´óÁ¿µÄÔöÉ¾¡£²»ÊÊºÏ²éÕÒ
 		ListIterator<String> litr = list.listIterator();
 		
 		List<String> list1 = new LinkedList<>();
-		list1.add("Áõ½¨öÎ");
-		list1.add("ÊÇ");
-		list1.add("ÊÀ½çÉÏ");
-		list1.add("×î");
-		list1.add("Ë§µÄÈË");
+		list1.add("åˆ˜å»ºé‘«");
+		list1.add("æ˜¯");
+		list1.add("ä¸–ç•Œä¸Š");
+		list1.add("æœ€");
+		list1.add("å¸…çš„äºº");
 		ListIterator<String> litr1 = list1.listIterator();
 		
 		while(litr.hasNext()) {

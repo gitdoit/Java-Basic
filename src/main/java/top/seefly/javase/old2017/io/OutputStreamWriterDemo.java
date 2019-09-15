@@ -1,38 +1,37 @@
-package io;
+package top.seefly.javase.old2017.io;
 
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 
 /*
- * ×Ö·ûÊä³öÁ÷
+ * å­—ç¬¦è¾“å‡ºæµ
  * Object
  * 		Writer
  * 			OutputStreamWriter
  * 				FileWriter
  * 
- * public void writer(int chr)Ğ´Ò»¸ö×Ö·û
- * public void writer(char[] chr)Ğ´Ò»¸ö×Ö·ûÊı×é
- * public void writer(char[],starIndex,len) Ö¸¶¨Î»ÖÃ¼´³¤¶ÈĞ´³ö×Ö·ûÊı×éµÄÄ³²¿·Ö
- * public void writer(String str)Ğ´Ò»¸ö×Ö·û´®
- * public void writer(Sting str,int starIndex,len)Ö¸¶¨Î»ÖÃ¼´³¤¶ÈĞ´³ö×Ö·û´®µÄÄ³²¿·Ö
+ * public void writer(int chr)å†™ä¸€ä¸ªå­—ç¬¦
+ * public void writer(char[] chr)å†™ä¸€ä¸ªå­—ç¬¦æ•°ç»„
+ * public void writer(char[],starIndex,len) æŒ‡å®šä½ç½®å³é•¿åº¦å†™å‡ºå­—ç¬¦æ•°ç»„çš„æŸéƒ¨åˆ†
+ * public void writer(String str)å†™ä¸€ä¸ªå­—ç¬¦ä¸²
+ * public void writer(Sting str,int starIndex,len)æŒ‡å®šä½ç½®å³é•¿åº¦å†™å‡ºå­—ç¬¦ä¸²çš„æŸéƒ¨åˆ†
  */
 public class OutputStreamWriterDemo {
 	public static void main(String[] args) throws IOException {
-		OutputStreamWriter wtr = new OutputStreamWriter( new FileOutputStream("e:\\writer.txt"));//ÕâÀïÊ¹ÓÃÄ¬ÈÏ±àÂëGBK
-//		OutputStreamWriter wtr1 = new OutputStreamWriter(new FileOutputStream("writer.txt"),"UTF-8");//ÕâÀïÖ¸¶¨±àÂë£¬ÎÄ¼şÔÚ±¾ÏîÄ¿Ä¿Â¼ÏÂ
-		char[] c = {'s','b','c','Áõ'};
-		String str = "|Sting²ÎÊı|";
-//		wtr1.write("UTF-8±àÂë²âÊÔ");	//Á½¸ö×Ö·ûÊä³öÁ÷¶ÔÏó¶ÔÒ»¸öÎÄ¼ş½øĞĞ²Ù×÷£¬ËûÃÇ¶¼²»»á¼ì²éÔ´ÎÄ¼şÖĞÊÇ·ñÓĞÄÚÈİ£¬¶¼ÊÇ´Ó¿ªÍ·Ğ´Èë¡£
-									//Í¬Àí£¬Á½¸ö×Ö·ûÊäÈëÁ÷¶ÔÍ¬Ò»¸öÎÄ¼ş²Ù×÷£¬¶¼ÊÇÍ¬ÎÄ¼ş¿ªÍ·¶ÁÈë
-//		wtr1.flush();¿ÉÖ÷¶¯½«»º³å³ØÄÚÊı¾İË¢ĞÂ£¬µ«close·½·¨¿ÉÒÔÍê³ÉÕâ¸ö¶¯×÷
-//		wtr1.close();//ÏòÎÄ¼şÖĞĞ´Êı¾İ£¬´Ë·½·¨µÄº¬ÒåÊÇË¢ĞÂ»º³å³Ø£¨¼´½«»º³å³ØµÄÄÚÈİ³åÈëÎÄ¼şÄÚ£©£¬²¢¹Ø±ÕÏà¹ØÏµÍ³×ÊÔ´¡£
+		OutputStreamWriter wtr = new OutputStreamWriter( new FileOutputStream("e:\\writer.txt"));//è¿™é‡Œä½¿ç”¨é»˜è®¤ç¼–ç GBK
+//		OutputStreamWriter wtr1 = new OutputStreamWriter(new FileOutputStream("writer.txt"),"UTF-8");//è¿™é‡ŒæŒ‡å®šç¼–ç ï¼Œæ–‡ä»¶åœ¨æœ¬é¡¹ç›®ç›®å½•ä¸‹
+		char[] c = {'s','b','c','åˆ˜'};
+		String str = "|Stingå‚æ•°|";
+//		wtr1.write("UTF-8ç¼–ç æµ‹è¯•");	//ä¸¤ä¸ªå­—ç¬¦è¾“å‡ºæµå¯¹è±¡å¯¹ä¸€ä¸ªæ–‡ä»¶è¿›è¡Œæ“ä½œï¼Œä»–ä»¬éƒ½ä¸ä¼šæ£€æŸ¥æºæ–‡ä»¶ä¸­æ˜¯å¦æœ‰å†…å®¹ï¼Œéƒ½æ˜¯ä»å¼€å¤´å†™å…¥ã€‚
+									//åŒç†ï¼Œä¸¤ä¸ªå­—ç¬¦è¾“å…¥æµå¯¹åŒä¸€ä¸ªæ–‡ä»¶æ“ä½œï¼Œéƒ½æ˜¯åŒæ–‡ä»¶å¼€å¤´è¯»å…¥
+//		wtr1.flush();å¯ä¸»åŠ¨å°†ç¼“å†²æ± å†…æ•°æ®åˆ·æ–°ï¼Œä½†closeæ–¹æ³•å¯ä»¥å®Œæˆè¿™ä¸ªåŠ¨ä½œ
+//		wtr1.close();//å‘æ–‡ä»¶ä¸­å†™æ•°æ®ï¼Œæ­¤æ–¹æ³•çš„å«ä¹‰æ˜¯åˆ·æ–°ç¼“å†²æ± ï¼ˆå³å°†ç¼“å†²æ± çš„å†…å®¹å†²å…¥æ–‡ä»¶å†…ï¼‰ï¼Œå¹¶å…³é—­ç›¸å…³ç³»ç»Ÿèµ„æºã€‚
 		
-		wtr.write(str);//|Sting²ÎÊı|
-		wtr.write(str, 6, 2);//|Sting²ÎÊı|²ÎÊı
-		wtr.write(c);//|Sting²ÎÊı|²ÎÊıabcÁõ
-		wtr.write(c, 3, 1);//|Sting²ÎÊı|²ÎÊısbcÁõÁõ
+		wtr.write(str);//|Stingå‚æ•°|
+		wtr.write(str, 6, 2);//|Stingå‚æ•°|å‚æ•°
+		wtr.write(c);//|Stingå‚æ•°|å‚æ•°abcåˆ˜
+		wtr.write(c, 3, 1);//|Stingå‚æ•°|å‚æ•°sbcåˆ˜åˆ˜
 		wtr.close();
 		
 	}

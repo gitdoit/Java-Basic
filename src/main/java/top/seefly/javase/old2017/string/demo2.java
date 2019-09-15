@@ -1,6 +1,6 @@
-package string;
+package top.seefly.javase.old2017.string;
 /*
- * 基本方法
+ * 鍩烘湰鏂规硶
  * */
 public class demo2 {
 	public static void main(String[] args) {

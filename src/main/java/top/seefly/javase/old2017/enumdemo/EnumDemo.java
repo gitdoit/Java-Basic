@@ -1,24 +1,24 @@
-package enumdemo;
-/* Ã¶¾ÙÀàĞÍÃû.values ½«Ã¶¾Ù¶ÔÏóÒÔÃ¶¾ÙÊı×éµÄĞÎÊ½·µ»Ø
+package top.seefly.javase.old2017.enumdemo;
+/* æšä¸¾ç±»å‹å.values å°†æšä¸¾å¯¹è±¡ä»¥æšä¸¾æ•°ç»„çš„å½¢å¼è¿”å›
  * 
- * Ã¶¾Ù¶ÔÏó.ordinal()·µ»ØÆäÔÚ¸ÃÀàÖĞµÄ±àºÅ£¨´ÓÁã¿ªÊ¼£©£¬Ã¶¾Ù¶ÔÏó.name()·µ»ØÃû×Ö
+ * æšä¸¾å¯¹è±¡.ordinal()è¿”å›å…¶åœ¨è¯¥ç±»ä¸­çš„ç¼–å·ï¼ˆä»é›¶å¼€å§‹ï¼‰ï¼Œæšä¸¾å¯¹è±¡.name()è¿”å›åå­—
  * 
- * Ã¶¾Ù¶ÔÏó¿ÉÒÔÓÃÔÚswitchÖĞ ÒÔ×÷±È½Ï
+ * æšä¸¾å¯¹è±¡å¯ä»¥ç”¨åœ¨switchä¸­ ä»¥ä½œæ¯”è¾ƒ
  * */
 public class EnumDemo {
 
 	public static void main(String[] args){
 		Color c1 = Color.BLUE;
-		System.out.println("c1µÄÑÕÉ«£º"+c1);//À¨ºÅÄÚµÄc1 = c1.toString()
-		for(Color c:Color.values())//Ã¶¾ÙÀàÖĞµÄ¾²Ì¬values·½·¨ÊÇ½«ÆäÖĞµÄÃ¶¾ÙÔªËØÒÔÃ¶¾ÙÊı×éµÄĞÎÊ½·µ»Ø
+		System.out.println("c1çš„é¢œè‰²ï¼š"+c1);//æ‹¬å·å†…çš„c1 = c1.toString()
+		for(Color c:Color.values())//æšä¸¾ç±»ä¸­çš„é™æ€valuesæ–¹æ³•æ˜¯å°†å…¶ä¸­çš„æšä¸¾å…ƒç´ ä»¥æšä¸¾æ•°ç»„çš„å½¢å¼è¿”å›
 			System.out.println(c);
-		//Enum<Color>[] cc = Color.values(); ·ºĞÍ
-		//Color[] bb = Color.values(); Ã¶¾ÙÀàĞÍÊı×é
+		//Enum<Color>[] cc = Color.values(); æ³›å‹
+		//Color[] bb = Color.values(); æšä¸¾ç±»å‹æ•°ç»„
 		
-		for(Color c : Color.values())//ÑéÖ¤Ã¶¾ÙÀàÔÚswithcÖĞµÄÓ¦ÓÃ
+		for(Color c : Color.values())//éªŒè¯æšä¸¾ç±»åœ¨swithcä¸­çš„åº”ç”¨
 			print(c);
 		
-		for(Color c : Color.values())//ordinal·µ»ØÆäÔÚ¸ÃÀàÖĞµÄ±àºÅ£¨´ÓÁã¿ªÊ¼£©£¬name·µ»ØÃû×Ö
+		for(Color c : Color.values())//ordinalè¿”å›å…¶åœ¨è¯¥ç±»ä¸­çš„ç¼–å·ï¼ˆä»é›¶å¼€å§‹ï¼‰ï¼Œnameè¿”å›åå­—
 			System.out.println(c.ordinal()+ "--->"+ c.name());
 		
 		
@@ -26,8 +26,8 @@ public class EnumDemo {
 	
 
 	
-	public static void print(Color c){//Ã¶¾ÙÔªËØÓÃswitchÀ´ÅĞ¶Ï
-		switch(c){//×¢ÒâÒª¼Óbreak;
+	public static void print(Color c){//æšä¸¾å…ƒç´ ç”¨switchæ¥åˆ¤æ–­
+		switch(c){//æ³¨æ„è¦åŠ break;
 			case RED:{
 				System.out.println(c);
 				break;
@@ -43,7 +43,7 @@ public class EnumDemo {
 		}
 	}
 	
-	public enum Color{//×Ô¶¨ÒåµÄÃ¶¾ÙÀàĞÍ
+	public enum Color{//è‡ªå®šä¹‰çš„æšä¸¾ç±»å‹
 		RED,
 		BLUE,
 		GREEN;

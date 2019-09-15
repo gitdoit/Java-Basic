@@ -1,9 +1,9 @@
-package mypraxis;
+package top.seefly.javase.old2017.mypraxis;
 /*
- * ÎÒµÄË¼Â·¡£
- * ÅĞ¶ÏÄ³ÅÌÏÂÊÇ·ñÓĞÄ³ÎÄ¼ş£¬ÕâĞèÒª±éÀúÕû¸öÅÌ¡£
- * ÒòÎª²»Í¬ÎÄ¼ş¼ĞÏÂµÄÎÄ¼şÊı×ÓÎÄ¼ş¼Ğ²»Ò»Ñù£¬ÒÔ¼°Éî¶È¶¼²»Í¬¡£ËùÒÔÎÒÏëµ½ÁËµİ¹é±éÀú
- * Õâ¿ÉÒÔÓÃÍ¼µÄÉî¶È±éÀú»òÕß¹ã¶È±éÀú¡£
+ * æˆ‘çš„æ€è·¯ã€‚
+ * åˆ¤æ–­æŸç›˜ä¸‹æ˜¯å¦æœ‰æŸæ–‡ä»¶ï¼Œè¿™éœ€è¦éå†æ•´ä¸ªç›˜ã€‚
+ * å› ä¸ºä¸åŒæ–‡ä»¶å¤¹ä¸‹çš„æ–‡ä»¶æ•°å­æ–‡ä»¶å¤¹ä¸ä¸€æ ·ï¼Œä»¥åŠæ·±åº¦éƒ½ä¸åŒã€‚æ‰€ä»¥æˆ‘æƒ³åˆ°äº†é€’å½’éå†
+ * è¿™å¯ä»¥ç”¨å›¾çš„æ·±åº¦éå†æˆ–è€…å¹¿åº¦éå†ã€‚
  */
 import java.io.File;
 
@@ -20,13 +20,13 @@ public class IOTest {
 		for(File e:file) { 
 			if(e.isDirectory()) {
 				File[] chilFile = e.listFiles();
-				if(chilFile != null)//EÅÌ¸ùÄ¿Â¼ÏÂÒş²ØÎÄ¼ş¼Ğ£¬ÓÃÓÚ»Ö¸´ÏµÍ³->system volume information£¬ÎŞÅĞ¶ÏÌõ¼ş»á¿ÕÖ¸Õë
+				if(chilFile != null)//Eç›˜æ ¹ç›®å½•ä¸‹éšè—æ–‡ä»¶å¤¹ï¼Œç”¨äºæ¢å¤ç³»ç»Ÿ->system volume informationï¼Œæ— åˆ¤æ–­æ¡ä»¶ä¼šç©ºæŒ‡é’ˆ
 					DFS(chilFile);
 			}
 			
 			else {
 				if(e.getName().endsWith(".java")) {
-					System.out.println("Ëù²éÎÄ¼şÔÚ:"+e.getAbsolutePath());
+					System.out.println("æ‰€æŸ¥æ–‡ä»¶åœ¨:"+e.getAbsolutePath());
 				}
 			}
 		}

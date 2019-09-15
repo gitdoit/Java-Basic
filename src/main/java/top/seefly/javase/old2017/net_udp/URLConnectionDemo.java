@@ -1,4 +1,4 @@
-package net_udp;
+package top.seefly.javase.old2017.net_udp;
 
 import java.io.InputStream;
 import java.io.RandomAccessFile;
@@ -6,29 +6,29 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 /*
- * URL:Í³Ò»×ÊÔ´¶¨Î»Æ÷
- * ×é³É£ºĞ­ÒéÃû-Ö÷»ú-¶Ë¿Ú-×ÊÔ´
+ * URL:ç»Ÿä¸€èµ„æºå®šä½å™¨
+ * ç»„æˆï¼šåè®®å-ä¸»æœº-ç«¯å£-èµ„æº
  * 	   protocol://host:port/resourceName
  * 	   http://www.crazyit.org/index.hph
- * ×¢£ºURI²»ÄÜ¶¨Î»ÈÎºÎ×ÊÔ´£¬ËûÎ¨Ò»µÄ×÷ÓÃ¾ÍÊÇ½âÎö
+ * æ³¨ï¼šURIä¸èƒ½å®šä½ä»»ä½•èµ„æºï¼Œä»–å”¯ä¸€çš„ä½œç”¨å°±æ˜¯è§£æ
  * 
- *¶àÏß³ÌÏÂÔØ£º
- *Ö¸¶¨ÍøÂçÖĞµÄÔ´ÎÄ¼ş£¬½¨Á¢Á´½Ó¡£²âÊÔÁ´½Ó¡£
- *µÃµ½Ô´ÎÄ¼ş´óĞ¡£¬n¸öÏß³ÌÔò½«ÎÄ¼ş·Ö³Én·İ£¬Ã¿·İ´óĞ¡ÏàÍ¬¡£
- *ÎªÃ¿¸öÏß³Ì·Ö±ğÖ¸¶¨Ò»¸öËæ»ú¶ÁĞ´ÊäÈëÁ÷£¬Ëæ»ú¶ÁĞ´Êä³öÁ÷¡£²¢·Ö±ğÉèÖÃÊäÈëÁ÷ÓëÊä³öÁ÷µÄÆäÊµÎ»ÖÃ¡£
+ *å¤šçº¿ç¨‹ä¸‹è½½ï¼š
+ *æŒ‡å®šç½‘ç»œä¸­çš„æºæ–‡ä»¶ï¼Œå»ºç«‹é“¾æ¥ã€‚æµ‹è¯•é“¾æ¥ã€‚
+ *å¾—åˆ°æºæ–‡ä»¶å¤§å°ï¼Œnä¸ªçº¿ç¨‹åˆ™å°†æ–‡ä»¶åˆ†æˆnä»½ï¼Œæ¯ä»½å¤§å°ç›¸åŒã€‚
+ *ä¸ºæ¯ä¸ªçº¿ç¨‹åˆ†åˆ«æŒ‡å®šä¸€ä¸ªéšæœºè¯»å†™è¾“å…¥æµï¼Œéšæœºè¯»å†™è¾“å‡ºæµã€‚å¹¶åˆ†åˆ«è®¾ç½®è¾“å…¥æµä¸è¾“å‡ºæµçš„å…¶å®ä½ç½®ã€‚
  */
 public class URLConnectionDemo {
 
 	public static void main(String[] args) throws Exception {
 		long star = System.currentTimeMillis();
 		final DownUtil downUtil = new DownUtil("http://sw.bos.baidu.com/sw-search-sp/software/92f7b2170f9b7/BaiduNetdisk_5.6.1.2.exe",
-				"E:\\IOTest\\°Ù¶ÈÔÆ.exe",4);
+				"E:\\IOTest\\ç™¾åº¦äº‘.exe",4);
 		downUtil.download();
 		new  Thread() {
 			@Override
 			public void run() {
 				while(downUtil.getCompleteRate() < 1) {
-					System.out.println("½ø¶È£º"+downUtil.getCompleteRate());
+					System.out.println("è¿›åº¦ï¼š"+downUtil.getCompleteRate());
 					try {
 						Thread.sleep(1000);
 					}
@@ -43,34 +43,34 @@ public class URLConnectionDemo {
 }
 
 class DownUtil{
-	//Ô´ÎÄ¼şµØÖ·
+	//æºæ–‡ä»¶åœ°å€
 	private String path;
-	//´æ´¢Î»ÖÃ
+	//å­˜å‚¨ä½ç½®
 	private String targetFile;
-	//Ïß³ÌÊı
+	//çº¿ç¨‹æ•°
 	private int threadNum;
-	//Ïß³ÌÊı×é
+	//çº¿ç¨‹æ•°ç»„
 	private DownThread[] threads;
-	//Ô­ÎÄ¼ş´óĞ¡
+	//åŸæ–‡ä»¶å¤§å°
 	private int fileSize;
-	//¹¹Ôì·½·¨
+	//æ„é€ æ–¹æ³•
 	public DownUtil(String path,String targetFile,int threadNum) {
 		this.path = path;
 		this.targetFile = targetFile;
 		this.threadNum = threadNum;
 		threads = new DownThread[threadNum];
 	}
-	//Ö´ĞĞÏÂÔØ·½·¨Ìå
+	//æ‰§è¡Œä¸‹è½½æ–¹æ³•ä½“
 	public void download() throws Exception{
-		//Ö¸¶¨ÎÄ¼şµØÖ·
+		//æŒ‡å®šæ–‡ä»¶åœ°å€
 		URL url = new URL(path);
-		//´ò¿ªÊäÈëÁ÷
+		//æ‰“å¼€è¾“å…¥æµ
 		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-		//ÉèÖÃÁ´½Ó³¬Ê±
+		//è®¾ç½®é“¾æ¥è¶…æ—¶
 		conn.setConnectTimeout(5000);
-		//ÉèÖÃÇëÇó·½·¨
+		//è®¾ç½®è¯·æ±‚æ–¹æ³•
 //		conn.setRequestMethod("GET");
-		//ÉèÖÃÇëÇóÊôĞÔ
+		//è®¾ç½®è¯·æ±‚å±æ€§
 //		conn.setRequestProperty("Accept", "image/gif,image/jpeg,image/pjpeg,image/pjpeg,"+
 //		"application/x-shockwave-flash,application/xaml+xml,"
 //		+ "application/vpn.ms-xpadocument,application/x-ms-xbap,"
@@ -78,32 +78,32 @@ class DownUtil{
 //		conn.setRequestProperty("Accept-Language", "zh-CN");
 //		conn.setRequestProperty("Charset", "UTF-8");
 //		conn.setRequestProperty("Connection", "Keep-Alive");
-		//µÃµ½Ô´ÎÄ¼ş´óĞ¡
+		//å¾—åˆ°æºæ–‡ä»¶å¤§å°
 		fileSize = conn.getContentLength();
-		//¹Ø±ÕÁ´½Ó
+		//å…³é—­é“¾æ¥
 		conn.disconnect();
-		//½«Ô´ÎÄ¼ş·Ö³ÉÓëÏß³ÌÊıÏàµÈµÄ¿éÊı£¬Ã¿¿é³¤¶ÈÏàµÈ¡£currentParSizÎªÃ¿¿é´óĞ¡
+		//å°†æºæ–‡ä»¶åˆ†æˆä¸çº¿ç¨‹æ•°ç›¸ç­‰çš„å—æ•°ï¼Œæ¯å—é•¿åº¦ç›¸ç­‰ã€‚currentParSizä¸ºæ¯å—å¤§å°
 		int eachPartSize = fileSize / threadNum +1;
-		//ĞÂ½¨±¾µØÎÄ¼ş
+		//æ–°å»ºæœ¬åœ°æ–‡ä»¶
 		RandomAccessFile file = new RandomAccessFile(targetFile,"rw");
-		//ÉèÖÃ±¾µØÎÄ¼ş´óĞ¡£¬ÒªÓëÔ´ÎÄ¼ş´óĞ¡Ò»ÖÂ
+		//è®¾ç½®æœ¬åœ°æ–‡ä»¶å¤§å°ï¼Œè¦ä¸æºæ–‡ä»¶å¤§å°ä¸€è‡´
 		file.setLength(fileSize);
 		file.close();
 		for(int i = 0; i < threadNum; i++) {
-			//¼ÆËãÃ¿¸öÏß³ÌÏÂÔØµÄ¿ªÊ¼Î»ÖÃ
+			//è®¡ç®—æ¯ä¸ªçº¿ç¨‹ä¸‹è½½çš„å¼€å§‹ä½ç½®
 			int startPos = i * eachPartSize;
-			//ÎªÃ¿¸öÏß³Ì´´½¨ Ò»¸öÊä³öÁ÷
+			//ä¸ºæ¯ä¸ªçº¿ç¨‹åˆ›å»º ä¸€ä¸ªè¾“å‡ºæµ
 			RandomAccessFile outputRan = new RandomAccessFile(targetFile,"rw");
-			//ÎªÃ¿¸öÏß³ÌÊä³öÁ÷Ö¸¶¨¿ªÊ¼Ğ´ÈëÎ»ÖÃ
+			//ä¸ºæ¯ä¸ªçº¿ç¨‹è¾“å‡ºæµæŒ‡å®šå¼€å§‹å†™å…¥ä½ç½®
 			outputRan.seek(startPos);
-			//´´½¨ÏÂÔØÏß³Ì£¬´«ÈëÆğÊ¼Î»ÖÃ£¬ÏÂÔØµÄ³¤¶È£¬Ö¸¶¨Êä³öÁ÷
+			//åˆ›å»ºä¸‹è½½çº¿ç¨‹ï¼Œä¼ å…¥èµ·å§‹ä½ç½®ï¼Œä¸‹è½½çš„é•¿åº¦ï¼ŒæŒ‡å®šè¾“å‡ºæµ
 			threads[i] = new DownThread(startPos,eachPartSize,outputRan);
 			threads[i].start();
 		}
 		
 		
 	}
-	//»ñÈ¡ÏÂÔØ½ø¶È
+	//è·å–ä¸‹è½½è¿›åº¦
 	public double getCompleteRate() {
 		int sumSize = 0;
 		for(int i = 0; i < threadNum; i ++) {
@@ -113,7 +113,7 @@ class DownUtil{
 	}
 
 	private class DownThread extends Thread{
-		//µ±Ç°Ïß³ÌÏÂÔØÎ»ÖÃ
+		//å½“å‰çº¿ç¨‹ä¸‹è½½ä½ç½®
 		private int startPos;
 		private int currentPartSize;
 		private RandomAccessFile currentPart;
@@ -129,23 +129,23 @@ class DownUtil{
 			try {
 				URL url = new URL(path);
 				HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-				//ÉèÖÃÁ´½Ó³¬Ê±
+				//è®¾ç½®é“¾æ¥è¶…æ—¶
 				conn.setConnectTimeout(5000);
 //				conn.setRequestMethod("GET");
-				//ÉèÖÃÇëÇóÊôĞÔ
+				//è®¾ç½®è¯·æ±‚å±æ€§
 //				conn.setRequestProperty("Accept", "image/gif,image/jpeg,image/pjpeg,image/pjpeg,"+
 //				"application/x-shockwave-flash,application/xaml+xml,"
 //				+ "application/vpn.ms-xpadocument,application/x-ms-xbap,"
 //				+ "application/x0ms-application,applicaation/msword,*/*");
 //				conn.setRequestProperty("Accept-Language", "zh-CN");
 //				conn.setRequestProperty("Charset", "UTF-8");
-				//ÊäÈëÁ÷ÎªÔ´ÎÄ¼ş
+				//è¾“å…¥æµä¸ºæºæ–‡ä»¶
 				InputStream inStream = conn.getInputStream();
-				//ÉèÖÃÃ¿¸öÏß³Ì¿ªÊ¼¶ÁÈëµÄÎ»ÖÃ
+				//è®¾ç½®æ¯ä¸ªçº¿ç¨‹å¼€å§‹è¯»å…¥çš„ä½ç½®
 				inStream.skip(this.startPos);
 				byte[] buffer = new byte[1024];
 				int hasRead = 0;
-				while(length < currentPartSize && (hasRead = inStream.read(buffer)) != -1) {//ÈôÒÔÏÂÔØ³¤¶È³¬¹ıÃ¿¸öÏß³ÌÖ¸¶¨ÏÂÔØ³¤¶È£¬»ò¶ÁÈ¡Íê±Ï¡£ÔòÍË³öÑ­»·
+				while(length < currentPartSize && (hasRead = inStream.read(buffer)) != -1) {//è‹¥ä»¥ä¸‹è½½é•¿åº¦è¶…è¿‡æ¯ä¸ªçº¿ç¨‹æŒ‡å®šä¸‹è½½é•¿åº¦ï¼Œæˆ–è¯»å–å®Œæ¯•ã€‚åˆ™é€€å‡ºå¾ªç¯
 					currentPart.write(buffer,0,hasRead);
 					length += hasRead;
 				}

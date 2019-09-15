@@ -1,11 +1,11 @@
-package mypraxis;
+package top.seefly.javase.old2017.mypraxis;
 import java.io.*;
 /*
- * ±¾ÀàÓÃÀ´²âÊÔ¸÷ÖÖ¶ÁĞ´·½·¨µÄĞ§ÂÊ
- * 1£¬ÎŞ»º³åÇøµ¥×Ö½Ú´«Êä	47339ºÁÃë	
- * 2£¬ÎŞ»º³åÇø×Ö½ÚÊı×é´«Êä	101ºÁÃë	
- * 3£¬ÓĞ»º³åÇøµ¥×Ö½Ú´«Êä	374ºÁÃë
- * 4£¬ÓĞ»º³åÇø×Ö½ÚÊı×é´«Êä	25ºÁÃë	
+ * æœ¬ç±»ç”¨æ¥æµ‹è¯•å„ç§è¯»å†™æ–¹æ³•çš„æ•ˆç‡
+ * 1ï¼Œæ— ç¼“å†²åŒºå•å­—èŠ‚ä¼ è¾“	47339æ¯«ç§’	
+ * 2ï¼Œæ— ç¼“å†²åŒºå­—èŠ‚æ•°ç»„ä¼ è¾“	101æ¯«ç§’	
+ * 3ï¼Œæœ‰ç¼“å†²åŒºå•å­—èŠ‚ä¼ è¾“	374æ¯«ç§’
+ * 4ï¼Œæœ‰ç¼“å†²åŒºå­—èŠ‚æ•°ç»„ä¼ è¾“	25æ¯«ç§’	
  * 
  */
 
@@ -14,16 +14,16 @@ public class IOTest2 {
 	public static void main(String[] args) throws IOException {
 		Thread.currentThread().setPriority(Thread.MAX_PRIORITY);
 		long star = System.currentTimeMillis();
-		File src = new File("e:\\Ñ§Ï°×ÊÁÏ\\10\\avi\\10.01.avi");
+		File src = new File("e:\\å­¦ä¹ èµ„æ–™\\10\\avi\\10.01.avi");
 		File tar = new File("e:\\copy.avi");
 		//bufByOne(src,tar);
 		//basicByArr(src,tar);
 		bufByOne(src,tar);
 		long end = System.currentTimeMillis();
-		System.out.println("ËùÓÃÊ±¼ä£º"+(end - star)+"ºÁÃë");
+		System.out.println("æ‰€ç”¨æ—¶é—´ï¼š"+(end - star)+"æ¯«ç§’");
 	}
 	
-	public static void basicByOne(File src,File tar) throws IOException {//ÎŞ»º³åÇø£¬µ¥×Ö½Ú´«Êä
+	public static void basicByOne(File src,File tar) throws IOException {//æ— ç¼“å†²åŒºï¼Œå•å­—èŠ‚ä¼ è¾“
 		FileInputStream input = new FileInputStream(src);
 		FileOutputStream output = new FileOutputStream(tar);
 		int temp;
@@ -33,7 +33,7 @@ public class IOTest2 {
 		output.close();
 	}
 	
-	public static void basicByArr(File src,File tar) throws IOException {//ÎŞ»º³åÇø£¬×Ö½ÚÊı×é´«Êä
+	public static void basicByArr(File src,File tar) throws IOException {//æ— ç¼“å†²åŒºï¼Œå­—èŠ‚æ•°ç»„ä¼ è¾“
 		FileInputStream input = new FileInputStream(src);
 		FileOutputStream output = new FileOutputStream(tar);
 		byte[] bt = new byte[1024];

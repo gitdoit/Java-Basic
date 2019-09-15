@@ -1,5 +1,5 @@
-package exception;
-//演示了异常的处理过程，任何使用了会抛出异常的方法要么自己处理，要么抛出到上级
+package top.seefly.javase.old2017.exception;
+//婕旂ず浜嗗紓甯哥殑澶勭悊杩囩▼锛屼换浣曚娇鐢ㄤ簡浼氭姏鍑哄紓甯哥殑鏂规硶瑕佷箞鑷繁澶勭悊锛岃涔堟姏鍑哄埌涓婄骇
 public class Throw {
 	public static void main(String[] args){
 		try{
@@ -22,7 +22,7 @@ class ThrowException{
 	public ThrowException() throws InvalidRadiusException{
 		this(1.0);
 	}
-	public ThrowException(double radius)throws InvalidRadiusException{//构造方法没有处理setRadius抛出的异常，它抛出了
+	public ThrowException(double radius)throws InvalidRadiusException{//鏋勯�犳柟娉曟病鏈夊鐞唖etRadius鎶涘嚭鐨勫紓甯革紝瀹冩姏鍑轰簡
 		setRadius(radius);
 		numberOfObjects++;
 	}
@@ -32,11 +32,11 @@ class ThrowException{
 		return radius;
 	}
 	
-	public void setRadius(double radius)throws InvalidRadiusException{//该方法会抛出一个异常，任何使用它的方法都要做出处理
+	public void setRadius(double radius)throws InvalidRadiusException{//璇ユ柟娉曚細鎶涘嚭涓�涓紓甯革紝浠讳綍浣跨敤瀹冪殑鏂规硶閮借鍋氬嚭澶勭悊
 		if(radius >= 0)
 			this.radius = radius;
 		else
-			throw new InvalidRadiusException(radius);//万恶之源
+			throw new InvalidRadiusException(radius);//涓囨伓涔嬫簮
 	}
 	public static int getNumberOfObjecets(){
 		return numberOfObjects;
