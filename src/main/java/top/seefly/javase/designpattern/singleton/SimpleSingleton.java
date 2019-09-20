@@ -1,4 +1,4 @@
-package top.seefly.javase.singleton;
+package top.seefly.javase.designpattern.singleton;
 
 /**
  * 简单的单例模式

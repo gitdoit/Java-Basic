@@ -21,7 +21,7 @@ public class OutputStreamWriterDemo {
 	public static void main(String[] args) throws IOException {
 		OutputStreamWriter wtr = new OutputStreamWriter( new FileOutputStream("e:\\writer.txt"));//这里使用默认编码GBK
 //		OutputStreamWriter wtr1 = new OutputStreamWriter(new FileOutputStream("writer.txt"),"UTF-8");//这里指定编码，文件在本项目目录下
-		char[] c = {'s','b','c','刘'};
+		char[] c = {'s','b','c'};
 		String str = "|Sting参数|";
 //		wtr1.write("UTF-8编码测试");	//两个字符输出流对象对一个文件进行操作，他们都不会检查源文件中是否有内容，都是从开头写入。
 									//同理，两个字符输入流对同一个文件操作，都是同文件开头读入
