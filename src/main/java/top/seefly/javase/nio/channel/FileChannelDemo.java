@@ -42,12 +42,6 @@ public class FileChannelDemo {
     }
 
 
-
-
-
-
-
-
     /**
      * 测试向管道流中写入数据
      */
@@ -59,9 +53,9 @@ public class FileChannelDemo {
         buf.put("hello world!".getBytes());
         // 反转一下
         buf.flip();
-        System.out.println("before write:"+buf);
+        System.out.println("before write:" + buf);
         channel.write(buf);
-        System.out.println("after write:"+buf);
+        System.out.println("after write:" + buf);
         channel.close();
     }
 
@@ -98,13 +92,13 @@ public class FileChannelDemo {
         FileChannel channel = aFile.getChannel();
         ByteBuffer a = ByteBuffer.allocate(6);
         ByteBuffer b = ByteBuffer.allocate(6);
-        ByteBuffer[] array = {a,b};
+        ByteBuffer[] array = {a, b};
         // 文件内容12个字节[hello world!]，这里分散成俩
         channel.read(array);
         b.flip();
         // 读后面的
-        while (b.hasRemaining()){
-            System.out.print((char)b.get());
+        while (b.hasRemaining()) {
+            System.out.print((char) b.get());
         }
     }
 
@@ -118,7 +112,7 @@ public class FileChannelDemo {
         RandomAccessFile targetFile = new RandomAccessFile("E:\\test\\to.txt", "rw");
         FileChannel sourceFileChannel = sourceFile.getChannel();
         FileChannel targetFileChannel = targetFile.getChannel();
-        sourceFileChannel.transferTo(0,12,targetFileChannel);
+        sourceFileChannel.transferTo(0, 12, targetFileChannel);
         sourceFile.close();
         targetFile.close();
     }

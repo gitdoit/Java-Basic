@@ -25,12 +25,12 @@ public class RateLimiterDemo {
             new Thread(new Runnable() {
                 @Override
                 public void run() {
-                        //检查频率
-                        //Preconditions.checkState(rateLimiter.acquire(), "令牌不足则等待");
-                        //Preconditions.checkState(rateLimiter.tryAcquire(), "令牌不足则立即返回");
-                        rateLimiter.acquire();
-                        //频率检查通过，执行业务代码
-                        System.out.println("业务执行中"+System.currentTimeMillis() / 1000);
+                    //检查频率
+                    //Preconditions.checkState(rateLimiter.acquire(), "令牌不足则等待");
+                    //Preconditions.checkState(rateLimiter.tryAcquire(), "令牌不足则立即返回");
+                    rateLimiter.acquire();
+                    //频率检查通过，执行业务代码
+                    System.out.println("业务执行中" + System.currentTimeMillis() / 1000);
 
                 }
             }).start();

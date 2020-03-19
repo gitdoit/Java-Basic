@@ -12,15 +12,15 @@ import java.net.URLEncoder;
  */
 public class URLCoder {
 
-	public static void main(String[] args) throws Exception{
-		//使用GBK编码表将字符转换成URL中对应的形式
-		String keyword = URLEncoder.encode("柯南","GBK");
-		System.out.println(keyword);
-		
-		//将‘乱码’转换成字符
-		String chr = URLDecoder.decode(keyword);
-		System.out.println(chr);
-		
-	}
+    public static void main(String[] args) throws Exception {
+        //使用GBK编码表将字符转换成URL中对应的形式
+        String keyword = URLEncoder.encode("柯南", "GBK");
+        System.out.println(keyword);
+
+        //将‘乱码’转换成字符
+        String chr = URLDecoder.decode(keyword);
+        System.out.println(chr);
+
+    }
 
 }

@@ -21,17 +21,18 @@ public class StartStream {
 
 
     @Test
-    public void test1(){
+    public void test1() {
         List<String> list = new ArrayList<>();
         list.add("a");
         //过滤空集合，否则当后面的操作会报错。这里即使过滤掉了所有的元素 后面的操作都不会报异常
         Stream.of(list, null).filter(CollectionUtils::isNotEmpty).flatMap(List::stream).forEach(System.out::print);
     }
+
     /**
      * 创建Stream流的几种方式
      */
     @Test
-    public void testBuildStream(){
+    public void testBuildStream() {
 
         //注意看下面这三种用法的不同情况
         //根据of方法的说明，他会返回一个以参数类型为泛型的Stream
@@ -40,7 +41,6 @@ public class StartStream {
         Stream<String> type1 = Stream.of(new String[]{"a", "b", "c"});
         //这里就是用参数类型做泛型了
         Stream<ArrayList<Object>> arrayListStream = Stream.of(new ArrayList<>());
-
 
 
         //上面的Strem.of里面调用的还是Arrays.Stream
@@ -57,7 +57,7 @@ public class StartStream {
      * 一个流只能使用一次，下面的会报错
      */
     @Test
-    public void testTransferStream(){
+    public void testTransferStream() {
         //流转换为数组
         Stream<String> stream1 = Stream.of("a", "b", "c");
         String[] arr = stream1.toArray(String[]::new);
@@ -77,13 +77,12 @@ public class StartStream {
      * 都可以分割各种基本类型的list
      */
     @Test
-    public void testJoin(){
+    public void testJoin() {
         //Stream<String> stream1 = Stream.of(new String[]{"a", "b", "c"});
-        List<String> list = new ArrayList<>(Arrays.asList(new String[]{"s","v"}));
+        List<String> list = new ArrayList<>(Arrays.asList(new String[]{"s", "v"}));
         String collect = list.stream().collect(Collectors.joining(","));
         System.out.println(collect);
     }
-
 
 
 }

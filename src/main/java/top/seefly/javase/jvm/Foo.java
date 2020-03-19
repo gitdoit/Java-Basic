@@ -9,13 +9,13 @@ import sun.reflect.Reflection;
 public class Foo {
 
 
-    public void show(){
+    public void show() {
         StackTraceElement[] stElements = Thread.currentThread().getStackTrace();
         String callerClassName = null;
-        for (int i=1; i<stElements.length; i++) {
+        for (int i = 1; i < stElements.length; i++) {
             StackTraceElement ste = stElements[i];
-            if (!ste.getClassName().equals(Foo.class.getName())&& ste.getClassName().indexOf("java.lang.Thread")!=0) {
-                if (callerClassName==null) {
+            if (!ste.getClassName().equals(Foo.class.getName()) && ste.getClassName().indexOf("java.lang.Thread") != 0) {
+                if (callerClassName == null) {
                     callerClassName = ste.getClassName();
                 } else if (!callerClassName.equals(ste.getClassName())) {
                     System.out.println(ste.getClassName());
@@ -26,7 +26,7 @@ public class Foo {
     }
 
 
-    public void showByNa(){
+    public void showByNa() {
         Class<?> caller = Reflection.getCallerClass();
         System.out.println(caller.getName());
     }

@@ -6,7 +6,8 @@ package top.seefly.javase.jvm.loadclass;
  */
 public class TestClass {
     private int m;
-    public int inc(){
-        return m+1;
+
+    public int inc() {
+        return m + 1;
     }
 }

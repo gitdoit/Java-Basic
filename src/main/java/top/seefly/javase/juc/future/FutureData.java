@@ -4,13 +4,13 @@ package top.seefly.javase.juc.future;
  * @author liujianxin
  * @date 2018-11-22 11:41
  */
-public class FutureData implements Data{
+public class FutureData implements Data {
     protected boolean isReady;
     protected RealData realData = null;
 
-    public synchronized void setRealData(RealData realData){
+    public synchronized void setRealData(RealData realData) {
         // 防止重复设置
-        if(isReady){
+        if (isReady) {
             return;
         }
         this.realData = realData;
@@ -20,12 +20,12 @@ public class FutureData implements Data{
     }
 
     @Override
-    public synchronized String getResult(){
+    public synchronized String getResult() {
         // 服务器还没有响应的时候，进入锁池等待
-        while (!isReady){
+        while (!isReady) {
             try {
                 wait();
-            }catch (InterruptedException e){
+            } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }

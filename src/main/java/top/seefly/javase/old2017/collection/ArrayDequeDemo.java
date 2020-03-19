@@ -1,4 +1,5 @@
 package top.seefly.javase.old2017.collection;
+
 import java.util.ArrayDeque;
 /*
  * ArrayDeque<>实现了Deque<>(双端队列)接口，而这个接口继承了Queue<>接口
@@ -23,15 +24,15 @@ import java.util.ArrayDeque;
 import java.util.Queue;
 
 public class ArrayDequeDemo {
-	public static void main(String[] args) {
-		ArrayDeque<Integer> queue = new ArrayDeque<>();
-		queue.addLast(3);//等效于 queue.add(3);
-		queue.add(4);
-		queue.addFirst(5);
-		queue.addLast(6);
-		queue.add(7);
-		queue.removeLast();//等效与queue.remove();
-		System.out.println(queue);
-		
-	}
+    public static void main(String[] args) {
+        ArrayDeque<Integer> queue = new ArrayDeque<>();
+        queue.addLast(3);//等效于 queue.add(3);
+        queue.add(4);
+        queue.addFirst(5);
+        queue.addLast(6);
+        queue.add(7);
+        queue.removeLast();//等效与queue.remove();
+        System.out.println(queue);
+
+    }
 }

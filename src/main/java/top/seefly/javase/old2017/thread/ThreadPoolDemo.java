@@ -11,37 +11,37 @@ import java.util.concurrent.*;
  *http://cuisuqiang.iteye.com/blog/2019372
  * */
 public class ThreadPoolDemo {
-	public static void main(String[] args) {
-		//ExecutorService cachedThreadPool = Executors.newCachedThreadPool();
-		ExecutorService FixedThreadPool = Executors.newFixedThreadPool(3);
-		for(int i = 0; i < 100; i++) {//循环创建线程，被FixedThreadPool包装。线程池容量为3，所以同时并发的线程最多只有三个，其余的等待
-			//cachedThreadPool.execute(new CacheThread());
-			FixedThreadPool.execute(new CacheThread());
-			//if(i == 7)
-				//FixedThreadPool.shutdown();//此方法会使线程停止接受新任务(若继续添加则会报错)，且完成正在执行与等待列队中的任务。
-		ExecutorService CachePool = Executors.newCachedThreadPool();//shutdownNow会使正在执行的线程处于中断状态，返回并清除等待列队中的线程
-		CachePool.execute(new Runnable() {
-			@Override
-			public void run() {
-				// TODO Auto-generated method stub
-				
-			}
-		});
-		}
-		
-	}
+    public static void main(String[] args) {
+        //ExecutorService cachedThreadPool = Executors.newCachedThreadPool();
+        ExecutorService FixedThreadPool = Executors.newFixedThreadPool(3);
+        for (int i = 0; i < 100; i++) {//循环创建线程，被FixedThreadPool包装。线程池容量为3，所以同时并发的线程最多只有三个，其余的等待
+            //cachedThreadPool.execute(new CacheThread());
+            FixedThreadPool.execute(new CacheThread());
+            //if(i == 7)
+            //FixedThreadPool.shutdown();//此方法会使线程停止接受新任务(若继续添加则会报错)，且完成正在执行与等待列队中的任务。
+            ExecutorService CachePool = Executors.newCachedThreadPool();//shutdownNow会使正在执行的线程处于中断状态，返回并清除等待列队中的线程
+            CachePool.execute(new Runnable() {
+                @Override
+                public void run() {
+                    // TODO Auto-generated method stub
+
+                }
+            });
+        }
+
+    }
 }
 
-class CacheThread implements Runnable{
-	
-	@Override
-	public void run() {
-		System.out.println(Thread.currentThread().getName()+" is running");
-		try {
-			Thread.sleep(500);
-		} catch (Exception e) {
-			// TODO: handle exception
-		}
-		
-	}
+class CacheThread implements Runnable {
+
+    @Override
+    public void run() {
+        System.out.println(Thread.currentThread().getName() + " is running");
+        try {
+            Thread.sleep(500);
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+
+    }
 }

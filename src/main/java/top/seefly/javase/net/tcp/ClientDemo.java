@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 /**
  * 模拟客户端
+ *
  * @author liujianxin
  * @date 2019-01-04 13:34
  */
@@ -24,8 +25,8 @@ public class ClientDemo {
     public void sendMes(String mes) {
         try {
             OutputStream outputStream = socket.getOutputStream();
-            PrintWriter bw = new PrintWriter(new OutputStreamWriter(new FilterOutputStream(outputStream)),true);
-            Scanner scanner = new Scanner(socket.getInputStream(),"UTF-8");
+            PrintWriter bw = new PrintWriter(new OutputStreamWriter(new FilterOutputStream(outputStream)), true);
+            Scanner scanner = new Scanner(socket.getInputStream(), "UTF-8");
             String nextLine;
             do {
                 bw.println(mes);

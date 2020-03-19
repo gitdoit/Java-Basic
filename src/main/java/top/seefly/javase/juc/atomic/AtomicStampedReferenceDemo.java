@@ -12,6 +12,7 @@ import java.util.concurrent.atomic.AtomicStampedReference;
  * 相较于{@link AtomicReference},这个类由于有版本号，所以可以记录状态。即被改变了几次
  * 例如AtomicReference<Integer> ，被N个线程改来改去，最后又变为最初的那个值。
  * 这时候可能有些线程没有发觉到它有过变化，这种情况是在某些情景下是不被允许的
+ *
  * @author liujianxin
  * @date 2018-11-19 19:40
  */
@@ -28,12 +29,12 @@ public class AtomicStampedReferenceDemo {
                 // do some job
                 try {
                     newValue = localValue + 1;
-                    Thread.sleep(RandomUtils.nextLong(0,200));
-                }catch (Exception e){
+                    Thread.sleep(RandomUtils.nextLong(0, 200));
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
                 boolean flag = asr.compareAndSet(localValue, newValue, version, version + 1);
-                System.out.println("线程："+Thread.currentThread().getName()+"|期望值："+localValue+"|期望版本号:"+version+"|变更："+flag);
+                System.out.println("线程：" + Thread.currentThread().getName() + "|期望值：" + localValue + "|期望版本号:" + version + "|变更：" + flag);
             }).start();
         }
         Thread.sleep(1000);

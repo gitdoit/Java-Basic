@@ -7,29 +7,28 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- *
  * Arraylist 与 LinkedList 区别?
  * 1. 是否保证线程安全：
- *      ArrayList 和 LinkedList 都是不同步的，也就是不保证线程安全；
- *
+ * ArrayList 和 LinkedList 都是不同步的，也就是不保证线程安全；
+ * <p>
  * 2. 底层数据结构：
- *      Arraylist 底层使用的是 Object 数组；LinkedList 底层使用的是 双向链表 数据结构
- *
+ * Arraylist 底层使用的是 Object 数组；LinkedList 底层使用的是 双向链表 数据结构
+ * <p>
  * 3. 插入和删除是否受元素位置的影响：
- *      1、ArrayList 采用数组存储，所以插入和删除元素的时间复杂度受元素位置的影响。
- *      比如：执行add(E e) 方法的时候， ArrayList 会默认在将指定的元素追加到此列表的末尾，这种情况时间复杂度就是O(1)。
- *      但是如果要在指定位置 i 插入和删除元素的话（add(int index, E element) ）时间复杂度就为 O(n-i)。
- *      因为在进行上述操作的时候集合中第 i 和第 i 个元素之后的(n-i)个元素都要执行向后位/向前移一位的操作。
- *
- *      2、LinkedList 采用链表存储，所以插入，删除元素时间复杂度不受元素位置的影响，都是近似 O（1）而数组为近似 O（n）。
- *
+ * 1、ArrayList 采用数组存储，所以插入和删除元素的时间复杂度受元素位置的影响。
+ * 比如：执行add(E e) 方法的时候， ArrayList 会默认在将指定的元素追加到此列表的末尾，这种情况时间复杂度就是O(1)。
+ * 但是如果要在指定位置 i 插入和删除元素的话（add(int index, E element) ）时间复杂度就为 O(n-i)。
+ * 因为在进行上述操作的时候集合中第 i 和第 i 个元素之后的(n-i)个元素都要执行向后位/向前移一位的操作。
+ * <p>
+ * 2、LinkedList 采用链表存储，所以插入，删除元素时间复杂度不受元素位置的影响，都是近似 O（1）而数组为近似 O（n）。
+ * <p>
  * 4. 是否支持快速随机访问：
- *      LinkedList 不支持高效的随机元素访问，而 ArrayList 支持。
- *      快速随机访问就是通过元素的序号快速获取元素对象(对应于get(int index) 方法)。
- *
+ * LinkedList 不支持高效的随机元素访问，而 ArrayList 支持。
+ * 快速随机访问就是通过元素的序号快速获取元素对象(对应于get(int index) 方法)。
+ * <p>
  * 5. 内存空间占用：
- *      ArrayList的空 间浪费主要体现在在list列表的结尾会预留一定的容量空间，
- *      而LinkedList的空间花费则体现在它的每一个元素都需要消耗比ArrayList更多的空间（因为要存放直接后继和直接前驱以及数据）。
+ * ArrayList的空 间浪费主要体现在在list列表的结尾会预留一定的容量空间，
+ * 而LinkedList的空间花费则体现在它的每一个元素都需要消耗比ArrayList更多的空间（因为要存放直接后继和直接前驱以及数据）。
  *
  * @author liujianxin
  * @date 2019-07-25 14:52
@@ -37,7 +36,7 @@ import java.util.List;
 public class ListDemo {
 
     @Test
-    public void testList(){
+    public void testList() {
         /**
          * 无参构造方式，默认使用空数组作为容器 -> private static final Object[] DEFAULTCAPACITY_EMPTY_ELEMENTDATA = {};
          */
@@ -53,7 +52,7 @@ public class ListDemo {
         /**
          * 使用集合作为构造参数
          */
-        ArrayList<String> copyList = new ArrayList<>(Arrays.asList("",""));
+        ArrayList<String> copyList = new ArrayList<>(Arrays.asList("", ""));
 
     }
 
@@ -62,7 +61,7 @@ public class ListDemo {
      * ArrayList扩容机制
      */
     @Test
-    public void testListCapacity(){
+    public void testListCapacity() {
         // 无参构造方法会指定一个空数组，所以，只有在第一次调用add方法的时候才会对
         // 列表进行扩容以及指定默认容量
         ArrayList<String> defaultList = new ArrayList<>();
@@ -96,7 +95,7 @@ public class ListDemo {
 
 
     @Test
-    public void testArrayCopy(){
+    public void testArrayCopy() {
         int[] a = new int[10];
         a[0] = 0;
         a[1] = 1;
@@ -111,7 +110,7 @@ public class ListDemo {
         //so，这个就是从数组索引为2的开始，复制一个元素，到目标素组中索引为4的位置
         //效果就是，将2号索引元素复制一份到3号索引后面
         //0 1 2 3 -> 0 1 2 3 2 0 0 0 0 0 0
-        System.arraycopy(a,2,a,4,1);
+        System.arraycopy(a, 2, a, 4, 1);
 
         for (int i : a) {
             System.out.println(i);
@@ -124,8 +123,8 @@ public class ListDemo {
      * 这个方法的目的就是为了方便的给数组扩容
      */
     @Test
-    public void testCopyOf(){
-        int[] old = {1,2,3};
+    public void testCopyOf() {
+        int[] old = {1, 2, 3};
         // 寄居蟹一样，原来的家太小了，给放个大的
         int[] newOne = Arrays.copyOf(old, 6);
         System.out.println(newOne.length);
@@ -136,11 +135,11 @@ public class ListDemo {
      * list.toArray方法很有意思
      * 如果传入的参数数组容量足够大，那么将原列表中的元素复制一份到这个参数数组中
      * 如果不够大，那么就根据参数列表类型创建一个新的数组，当作返回值返回回去。
-     *
+     * <p>
      * 所以一般都用list.toArray(new Integer[0]);然后取其返回值
      */
     @Test
-    public void testToArray(){
+    public void testToArray() {
         List<Integer> list = Arrays.asList(1, 2, 3);
 
 
@@ -164,13 +163,13 @@ public class ListDemo {
 
 
     /**
-     *  arrayList.ensureCapacity(n);
-     *  这方法是给用户用的，目的就是让用户在添加大量数据前
-     *  能够手动扩容列表容量
-     *  避免列表自己一次次的扩容，提升效率。
+     * arrayList.ensureCapacity(n);
+     * 这方法是给用户用的，目的就是让用户在添加大量数据前
+     * 能够手动扩容列表容量
+     * 避免列表自己一次次的扩容，提升效率。
      */
     @Test
-    public void testEnsureCapacity(){
+    public void testEnsureCapacity() {
         ArrayList<Object> list = new ArrayList<Object>();
         final int N = 10000000;
         long startTime = System.currentTimeMillis();
@@ -179,7 +178,7 @@ public class ListDemo {
         }
         long endTime = System.currentTimeMillis();
         // 使用ensureCapacity方法前：2555
-        System.out.println("使用ensureCapacity方法前："+(endTime - startTime));
+        System.out.println("使用ensureCapacity方法前：" + (endTime - startTime));
 
         list = new ArrayList<Object>();
         long startTime1 = System.currentTimeMillis();
@@ -189,7 +188,7 @@ public class ListDemo {
         }
         long endTime1 = System.currentTimeMillis();
         // 使用ensureCapacity方法后：751
-        System.out.println("使用ensureCapacity方法后："+(endTime1 - startTime1));
+        System.out.println("使用ensureCapacity方法后：" + (endTime1 - startTime1));
 
     }
 

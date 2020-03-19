@@ -20,13 +20,13 @@ public class ThreadInterruptDemo {
     /**
      * 中断标志的确是不影响线程的运行，要看线程对于中断标志是如何进行处理的
      * 但是如果处于等待的话，就会抛出异常
-     *
+     * <p>
      * 忽视中断标志位的线程
      */
     @Test
-    public void stopByIgnoreInterrupt(){
-        Thread thread = new Thread(() ->{
-            while (true){
+    public void stopByIgnoreInterrupt() {
+        Thread thread = new Thread(() -> {
+            while (true) {
                 System.out.println("i am working!");
             }
         });
@@ -44,11 +44,11 @@ public class ThreadInterruptDemo {
      * thread.interrupt()的调用会判断当前调用线程是有权限，没有的话会抛出异常
      */
     @Test
-    public void testStopInterrupt(){
-        Thread thread = new Thread(() ->{
+    public void testStopInterrupt() {
+        Thread thread = new Thread(() -> {
             Thread me = Thread.currentThread();
             // 通过循环判断中断标志位来控制程序的执行
-            while (!me.isInterrupted()){
+            while (!me.isInterrupted()) {
                 System.out.println("i am working!");
             }
         });
@@ -66,15 +66,14 @@ public class ThreadInterruptDemo {
      * 还有一个是静态方法相当于get+set -> Thread.interrupted()
      * 里面其实是 currentThread().isInterrupted(true); 它这对于当前调用这个方法的线程。
      * 而这个方法的作用就是清除中断标志位，并返回之前的状态
-     *
      */
     @Test
-    public void testInterrupted(){
-        System.out.println("当前线程是否被中断:"+Thread.currentThread().isInterrupted());
+    public void testInterrupted() {
+        System.out.println("当前线程是否被中断:" + Thread.currentThread().isInterrupted());
         // 将当前线程的中断标志位置为true
         Thread.currentThread().interrupt();
         // 清除中断标志位，并返回之前的中断状态
-        System.out.println("当前线程是否被中断:"+Thread.interrupted());
+        System.out.println("当前线程是否被中断:" + Thread.interrupted());
     }
 
 }

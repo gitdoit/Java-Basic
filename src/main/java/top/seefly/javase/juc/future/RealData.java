@@ -4,16 +4,16 @@ package top.seefly.javase.juc.future;
  * @author liujianxin
  * @date 2018-11-22 11:40
  */
-public class RealData implements Data{
+public class RealData implements Data {
     protected String result;
 
     public RealData(String para) {
         StringBuffer sb = new StringBuffer();
-        for(int i = 0; i < 10;i++){
+        for (int i = 0; i < 10; i++) {
             sb.append(para);
-            try{
+            try {
                 Thread.sleep(100);
-            }catch (InterruptedException ex){
+            } catch (InterruptedException ex) {
                 ex.printStackTrace();
             }
         }

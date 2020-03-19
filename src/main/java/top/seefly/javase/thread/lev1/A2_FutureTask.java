@@ -2,6 +2,7 @@ package top.seefly.javase.thread.lev1;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.FutureTask;
+
 /**
  * 泛型接口Callable<T> 与Runnable接口类似，通过重写其中call方法来使线程执行其中内容
  * 此方法与run方法不同，它具有返回值，返回值类型与泛型一致
@@ -15,39 +16,40 @@ import java.util.concurrent.FutureTask;
  * V get(long tiemout,timeUnti unit) 获取call方法的返回值，但是若在tiemou和unit指定时间内没有返回值，则会报错TimeOutException
  * boolean isCancelled() 如果在任务完成前被取消了，则返回true
  * boolean isDone() 如果任务完成则返回true
+ *
  * @author 刘建鑫
- * */
-public class A2_FutureTask implements Callable<Integer>{
+ */
+public class A2_FutureTask implements Callable<Integer> {
 
     /**
      * 复写其中call方法，注意返回值类型要与泛型定义的一致
+     *
      * @return Integer
      */
-	@Override
-	public Integer call() {
-		int i = 0;
-		for(; i < 100; i++) {
-			System.out.println(Thread.currentThread().getName() + ":i = "+ i);
-		}
-		return i;
-	}
+    @Override
+    public Integer call() {
+        int i = 0;
+        for (; i < 100; i++) {
+            System.out.println(Thread.currentThread().getName() + ":i = " + i);
+        }
+        return i;
+    }
 
 
-	public static void main(String[] args) {
-		//实例化callable的实现类
-		A2_FutureTask f = new A2_FutureTask();
+    public static void main(String[] args) {
+        //实例化callable的实现类
+        A2_FutureTask f = new A2_FutureTask();
         //使用FutureTask对象对其进行包装
-		FutureTask<Integer> task = new FutureTask<>(f);
+        FutureTask<Integer> task = new FutureTask<>(f);
         //再使FutureTaks实例作为Thread的target，并启动
-		new Thread(task).start();
-		try {
-		    //get方法会抛出异常
+        new Thread(task).start();
+        try {
+            //get方法会抛出异常
             //通过控制FutureTask的实例对call进行操作
-			System.out.println(task.get());
-		}
-		catch(Exception e) {
-			e.printStackTrace();
-		}
-	}
+            System.out.println(task.get());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
 

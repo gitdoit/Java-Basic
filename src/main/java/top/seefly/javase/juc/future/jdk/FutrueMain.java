@@ -6,6 +6,7 @@ import java.util.concurrent.FutureTask;
 
 /**
  * 使用jdk自带的
+ *
  * @author liujianxin
  * @date 2018-11-22 14:15
  */
@@ -16,6 +17,6 @@ public class FutrueMain {
         Executors.newFixedThreadPool(1).submit(futureTask);
         System.out.println("请求完毕！");
         Thread.sleep(2000);
-        System.out.println("数据："+futureTask.get());
+        System.out.println("数据：" + futureTask.get());
     }
 }

@@ -10,26 +10,26 @@ import java.util.concurrent.FutureTask;
 
 public class Pool_Future {
 
-	public static void main(String[] args) throws Exception, ExecutionException {
-		ArrayList<Future> list = new ArrayList<>();
-		ExecutorService pool = Executors.newFixedThreadPool(5);
-		
-		FutureTask<Integer> task = new FutureTask(new MyCall());
+    public static void main(String[] args) throws Exception, ExecutionException {
+        ArrayList<Future> list = new ArrayList<>();
+        ExecutorService pool = Executors.newFixedThreadPool(5);
+
+        FutureTask<Integer> task = new FutureTask(new MyCall());
 //		list.add(pool.submit(task));
 //		list.add(pool.submit(new MyCall()));
 //		for(Future e : list) {
 //			System.out.println(e.get());
 //		}
-		System.out.println(pool.submit(task).get());
-		pool.shutdown();
-	}
+        System.out.println(pool.submit(task).get());
+        pool.shutdown();
+    }
 
 }
 
-class MyCall implements Callable<Integer>{
-	@Override
-	public Integer call() throws Exception {
-		return 5;
-	}
-	
+class MyCall implements Callable<Integer> {
+    @Override
+    public Integer call() throws Exception {
+        return 5;
+    }
+
 }

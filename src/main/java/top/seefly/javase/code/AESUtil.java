@@ -68,7 +68,7 @@ public class AESUtil {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return new String(Base64.encodeBase64(encrypted),StandardCharsets.UTF_8);
+        return new String(Base64.encodeBase64(encrypted), StandardCharsets.UTF_8);
     }
 
     /**
@@ -89,7 +89,7 @@ public class AESUtil {
             // 初始化
             cipher.init(Cipher.DECRYPT_MODE, secretKeySpec, new IvParameterSpec(iv.getBytes()));
             byte[] result = cipher.doFinal(data);
-            content = new String(result,StandardCharsets.UTF_8);
+            content = new String(result, StandardCharsets.UTF_8);
         } catch (Exception e) {
             e.printStackTrace();
         }

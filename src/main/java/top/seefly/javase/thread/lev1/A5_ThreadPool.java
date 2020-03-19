@@ -9,19 +9,20 @@ import java.util.concurrent.*;
  * newScheduledThreadPool 创建一个容量固定的线程池，支持定时以及周期处理任务
  * newSingleThreadExecutors创建容量为1的线程池，使用这唯一的线程处理任务，保证所有任务按指定顺序执行任务(FIFO,LIFO,优先级)
  * http://cuisuqiang.iteye.com/blog/2019372
+ *
  * @author 刘建鑫
- * */
+ */
 public class A5_ThreadPool {
-	public static void main(String[] args) {
-		// 循环创建线程，被FixedThreadPool包装。线程池容量为3，所以同时并发的线程最多只有三个，其余的等待
+    public static void main(String[] args) {
+        // 循环创建线程，被FixedThreadPool包装。线程池容量为3，所以同时并发的线程最多只有三个，其余的等待
         // FixedThreadPool.shutdown();此方法会使线程停止接受新任务(若继续添加则会报错)，且完成正在执行与等待列队中的任务。
         // shutdownNow会使正在执行的线程处于中断状态，返回并清除等待列队中的线程
-		ExecutorService fixedThreadPool = Executors.newFixedThreadPool(3);
+        ExecutorService fixedThreadPool = Executors.newFixedThreadPool(3);
         // 创建缓冲线程池
         ExecutorService CachePool = Executors.newCachedThreadPool();
-		for(int i = 0; i < 100; i++) {
-			fixedThreadPool.execute(() -> {
-                System.out.println("固定线程池："+Thread.currentThread().getName()+" is running");
+        for (int i = 0; i < 100; i++) {
+            fixedThreadPool.execute(() -> {
+                System.out.println("固定线程池：" + Thread.currentThread().getName() + " is running");
                 try {
                     Thread.sleep(500);
                 } catch (Exception e) {
@@ -29,11 +30,11 @@ public class A5_ThreadPool {
                 }
             });
             CachePool.execute(() -> {
-                System.out.println("缓冲线程池："+Thread.currentThread().getName()+" is running");
+                System.out.println("缓冲线程池：" + Thread.currentThread().getName() + " is running");
             });
-		}
-		
-	}
+        }
+
+    }
 
 }
 

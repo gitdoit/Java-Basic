@@ -1,7 +1,8 @@
 package top.seefly.javase.old2017.thread;
+
 /*
  * 该类用来演示单例模式下的懒汉式和同步代码块的联系
- * 
+ *
  * 问懒汉式和饿汉式有什么不同？
  * 		懒汉式的特点是实例的延时加载
  * 那么这样会不会有什么问题？
@@ -15,28 +16,33 @@ public class Synchronized_single {
 
 }
 
-class Single{
-	private static Single s = null;
-	private Single(){}
-	
-	public static Single getInstanc(){//懒汉式
-		if(s == null)
-		{
-			synchronized(Single.class)
-			{
-				if(s == null)
-					s = new Single();
-			}
-		}
-		return s;
-	}
+class Single {
+    private static Single s = null;
+
+    private Single() {
+    }
+
+    public static Single getInstanc() {//懒汉式
+        if (s == null) {
+            synchronized (Single.class) {
+                if (s == null)
+                    s = new Single();
+            }
+        }
+        return s;
+    }
 }
 
-class Single1{//饿汉式
-	private static final Single1 s = new Single1();
-	private Single1(){};
-	public static Single1 getInstance(){
-		return s;
-	}
+class Single1 {//饿汉式
+    private static final Single1 s = new Single1();
+
+    private Single1() {
+    }
+
+    ;
+
+    public static Single1 getInstance() {
+        return s;
+    }
 }
 

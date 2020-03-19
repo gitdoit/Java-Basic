@@ -2,6 +2,7 @@ package top.seefly.javase.thread.lev1;
 
 /**
  * 描述信息：该类用来演示两个已经被废弃的方法为什么会被废弃 = =
+ *
  * @author liujianxin
  * @date 2018-07-25 09:55
  **/
@@ -9,14 +10,14 @@ public class B3_ResumeSuspend {
     private static Object block = new Object();
 
 
-    public static void main(String[] args) throws InterruptedException{
-        Runnable runnable = () ->{
-            System.out.println("正在执行线程："+Thread.currentThread().getName());
+    public static void main(String[] args) throws InterruptedException {
+        Runnable runnable = () -> {
+            System.out.println("正在执行线程：" + Thread.currentThread().getName());
             Thread.currentThread().suspend();
         };
 
-        Thread t1= new Thread(runnable,"t1");
-        Thread t2= new Thread(runnable,"t2");
+        Thread t1 = new Thread(runnable, "t1");
+        Thread t2 = new Thread(runnable, "t2");
 
         // 开启线程1，执行时会被挂起
         t1.start();

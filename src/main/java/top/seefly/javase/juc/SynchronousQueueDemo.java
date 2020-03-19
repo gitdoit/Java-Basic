@@ -3,7 +3,6 @@ package top.seefly.javase.juc;
 import java.util.concurrent.*;
 
 /**
- *
  * 阻塞队列，其中每个插入操作必须等待另一个线程执行相应的删除操作，反之亦然。
  * 同步队列没有任何内部容量，甚至没有容量。您无法查看同步队列，因为只有在您尝试删除元素时才会出现该元素;
  * 你不能插入一个元素（使用任何方法），除非另一个线程试图删除它;
@@ -15,10 +14,11 @@ import java.util.concurrent.*;
  * 以便将其传递给某些信息，事件或任务。
  * 此类支持用于排序等待生产者和消费者线程的可选公平策略。
  * 默认情况下，不保证此顺序。但是，将fairness设置为true构造的队列以FIFO顺序授予线程访问权限
- *
- *
+ * <p>
+ * <p>
  * 代码来自：https://stackoverflow.com/questions/5102570/implementation-of-blockingqueue-what-are-the-differences-between-synchronousque#
  * 该类演示了阻塞队列  队列长度  吞吐量的关系
+ *
  * @author liujianxin
  * @date 2018-11-20 15:04
  */
@@ -41,7 +41,6 @@ public class SynchronousQueueDemo {
     }
 
     /**
-     *
      * @param q
      * @param n
      * @return
@@ -51,20 +50,26 @@ public class SynchronousQueueDemo {
         long t = System.nanoTime();
 
         e.submit(() -> {
-            for (int i = 0; i < n; i++){
-                try { q.put(i); } catch (InterruptedException ex) {}
+            for (int i = 0; i < n; i++) {
+                try {
+                    q.put(i);
+                } catch (InterruptedException ex) {
+                }
             }
         });
 
         Long r = e.submit(() -> {
             long sum = 0;
-            for (int i = 0; i < n; i++){
-                try { sum += q.take(); } catch (InterruptedException ex) {}
+            for (int i = 0; i < n; i++) {
+                try {
+                    sum += q.take();
+                } catch (InterruptedException ex) {
+                }
             }
             return sum;
         }).get();
         t = System.nanoTime() - t;
         // Throughput, items/sec
-        return (long)(1000000000.0 * N / t);
+        return (long) (1000000000.0 * N / t);
     }
 }

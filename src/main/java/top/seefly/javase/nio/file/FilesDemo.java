@@ -16,13 +16,13 @@ import java.util.stream.Stream;
 /**
  * TODO 完善
  * https://www.cnblogs.com/digdeep/p/4478734.html
- *
+ * <p>
  * https://stackoverflow.com/questions/326390/how-do-i-create-a-java-string-from-the-contents-of-a-file/326440#326440
+ *
  * @author liujianxin
  * @date 2019-01-17 16:25
  */
 public class FilesDemo {
-
 
 
     @Test
@@ -43,16 +43,16 @@ public class FilesDemo {
         // 更方便的API，但是丢失了每行的换行符，其他的几个方式也是这样啊。之前都没注意到这些问题
         //List<String> list = Files.readAllLines(Paths.get("E:\\test\\io.txt"), StandardCharsets.UTF_8);
         //list.forEach(System.out::print);
-        Files.write(Paths.get("E:\\test\\io12.txt"),"haha中".getBytes(StandardCharsets.UTF_8), StandardOpenOption.CREATE);
+        Files.write(Paths.get("E:\\test\\io12.txt"), "haha中".getBytes(StandardCharsets.UTF_8), StandardOpenOption.CREATE);
     }
 
     /**
      * 通过Files获取BufferedReader
-     *  bufferedReader.lines()方法返回一个流，若使用变量接受，则记得关闭
+     * bufferedReader.lines()方法返回一个流，若使用变量接受，则记得关闭
      */
     @Test
     public void testFiles() throws IOException {
-        try (BufferedReader bufferedReader = Files.newBufferedReader(Paths.get("E:\\test\\nio.txt"))){
+        try (BufferedReader bufferedReader = Files.newBufferedReader(Paths.get("E:\\test\\nio.txt"))) {
             bufferedReader.lines().forEach(System.out::print);
         }
     }
@@ -85,13 +85,13 @@ public class FilesDemo {
     /**
      * 万一能用到呢？
      * 可以用来迭代删除一个未知深度的文件夹，window上一个delete的事情
-     *
+     * <p>
      * walk方法说它将给定路径作为根，进行深度优先遍历
      * 跳过被安全管理器保护的文件，默认情况下也不会遍历文件链接。
      * 也是弱引用的(可能是在遍历生成流的过程中某个文件被更新了，这里是察觉不到的)
      * 可以指定最大深度，若为Integer.MAX，则无限深度。
      * 流中元素为Path
-     *
+     * <p>
      * 若指定参数{@link FileVisitOption#FOLLOW_LINKS}，那么将会遍历符号连接，若符号连接到跟路径，则会抛出一个死循环的异常。
      */
     @Test
@@ -110,18 +110,13 @@ public class FilesDemo {
     public void testFind() throws IOException {
         Stream<Path> pathStream = Files.find(Paths.get("F:\\LOG"), 10, (a, b) -> {
             String name = a.toFile().getName();
-            if(b instanceof DosFileAttributes){
-                DosFileAttributes attr = (DosFileAttributes)b;
+            if (b instanceof DosFileAttributes) {
+                DosFileAttributes attr = (DosFileAttributes) b;
             }
             return name.startsWith("c");
         });
         pathStream.forEach(System.out::println);
     }
-
-
-
-
-
 
 
 }

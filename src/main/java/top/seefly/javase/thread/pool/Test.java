@@ -1,7 +1,6 @@
 package top.seefly.javase.thread.pool;
 
 
-
 import java.util.AbstractSet;
 import java.util.Iterator;
 import java.util.Set;
@@ -71,7 +70,7 @@ public class Test {
      * @param workQueue     阻塞队列
      */
     public Test(int miniSize, int maxSize, long keepAliveTime,
-                            TimeUnit unit, BlockingQueue<Runnable> workQueue) {
+                TimeUnit unit, BlockingQueue<Runnable> workQueue) {
         this.miniSize = miniSize;
         this.maxSize = maxSize;
         this.keepAliveTime = keepAliveTime;
@@ -192,7 +191,7 @@ public class Test {
                 task = this.task;
             }
 
-            boolean compile = true ;
+            boolean compile = true;
 
             try {
                 while ((task != null || (task = getTask()) != null)) {
@@ -200,8 +199,8 @@ public class Test {
                         //执行任务
                         task.run();
                     } catch (Exception e) {
-                        compile = false ;
-                        throw e ;
+                        compile = false;
+                        throw e;
                     } finally {
                         //任务执行完毕
                         task = null;
@@ -220,7 +219,7 @@ public class Test {
                 boolean remove = workers.remove(this);
                 //LOGGER.info("remove={},size={}", remove, workers.size());
 
-                if (!compile){
+                if (!compile) {
                     addWorker(null);
                 }
                 tryClose(true);

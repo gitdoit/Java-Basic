@@ -7,6 +7,7 @@ import java.util.Base64;
 
 /**
  * TODO sha256
+ *
  * @author liujianxin
  * @date 2019-02-25 17:19
  */
@@ -18,6 +19,6 @@ public class Base64Demo {
 
         String s = encoder.encodeToString("nihao".getBytes(StandardCharsets.UTF_8));
         System.out.println(s);
-        System.out.println(new String(decoder.decode(s),StandardCharsets.UTF_8));
+        System.out.println(new String(decoder.decode(s), StandardCharsets.UTF_8));
     }
 }

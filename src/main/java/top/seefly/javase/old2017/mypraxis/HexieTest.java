@@ -19,61 +19,60 @@ import java.util.Iterator;
  */
 public class HexieTest {
 
-	public static void main(String[] args) throws IOException {
-		double startima = System.currentTimeMillis();
-		BufferedReader input = new BufferedReader(new InputStreamReader(new FileInputStream("E:\\IOTest\\src.txt")));
-		BufferedWriter output = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("E:\\IOTest\\tar.txt")));
-		BufferedReader input1 = new BufferedReader(new InputStreamReader(new FileInputStream("E:\\IOTest\\敏感词库.txt")));
-		StringBuffer words = new StringBuffer();
-		String str1 = null;
-		while((str1=input.readLine()) != null) {//待比较文件读入进words缓存数组
-			words.append(str1);
-		}
-		//System.out.println(words);
-		input.close();
-		HashSet<String> base = new HashSet<>();
-		HashSet<String> mid = new HashSet<>();
-		HashSet<Character> top = new HashSet<>();
-		//录入敏感词汇，此操作应为用户操作。完善功能后可以批量操作
+    public static void main(String[] args) throws IOException {
+        double startima = System.currentTimeMillis();
+        BufferedReader input = new BufferedReader(new InputStreamReader(new FileInputStream("E:\\IOTest\\src.txt")));
+        BufferedWriter output = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("E:\\IOTest\\tar.txt")));
+        BufferedReader input1 = new BufferedReader(new InputStreamReader(new FileInputStream("E:\\IOTest\\敏感词库.txt")));
+        StringBuffer words = new StringBuffer();
+        String str1 = null;
+        while ((str1 = input.readLine()) != null) {//待比较文件读入进words缓存数组
+            words.append(str1);
+        }
+        //System.out.println(words);
+        input.close();
+        HashSet<String> base = new HashSet<>();
+        HashSet<String> mid = new HashSet<>();
+        HashSet<Character> top = new HashSet<>();
+        //录入敏感词汇，此操作应为用户操作。完善功能后可以批量操作
 //		base.add("牛逼");
 //		base.add("傻逼");
 //		base.add("操你妈");
 //		base.add("习近平");
 //		base.add("共产党");
-		while((str1 = input1.readLine()) != null){//敏感词库存入base
-			base.add(str1);
-		}
-		
-		//提取敏感词汇首字符和前两个字符，此操作应为自动操作
-		Iterator<String> it = base.iterator();
-		String str = null;
-		while(it.hasNext()) {
-			str = it.next();
-			top.add(str.charAt(0));
-			mid.add(str.substring(0, 2));
-		}
-		//System.out.println(mid);
-		//遍历字符串
-		int index;
-		for(index = 0; index < words.length();index++) {//还要做修改，
-			if(top.contains(words.charAt(index)) && index < words.length() - 1) {//包含，且不是最后一个字符
-				if(mid.contains(words.substring(index,index+2))) {
-					if(index < words.length() - 2 && base.contains(words.substring(index,index+3))) {
-						words.replace(index, index+3, "***");
-					}
-					else {
-						words.replace(index, index+2, "**");
-					}
-				}
-			}
-				
-		}
-		String str2 = words.toString();
-		output.write(str2);
-		output.close();
-		System.out.println(System.currentTimeMillis() - startima);
-		
-		
-	}
+        while ((str1 = input1.readLine()) != null) {//敏感词库存入base
+            base.add(str1);
+        }
+
+        //提取敏感词汇首字符和前两个字符，此操作应为自动操作
+        Iterator<String> it = base.iterator();
+        String str = null;
+        while (it.hasNext()) {
+            str = it.next();
+            top.add(str.charAt(0));
+            mid.add(str.substring(0, 2));
+        }
+        //System.out.println(mid);
+        //遍历字符串
+        int index;
+        for (index = 0; index < words.length(); index++) {//还要做修改，
+            if (top.contains(words.charAt(index)) && index < words.length() - 1) {//包含，且不是最后一个字符
+                if (mid.contains(words.substring(index, index + 2))) {
+                    if (index < words.length() - 2 && base.contains(words.substring(index, index + 3))) {
+                        words.replace(index, index + 3, "***");
+                    } else {
+                        words.replace(index, index + 2, "**");
+                    }
+                }
+            }
+
+        }
+        String str2 = words.toString();
+        output.write(str2);
+        output.close();
+        System.out.println(System.currentTimeMillis() - startima);
+
+
+    }
 
 }

@@ -5,7 +5,6 @@ import top.seefly.javase.old2017.employee.Employees;
 import java.util.*;
 
 
-
 /*重载是根据函数的不同的参数类型来使用不同的方法
  * 但是这个类型的判断依据 不是实际类型，而是声明类型
  *Object中的equals方法比较的是两个实例的地址是否相同(与==一样)
@@ -18,29 +17,31 @@ import java.util.*;
  *一致性：若x,和y没有发生变化，当且仅当x.equals(y)返回值要和y.equals(x)结果一致
  * */
 class Employee extends Employees {
-	public Employee(){
-		
-	}
-	public Employee(String name,double salary,int year,int month,int day){
-		super(name,salary,year,month,day);
-	}
-	
-	@Override
-	public boolean equals(Object otherObject){//标准定义方式
-		if(this == otherObject) return true;//若引用的是同一个对象，返回真
-		if(otherObject == null) return false;//若参数为空返回假
-		if(getClass() != otherObject.getClass())return false;//若参数类型不一致，则返回假。（getClass得到的是实际类型名）
-		
-		Employee other = (Employee)otherObject;//以上都通过了则说明参数是一个和this相同类型非空不是同一个对象的对象。则可强转
-		return Objects.equals(name, other.name)//该方法比较对象数据域
-				&&salary == other.salary
-				&&Objects.equals(hireDay, other.hireDay);
-	}
+    public Employee() {
+
+    }
+
+    public Employee(String name, double salary, int year, int month, int day) {
+        super(name, salary, year, month, day);
+    }
+
+    @Override
+    public boolean equals(Object otherObject) {//标准定义方式
+        if (this == otherObject) return true;//若引用的是同一个对象，返回真
+        if (otherObject == null) return false;//若参数为空返回假
+        if (getClass() != otherObject.getClass()) return false;//若参数类型不一致，则返回假。（getClass得到的是实际类型名）
+
+        Employee other = (Employee) otherObject;//以上都通过了则说明参数是一个和this相同类型非空不是同一个对象的对象。则可强转
+        return Objects.equals(name, other.name)//该方法比较对象数据域
+                && salary == other.salary
+                && Objects.equals(hireDay, other.hireDay);
+    }
 }
+
 public class EqualsDemo {
-	public static void main(String[] args){
-		Employee p1 = new Employee("liu",100,2017,5,9);
-		Employee p2 = new Employee("liu",100,2017,5,9);
-		System.out.println(p1.equals(p2));
-	}
+    public static void main(String[] args) {
+        Employee p1 = new Employee("liu", 100, 2017, 5, 9);
+        Employee p2 = new Employee("liu", 100, 2017, 5, 9);
+        System.out.println(p1.equals(p2));
+    }
 }

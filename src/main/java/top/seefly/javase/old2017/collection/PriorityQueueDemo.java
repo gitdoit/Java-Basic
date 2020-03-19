@@ -1,4 +1,5 @@
 package top.seefly.javase.old2017.collection;
+
 import java.util.GregorianCalendar;
 /*
  * 该类实现了Queue接口
@@ -12,16 +13,16 @@ import java.util.GregorianCalendar;
 import java.util.PriorityQueue;
 
 public class PriorityQueueDemo {
-	public static void main(String[] args) {
-		PriorityQueue<Integer> queue = new PriorityQueue<>();
-		queue.add(4);
-		queue.add(1);
-		queue.add(6);
-		queue.add(8);
-		queue.add(4);
-		//System.out.println(queue);打印 1 4 6 8 4 可见，它只移动了一个元素到顶部。其他的没有排序
-		while(!queue.isEmpty()) {
-			System.out.print(queue.poll());//打印 14468
-		}
-	}
+    public static void main(String[] args) {
+        PriorityQueue<Integer> queue = new PriorityQueue<>();
+        queue.add(4);
+        queue.add(1);
+        queue.add(6);
+        queue.add(8);
+        queue.add(4);
+        //System.out.println(queue);打印 1 4 6 8 4 可见，它只移动了一个元素到顶部。其他的没有排序
+        while (!queue.isEmpty()) {
+            System.out.print(queue.poll());//打印 14468
+        }
+    }
 }

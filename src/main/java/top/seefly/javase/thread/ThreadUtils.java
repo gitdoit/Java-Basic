@@ -7,8 +7,8 @@ package top.seefly.javase.thread;
 public class ThreadUtils {
 
 
-    public static Thread newAndSleep(int time){
-        Thread thread = new Thread(()->{
+    public static Thread newAndSleep(int time) {
+        Thread thread = new Thread(() -> {
             try {
                 Thread.sleep(time);
             } catch (InterruptedException e) {
@@ -19,9 +19,9 @@ public class ThreadUtils {
         return thread;
     }
 
-    public static Thread newAndLoop(){
-        Thread thread = new Thread(()->{
-            while (true){
+    public static Thread newAndLoop() {
+        Thread thread = new Thread(() -> {
+            while (true) {
             }
         });
         thread.start();

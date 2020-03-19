@@ -16,22 +16,22 @@ public class TerminalStreamTest {
 
     /**
      * 参考：https://blog.csdn.net/icarusliu/article/details/79504602
-     *
+     * <p>
      * reduce的作用是将stream元素组合起来
      * 这样说好像有些不对劲，这个操作会将stream中所有的元素都参与到计算中
      * 然后返回一个结果。
      * 你可以将这些元素组合起来然后返回一个结果，也可以将这些元素求一下平均值，最大值，等等
-     *
-     *
+     * <p>
+     * <p>
      * 一个参数的Reduce操作，操作过程是
      * 传入参数(a[0],a[1]) 自定义操作返回结果 c(返回值类型要和参数类型一样)
      * 这个返回值会和下一个元素重复上述操作
      */
     @Test
-    public void testReduce(){
+    public void testReduce() {
         //组合
         Stream<String> stream = Stream.of("a", "b", "c", "d");
-        System.out.println( stream.reduce("", String::concat));
+        System.out.println(stream.reduce("", String::concat));
         //System.out.println(stream.reduce("",(a,b) -> a+b));
 
         //求最大值
@@ -59,13 +59,13 @@ public class TerminalStreamTest {
      * 跟前两个用法有很大区别
      * 第一个参数R，就是返回值类型，它没有象前两个操作那样对返回值做了限定
      * 这个U可以是任何类型，所以这样用法就多了起来，我们可以对一个字符数组进行求所有字符串长度的和，然后返回这个长度值
-     *
+     * <p>
      * 第二个参数 R BiFunction(R,T)，它在这里规定了返回值要和上面的R一样，且它的第一个参数类型也为R，T为Stream流元素类型
-     *
+     * <p>
      * 第三个参数是用来做并行操作用的
      */
     @Test
-    public void testReduce3(){
+    public void testReduce3() {
 
         /*****************非并行操作***********************/
         // 将Stream转List
@@ -86,7 +86,7 @@ public class TerminalStreamTest {
 
         // 串行操作，对列表中的数字累计求和。最后一个参数在并行操作的时候才起作用
         Stream<Integer> stream3 = Stream.of(1, 2, 3, 4);
-        Integer reduce2 = stream3.reduce(new Integer(0), Integer::sum, (s1,s2) ->s1);
+        Integer reduce2 = stream3.reduce(new Integer(0), Integer::sum, (s1, s2) -> s1);
         System.out.println(reduce2);
 
 

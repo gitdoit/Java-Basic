@@ -13,28 +13,30 @@ package top.seefly.javase.old2017.thread;
  * boolean isCancelled() 如果在任务完成前被取消了，则返回true
  * boolean isDone() 如果任务完成则返回true
  * */
+
 import java.util.concurrent.Callable;
 import java.util.concurrent.FutureTask;
 
-public class FutureDemo implements Callable<Integer>{//创建callable接口的实现类
-	@Override
-	public Integer call() {//复写其中call方法，注意返回值类型要与泛型定义的一致
-		int i = 0;
-		for(; i < 100; i++) {
-			System.out.println(Thread.currentThread().getName() + ":i = "+ i);
-		}
-		return i;
-	}
-	public static void main(String[] args) {
-		FutureDemo f = new FutureDemo();//实例化callable的实现类
-		FutureTask<Integer> task = new FutureTask<>(f);//使用FutureTask对象对其进行包装
-		new Thread(task).start();//再使FutureTaks实例作为Thread的target，并启动
-		try {//get方法会抛出异常
-			System.out.println(task.get());//通过控制FutureTask的实例对call进行操作
-		}
-		catch(Exception e) {
-			e.printStackTrace();
-		}
-	}
+public class FutureDemo implements Callable<Integer> {//创建callable接口的实现类
+
+    @Override
+    public Integer call() {//复写其中call方法，注意返回值类型要与泛型定义的一致
+        int i = 0;
+        for (; i < 100; i++) {
+            System.out.println(Thread.currentThread().getName() + ":i = " + i);
+        }
+        return i;
+    }
+
+    public static void main(String[] args) {
+        FutureDemo f = new FutureDemo();//实例化callable的实现类
+        FutureTask<Integer> task = new FutureTask<>(f);//使用FutureTask对象对其进行包装
+        new Thread(task).start();//再使FutureTaks实例作为Thread的target，并启动
+        try {//get方法会抛出异常
+            System.out.println(task.get());//通过控制FutureTask的实例对call进行操作
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
 

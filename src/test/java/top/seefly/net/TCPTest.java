@@ -25,7 +25,7 @@ public class TCPTest {
         String l;
         while ((l = s.nextLine()) != null) {
             clientDemo.sendMes(l);
-            if("bye".equals(l)){
+            if ("bye".equals(l)) {
                 break;
             }
         }

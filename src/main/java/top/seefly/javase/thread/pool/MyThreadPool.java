@@ -14,7 +14,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- *
  * 注意，由于自定义线程池创建线程的时候默认的是加入当前线程组
  * 也就是主线程组，那么main方法启动后，所有线程池内线程加入主线程组
  * 由于线程组的销毁前提条件是组内所有线程必须停止，而线程池内的核心线程由于被阻塞
@@ -26,9 +25,9 @@ import java.util.concurrent.locks.ReentrantLock;
 @Slf4j
 public class MyThreadPool {
     public static void main(String[] args) throws InterruptedException {
-        MyThreadPool pool = new MyThreadPool(3,5,5,TimeUnit.SECONDS,new ArrayBlockingQueue<>(4));
-        for(int i = 0 ; i < 10 ; i++){
-            pool.execute(()->{
+        MyThreadPool pool = new MyThreadPool(3, 5, 5, TimeUnit.SECONDS, new ArrayBlockingQueue<>(4));
+        for (int i = 0; i < 10; i++) {
+            pool.execute(() -> {
                 try {
                     Thread.sleep(2000);
                     System.out.println(10);
@@ -37,31 +36,45 @@ public class MyThreadPool {
                 }
             });
         }
-        System.out.println("主线程休眠前，线程池内活动线程数量"+pool.getWorkerCount());
+        System.out.println("主线程休眠前，线程池内活动线程数量" + pool.getWorkerCount());
         Thread.sleep(10000);
-        System.out.println("主线程休眠后，线程池内活动线程数量"+pool.getWorkerCount());
+        System.out.println("主线程休眠后，线程池内活动线程数量" + pool.getWorkerCount());
 
     }
 
     private final ReentrantLock lock = new ReentrantLock();
-    /**工作线程*/
+    /**
+     * 工作线程
+     */
     private volatile Set<Worker> workers;
-    /**核心线程数*/
+    /**
+     * 核心线程数
+     */
     private int minSize;
-    /**最大线程数*/
+    /**
+     * 最大线程数
+     */
     private int maxSize;
-    /**超出线程存活时间*/
+    /**
+     * 超出线程存活时间
+     */
     private int keepAliveTime;
     private TimeUnit unit;
-    /**任务队列*/
+    /**
+     * 任务队列
+     */
     private BlockingQueue<Runnable> workQueue;
-    /**线程池是否已经关闭*/
+    /**
+     * 线程池是否已经关闭
+     */
     private AtomicBoolean isShutDown = new AtomicBoolean(false);
-    /**任务总数*/
+    /**
+     * 任务总数
+     */
     private AtomicInteger totalTask = new AtomicInteger();
 
 
-    public MyThreadPool( int minSize, int maxSize, int keepAliveTime, TimeUnit unit,BlockingQueue<Runnable> workQueue) {
+    public MyThreadPool(int minSize, int maxSize, int keepAliveTime, TimeUnit unit, BlockingQueue<Runnable> workQueue) {
         this.minSize = minSize;
         this.maxSize = maxSize;
         this.keepAliveTime = keepAliveTime;
@@ -71,27 +84,27 @@ public class MyThreadPool {
         this.workers = new ConcurrentHashSet<>();
     }
 
-    public void execute(Runnable runnable){
+    public void execute(Runnable runnable) {
         if (runnable == null) {
             throw new NullPointerException("Runnable can not be null!");
         }
-        if(isShutDown.get()){
+        if (isShutDown.get()) {
             log.warn("线程池已经关闭！");
             return;
         }
         // 任务
         totalTask.incrementAndGet();
         // 若当前线程数小于核心线程数，则可以直接创建心线程，放入线程池
-        if(workers.size() < minSize){
+        if (workers.size() < minSize) {
             addWorker(runnable);
             return;
         }
         // 否则，放入阻塞队列
         boolean offer = workQueue.offer(runnable);
         // 若阻塞队列塞不下了
-        if(!offer){
+        if (!offer) {
             // 若当前线程数，小于最大线程数，可以创建新的线程
-            if(workers.size() < maxSize){
+            if (workers.size() < maxSize) {
                 addWorker(runnable);
                 return;
             }
@@ -104,8 +117,8 @@ public class MyThreadPool {
     /**
      * 执行给定任务，并将创建的线程放到线程队列中去
      */
-    private void addWorker(Runnable runnable){
-        Worker worker = new Worker(runnable,true);
+    private void addWorker(Runnable runnable) {
+        Worker worker = new Worker(runnable, true);
         worker.startTask();
         workers.add(worker);
     }
@@ -115,19 +128,20 @@ public class MyThreadPool {
      * 立即关闭线程池
      * 这样会造成任务丢失
      */
-    private void shutDownNow(){
+    private void shutDownNow() {
         isShutDown.set(true);
         tryClose(false);
     }
 
     /**
      * 尝试关闭线程池
+     *
      * @param isTry 是否直接关闭
      */
-    private void tryClose(boolean isTry){
-        if(!isTry){
+    private void tryClose(boolean isTry) {
+        if (!isTry) {
             closeAll();
-        }else if(isShutDown.get() && totalTask.get() == 0){
+        } else if (isShutDown.get() && totalTask.get() == 0) {
             closeAll();
         }
     }
@@ -135,17 +149,18 @@ public class MyThreadPool {
     /**
      * 关闭当前线程队列中所有的线程
      */
-    private void closeAll(){
-        for(Worker worker : workers){
+    private void closeAll() {
+        for (Worker worker : workers) {
             worker.close();
         }
     }
 
     /**
      * 获取当前线程池线程数
+     *
      * @return 当前线程池线程数
      */
-    public int getWorkerCount(){
+    public int getWorkerCount() {
         return this.workers.size();
     }
 
@@ -155,17 +170,17 @@ public class MyThreadPool {
      * 2、若当前线程数大于核心线程数，则需要在规定阻塞时间内获取到任务，否则返回null
      * 3、若当前线程数小于核心线程数，则当前线程可以无限期阻塞直到获取到任务
      */
-    private Runnable getTask(){
+    private Runnable getTask() {
         // 若线程池已经关闭，或者任务全都完成了
-        if(isShutDown.get() && totalTask.get() == 0){
+        if (isShutDown.get() && totalTask.get() == 0) {
             return null;
         }
         lock.lock();
         Runnable task;
-        try{
+        try {
             // 如果超出核心线程数，就需要对额外线程进行超时限定
-            if(workers.size() > minSize){
-                task = workQueue.poll(keepAliveTime,unit);
+            if (workers.size() > minSize) {
+                task = workQueue.poll(keepAliveTime, unit);
             }
             // 若是核心线程想获取任务执行，就可以无限期等待
             else {
@@ -180,19 +195,17 @@ public class MyThreadPool {
     }
 
 
-
-
     /***********************************************************************************************************/
-    private final class Worker extends Thread{
+    private final class Worker extends Thread {
         private Thread thread;
         private Runnable task;
         private boolean isNewTask;
 
 
-        public Worker(Runnable runnable,boolean isNewTask){
+        public Worker(Runnable runnable, boolean isNewTask) {
             this.task = runnable;
             this.thread = this;
-            this.isNewTask =isNewTask;
+            this.isNewTask = isNewTask;
         }
 
 
@@ -201,35 +214,35 @@ public class MyThreadPool {
          * 1、判断是否为新创建的线程，如果是，则直接运行其构造方法中传入的Runnable
          * 2、如果不是，则从任务队列中获取任务去执行
          * 3、如果没有从任务队列中获取到任务，那么有两种情况
-         *    1、当前线程不是核心线程，在指定的存活时间内没有等到任务
-         *    2、当前线程是核心线程，线程池关闭了，且任务已经执行完毕
-         *    这种情况下需要关闭当前线程，即将当前线程从线程队列中移除
+         * 1、当前线程不是核心线程，在指定的存活时间内没有等到任务
+         * 2、当前线程是核心线程，线程池关闭了，且任务已经执行完毕
+         * 这种情况下需要关闭当前线程，即将当前线程从线程队列中移除
          */
         @Override
-        public void run(){
-            log.info("{}开始执行任务！",Thread.currentThread().getId());
+        public void run() {
+            log.info("{}开始执行任务！", Thread.currentThread().getId());
             Runnable task = null;
             // 是新起的线程，就这样？为啥
-            if(isNewTask){
+            if (isNewTask) {
                 task = this.task;
             }
             try {
                 // 若为新起的线程就直接执行，或者从任务队列中拿到的任务也直接执行
-                while (task != null || (task = getTask()) != null){
-                    try{
+                while (task != null || (task = getTask()) != null) {
+                    try {
                         task.run();
-                    }finally {
+                    } finally {
                         task = null;
                         // 执行完毕，待执行任务总数减一
                         int count = totalTask.decrementAndGet();
-                        if(count == 0){
+                        if (count == 0) {
                             // 没有任务了
                             log.info("没有任务了");
                         }
                     }
 
                 }
-            }finally {
+            } finally {
                 log.info("额外线程由于没有在指定时间内获取到任务，退出！");
                 // 额外的线程在指定时间内获取不到任务了
                 // 就把自己从线程池中移除
@@ -240,30 +253,27 @@ public class MyThreadPool {
         }
 
 
-        public void startTask(){
+        public void startTask() {
             start();
         }
 
-        public void close(){
+        public void close() {
             interrupt();
         }
 
     }
 
 
-
-
-
     private final class ConcurrentHashSet<T> extends AbstractSet<T> {
-        private final ConcurrentHashMap<T,Object> holder = new ConcurrentHashMap<>();
+        private final ConcurrentHashMap<T, Object> holder = new ConcurrentHashMap<>();
         private final Object PRESENT = new Object();
-        private final AtomicInteger ADDER  = new AtomicInteger();
+        private final AtomicInteger ADDER = new AtomicInteger();
 
 
         @Override
         public boolean add(T t) {
             ADDER.incrementAndGet();
-            return holder.put(t,PRESENT) == PRESENT;
+            return holder.put(t, PRESENT) == PRESENT;
         }
 
         @Override

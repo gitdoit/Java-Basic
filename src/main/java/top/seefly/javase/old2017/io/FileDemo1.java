@@ -13,13 +13,13 @@ import java.io.IOException;
  * 	File(String parent, String child) 根据一个文件夹路径，和文件夹内的文件或文件夹得到一个Fil对象
  * 	File(File parent, String child) 根据Fil对象和此对象的子文件或目录得到Fil对象
  *	新建File对象并不会在硬盘上创建对应的文件或文件夹，它只是文件或文件夹路径的抽象表示形式，而一个File对象则是对其的封装
- *	
+ *
  *	creatNewFile() 用来创建File对象对应的[文件]，如果文件已经存在，那么返回false，否则true。该方法会抛出IOException
- *	
+ *
  */
 public class FileDemo1 {
 
-	public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException {
 //		File file = new File("e:\\git");
 //		File file1 = new File("e:\\git","a.txt");
 //		File file2 = new File(file,"b.txt");
@@ -41,40 +41,39 @@ public class FileDemo1 {
 //		File tmpFile = new File("qq.txt");
 //		file6.renameTo(tmpFile);//renameTo的形参是File类型的，如果路径相同，那么直接使用形参的名称。如果和形参路径不同，那么是将文件剪切到形参路径并改名
 //		
-		File file7 = new File("e:\\学习资料");
-		System.out.println(file7.exists());
-		String[] list = file7.list();//返回该目录下所有的文件夹以及文件名称，以字符串数组返回
-		for(String e:list)
-			System.out.println(e);
-		String[] list1 = file7.list(new FilenameFilter() {//将file7文件夹中满条件的File对象放入list1数组
-			@Override
-			public boolean accept(File dir, String name) {
-				//判断条件
-				return false;
-			}
-		});
-		//File[] fileArr1 = file7.listFiles();将file7下的所有file对象以file数组形式返回，不经过判断
-		File[] fileArr = file7.listFiles(new FileFilter() {//经过判断，返回该目录下所有满足条件的File对象
-			@Override
-			public boolean accept(File f) {//FileFIlter是一个接口，接口内的accept方法用来判断file7文件夹内满足条件的file对象。并
-											//并满足条件的对象放入File数组
-				if(f.isDirectory() && f.getName().equals("day16"))
-					return true;
-				else
-					return false;
-			}
-		});
-		for(File e : fileArr) {
-			System.out.println(e.getName());
-		}
+        File file7 = new File("e:\\学习资料");
+        System.out.println(file7.exists());
+        String[] list = file7.list();//返回该目录下所有的文件夹以及文件名称，以字符串数组返回
+        for (String e : list)
+            System.out.println(e);
+        String[] list1 = file7.list(new FilenameFilter() {//将file7文件夹中满条件的File对象放入list1数组
+            @Override
+            public boolean accept(File dir, String name) {
+                //判断条件
+                return false;
+            }
+        });
+        //File[] fileArr1 = file7.listFiles();将file7下的所有file对象以file数组形式返回，不经过判断
+        File[] fileArr = file7.listFiles(new FileFilter() {//经过判断，返回该目录下所有满足条件的File对象
+            @Override
+            public boolean accept(File f) {//FileFIlter是一个接口，接口内的accept方法用来判断file7文件夹内满足条件的file对象。并
+                //并满足条件的对象放入File数组
+                if (f.isDirectory() && f.getName().equals("day16"))
+                    return true;
+                else
+                    return false;
+            }
+        });
+        for (File e : fileArr) {
+            System.out.println(e.getName());
+        }
 //		for(File e:fileArr)
 //			System.out.println(e.getName());
-		
+
 //		File file = new File("e:\\git\\b.txt");
 //		System.out.println(file.isFile());
-		
-		
-		
-	}
+
+
+    }
 
 }

@@ -7,6 +7,6 @@ package top.seefly.javase.io;
 public class InputStreamDemo {
 
 
-    public void testStream(){
+    public void testStream() {
     }
 }

@@ -48,69 +48,73 @@ import javax.swing.JPanel;
  * */
 public class ATW_EVENT {
 
-	public static void main(String[] args) {
-		JFrame f = new JFrame();
-		Panel p = new Panel();
-		f.setTitle("ceshi");
-		f.setSize(300, 300);
-		f.setLocation(800, 400);
-		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		f.add(p);
-		f.addKeyListener(p.new Controller());//娉ㄥ唽閿洏鐩戝惉鍣�
-		f.addMouseMotionListener(p.new Con());//娉ㄥ唽榧犳爣绉诲姩鐩戝惉鍣�
-		f.setVisible(true);
-	}
+    public static void main(String[] args) {
+        JFrame f = new JFrame();
+        Panel p = new Panel();
+        f.setTitle("ceshi");
+        f.setSize(300, 300);
+        f.setLocation(800, 400);
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        f.add(p);
+        f.addKeyListener(p.new Controller());//娉ㄥ唽閿洏鐩戝惉鍣�
+        f.addMouseMotionListener(p.new Con());//娉ㄥ唽榧犳爣绉诲姩鐩戝惉鍣�
+        f.setVisible(true);
+    }
 
 }
 
-class Panel extends JPanel{
-	//Panel涓奊raphics鐨勫潗鏍囦互鍙婇暱瀹�
-	private final int w = 20;
-	private final int h = 20;
-	private int x = 0;
-	private int y = 0;
-	Panel p;
-	
-	public Panel() {
-		//this.setBackground(Color.red);
-		p = this;
-	}
-	
-	@Override
-	protected void paintComponent(Graphics g) {//repaint浼氳皟鐢ㄦ鏂规硶锛屾潵閲嶇粯鍥惧舰
-		super.paintComponent(g);
-		g.setColor(Color.BLUE);
-		g.fill3DRect(x, y, w, h, true);
-	}
-	public class Controller extends KeyAdapter{//鍐呴儴绫伙紝鐢ㄦ潵鍝嶅簲浜嬩欢鏉ユ搷鍋歅anel涓婄殑鍥惧舰
-		@Override
-		public void keyPressed(KeyEvent e) {
-			switch(e.getKeyCode()) {
-			case KeyEvent.VK_UP:
-				y--;
-				break;
-			case KeyEvent.VK_DOWN:
-				y++;
-				break;
-			case KeyEvent.VK_LEFT:
-				x--;
-				break;
-			case KeyEvent.VK_RIGHT:
-				x++;
-				break;
-			}
-			
-			p.repaint();//鍝嶅簲澶勭悊涔嬪悗閲嶇粯璇anel
-		}
-		
-	}
-	public class Con extends MouseMotionAdapter{//缁ф壙榧犳爣绉诲姩鍝嶅簲绫伙紝閲嶅啓鍏朵腑瀵归紶鏍囩Щ鍔ㄥ鐞嗙殑鏂规硶
-		@Override
-		public void mouseMoved(MouseEvent e) {//褰撻紶鏍囧彂鐢熺Щ鍔ㄦ椂锛岃皟鐢ㄨ鏂规硶
-			x = e.getX();
-			y = e.getY();
-			p.repaint();//鍝嶅簲澶勭悊涔嬪悗閲嶇粯璇anel
-		}
-		
-	}
+class Panel extends JPanel {
+    //Panel涓奊raphics鐨勫潗鏍囦互鍙婇暱瀹�
+    private final int w = 20;
+    private final int h = 20;
+    private int x = 0;
+    private int y = 0;
+    Panel p;
+
+    public Panel() {
+        //this.setBackground(Color.red);
+        p = this;
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {//repaint浼氳皟鐢ㄦ鏂规硶锛屾潵閲嶇粯鍥惧舰
+        super.paintComponent(g);
+        g.setColor(Color.BLUE);
+        g.fill3DRect(x, y, w, h, true);
+    }
+
+    public class Controller extends KeyAdapter {//鍐呴儴绫伙紝鐢ㄦ潵鍝嶅簲浜嬩欢鏉ユ搷鍋歅anel涓婄殑鍥惧舰
+
+        @Override
+        public void keyPressed(KeyEvent e) {
+            switch (e.getKeyCode()) {
+                case KeyEvent.VK_UP:
+                    y--;
+                    break;
+                case KeyEvent.VK_DOWN:
+                    y++;
+                    break;
+                case KeyEvent.VK_LEFT:
+                    x--;
+                    break;
+                case KeyEvent.VK_RIGHT:
+                    x++;
+                    break;
+            }
+
+            p.repaint();//鍝嶅簲澶勭悊涔嬪悗閲嶇粯璇anel
+        }
+
+    }
+
+    public class Con extends MouseMotionAdapter {//缁ф壙榧犳爣绉诲姩鍝嶅簲绫伙紝閲嶅啓鍏朵腑瀵归紶鏍囩Щ鍔ㄥ鐞嗙殑鏂规硶
+
+        @Override
+        public void mouseMoved(MouseEvent e) {//褰撻紶鏍囧彂鐢熺Щ鍔ㄦ椂锛岃皟鐢ㄨ鏂规硶
+            x = e.getX();
+            y = e.getY();
+            p.repaint();//鍝嶅簲澶勭悊涔嬪悗閲嶇粯璇anel
+        }
+
+    }
 }

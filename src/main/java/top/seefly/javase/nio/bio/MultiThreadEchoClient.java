@@ -23,7 +23,7 @@ public class MultiThreadEchoClient {
             writer.flush();
             System.out.println("from server:" + reader.readLine());
 
-        }finally {
+        } finally {
             client.close();
         }
 

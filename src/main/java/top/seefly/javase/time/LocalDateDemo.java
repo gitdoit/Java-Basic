@@ -10,6 +10,7 @@ import java.util.Date;
 
 /**
  * LocalDate代表的是 2019-01-24 形式的日期
+ *
  * @author liujianxin
  * @date 2019-01-24 20:16
  */
@@ -20,7 +21,7 @@ public class LocalDateDemo {
      * 初始化方式
      */
     @Test
-    public void test(){
+    public void test() {
         LocalDate of = LocalDate.of(2019, 1, 12);
         LocalDate of1 = LocalDate.of(2018, Month.APRIL, 11);
         LocalDate localDate = LocalDate.now();
@@ -35,7 +36,7 @@ public class LocalDateDemo {
      * 字符串转日期
      */
     @Test
-    public void testGetLocalDateFromString(){
+    public void testGetLocalDateFromString() {
         String str = "2019-01-24";
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate parse = LocalDate.parse(str, dateTimeFormatter);
@@ -54,7 +55,7 @@ public class LocalDateDemo {
      * 时间戳互转
      */
     @Test
-    public void testTimeS(){
+    public void testTimeS() {
         // 时间戳传LocalDateTime
         long timestamp = System.currentTimeMillis();
         Instant instant = Instant.ofEpochMilli(timestamp);
@@ -71,7 +72,7 @@ public class LocalDateDemo {
      * Date互转
      */
     @Test
-    public void test2Date(){
+    public void test2Date() {
         // Date转LocalDateTime
         Date date = new Date();
         Instant instant = date.toInstant();
@@ -82,7 +83,7 @@ public class LocalDateDemo {
      * 日期加减操作
      */
     @Test
-    public void testOp(){
+    public void testOp() {
         LocalDate now = LocalDate.now();
         LocalDate localDate = now.plusDays(1);
         LocalDate localDate1 = now.plusMonths(1);

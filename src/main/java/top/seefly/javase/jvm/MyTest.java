@@ -14,12 +14,12 @@ public class MyTest {
     }
 
     @Test
-    public void test(){
+    public void test() {
 
     }
 
     @Test
-    public void testB(){
+    public void testB() {
         Foo foo = new Foo();
         foo.showByNa();
     }

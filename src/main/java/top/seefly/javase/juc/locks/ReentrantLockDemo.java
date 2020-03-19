@@ -5,7 +5,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * 本线程用来演示ReentrantLock的基本使用方法,用来代替Sychronized关键字
- *
+ * <p>
  * 注意，上锁解锁一定是成对出现的。而且要要将解锁步骤放进finally块内，保证一定会被执行到。
  * <p>
  * ReentrantLock锁具有可重入性，也就是说一个线程可以对已经被枷锁的ReentrantLock锁再次加锁；
@@ -14,12 +14,13 @@ import java.util.concurrent.locks.ReentrantLock;
  * lock.lock//加锁
  * try
  * {
- *      需要同步的代码
+ * 需要同步的代码
  * }
  * finally
  * {    //释放锁
- *      lock.unlock;
+ * lock.unlock;
  * }
+ *
  * @author liujianxin
  */
 public class ReentrantLockDemo {
@@ -35,7 +36,7 @@ public class ReentrantLockDemo {
     }
 
 
-   private static class BankDemo {
+    private static class BankDemo {
         private int[] accounts;
         private Lock bankLock = new ReentrantLock();
 

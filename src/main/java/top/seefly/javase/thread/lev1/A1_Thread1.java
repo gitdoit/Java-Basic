@@ -26,6 +26,7 @@ package top.seefly.javase.thread.lev1;
  * 1 明确哪些代码是多线程运行代码
  * 2 明确共享数据
  * 3 明确多线程运行代码中哪些语句时操作共享数据的
+ *
  * @author 刘建鑫
  */
 public class A1_Thread1 {

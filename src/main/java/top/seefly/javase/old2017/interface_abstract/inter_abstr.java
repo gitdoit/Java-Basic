@@ -7,40 +7,43 @@ package top.seefly.javase.old2017.interface_abstract;
  * 坏学生则会实现该接口来完善自己，这就实现了功能扩展.
  * 继承：是子类是超类中的一种
  * 接口：是平行关系，实现功能扩展。丰富类的功能
- * 
+ *
  * 基本功能定义在类中，扩展功能定义在接口中
  * */
 
-abstract class Student{
-	abstract void study();
-	void sleep(){
-		System.out.println("I AM SLEEP\n");
-	}
+abstract class Student {
+    abstract void study();
+
+    void sleep() {
+        System.out.println("I AM SLEEP\n");
+    }
 }
 
-interface Smoke{
-	public abstract void smoke();
+interface Smoke {
+    public abstract void smoke();
 }
 
-class GoodStudent extends Student{
-	void study(){
-		System.out.println("i am good student\n");
-	}
+class GoodStudent extends Student {
+    void study() {
+        System.out.println("i am good student\n");
+    }
 }
 
-class BadStudent extends Student implements Smoke{
-	void study(){
-		System.out.println("i am bad student\n");
-	}
-	public void smoke(){
-		System.out.println("I am smoking,fuck off\n");
-	}
+class BadStudent extends Student implements Smoke {
+    void study() {
+        System.out.println("i am bad student\n");
+    }
+
+    public void smoke() {
+        System.out.println("I am smoking,fuck off\n");
+    }
 }
+
 public class inter_abstr {
-	public static void main(String[] args){
-		GoodStudent liujianxin = new GoodStudent();
-		BadStudent yuxiangma = new BadStudent();
-		liujianxin.sleep();
-	}
+    public static void main(String[] args) {
+        GoodStudent liujianxin = new GoodStudent();
+        BadStudent yuxiangma = new BadStudent();
+        liujianxin.sleep();
+    }
 
 }

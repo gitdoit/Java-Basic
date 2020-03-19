@@ -9,6 +9,7 @@ import java.util.concurrent.atomic.AtomicReferenceArray;
  * {@link AtomicReferenceArray}
  * {@link AtomicIntegerArray}
  * {@link AtomicLongArray}
+ *
  * @author liujianxin
  * @date 2018-11-19 20:13
  */
@@ -18,17 +19,17 @@ public class AtomicArrayDemo {
         AtomicIntegerArray air = new AtomicIntegerArray(10);
         int[] arr = new int[10];
         // 并发修改数组中的元素的值，若线程安全，则每个元素都应该是 1000
-        for(int i = 0; i < 10; i++){
-            new Thread(() ->{
-                for(int j = 0 ; j < 1000 ; j++){
-                    air.getAndIncrement(j%10);
-                    arr[j%10]++;
+        for (int i = 0; i < 10; i++) {
+            new Thread(() -> {
+                for (int j = 0; j < 1000; j++) {
+                    air.getAndIncrement(j % 10);
+                    arr[j % 10]++;
                 }
             }).start();
         }
         Thread.sleep(2000);
-        for(int i = 0; i < 10; i++){
-            System.out.println("安全："+air.get(i)+"|不安全:"+arr[i]);
+        for (int i = 0; i < 10; i++) {
+            System.out.println("安全：" + air.get(i) + "|不安全:" + arr[i]);
         }
     }
 }

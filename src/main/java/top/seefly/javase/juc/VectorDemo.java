@@ -8,6 +8,7 @@ import java.util.concurrent.atomic.AtomicReferenceArray;
  * 1、高并发下更好的性能
  * 2、天生免疫死锁
  * 3、实现复杂
+ *
  * @author liujianxin
  * @date 2018-11-20 10:36
  */
@@ -20,38 +21,29 @@ public class VectorDemo<E> {
      *
      */
     private final AtomicReference<Descriptor<E>> descriptor;
+
     public VectorDemo() {
         buckets = new AtomicReferenceArray<>(30);
-        buckets.set(0,new AtomicReferenceArray<>(8));
+        buckets.set(0, new AtomicReferenceArray<>(8));
         descriptor = new AtomicReference<>(new Descriptor<>(0, null));
     }
 
-    public void push_back(E e){
+    public void push_back(E e) {
         Descriptor<E> desc;
         Descriptor<E> newd;
 
-        do{
+        do {
             desc = descriptor.get();
             desc.completeWrite();
 
             int pos = desc.size + 8;
             int zeroNumPos = Integer.numberOfLeadingZeros(pos);
             //buggggggggggggggggggggg
-        }while (true);
+        } while (true);
     }
 
 
-
-
-
-
-
-
-
-
-
-
-    static class Descriptor<E>{
+    static class Descriptor<E> {
         public int size;
         volatile WriteDescriptor<E> writeop;
 
@@ -60,40 +52,48 @@ public class VectorDemo<E> {
             this.writeop = writeop;
         }
 
-        public void completeWrite(){
+        public void completeWrite() {
             WriteDescriptor<E> tmpOp = writeop;
-            if(tmpOp != null){
+            if (tmpOp != null) {
                 tmpOp.doIt();
                 writeop = null;
             }
         }
     }
 
-    static class WriteDescriptor<E>{
-        /**预期值*/
+    static class WriteDescriptor<E> {
+        /**
+         * 预期值
+         */
         public E oldV;
-        /**新值*/
+        /**
+         * 新值
+         */
         public E newV;
-        /**bucket*/
+        /**
+         * bucket
+         */
         public AtomicReferenceArray<E> addr;
-        /**一维索引位置*/
+        /**
+         * 一维索引位置
+         */
         public int addr_ind;
 
         /**
-         *
-         * @param addr bucket
+         * @param addr     bucket
          * @param addr_ind bucket index
-         * @param oldV expect value
-         * @param newV new value
+         * @param oldV     expect value
+         * @param newV     new value
          */
-        public WriteDescriptor( AtomicReferenceArray<E> addr, int addr_ind,E oldV, E newV) {
+        public WriteDescriptor(AtomicReferenceArray<E> addr, int addr_ind, E oldV, E newV) {
             this.oldV = oldV;
             this.newV = newV;
             this.addr = addr;
             this.addr_ind = addr_ind;
         }
-        public void doIt(){
-            addr.compareAndSet(addr_ind,oldV,newV);
+
+        public void doIt() {
+            addr.compareAndSet(addr_ind, oldV, newV);
         }
     }
 }
