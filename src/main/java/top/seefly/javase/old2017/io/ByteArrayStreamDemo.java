@@ -3,7 +3,7 @@ package top.seefly.javase.old2017.io;
  * 该流也称为内存流，即不会将数据写入文件中，而是在内存中开辟一个缓冲池，在写的时候将数据写入该缓冲池，程序结束，数据丢失。
 	且不用使用close方法
  * 
- * 
+ * https://stackoverflow.com/questions/23164598/java-is-bytearrayoutputstream-safe-without-flush-and-close?r=SearchResults
  */
 
 import java.io.ByteArrayInputStream;

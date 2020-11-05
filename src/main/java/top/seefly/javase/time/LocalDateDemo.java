@@ -6,6 +6,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
+import java.time.temporal.TemporalUnit;
 import java.util.Date;
 
 /**
@@ -77,6 +79,8 @@ public class LocalDateDemo {
         Date date = new Date();
         Instant instant = date.toInstant();
         LocalDateTime localDateTime = LocalDateTime.ofInstant(instant, ZoneId.systemDefault());
+
+        Instant instant1 = LocalDateTime.now().plus(30, ChronoUnit.SECONDS).toInstant(ZoneOffset.UTC);
     }
 
     /**
@@ -85,6 +89,7 @@ public class LocalDateDemo {
     @Test
     public void testOp() {
         LocalDate now = LocalDate.now();
+        now.plus(30, ChronoUnit.SECONDS);
         LocalDate localDate = now.plusDays(1);
         LocalDate localDate1 = now.plusMonths(1);
         LocalDate localDate2 = now.plusWeeks(1);

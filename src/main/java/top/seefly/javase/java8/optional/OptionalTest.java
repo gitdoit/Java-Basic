@@ -1,4 +1,4 @@
-package top.seefly.javase.lambda.stream;
+package top.seefly.javase.java8.optional;
 
 import lombok.Data;
 import org.junit.Test;

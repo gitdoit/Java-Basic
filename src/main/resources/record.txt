@@ -1,59 +1,59 @@
-javaÃüÃû¹æ·¶
+javaå‘½åè§„èŒƒ
 
-ÏîÄ¿ÃûÈ«²¿Ğ¡Ğ´
-°üÃûÈ«²¿Ğ¡Ğ´
-ÀàÃûÊ××ÖÄ¸´óĞ´£¬¶àµ¥´Ê×é³ÉÔòÃ¿¸öµ¥´ÊÊ××ÖÄ¸´óĞ´
-±äÁ¿ÃûÓë·½·¨ÃûÒ»ÑùÊ××ÖÄ¸Ğ¡Ğ´£¬ºóĞøµ¥´ÊÊ××ÖÄ¸´óĞ´
-³£Á¿ÃûÈ«²¿´óĞ´£¬ÈôÓÉ¶àµ¥´Ê×é³ÉÔòÓÃÏÂ»®Ïß·Ö¸î
+é¡¹ç›®åå…¨éƒ¨å°å†™
+åŒ…åå…¨éƒ¨å°å†™
+ç±»åé¦–å­—æ¯å¤§å†™ï¼Œå¤šå•è¯ç»„æˆåˆ™æ¯ä¸ªå•è¯é¦–å­—æ¯å¤§å†™
+å˜é‡åä¸æ–¹æ³•åä¸€æ ·é¦–å­—æ¯å°å†™ï¼Œåç»­å•è¯é¦–å­—æ¯å¤§å†™
+å¸¸é‡åå…¨éƒ¨å¤§å†™ï¼Œè‹¥ç”±å¤šå•è¯ç»„æˆåˆ™ç”¨ä¸‹åˆ’çº¿åˆ†å‰²
 
-java¿ì½İ¼ü
-alt + ¡ü ´ËĞĞÉÏÒÆ¶¯
-alt + ¡û/¡úÇĞ»»Ò³Ãæ
-Ctrl + D É¾³ı´ËĞĞ
-Ctrl + alt + ¡ü ¸´ÖÆ´ËĞĞµ½ÏÂĞĞ
-Fn + ¡úÒÆ¶¯µ½±¾ĞĞÄ©Î²
+javaå¿«æ·é”®
+alt + â†‘ æ­¤è¡Œä¸Šç§»åŠ¨
+alt + â†/â†’åˆ‡æ¢é¡µé¢
+Ctrl + D åˆ é™¤æ­¤è¡Œ
+Ctrl + alt + â†‘ å¤åˆ¶æ­¤è¡Œåˆ°ä¸‹è¡Œ
+Fn + â†’ç§»åŠ¨åˆ°æœ¬è¡Œæœ«å°¾
 
 
 
-2017Äê7ÔÂ8ÈÕ
-wrapper_class.Demo1 °ü×°Àà
-extendspackage.Demo2 ³õÊ¼»¯¿é
-extendspackage.FinalDemo1 2 3 finalÓÃ·¨
+2017å¹´7æœˆ8æ—¥
+wrapper_class.Demo1 åŒ…è£…ç±»
+extendspackage.Demo2 åˆå§‹åŒ–å—
+extendspackage.FinalDemo1 2 3 finalç”¨æ³•
 *************************************
-2017Äê7ÔÂ10ÈÕ
-guipackage.ATW_EVENT ¼àÌıÆ÷£¬Í¼ĞÎ
+2017å¹´7æœˆ10æ—¥
+guipackage.ATW_EVENT ç›‘å¬å™¨ï¼Œå›¾å½¢
 ***********************************
-2017Äê7ÔÂ11ÈÕ
-thread.FutureDemo	Ïß³ÌµÄÁíÒ»ÖÖ´´½¨·½Ê½
-thread.UnSyncDemo 	Ïß³Ì²»Í¬²½µÄÔ­Òò
-thread.StarAfterDead ÊÔÍ¼¸´»îÒÑ¾­ËÀÍöµÄÏß³Ì
-thread.SleepDemo	Ïß³ÌĞİÃß
+2017å¹´7æœˆ11æ—¥
+thread.FutureDemo	çº¿ç¨‹çš„å¦ä¸€ç§åˆ›å»ºæ–¹å¼
+thread.UnSyncDemo 	çº¿ç¨‹ä¸åŒæ­¥çš„åŸå› 
+thread.StarAfterDead è¯•å›¾å¤æ´»å·²ç»æ­»äº¡çš„çº¿ç¨‹
+thread.SleepDemo	çº¿ç¨‹ä¼‘çœ 
 *************************************
-2017Äê7ÔÂ12ÈÕ
-thread.yield	Ïß³ÌÈÃÈ¨£¬Ö´ĞĞÌ¬×ªÎª¾ÍĞ÷Ì¬
-mypraxis.PVDemo Éú²úÏû·Ñ£¬ÒÔ¼°lockËøºÍÌõ¼şËø¡£
-thread.LOckDemo lockËø
+2017å¹´7æœˆ12æ—¥
+thread.yield	çº¿ç¨‹è®©æƒï¼Œæ‰§è¡Œæ€è½¬ä¸ºå°±ç»ªæ€
+mypraxis.PVDemo ç”Ÿäº§æ¶ˆè´¹ï¼Œä»¥åŠlocké”å’Œæ¡ä»¶é”ã€‚
+thread.LOckDemo locké”
 **************************************
-2017Äê7ÔÂ13ÈÕ
+2017å¹´7æœˆ13æ—¥
 Thread.BlockingQueueDemo
-Thread.BlockingQueueDemo2//×èÈûÁĞ¶Ó£¬volatile£¬AtomicInteger,TimeUnit
-Thread.ThreadGroupDemo Ïß³Ì×é
-Thread.ThreadPoolDemo Ïß³Ì³Ø
+Thread.BlockingQueueDemo2//é˜»å¡åˆ—é˜Ÿï¼Œvolatileï¼ŒAtomicInteger,TimeUnit
+Thread.ThreadGroupDemo çº¿ç¨‹ç»„
+Thread.ThreadPoolDemo çº¿ç¨‹æ± 
 ***********************************
-2017Äê7ÔÂ14ÈÕ
-collection.ArrayListDemo Ë³Ğò±í£¬²»¶¨³¤
-		   IteratorDemo µü´ú
-		   RetainDemo µÃµ½½»¼¯
-		   TreeSetDemo ÅÅĞòÊ÷
-mypraxis.LinkedListDemo Á´±í£¬²»¶¨³¤
+2017å¹´7æœˆ14æ—¥
+collection.ArrayListDemo é¡ºåºè¡¨ï¼Œä¸å®šé•¿
+		   IteratorDemo è¿­ä»£
+		   RetainDemo å¾—åˆ°äº¤é›†
+		   TreeSetDemo æ’åºæ ‘
+mypraxis.LinkedListDemo é“¾è¡¨ï¼Œä¸å®šé•¿
 ***********************************
-2017Äê7ÔÂ15ÈÕ
+2017å¹´7æœˆ15æ—¥
 collection.HashSetDemo
 		   HashMap
 		   PriorityQueueDemo
 io.FileDemo1
 *******************************		   
-2017Äê7ÔÂ16ÈÕ
+2017å¹´7æœˆ16æ—¥
 io.FileDemo1
    FileInputDemo
    FileOutputDemo
@@ -65,7 +65,7 @@ mypraxis.IOTest
 		 IOTest2
 		 GraphComparer
 		 
-2017Äê7ÔÂ17ÈÕ
+2017å¹´7æœˆ17æ—¥
 string.CodingDemo
 io.FileReaderDemo
    FileWriterDemo
@@ -73,30 +73,30 @@ io.FileReaderDemo
    OutputStreamWriterDemo
    OrderCopy
    
-2017Äê7ÔÂ19ÈÕ
-io.ByteArrayStream  ÄÚ´æÁ÷£¬²»ÓÃclose
-   DataStreamDemo Êı¾İÁ÷£¬Æ½Ì¨ÎŞ¹Ø
-   PrintDemo ´òÓ¡Á÷£¬ÏòÎÄ¼şÖĞ´æ´¢¸÷ÖÖÊı¾İÀàĞÍµÄÊı¾İ
-   CopyDemo2 ÔöÇ¿°æ¸´ÖÆÕ³Ìù
+2017å¹´7æœˆ19æ—¥
+io.ByteArrayStream  å†…å­˜æµï¼Œä¸ç”¨close
+   DataStreamDemo æ•°æ®æµï¼Œå¹³å°æ— å…³
+   PrintDemo æ‰“å°æµï¼Œå‘æ–‡ä»¶ä¸­å­˜å‚¨å„ç§æ•°æ®ç±»å‹çš„æ•°æ®
+   CopyDemo2 å¢å¼ºç‰ˆå¤åˆ¶ç²˜è´´
    
- 2017Äê7ÔÂ20ÈÕ
+ 2017å¹´7æœˆ20æ—¥
  loadclass.ClassloadDemo
  		   ClassLoaderDemo
  classDemo.classDemo1
  		   ReflectDemo1
  		   
-2017Äê7ÔÂ21ÈÕ
+2017å¹´7æœˆ21æ—¥
 regex.SplitDemo
 	  MatchesDemo2
 mypraxis.SplitTest
  
- 2017Äê7ÔÂ23ÈÕ
+ 2017å¹´7æœˆ23æ—¥
 net_udp.inetAddressDemo
  	 URLCoder
  	 URLConnectionDemo
-HttpÏîÄ¿£ºcom.gitdoit°ü
+Httpé¡¹ç›®ï¼šcom.gitdoitåŒ…
 
-2017Äê7ÔÂ24ÈÕ
+2017å¹´7æœˆ24æ—¥
 net_tcp.ClientDemo
 	    ClientDemo2
 	    ServerDemo
@@ -108,5 +108,4 @@ net_udp.UDPReceiveDemo
 	    UDPReceiveDemo2
 	    UDPSendDemo
 	    UDpSendDmoe2
-	    
 	    

@@ -1,4 +1,4 @@
-package top.seefly.javase.lambda.stream;
+package top.seefly.javase.java8.stream;
 
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
@@ -39,6 +39,7 @@ public class IntermediateStream {
     }
 
     /**
+     * https://stackoverflow.com/questions/26684562/whats-the-difference-between-map-and-flatmap-methods-in-java-8
      * flatMap直译过来就是 扁平化映射，就是合并多个流成为一个流
      * 他需要传的Function中限定返回值只能时一个流，而map中的Function没有做限定
      * 既然map和flatMap的参数都是Function，区别只是一个限定返回值一个没有

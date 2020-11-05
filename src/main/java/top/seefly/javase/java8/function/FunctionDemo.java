@@ -1,4 +1,4 @@
-package top.seefly.javase.lambda.function;
+package top.seefly.javase.java8.function;
 
 import java.util.HashSet;
 import java.util.Set;

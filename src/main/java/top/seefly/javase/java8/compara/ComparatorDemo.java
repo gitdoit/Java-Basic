@@ -1,4 +1,4 @@
-package top.seefly.javase.lambda;
+package top.seefly.javase.java8.compara;
 
 import org.junit.Test;
 

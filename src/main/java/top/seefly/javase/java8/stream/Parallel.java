@@ -1,4 +1,4 @@
-package top.seefly.javase.lambda.stream;
+package top.seefly.javase.java8.stream;
 
 import org.junit.Test;
 
