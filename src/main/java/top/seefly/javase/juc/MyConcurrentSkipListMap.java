@@ -9,8 +9,9 @@ import java.util.concurrent.ConcurrentSkipListMap;
  * @date 2018-09-26 18:51
  */
 public class MyConcurrentSkipListMap {
+    
     public static void main(String[] args) {
         ConcurrentSkipListMap<String, String> skip = new ConcurrentSkipListMap<>();
-
+        
     }
 }

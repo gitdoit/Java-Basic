@@ -5,9 +5,11 @@ package top.seefly.javase.juc.future;
  * @date 2018-11-22 11:41
  */
 public class FutureData implements Data {
+    
     protected boolean isReady;
+    
     protected RealData realData = null;
-
+    
     public synchronized void setRealData(RealData realData) {
         // 防止重复设置
         if (isReady) {
@@ -18,7 +20,7 @@ public class FutureData implements Data {
         // 响应完成，唤醒等待线程
         notifyAll();
     }
-
+    
     @Override
     public synchronized String getResult() {
         // 服务器还没有响应的时候，进入锁池等待
@@ -31,5 +33,5 @@ public class FutureData implements Data {
         }
         return realData.result;
     }
-
+    
 }

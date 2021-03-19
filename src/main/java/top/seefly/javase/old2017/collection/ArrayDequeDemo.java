@@ -24,6 +24,7 @@ import java.util.ArrayDeque;
 import java.util.Queue;
 
 public class ArrayDequeDemo {
+    
     public static void main(String[] args) {
         ArrayDeque<Integer> queue = new ArrayDeque<>();
         queue.addLast(3);//等效于 queue.add(3);
@@ -33,6 +34,6 @@ public class ArrayDequeDemo {
         queue.add(7);
         queue.removeLast();//等效与queue.remove();
         System.out.println(queue);
-
+        
     }
 }

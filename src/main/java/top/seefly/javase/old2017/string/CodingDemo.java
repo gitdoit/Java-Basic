@@ -17,19 +17,19 @@ import java.io.UnsupportedEncodingException;
  *
  */
 public class CodingDemo {
-
+    
     public static void main(String[] args) throws UnsupportedEncodingException {
         String str = "刘建鑫";
-
+        
         byte[] bt = str.getBytes();//使用平台默认的编码表将字符转换成字节，这里是GBK
         String get = new String(bt);//使用默认编码表将字节数组转换成字符
         System.out.println(get);
-
+        
         bt = str.getBytes("UTF-8");//这里指定了使用UTF-8进行编码
         get = new String(bt);//但是解码却用了默认的GBK，所以出现了乱码
         System.out.println(get);//鍒樺缓閼?
-
-
+        
+        
     }
-
+    
 }

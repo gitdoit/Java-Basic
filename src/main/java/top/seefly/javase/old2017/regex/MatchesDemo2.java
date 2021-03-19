@@ -12,18 +12,19 @@ import java.util.regex.Pattern;
  *
  */
 public class MatchesDemo2 {
+    
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         System.out.println("Please input you PhoneNumber!");
         String number = in.nextLine();
         System.out.println(matchesMail(number));
     }
-
+    
     //判断手机号
     public static boolean matchesNumber(String number) {
         return number.matches("(136)[68]\\d{7}");
     }
-
+    
     public static boolean matchesMail(String mail) {//([a-z]|\\d) {0,}@[a-z] {0,}\\.{0,}\\.(com)$"
         //String regex = "[a-zA-Z_0-9]+@[a-zA-Z_0-9]{2,}(\\.[a-zA-Z_0-9]{2,6})+";
         String regex = "\\w+@\\w{2,}(\\.\\w{2,6})+";//     \\w等同于[a-zA-Z_0-9]

@@ -11,9 +11,9 @@ import java.util.Scanner;
  * @date 2019-01-04 13:34
  */
 public class ClientDemo {
-
+    
     private Socket socket;
-
+    
     public ClientDemo(String host, Integer port) {
         try {
             socket = new Socket(host, port);
@@ -21,7 +21,7 @@ public class ClientDemo {
             e.printStackTrace();
         }
     }
-
+    
     public void sendMes(String mes) {
         try {
             OutputStream outputStream = socket.getOutputStream();
@@ -37,5 +37,5 @@ public class ClientDemo {
             e.printStackTrace();
         }
     }
-
+    
 }

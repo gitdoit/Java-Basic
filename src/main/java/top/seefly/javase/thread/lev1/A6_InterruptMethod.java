@@ -6,7 +6,7 @@ package top.seefly.javase.thread.lev1;
  * @author 刘建鑫
  */
 public class A6_InterruptMethod {
-
+    
     public static void main(String[] args) {
         Thread t = new Thread(() -> {
             try {
@@ -27,7 +27,7 @@ public class A6_InterruptMethod {
         t.start();
         //中断该线程(不是结束该线程)，将中断位置true
         t.interrupt();
-
+        
     }
-
+    
 }

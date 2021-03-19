@@ -8,7 +8,7 @@ import java.util.regex.Pattern;
  * 将指定的正则表达式包装成模式，使用此模式与字符串进行比较
  */
 public class PatternDemo {
-
+    
     public static void main(String[] args) {
         //将模式编译成对象
         Pattern p = Pattern.compile("a*b");//*代表一次或多次
@@ -17,7 +17,7 @@ public class PatternDemo {
         //通过匹配器中的各种方法，完成各种操作
         System.out.println(m.matches());//这两句等同下与下面语句
         //System.out.println(p.matcher("aaaab").matches());
-
+        
         //将字符串中满足要求的子序列抽取出来，组成一个字符串数组
         String str = "lao zi jin tian hen kai xin,wo jiu yao qu gan liang bei";
         ArrayList<String> list = new ArrayList<>();
@@ -28,5 +28,5 @@ public class PatternDemo {
         }
         System.out.println(list);
     }
-
+    
 }

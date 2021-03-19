@@ -11,7 +11,7 @@ import java.io.OutputStream;
 import java.net.Socket;
 
 public class ClientDemo {
-
+    
     public static void main(String[] args) throws IOException {
         Socket sk = new Socket("192.168.3.4", 8888);
         //获取管道输出接口，将从此管道发送数据。
@@ -25,5 +25,5 @@ public class ClientDemo {
         System.out.println(new String(mes, 0, len));
         out.close();
     }
-
+    
 }

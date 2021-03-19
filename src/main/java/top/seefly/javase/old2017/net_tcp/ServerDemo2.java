@@ -11,7 +11,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 public class ServerDemo2 {
-
+    
     public static void main(String[] args) throws IOException {
         ServerSocket ss = new ServerSocket(8888);
         Socket sk = ss.accept();
@@ -29,8 +29,8 @@ public class ServerDemo2 {
         }
         //关闭文件操作流
         fw.close();
-//		input.close(); 这个可以不关闭，因为从客户端接收的，客户端发送完毕，自动关闭
+        //		input.close(); 这个可以不关闭，因为从客户端接收的，客户端发送完毕，自动关闭
         sk.close();
     }
-
+    
 }

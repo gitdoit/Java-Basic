@@ -22,6 +22,7 @@ import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class LockDemo {
+    
     public static void main(String[] args) {
         BankDemo b = new BankDemo(100, 1000);
         int i;
@@ -34,19 +35,22 @@ public class LockDemo {
 }
 
 class TransferRunnable implements Runnable {
+    
     private BankDemo bank;
+    
     private int fromAccount;
+    
     private int maxAmount;
-
+    
     public TransferRunnable(BankDemo b, int from, int max) {
         bank = b;
         fromAccount = from;//转出的账户
         maxAmount = max;//初始存款
     }
-
+    
     @Override
     public void run() {
-
+        
         try {
             int toAcount = (int) (100 * Math.random());
             int amount = (int) (maxAmount * Math.random());
@@ -59,33 +63,39 @@ class TransferRunnable implements Runnable {
 }
 
 class BankDemo {
+    
     private int[] accounts;
+    
     private Lock bankLock = new ReentrantLock();
-
+    
     public BankDemo(int userNum, int initBalance) {
         accounts = new int[userNum];//初始化用户数量
-        for (int i = 0; i < 100; i++)
+        for (int i = 0; i < 100; i++) {
             accounts[i] = initBalance;
+        }
     }
-
+    
     public void transfer(int from, int to, int money) {
         bankLock.lock();
         try {
-            if (accounts[from] < money) return;
+            if (accounts[from] < money) {
+                return;
+            }
             accounts[from] -= money;//转出
             System.out.printf("%d块钱从%d转入%d\n", money, from, to);
             accounts[to] += money;//转入
             System.out.println("当前银行总存款为：" + getTotalBalance());
-
+            
         } finally {
             bankLock.unlock();
         }
     }
-
+    
     public int getTotalBalance() {
         int sum = 0;
-        for (int e : accounts)
+        for (int e : accounts) {
             sum += e;
+        }
         return sum;
     }
 }

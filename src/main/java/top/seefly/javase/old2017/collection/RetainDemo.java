@@ -13,14 +13,15 @@ import java.util.Iterator;
 import java.util.List;
 
 public class RetainDemo {
+    
     public static void main(String[] args) {
         List<String> list = new ArrayList<>();
         List<String> list1 = new ArrayList<>();
-
+        
         list.add("java");
         list.add("hello");
         list.add("world");
-
+        
         list1.addAll(list);
         list1.add("see");
         System.out.println("list:" + list);
@@ -29,7 +30,7 @@ public class RetainDemo {
         System.out.println("list1 retainAll list:" + list1.retainAll(list));
         System.out.println("after list1.retainAll(list),the list1 now is:" + list1);
         System.out.println("again useing retainAll(list):" + list1.retainAll(list));
-
-
+        
+        
     }
 }

@@ -9,46 +9,48 @@ package top.seefly.javase.old2017.interface_abstract;
  * 方法：public abstract
  * */
 interface A {//接口A
-
+    
     public abstract void method1();
 }
 
 interface B {//接口B
-
+    
     public abstract void method2();
 }
 
 
 interface C extends A, B {//接口C可同时继承A.B
-
+    
 }
 
 
 interface Interface {
+    
     public static final int n = 3;//接口是一个标准，则其中所有数据域都应该是不变的。需要定义为公共静态最终的
-
+    
     public abstract void show();
 }
 
 class demo implements Interface {//类demo实例化接口
-
+    
     public void show() {
         System.out.print("实例化\n");
     }
 }
 
 class D extends demo implements C {//类D继承的同时可以实现接口
-
+    
     public void method1() {//由于实现的接口中有两个方法需要实现
-
+        
     }
-
+    
     public void method2() {
-
+        
     }
 }
 
 class InterfaceDemo {
+    
     public static void main(String[] args) {
         demo t = new demo();
         t.show();

@@ -13,7 +13,7 @@ import java.net.Socket;
  * 本类用来从客户端接收数据，并写入文件内
  */
 public class UploadServer {
-
+    
     public static void main(String[] args) throws IOException {
         ServerSocket ss = new ServerSocket(8888);
         Socket sk = ss.accept();
@@ -36,7 +36,7 @@ public class UploadServer {
         bw.newLine();
         bw.flush();
         ss.close();
-
+        
     }
-
+    
 }

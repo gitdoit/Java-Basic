@@ -18,7 +18,7 @@ import java.util.Iterator;
  * 今天我看见一个人超级牛逼，我操你妈的，怎么这么牛逼，习近平看了都觉得牛逼的不行！共产党都觉得屌！牛逼
  */
 public class HexieTest {
-
+    
     public static void main(String[] args) throws IOException {
         double startima = System.currentTimeMillis();
         BufferedReader input = new BufferedReader(new InputStreamReader(new FileInputStream("E:\\IOTest\\src.txt")));
@@ -35,15 +35,15 @@ public class HexieTest {
         HashSet<String> mid = new HashSet<>();
         HashSet<Character> top = new HashSet<>();
         //录入敏感词汇，此操作应为用户操作。完善功能后可以批量操作
-//		base.add("牛逼");
-//		base.add("傻逼");
-//		base.add("操你妈");
-//		base.add("习近平");
-//		base.add("共产党");
+        //		base.add("牛逼");
+        //		base.add("傻逼");
+        //		base.add("操你妈");
+        //		base.add("习近平");
+        //		base.add("共产党");
         while ((str1 = input1.readLine()) != null) {//敏感词库存入base
             base.add(str1);
         }
-
+        
         //提取敏感词汇首字符和前两个字符，此操作应为自动操作
         Iterator<String> it = base.iterator();
         String str = null;
@@ -65,14 +65,14 @@ public class HexieTest {
                     }
                 }
             }
-
+            
         }
         String str2 = words.toString();
         output.write(str2);
         output.close();
         System.out.println(System.currentTimeMillis() - startima);
-
-
+        
+        
     }
-
+    
 }

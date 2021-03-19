@@ -96,12 +96,14 @@ total	de     cai
 
  */
 public class Sort {//璇ョ嚎绋嬩娇鐢ㄤ簡1120KB
+    
     public static byte H;
+    
     public static byte L;
-
+    
     public static void main(String[] args) throws Exception {
         Thread.currentThread().setName("gggggggggggggggggg");
-
+        
         byte totle, de, cai;
         int id;
         TreeSet<Stu> list = new TreeSet<>();
@@ -113,78 +115,91 @@ public class Sort {//璇ョ嚎绋嬩娇鐢ㄤ簡1120KB
             id = in.nextInt();
             de = in.nextByte();
             cai = in.nextByte();
-            if (de < L || cai < L)
+            if (de < L || cai < L) {
                 continue;
+            }
             if (de >= H && cai >= H)//寰锋墠閮借繃
+            {
                 list.add(new Stu(id, de, cai, (byte) 1));
-            else if (de >= H && cai < H)//寰疯繃鎵嶄笉杩�
+            } else if (de >= H && cai < H)//寰疯繃鎵嶄笉杩�
+            {
                 list.add(new Stu(id, de, cai, (byte) 2));
-            else if (de < H && cai < H && de > cai)
+            } else if (de < H && cai < H && de > cai) {
                 list.add(new Stu(id, de, cai, (byte) 3));
-            else
+            } else {
                 list.add(new Stu(id, de, cai, (byte) 4));
+            }
         }
         Thread.currentThread().sleep(10000);
         for (Stu e : list) {
             System.out.println(e);
         }
     }
-
+    
 }
 
 class Stu implements Comparable<Stu> {
+    
     private int id;
+    
     private byte de;
+    
     private byte cai;
+    
     private byte group;
-
+    
     public Stu(int id, byte de, byte cai, byte group) {
         this.id = id;
         this.de = de;
         this.cai = cai;
         this.group = group;
     }
-
+    
     public int getId() {
         return this.id;
     }
-
+    
     public byte getDe() {
         return this.de;
     }
-
+    
     public byte getCai() {
         return this.cai;
     }
-
+    
     public byte getGroup() {
         return this.group;
     }
-
+    
     @Override
     public int compareTo(Stu o) {
-        if (group > o.getGroup())
+        if (group > o.getGroup()) {
             return 1;
-        else if (group < o.getGroup())
+        } else if (group < o.getGroup()) {
             return -1;
+        }
         //鑳藉埌杩欓噷璇存槑鍦ㄤ竴涓粍
-        if (cai + de > o.getDe() + o.getCai())
+        if (cai + de > o.getDe() + o.getCai()) {
             return -1;
-        else if (cai + de < o.getDe() + o.getCai())
+        } else if (cai + de < o.getDe() + o.getCai()) {
             return 1;
+        }
         //鑳藉埌杩欓噷璇存槑鍦ㄥ悓涓�缁勶紝涓旀�诲垎鐩稿悓
         if (de > o.getDe())//鍚岀粍锛屾�诲垎鐩稿悓銆傛寜寰峰垎
+        {
             return -1;
-        else if (de < o.getDe())
+        } else if (de < o.getDe()) {
             return 1;
+        }
         //鑳藉埌杩欓噷璇存槑鍚岀粍锛屾�诲垎鐩稿悓銆傚痉鍒嗙浉鍚�,鎸塈D鍒�
-        if (id > o.getId())
+        if (id > o.getId()) {
             return 1;
+        }
         return -1;
-
-
+        
+        
     }
-
+    
     @Override
     public String toString() {
         return id + " " + de + " " + cai + " " + group;

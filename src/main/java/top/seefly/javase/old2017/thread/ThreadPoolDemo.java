@@ -11,6 +11,7 @@ import java.util.concurrent.*;
  *http://cuisuqiang.iteye.com/blog/2019372
  * */
 public class ThreadPoolDemo {
+    
     public static void main(String[] args) {
         //ExecutorService cachedThreadPool = Executors.newCachedThreadPool();
         ExecutorService FixedThreadPool = Executors.newFixedThreadPool(3);
@@ -24,16 +25,16 @@ public class ThreadPoolDemo {
                 @Override
                 public void run() {
                     // TODO Auto-generated method stub
-
+                    
                 }
             });
         }
-
+        
     }
 }
 
 class CacheThread implements Runnable {
-
+    
     @Override
     public void run() {
         System.out.println(Thread.currentThread().getName() + " is running");
@@ -42,6 +43,6 @@ class CacheThread implements Runnable {
         } catch (Exception e) {
             // TODO: handle exception
         }
-
+        
     }
 }

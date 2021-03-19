@@ -9,20 +9,22 @@ package top.seefly.javase.old2017.mypraxis;
 import java.io.File;
 
 public class IOTest {
-
+    
     public static void main(String[] args) {
         File file = new File("e:\\");
         File[] FileArr = file.listFiles();
         DFS(FileArr);
-
+        
     }
-
+    
     public static void DFS(File[] file) {
         for (File e : file) {
             if (e.isDirectory()) {
                 File[] chilFile = e.listFiles();
                 if (chilFile != null)//E盘根目录下隐藏文件夹，用于恢复系统->system volume information，无判断条件会空指针
+                {
                     DFS(chilFile);
+                }
             } else {
                 if (e.getName().endsWith(".java")) {
                     System.out.println("所查文件在:" + e.getAbsolutePath());
@@ -30,6 +32,6 @@ public class IOTest {
             }
         }
     }
-
+    
 }
 

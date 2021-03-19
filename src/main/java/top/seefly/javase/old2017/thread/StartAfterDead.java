@@ -6,6 +6,7 @@ package top.seefly.javase.old2017.thread;
  *线程在新建态以及死亡态时调用isAlive方法时返回false
  * */
 public class StartAfterDead {
+    
     public static void main(String[] args) {
         Dead t = new Dead();
         System.out.println("isAlive after new:" + t.isAlive());
@@ -23,9 +24,11 @@ public class StartAfterDead {
 }
 
 class Dead extends Thread {
+    
     @Override
     public void run() {
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 10; i++) {
             System.out.println(Thread.currentThread().getName() + ":" + i);
+        }
     }
 }

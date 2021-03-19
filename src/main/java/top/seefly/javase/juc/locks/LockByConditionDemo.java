@@ -7,26 +7,21 @@ import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @author liujianxin
- * @date 2018-07-30 14:31
- * 描述信息：演示如何使用ReentrantLock的Condition
- * ReentrantLock的newCondition()方法，可以创建信号量
+ * @date 2018-07-30 14:31 描述信息：演示如何使用ReentrantLock的Condition ReentrantLock的newCondition()方法，可以创建信号量
  * <p>
- * Condition对象相较于之前的Object中的一些同步控制方法比较
- * Condition                               Object
- * await:等待指定条件的唤醒                  wait：等待对于该锁的唤醒
- * signal：唤醒等待该条件的对象              notify:唤醒等待该锁的线程
+ * Condition对象相较于之前的Object中的一些同步控制方法比较 Condition                               Object await:等待指定条件的唤醒
+ * wait：等待对于该锁的唤醒 signal：唤醒等待该条件的对象              notify:唤醒等待该锁的线程
  * <p>
- * 可以看到，Condition是对wait以及Notify的拓展，它以更加细粒度的方式来控制锁的获取与释放
- * 例如某线程只等待某一个条件满足之后才被唤醒。而wait方法却无法做到，它以简单粗暴的方式唤醒线程，线程被唤醒之后检查条件
+ * 可以看到，Condition是对wait以及Notify的拓展，它以更加细粒度的方式来控制锁的获取与释放 例如某线程只等待某一个条件满足之后才被唤醒。而wait方法却无法做到，它以简单粗暴的方式唤醒线程，线程被唤醒之后检查条件
  * 发现不满足运行要求，从而继续等待。
  * <p>
  * 注意：和wait,notify方法一样，在使用前一定要先获取锁。
  **/
 public class LockByConditionDemo {
-
+    
     public static void main(String[] args) throws InterruptedException {
         final SysQueue sq = new SysQueue(50);
-
+        
         new Thread(() -> {
             int i = 0;
             while (i++ < 1000) {
@@ -37,7 +32,7 @@ public class LockByConditionDemo {
                 }
             }
         }, "add").start();
-
+        
         new Thread(() -> {
             int i = 0;
             while (i++ < 1000) {
@@ -53,36 +48,39 @@ public class LockByConditionDemo {
             System.out.println(i);
         }
     }
-
-
+    
+    
     /**
      * 自定义一个同步线程容器
      */
     private static class SysQueue {
-
+        
         private final List<Integer> list;
+        
         private final int capacity;
+        
         private int index = 0;
-
+        
         private final ReentrantLock lock = new ReentrantLock();
+        
         /**
          * 非满条件
          */
         private final Condition notFull = lock.newCondition();
+        
         /**
          * 非空条件
          */
         private final Condition notEmpty = lock.newCondition();
-
+        
         public SysQueue(int capacity) {
             assert capacity > 0 && capacity < Integer.MAX_VALUE;
             this.capacity = capacity;
             this.list = new ArrayList<>(capacity);
         }
-
+        
         /**
-         * 添加操作，判断容器是否已满。
-         * 添加后唤醒非空信号量
+         * 添加操作，判断容器是否已满。 添加后唤醒非空信号量
          *
          * @param e
          * @throws InterruptedException
@@ -109,11 +107,10 @@ public class LockByConditionDemo {
                 lock.unlock();
             }
         }
-
-
+        
+        
         /**
-         * 获取操作，判断容器是否为空，为空则等待非空信号量
-         * 获取数据后，释放非满信号量唤醒相应线程
+         * 获取操作，判断容器是否为空，为空则等待非空信号量 获取数据后，释放非满信号量唤醒相应线程
          *
          * @return
          * @throws InterruptedException

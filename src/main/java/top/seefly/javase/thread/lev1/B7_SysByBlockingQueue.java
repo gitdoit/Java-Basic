@@ -3,52 +3,39 @@ package top.seefly.javase.thread.lev1;
 import java.util.concurrent.*;
 
 /**
- * 阻塞列队的作用是在多线程环境下起到同步的目的。
- * 多个线程对一个阻塞列队进行操作，使用BlockingQueue.put()方法，若队列已满，则阻塞该线程，等不满的时候会自动启动
+ * 阻塞列队的作用是在多线程环境下起到同步的目的。 多个线程对一个阻塞列队进行操作，使用BlockingQueue.put()方法，若队列已满，则阻塞该线程，等不满的时候会自动启动
  * <p>
  * BlockingQueue<T>是一个接口。接口中含有下列方法
  * <p>
  * <p>
- * boolean offer(T:e)/(T:e,long , TimeUnit)
- * 向阻塞列队的队尾中放入e，如果 队列 已满，那么将返回false！如果队列已满那么在int * TimeUnit时间之后还是满的将返回false。
+ * boolean offer(T:e)/(T:e,long , TimeUnit) 向阻塞列队的队尾中放入e，如果 队列 已满，那么将返回false！如果队列已满那么在int * TimeUnit时间之后还是满的将返回false。
  * 此方法会使线程在该处停留等待long * TimeUnit长度的时间。
  * <p>
- * T poll()/(long,TimeUnit)
- * 从阻塞列队头部取出元素，如果没有则返回null。如果在long * TimeUnit时间之后还没有，那么将返回null。
- * 此方法会使线程在该处停留等待long * TimeUnit
+ * T poll()/(long,TimeUnit) 从阻塞列队头部取出元素，如果没有则返回null。如果在long * TimeUnit时间之后还没有，那么将返回null。 此方法会使线程在该处停留等待long * TimeUnit
  * <p>
- * T peek()
- * 从阻塞列队中取出头部元素，且不删除
+ * T peek() 从阻塞列队中取出头部元素，且不删除
  * <p>
- * boolean add(T:e)
- * 向阻塞列队尾插入元素，如果队列已满，那么将抛出异常.
+ * boolean add(T:e) 向阻塞列队尾插入元素，如果队列已满，那么将抛出异常.
  * <p>
- * T remove()
- * 从阻塞列队头部取出，并删除该元素。如果队列为空，那么会抛出异常。
+ * T remove() 从阻塞列队头部取出，并删除该元素。如果队列为空，那么会抛出异常。
  * <p>
- * boolean remove(T:e)
- * 从阻塞列队中取出该元素，如果没有找到这个元素，那么返回false。否则返回true
+ * boolean remove(T:e) 从阻塞列队中取出该元素，如果没有找到这个元素，那么返回false。否则返回true
  * <p>
- * T element()
- * 从阻塞列队头部取元素，且不删除。若队列为空，则抛出异常
+ * T element() 从阻塞列队头部取元素，且不删除。若队列为空，则抛出异常
  * <p>
- * void put(T:e)
- * 向阻塞列队尾部插入元素，如果队列已经满了，那么调用此方法的线程将会进入阻塞态，直到队列有空位。
- * T take()
- * 从阻塞列队头部取元素，如果队列为空，那么调用此方法的线程将会进入阻塞态，知道队列中有元素。
+ * void put(T:e) 向阻塞列队尾部插入元素，如果队列已经满了，那么调用此方法的线程将会进入阻塞态，直到队列有空位。 T take() 从阻塞列队头部取元素，如果队列为空，那么调用此方法的线程将会进入阻塞态，知道队列中有元素。
  *
  * @author 刘建鑫
  */
 public class B7_SysByBlockingQueue {
-
+    
     public static void main(String[] args) {
         //使用阻塞队列模拟临界区资源
         BlockingQueue<String> queue = new ArrayBlockingQueue<>(3);
-
-        ExecutorService doubleThreadPool = new ThreadPoolExecutor(2, 2,
-                0L, TimeUnit.MILLISECONDS,
+        
+        ExecutorService doubleThreadPool = new ThreadPoolExecutor(2, 2, 0L, TimeUnit.MILLISECONDS,
                 new LinkedBlockingQueue<>(1024), new ThreadPoolExecutor.AbortPolicy());
-
+        
         doubleThreadPool.execute(() -> {
             boolean isRunning = true;
             boolean isInsert;
@@ -68,7 +55,7 @@ public class B7_SysByBlockingQueue {
                 e.printStackTrace();
             }
         });
-
+        
         doubleThreadPool.execute(() -> {
             String isGet;
             boolean isRunning = true;
@@ -91,5 +78,5 @@ public class B7_SysByBlockingQueue {
         });
         doubleThreadPool.shutdown();
     }
-
+    
 }

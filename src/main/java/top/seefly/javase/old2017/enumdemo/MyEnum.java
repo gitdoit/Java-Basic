@@ -8,6 +8,7 @@ package top.seefly.javase.old2017.enumdemo;
 import java.util.*;
 
 public class MyEnum {
+    
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         System.out.println("Enter a size(SAMLL,MEDIUM,LARGE,EXTRA_LARGE)");
@@ -16,25 +17,29 @@ public class MyEnum {
         //该静态方法会抛出一个运行时异常在没有对应的元素名时
         System.out.println("size:" + size);
         System.out.println("size=" + size.getSize());//访问器访问枚举对象的数据域
-        if (size == Size.SMALL)
+        if (size == Size.SMALL) {
             System.out.println("你穿的是S号");
-
+        }
+        
     }
-
-
+    
+    
 }
 
 enum Size {//自定义枚举类型包括方法。
     //下面这里就相当于new 一个枚举对象了
-    SMALL("S"), MEDIUM("M"), LARGE("L"), EXTRA_LARGE("LX");
-
+    SMALL("S"),
+    MEDIUM("M"),
+    LARGE("L"),
+    EXTRA_LARGE("LX");
+    
     private Size(String size) {
         this.size = size;
     }
-
+    
     public String getSize() {
         return size;
     }
-
+    
     private String size;
 }

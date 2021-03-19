@@ -11,7 +11,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 
 public class ByteArrayStreamDemo {
-
+    
     public static void main(String[] args) throws IOException {
         ByteArrayOutputStream baos = new ByteArrayOutputStream();//不用指定目标
         for (int i = 0; i < 10; i++) {
@@ -23,5 +23,5 @@ public class ByteArrayStreamDemo {
             System.out.println(new String(bt));//使用平台默认解码（本机GBK），将byte解码成字符串
         }
     }
-
+    
 }

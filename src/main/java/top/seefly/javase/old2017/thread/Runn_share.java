@@ -13,60 +13,61 @@ package top.seefly.javase.old2017.thread;
  * 调用Thread类的start方法开启方法，并调用Runnable接口的run方法
  * */
 public class Runn_share {
-
+    
     public static void main(String[] args) {
         //Thread对象资源不共享
         Thr c = new Thr(5);
         Thr a = new Thr(5);
         c.start();
         a.start();
-
+        
         //创建Runnable对象，然后用作实参放进Thread对象中、可以实现共享
         Runn b = new Runn(5);
         new Thread(b).start();
         new Thread(b).start();
-
-
+        
         System.out.println(Thread.currentThread().getName());
-
+        
     }
-
+    
 }
 
 
 class Thr extends Thread {//继承Thread的类
+    
     private int count;//票数
-
+    
     public Thr() {
         count = 0;
     }
-
+    
     public Thr(int count) {
         this.count = count;
     }
-
+    
     @Override
     public void run() {
         while (count > 0) {
             System.out.printf("Thread还剩%d张票\n", count);
             System.out.println(Thread.currentThread().getName());
-
+            
             count--;
         }
     }
 }
 
 class Runn implements Runnable {//继承Runnable的类
+    
     private int count = 0;
-
+    
     public Runn() {
         count = 0;
     }
-
+    
     public Runn(int count) {
         this.count = count;
     }
-
+    
     @Override//覆写
     public void run() {
         while (count > 0) {

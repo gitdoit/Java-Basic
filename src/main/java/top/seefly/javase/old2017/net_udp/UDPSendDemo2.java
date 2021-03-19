@@ -11,7 +11,7 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 
 public class UDPSendDemo2 {
-
+    
     public static void main(String[] args) throws IOException {
         //new一个socket对象
         DatagramSocket ds = new DatagramSocket();
@@ -28,10 +28,10 @@ public class UDPSendDemo2 {
             DatagramPacket pg = new DatagramPacket(bt, bt.length, InetAddress.getByName("192.168.3.4"), 10086);
             //发送
             ds.send(pg);
-
+            
         } while (!str.equals("close"));
         input.close();
         ds.close();
     }
-
+    
 }

@@ -5,8 +5,9 @@ package top.seefly.javase.juc.future;
  * @date 2018-11-22 11:40
  */
 public class RealData implements Data {
+    
     protected String result;
-
+    
     public RealData(String para) {
         StringBuffer sb = new StringBuffer();
         for (int i = 0; i < 10; i++) {
@@ -19,7 +20,7 @@ public class RealData implements Data {
         }
         result = sb.toString();
     }
-
+    
     @Override
     public String getResult() {
         return result;

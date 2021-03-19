@@ -9,42 +9,44 @@ package top.seefly.javase.old2017.extendspackage;
  * 静态初始化块，在虚拟机加载该类时会执行该块，且只执行一次。
  * */
 public class Demo2 {
-
+    
     public static void main(String[] args) {
         new Leaf();
         new Leaf();//实例化两个对象，但是所有静态块只加载执行一次
-
+        
     }
-
+    
 }
 
 class Root {
+    
     static {
         System.out.println("Root的静态初始化块");
     }
-
+    
     {
         System.out.println("Root的普通初始化块");
     }
-
+    
     public Root() {
         System.out.println("Root的无参构造方法");
     }
 }
 
 class Mid extends Root {
+    
     static {
         System.out.println("Mid的静态初始化块");
     }
-
+    
     {
         System.out.println("Mid的普通初始化块");
     }
-
+    
     public Mid() {
         System.out.println("Mid的无参构造方法");
     }
-
+    
     public Mid(String msg) {
         this();
         System.out.println("Mid的有参构造方法，其参数值为:" + msg);
@@ -52,14 +54,15 @@ class Mid extends Root {
 }
 
 class Leaf extends Mid {
+    
     static {
         System.out.println("Leaf的静态初始化块");
     }
-
+    
     {
         System.out.println("Leaf的普通初始化块");
     }
-
+    
     public Leaf() {
         super("测试测试");
         System.out.println("Leaf的无参构造方法");

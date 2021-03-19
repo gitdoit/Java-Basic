@@ -28,29 +28,32 @@ package top.seefly.javase.old2017.thread;
  * 3 明确多线程运行代码中哪些语句时操作共享数据的
  * */
 public class SafeOfThread {
+    
     public static void main(String[] args) {
         Ticket rb = new Ticket(500);
         Thread a = new Thread(rb, "售票员A");
         Thread b = new Thread(rb, "售票员B");
         a.start();
         b.start();
-
+        
     }
 }
 
 
 class Ticket implements Runnable {
+    
     private int tickets;
+    
     Object obj = new Object();
-
+    
     public Ticket() {
         this(0);
     }
-
+    
     public Ticket(int tickets) {
         this.tickets = tickets;
     }
-
+    
     @Override
     public void run() {
         //不安全的方式，while判断完成后时间片用光，切换其他线程
@@ -59,7 +62,7 @@ class Ticket implements Runnable {
 			try{Thread.sleep(10);}catch(Exception ex){}
 			System.out.println(Thread.currentThread().getName()+":"+this.tickets--);
 		}*/
-
+        
         //安全的方式，通过对同步代码块进行加锁达到同步的目的。
         //Object obj = new Object();
         synchronized (obj) {

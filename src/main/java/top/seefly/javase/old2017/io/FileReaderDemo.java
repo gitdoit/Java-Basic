@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class FileReaderDemo {
+    
     public static void main(String[] args) throws IOException {
         FileReader frd = new FileReader(new File("writer.txt"));
         char[] ch = new char[1024];
@@ -13,5 +14,5 @@ public class FileReaderDemo {
         }
         frd.close();
     }
-
+    
 }

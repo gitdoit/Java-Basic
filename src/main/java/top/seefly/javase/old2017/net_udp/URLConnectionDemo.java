@@ -18,10 +18,11 @@ import java.net.URL;
  *为每个线程分别指定一个随机读写输入流，随机读写输出流。并分别设置输入流与输出流的其实位置。
  */
 public class URLConnectionDemo {
-
+    
     public static void main(String[] args) throws Exception {
         long star = System.currentTimeMillis();
-        final DownUtil downUtil = new DownUtil("http://sw.bos.baidu.com/sw-search-sp/software/92f7b2170f9b7/BaiduNetdisk_5.6.1.2.exe",
+        final DownUtil downUtil = new DownUtil(
+                "http://sw.bos.baidu.com/sw-search-sp/software/92f7b2170f9b7/BaiduNetdisk_5.6.1.2.exe",
                 "E:\\IOTest\\百度云.exe", 4);
         downUtil.download();
         new Thread() {
@@ -38,21 +39,26 @@ public class URLConnectionDemo {
             }
         }.start();
     }
-
+    
 }
 
 class DownUtil {
+    
     //源文件地址
     private String path;
+    
     //存储位置
     private String targetFile;
+    
     //线程数
     private int threadNum;
+    
     //线程数组
     private DownThread[] threads;
+    
     //原文件大小
     private int fileSize;
-
+    
     //构造方法
     public DownUtil(String path, String targetFile, int threadNum) {
         this.path = path;
@@ -60,7 +66,7 @@ class DownUtil {
         this.threadNum = threadNum;
         threads = new DownThread[threadNum];
     }
-
+    
     //执行下载方法体
     public void download() throws Exception {
         //指定文件地址
@@ -70,15 +76,15 @@ class DownUtil {
         //设置链接超时
         conn.setConnectTimeout(5000);
         //设置请求方法
-//		conn.setRequestMethod("GET");
+        //		conn.setRequestMethod("GET");
         //设置请求属性
-//		conn.setRequestProperty("Accept", "image/gif,image/jpeg,image/pjpeg,image/pjpeg,"+
-//		"application/x-shockwave-flash,application/xaml+xml,"
-//		+ "application/vpn.ms-xpadocument,application/x-ms-xbap,"
-//		+ "application/x0ms-application,applicaation/msword,*/*");
-//		conn.setRequestProperty("Accept-Language", "zh-CN");
-//		conn.setRequestProperty("Charset", "UTF-8");
-//		conn.setRequestProperty("Connection", "Keep-Alive");
+        //		conn.setRequestProperty("Accept", "image/gif,image/jpeg,image/pjpeg,image/pjpeg,"+
+        //		"application/x-shockwave-flash,application/xaml+xml,"
+        //		+ "application/vpn.ms-xpadocument,application/x-ms-xbap,"
+        //		+ "application/x0ms-application,applicaation/msword,*/*");
+        //		conn.setRequestProperty("Accept-Language", "zh-CN");
+        //		conn.setRequestProperty("Charset", "UTF-8");
+        //		conn.setRequestProperty("Connection", "Keep-Alive");
         //得到源文件大小
         fileSize = conn.getContentLength();
         //关闭链接
@@ -101,10 +107,10 @@ class DownUtil {
             threads[i] = new DownThread(startPos, eachPartSize, outputRan);
             threads[i].start();
         }
-
-
+        
+        
     }
-
+    
     //获取下载进度
     public double getCompleteRate() {
         int sumSize = 0;
@@ -113,20 +119,24 @@ class DownUtil {
         }
         return sumSize * 1.0 / fileSize;
     }
-
+    
     private class DownThread extends Thread {
+        
         //当前线程下载位置
         private int startPos;
+        
         private int currentPartSize;
+        
         private RandomAccessFile currentPart;
+        
         public int length;
-
+        
         public DownThread(int startPos, int currentPartSize, RandomAccessFile currentPart) {
             this.startPos = startPos;
             this.currentPartSize = currentPartSize;
             this.currentPart = currentPart;
         }
-
+        
         @Override
         public void run() {
             try {
@@ -134,27 +144,28 @@ class DownUtil {
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 //设置链接超时
                 conn.setConnectTimeout(5000);
-//				conn.setRequestMethod("GET");
+                //				conn.setRequestMethod("GET");
                 //设置请求属性
-//				conn.setRequestProperty("Accept", "image/gif,image/jpeg,image/pjpeg,image/pjpeg,"+
-//				"application/x-shockwave-flash,application/xaml+xml,"
-//				+ "application/vpn.ms-xpadocument,application/x-ms-xbap,"
-//				+ "application/x0ms-application,applicaation/msword,*/*");
-//				conn.setRequestProperty("Accept-Language", "zh-CN");
-//				conn.setRequestProperty("Charset", "UTF-8");
+                //				conn.setRequestProperty("Accept", "image/gif,image/jpeg,image/pjpeg,image/pjpeg,"+
+                //				"application/x-shockwave-flash,application/xaml+xml,"
+                //				+ "application/vpn.ms-xpadocument,application/x-ms-xbap,"
+                //				+ "application/x0ms-application,applicaation/msword,*/*");
+                //				conn.setRequestProperty("Accept-Language", "zh-CN");
+                //				conn.setRequestProperty("Charset", "UTF-8");
                 //输入流为源文件
                 InputStream inStream = conn.getInputStream();
                 //设置每个线程开始读入的位置
                 inStream.skip(this.startPos);
                 byte[] buffer = new byte[1024];
                 int hasRead = 0;
-                while (length < currentPartSize && (hasRead = inStream.read(buffer)) != -1) {//若以下载长度超过每个线程指定下载长度，或读取完毕。则退出循环
+                while (length < currentPartSize
+                        && (hasRead = inStream.read(buffer)) != -1) {//若以下载长度超过每个线程指定下载长度，或读取完毕。则退出循环
                     currentPart.write(buffer, 0, hasRead);
                     length += hasRead;
                 }
                 currentPart.close();
                 inStream.close();
-
+                
             } catch (Exception e) {
                 e.printStackTrace();
             }

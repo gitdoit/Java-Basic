@@ -13,7 +13,7 @@ import java.net.Socket;
  * 多个地方都要抛异常的话，建议针对每个地方都做对应的处理，或者使用对应的异常接收
  */
 public class UploadClient {
-
+    
     public static void main(String[] args) throws IOException {
         Socket sk = new Socket("192.168.3.4", 8888);
         //从文件读数据
@@ -39,5 +39,5 @@ public class UploadClient {
         //关闭客户端
         sk.close();
     }
-
+    
 }

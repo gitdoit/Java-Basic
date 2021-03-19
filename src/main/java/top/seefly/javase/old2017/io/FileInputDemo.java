@@ -26,7 +26,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class FileInputDemo {
-
+    
     public static void main(String[] args) throws Exception {
         FileInputStream fis = new FileInputStream("e:\\liujianxin.txt");//如果提供源文件不存在，则报FileNotFoundException
         byte[] bt = new byte[2];//缓冲字节数组
@@ -39,8 +39,8 @@ public class FileInputDemo {
             System.out.print(new String(bt, 0, hasRead));//String(字节数组，默认解码方式，从数组中读取的长度)
         }
         fis.close();
-
-
+        
+        
     }
-
+    
 }

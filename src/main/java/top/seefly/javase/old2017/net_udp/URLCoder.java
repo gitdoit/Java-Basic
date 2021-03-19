@@ -11,16 +11,16 @@ import java.net.URLEncoder;
  * 将转换成%XX%XX的形式。当使用不同的字符集时中文所占用的字节不同所以解码编码时要指定字符集
  */
 public class URLCoder {
-
+    
     public static void main(String[] args) throws Exception {
         //使用GBK编码表将字符转换成URL中对应的形式
         String keyword = URLEncoder.encode("柯南", "GBK");
         System.out.println(keyword);
-
+        
         //将‘乱码’转换成字符
         String chr = URLDecoder.decode(keyword);
         System.out.println(chr);
-
+        
     }
-
+    
 }

@@ -9,6 +9,7 @@ import java.io.*;
  * printStackTrace() 打印该异常的跟踪栈信息
  * */
 public class MessageOfException {
+    
     public static void main(String[] args) {
         try {
             FileInputStream file = new FileInputStream("a.txt");
@@ -18,5 +19,5 @@ public class MessageOfException {
             ex.printStackTrace();
         }
     }
-
+    
 }

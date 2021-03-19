@@ -7,12 +7,13 @@ import java.util.concurrent.Callable;
  * @date 2018-11-22 14:13
  */
 public class JdkRealData implements Callable<String> {
+    
     private String para;
-
+    
     public JdkRealData(String para) {
         this.para = para;
     }
-
+    
     @Override
     public String call() throws Exception {
         StringBuffer sb = new StringBuffer();

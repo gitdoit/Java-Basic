@@ -9,24 +9,17 @@ import java.nio.channels.FileChannel;
 import java.nio.charset.StandardCharsets;
 
 /**
- * java NIO Channel通道和流非常相似，区别如下
- * 1.通道可以读也可以写，流一般来说是单向的（只能读或者写，所以之前我们用流进行IO操作的时候需要分别创建一个输入流和一个输出流）。
- * 2.通道可以异步读写。
- * 3.通道总是基于缓冲区Buffer来读写
- * 主要的几个管道实现
- * FileChannel： 用于文件的数据读写
- * DatagramChannel： 用于UDP的数据读写
- * SocketChannel： 用于TCP的数据读写，一般是客户端实现
+ * java NIO Channel通道和流非常相似，区别如下 1.通道可以读也可以写，流一般来说是单向的（只能读或者写，所以之前我们用流进行IO操作的时候需要分别创建一个输入流和一个输出流）。 2.通道可以异步读写。
+ * 3.通道总是基于缓冲区Buffer来读写 主要的几个管道实现 FileChannel： 用于文件的数据读写 DatagramChannel： 用于UDP的数据读写 SocketChannel： 用于TCP的数据读写，一般是客户端实现
  * ServerSocketChannel: 允许我们监听TCP链接请求，每个请求会创建会一个SocketChannel，一般是服务器实现
  *
  * @author liujianxin
  * @date 2019-01-07 16:45
  */
 public class FileChannelDemo {
-
+    
     /**
-     * 从管道中读取数据
-     * 和原来的IO相比，
+     * 从管道中读取数据 和原来的IO相比，
      */
     @Test
     public void testRead() throws IOException, InterruptedException {
@@ -40,8 +33,8 @@ public class FileChannelDemo {
         buf.flip();
         System.out.println(new String(buf.array(), StandardCharsets.UTF_8));
     }
-
-
+    
+    
     /**
      * 测试向管道流中写入数据
      */
@@ -58,7 +51,7 @@ public class FileChannelDemo {
         System.out.println("after write:" + buf);
         channel.close();
     }
-
+    
     /**
      * 利用一同一个管道进行读和写
      */
@@ -78,13 +71,12 @@ public class FileChannelDemo {
         writeBuffer.flip();
         channel.write(writeBuffer);
         raf.close();
-
+        
     }
-
-
+    
+    
     /**
-     * 将一个管道中读取的数据分散到不同的缓存中
-     * 还有一个反向操作的不演示了
+     * 将一个管道中读取的数据分散到不同的缓存中 还有一个反向操作的不演示了
      */
     @Test
     public void testScatter() throws IOException {
@@ -101,8 +93,8 @@ public class FileChannelDemo {
             System.out.print((char) b.get());
         }
     }
-
-
+    
+    
     /**
      * 俩管道桥接一下
      */
@@ -116,6 +108,6 @@ public class FileChannelDemo {
         sourceFile.close();
         targetFile.close();
     }
-
-
+    
+    
 }

@@ -19,7 +19,7 @@ import java.net.InetAddress;
  *		建包时需要指定发送的数据，数据的真实长度，指定发送地址，以及端口号
  */
 public class UDPSendDemo {
-
+    
     public static void main(String[] args) throws IOException {
         //1.新建发送方UDP的Socket对象
         DatagramSocket sen = new DatagramSocket();
@@ -34,15 +34,14 @@ public class UDPSendDemo {
         sen.send(dp);
         //关闭资源
         sen.close();
-
-
-//		DatagramSocket ds  = new DatagramSocket();
-//		byte[] mes = "刘建鑫真帅".getBytes();
-//		DatagramPacket pg = new DatagramPacket(mes, mes.length,InetAddress.getByName("192.168.3.1"),10086);
-//		ds.send(pg);
-//		ds.close();
-
+        
+        //		DatagramSocket ds  = new DatagramSocket();
+        //		byte[] mes = "刘建鑫真帅".getBytes();
+        //		DatagramPacket pg = new DatagramPacket(mes, mes.length,InetAddress.getByName("192.168.3.1"),10086);
+        //		ds.send(pg);
+        //		ds.close();
+        
     }
-
-
+    
+    
 }

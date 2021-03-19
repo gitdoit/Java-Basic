@@ -19,7 +19,7 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 
 public class UDPReceiveDemo {
-
+    
     public static void main(String[] args) throws Exception {
         //1 创建socket对象，指定端口
         DatagramSocket get = new DatagramSocket(10086);
@@ -36,5 +36,5 @@ public class UDPReceiveDemo {
         //5关闭资源
         get.close();
     }
-
+    
 }

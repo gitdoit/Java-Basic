@@ -8,7 +8,7 @@ package top.seefly.javase.old2017.thread;
 
 //system.out.println(i--);此语句执行顺序是，先将i复制进输出缓冲区，再将i进行减一。然后再打印。
 public class UnSyncDemo {
-
+    
     public static void main(String[] args) {
         Bank a = new Bank();
         Thread t1 = new Thread(a);
@@ -16,14 +16,15 @@ public class UnSyncDemo {
         t1.start();
         t2.start();
         //由于计算机cpu有多个核心，所以这两个线程是真正意义上的并发，而不是利用时间片轮转实现的伪并发
-
+        
     }
-
+    
 }
 
 class Bank implements Runnable {//步骤，判断循环条件，执行打印语句，更改count值，休眠。
+    
     private int count = 100;
-
+    
     @Override
     public void run() {
         while (count >= 0) {//无同步，a,b可同时进入并对共享数据进行操作，开始while判断，条件为真。
@@ -34,6 +35,6 @@ class Bank implements Runnable {//步骤，判断循环条件，执行打印语�
             //但是有时候也会出现一片的-1递减，可能是两个线程在不同cpu内核中内获取时间片的的时间恰好错开了，出现了交替打印修改的情况
             //try {Thread.sleep(10);} catch (Exception e) {}
         }
-
+        
     }
 }

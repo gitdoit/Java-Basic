@@ -18,7 +18,7 @@ import java.util.Set;
  * @date 2019-01-08 17:07
  */
 public class DemoRun {
-
+    
     @Test
     public void server() throws IOException {
         // 准备好一个篮子，用来放通道接收或者需要发送的数据
@@ -27,8 +27,7 @@ public class DemoRun {
         ByteBuffer reply = ByteBuffer.allocate(128);
         reply.put("ni hao sao a\r\n".getBytes());
         reply.flip();
-
-
+        
         // 开启一个服务
         ServerSocketChannel server = ServerSocketChannel.open();
         // 监听指定端口，非阻塞才能用Selector
@@ -80,8 +79,8 @@ public class DemoRun {
             }
         }
     }
-
-
+    
+    
     /**
      * 客户端，就用原始的了
      */
@@ -89,15 +88,16 @@ public class DemoRun {
     public void client() throws IOException {
         Socket client = new Socket();
         client.connect(new InetSocketAddress("127.0.0.1", 6666));
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(client.getInputStream()));
-             PrintWriter writer = new PrintWriter(client.getOutputStream(), true)) {
+        try (BufferedReader reader = new BufferedReader(
+                new InputStreamReader(client.getInputStream())); PrintWriter writer = new PrintWriter(
+                client.getOutputStream(), true)) {
             while (true) {
                 writer.println("hahahaha");
                 Thread.sleep(1000);
                 String s = reader.readLine();
                 System.out.println(s);
             }
-
+            
         } catch (InterruptedException e) {
             e.printStackTrace();
         } finally {

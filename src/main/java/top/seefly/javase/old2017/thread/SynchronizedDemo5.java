@@ -16,61 +16,67 @@ package top.seefly.javase.old2017.thread;
  *
  * */
 public class SynchronizedDemo5 {
+    
     public static void main(String[] args) {
         Resource res = new Resource("商品");
-
+        
         //producer1 pro = new producer1(res);
         //consumert con = new consumert(res);
-
+        
         //Thread t1 = new Thread(pro,"生产线1号");
         //Thread t2 = new Thread(pro,"生产线2号");
         //Thread t3 = new Thread(con,"消费者1号");
         //Thread t4 = new Thread(con,"消费者2号");
-
+        
         //t1.start();
         //t2.start();
         //t3.start();
         //t4.start();
     }
-
+    
 }
 
 class Resource {
+    
     private String name;
+    
     private int count = 0;
+    
     private boolean flag = false;
-
+    
     public Resource() {
     }
-
+    
     public Resource(String name) {
         this.name = name;
     }
-
+    
     public synchronized void production() {
-        while (flag)
+        while (flag) {
             try {
                 this.wait();
             } catch (Exception ex) {
             }
+        }
         //this.name = name+" **** "+count++;
         System.out.println(Thread.currentThread().getName() + " ：" + name + "********" + count++);
         this.flag = true;
         this.notifyAll();
     }
-
+    
     public synchronized void consume() {
-        while (!flag)
+        while (!flag) {
             try {
                 this.wait();
             } catch (Exception ex) {
             }
+        }
         System.out.println(Thread.currentThread().getName() + " ：" + name + "    " + count);
         this.flag = false;
         this.notifyAll();
-
+        
     }
-
+    
 }
 
 /*class producer1 implements Runnable{

@@ -18,7 +18,7 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.FutureTask;
 
 public class FutureDemo implements Callable<Integer> {//创建callable接口的实现类
-
+    
     @Override
     public Integer call() {//复写其中call方法，注意返回值类型要与泛型定义的一致
         int i = 0;
@@ -27,7 +27,7 @@ public class FutureDemo implements Callable<Integer> {//创建callable接口的�
         }
         return i;
     }
-
+    
     public static void main(String[] args) {
         FutureDemo f = new FutureDemo();//实例化callable的实现类
         FutureTask<Integer> task = new FutureTask<>(f);//使用FutureTask对象对其进行包装

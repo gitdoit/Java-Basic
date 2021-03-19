@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class InputStreamReaderDemo {
-
+    
     public static void main(String[] args) throws IOException {
         InputStreamReader read = new InputStreamReader(new FileInputStream("writer.txt"), "UTF-8");
         char[] cr = new char[1024];
@@ -15,8 +15,8 @@ public class InputStreamReaderDemo {
         }
         char cc;
         read.close();
-
-
+        
+        
     }
-
+    
 }

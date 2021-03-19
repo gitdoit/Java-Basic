@@ -7,12 +7,11 @@ import java.util.concurrent.atomic.AtomicInteger;
  * @author 刘建鑫
  */
 public class B7_SysByBlockingQueue2 {
-
+    
     public static void main(String[] args) {
         final BlockingQueue<String> queue = new ArrayBlockingQueue<>(3);
         final AtomicInteger count = new AtomicInteger(0);
-
-
+        
         Thread t = new Thread(() -> {
             System.out.println("启动生产者线程");
             try {
@@ -26,7 +25,7 @@ public class B7_SysByBlockingQueue2 {
             } catch (InterruptedException ex) {
                 ex.printStackTrace();
             }
-
+            
         });
         Thread t1 = new Thread(() -> {
             System.out.println("消费者线程启动");
@@ -39,10 +38,10 @@ public class B7_SysByBlockingQueue2 {
                 e.printStackTrace();
             }
         });
-
+        
         t.start();
         t1.start();
-
+        
     }
-
+    
 }

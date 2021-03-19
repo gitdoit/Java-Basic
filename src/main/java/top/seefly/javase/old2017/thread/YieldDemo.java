@@ -10,6 +10,7 @@ package top.seefly.javase.old2017.thread;
  *
  * */
 public class YieldDemo {
+    
     public static void main(String[] args) {
         YieldRun r = new YieldRun();
         Thread t = new Thread(r);
@@ -22,14 +23,16 @@ public class YieldDemo {
 }
 
 class YieldRun implements Runnable {
+    
     @Override
     public void run() {
         int i = 0;
         while (i < 50) {
-            if (i == 20)
+            if (i == 20) {
                 Thread.yield();//当 i == 20时，都会暂停一下
+            }
             System.out.println(Thread.currentThread().getName() + "  :" + i++);
         }
-
+        
     }
 }

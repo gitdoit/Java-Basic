@@ -13,13 +13,12 @@ import java.util.concurrent.CountDownLatch;
  * @date 2019-03-05 19:22
  */
 public class RateLimiterDemo {
-
+    
     @Test
     public void testLimiter() throws InterruptedException {
         //每秒最多允许93次请求
         RateLimiter rateLimiter = RateLimiter.create(9);
-
-
+        
         //构建100个调用，同时发出
         for (int i = 0; i < 105; i++) {
             new Thread(new Runnable() {
@@ -31,13 +30,13 @@ public class RateLimiterDemo {
                     rateLimiter.acquire();
                     //频率检查通过，执行业务代码
                     System.out.println("业务执行中" + System.currentTimeMillis() / 1000);
-
+                    
                 }
             }).start();
         }
         System.out.println("wait...");
         Thread.sleep(5000);
-
-
+        
+        
     }
 }

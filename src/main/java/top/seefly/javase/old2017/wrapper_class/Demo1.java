@@ -20,6 +20,7 @@ package top.seefly.javase.old2017.wrapper_class;
  * XXX.valueOf(String\int)   将字符串或int值转换为XXX对象
  * */
 public class Demo1 {
+    
     public static void main(String[] args) {
         int num = 5;
         double num1 = 5.0;
@@ -29,8 +30,7 @@ public class Demo1 {
         Integer itg3 = new Integer(itg);
         Integer itg4 = Integer.valueOf("5");
         String str = String.valueOf(5);//将基本数值类型（true，false），或者包装类型转换成字符串
-
-
+        
         //Integer itg3 = new Integer(num1);丢失精度，无法编译
         //向上转型，可以通过编译
         Double doub = new Double(itg);
@@ -48,7 +48,7 @@ public class Demo1 {
         int b = itg;
         int c = itg;
         System.out.println(b == c);
-
+        
     }
-
+    
 }

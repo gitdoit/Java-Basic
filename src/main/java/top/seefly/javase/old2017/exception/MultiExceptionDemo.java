@@ -4,6 +4,7 @@ package top.seefly.javase.old2017.exception;
  * 该类演示了一个catch块可以捕获多个异常，但是此时的参数ex被修饰为fianl。无法对其进行重新赋值
  * */
 public class MultiExceptionDemo {
+    
     public static void main(String[] args) {
         try {
             String[] arrStr = {"32", "44", "334"};
@@ -17,5 +18,5 @@ public class MultiExceptionDemo {
             ex = new IndexOutOfBoundsException();
         }
     }
-
+    
 }

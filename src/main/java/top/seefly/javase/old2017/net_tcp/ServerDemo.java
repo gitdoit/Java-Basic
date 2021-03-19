@@ -10,6 +10,7 @@ import java.net.Socket;
  * @author liujianxin
  */
 public class ServerDemo {
+    
     public static void main(String[] args) throws IOException {
         //创建服务器端Socket对象，指定监听端口
         ServerSocket ss = new ServerSocket(8888);
@@ -21,10 +22,10 @@ public class ServerDemo {
         int len = input.read(bt);
         String str = new String(bt, 0, len);
         System.out.println(str);
-
+        
         OutputStream out = sk.getOutputStream();
         out.write("服务器：我收到了".getBytes());
         //sk.close();服务器不应该关闭
     }
-
+    
 }

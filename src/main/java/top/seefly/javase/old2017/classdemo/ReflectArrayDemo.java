@@ -8,7 +8,7 @@ import java.lang.reflect.Array;
  *
  */
 public class ReflectArrayDemo {
-
+    
     public static void main(String[] args) {
         //创建一个String类型的长度为10的数组
         Object arr = Array.newInstance(String.class, 10);
@@ -18,5 +18,5 @@ public class ReflectArrayDemo {
         Object str1 = Array.get(arr, 6);
         System.out.println(str + "" + str1);
     }
-
+    
 }

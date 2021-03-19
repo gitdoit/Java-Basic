@@ -5,8 +5,8 @@ package top.seefly.javase.thread;
  * @date 2019-07-30 11:11
  */
 public class ThreadUtils {
-
-
+    
+    
     public static Thread newAndSleep(int time) {
         Thread thread = new Thread(() -> {
             try {
@@ -18,7 +18,7 @@ public class ThreadUtils {
         thread.start();
         return thread;
     }
-
+    
     public static Thread newAndLoop() {
         Thread thread = new Thread(() -> {
             while (true) {
@@ -27,7 +27,7 @@ public class ThreadUtils {
         thread.start();
         return thread;
     }
-
+    
     public static void sleep(int time) {
         try {
             Thread.sleep(time);

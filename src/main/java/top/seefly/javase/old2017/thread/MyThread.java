@@ -16,22 +16,22 @@ package top.seefly.javase.old2017.thread;
  * */
 
 public class MyThread {
+    
     public static void main(String[] args) {
         ThreadDemo A = new ThreadDemo("A");//实例化Thread的一个子类实体
-
+        
         RunnableDemo B = new RunnableDemo("B");//实例化接口Runnable
-
+        
         A.start();//通过A内的方法start直接启动线程
-
+        
         new Thread(B).start();//由于实例B为Runnable接口实例，自身无法启动。可通过实例化Thread对象，将Runnable参数传入启动
-
-
+        
         new Thread(new Runnable() {//有参数构造。实例化匿名线程，在参数里直接实例化实参
             public void run() {
                 System.out.print("匿名线程，匿名参数");
             }
         }).start();
-
+        
         new Thread() {//无参构造，实例化的同时覆写其中run方法
             public void run() {
                 System.out.println("匿名线程，复写run");
@@ -41,29 +41,33 @@ public class MyThread {
 }
 
 class ThreadDemo extends Thread {//子类直接继承Thread方法，
+    
     private String name;
-
+    
     public ThreadDemo(String name) {
         this.name = name;
     }
-
+    
     @Override
     public void run() {
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 5; i++) {
             System.out.println(name + "run" + i);
+        }
     }
 }
 
 class RunnableDemo implements Runnable {//实现Runnable接口的类
+    
     private String name;
-
+    
     public RunnableDemo(String name) {
         this.name = name;
     }
-
+    
     @Override
     public void run() {
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 5; i++) {
             System.out.println(name + "Runnable" + i);
+        }
     }
 }

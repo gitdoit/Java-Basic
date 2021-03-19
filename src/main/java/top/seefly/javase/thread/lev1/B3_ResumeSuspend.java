@@ -7,18 +7,19 @@ package top.seefly.javase.thread.lev1;
  * @date 2018-07-25 09:55
  **/
 public class B3_ResumeSuspend {
+    
     private static Object block = new Object();
-
-
+    
+    
     public static void main(String[] args) throws InterruptedException {
         Runnable runnable = () -> {
             System.out.println("正在执行线程：" + Thread.currentThread().getName());
             Thread.currentThread().suspend();
         };
-
+        
         Thread t1 = new Thread(runnable, "t1");
         Thread t2 = new Thread(runnable, "t2");
-
+        
         // 开启线程1，执行时会被挂起
         t1.start();
         //主线程休眠，防止线程2先启动

@@ -8,23 +8,13 @@ import java.util.concurrent.locks.ReentrantLock;
  * <p>
  * 注意，上锁解锁一定是成对出现的。而且要要将解锁步骤放进finally块内，保证一定会被执行到。
  * <p>
- * ReentrantLock锁具有可重入性，也就是说一个线程可以对已经被枷锁的ReentrantLock锁再次加锁；
- * 即一段被锁保护的代码，可以调用另一个被相同锁保护的代码
- * Lock lock = new ReentrantLock();
- * lock.lock//加锁
- * try
- * {
- * 需要同步的代码
- * }
- * finally
- * {    //释放锁
- * lock.unlock;
- * }
+ * ReentrantLock锁具有可重入性，也就是说一个线程可以对已经被枷锁的ReentrantLock锁再次加锁； 即一段被锁保护的代码，可以调用另一个被相同锁保护的代码 Lock lock = new
+ * ReentrantLock(); lock.lock//加锁 try { 需要同步的代码 } finally {    //释放锁 lock.unlock; }
  *
  * @author liujianxin
  */
 public class ReentrantLockDemo {
-
+    
     public static void main(String[] args) {
         BankDemo b = new BankDemo(100, 1000);
         int i;
@@ -34,12 +24,14 @@ public class ReentrantLockDemo {
             t.start();
         }
     }
-
-
+    
+    
     private static class BankDemo {
+        
         private int[] accounts;
+        
         private Lock bankLock = new ReentrantLock();
-
+        
         public BankDemo(int userNum, int initBalance) {
             // 初始化用户数量以及账户余额
             accounts = new int[userNum];
@@ -47,7 +39,7 @@ public class ReentrantLockDemo {
                 accounts[i] = initBalance;
             }
         }
-
+        
         // 转账业务
         public void transfer(int from, int to, int money) {
             bankLock.lock();
@@ -61,12 +53,12 @@ public class ReentrantLockDemo {
                 //转入
                 accounts[to] += money;
                 System.out.println("当前银行总存款为：" + getTotalBalance());
-
+                
             } finally {
                 bankLock.unlock();
             }
         }
-
+        
         public int getTotalBalance() {
             int sum = 0;
             for (int e : accounts) {
@@ -75,13 +67,16 @@ public class ReentrantLockDemo {
             return sum;
         }
     }
-
-
+    
+    
     private static class TransferRunnable implements Runnable {
+        
         private BankDemo bank;
+        
         private int fromAccount;
+        
         private int maxAmount;
-
+        
         public TransferRunnable(BankDemo b, int from, int max) {
             bank = b;
             //转出的账户
@@ -89,10 +84,10 @@ public class ReentrantLockDemo {
             //初始存款
             maxAmount = max;
         }
-
+        
         @Override
         public void run() {
-
+            
             try {
                 int toAcount = (int) (100 * Math.random());
                 int amount = (int) (maxAmount * Math.random());

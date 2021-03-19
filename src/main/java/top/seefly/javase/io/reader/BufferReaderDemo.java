@@ -10,6 +10,7 @@ import java.util.stream.Stream;
  * @date 2019-01-17 16:52
  */
 public class BufferReaderDemo {
+    
     /**
      * java8新加的API，读取所有行。还要关闭
      */
@@ -23,6 +24,6 @@ public class BufferReaderDemo {
         lines.forEach(System.out::print);
         lines.close();
         br.close();
-
+        
     }
 }

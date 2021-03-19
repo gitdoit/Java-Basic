@@ -5,6 +5,7 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 
 public class UDPReceiveDemo2 {
+    
     public static void main(String[] args) throws IOException {
         String strMes = "";
         //新建socket对象
@@ -12,7 +13,7 @@ public class UDPReceiveDemo2 {
         byte[] bytMes = new byte[1024];
         //空包用来接数据
         DatagramPacket pg = new DatagramPacket(bytMes, 1024);
-
+        
         do {
             //接收数据
             ds.receive(pg);

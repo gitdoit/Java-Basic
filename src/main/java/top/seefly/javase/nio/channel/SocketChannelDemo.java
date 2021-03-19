@@ -9,15 +9,13 @@ import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
 
 /**
- * nio替代原来的阻塞的套接字编程
- * DatagramChannel 基于UDP
- * SocketChannel 基于TCP
+ * nio替代原来的阻塞的套接字编程 DatagramChannel 基于UDP SocketChannel 基于TCP
  *
  * @author liujianxin
  * @date 2019-01-07 19:31
  */
 public class SocketChannelDemo {
-
+    
     /**
      * 模拟客户端
      */
@@ -45,7 +43,7 @@ public class SocketChannelDemo {
         System.out.println("message from server:" + sb.toString());
         socketChannel.close();
     }
-
+    
     @Test
     public void testServer() throws IOException {
         ServerSocketChannel ssc = ServerSocketChannel.open();
@@ -67,6 +65,6 @@ public class SocketChannelDemo {
             sb.append((char) cache.get());
         }
         System.out.println("message from client:" + sb.toString());
-
+        
     }
 }

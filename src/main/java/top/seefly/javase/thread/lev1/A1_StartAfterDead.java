@@ -1,13 +1,13 @@
 package top.seefly.javase.thread.lev1;
 
 /**
- * 一个线程死亡之后不能再通过star()方法试图使他再次运行。否则出现IllegalThreadStateException
- * 一个线程在正常结束后，抛出一个未捕获的异常，调用stop后会死亡。
+ * 一个线程死亡之后不能再通过star()方法试图使他再次运行。否则出现IllegalThreadStateException 一个线程在正常结束后，抛出一个未捕获的异常，调用stop后会死亡。
  * 线程在新建态以及死亡态时调用isAlive方法时返回false
  *
  * @author 刘建鑫
  */
 public class A1_StartAfterDead {
+    
     public static void main(String[] args) {
         Dead t = new Dead();
         System.out.println("isAlive after new:" + t.isAlive());
@@ -24,8 +24,9 @@ public class A1_StartAfterDead {
         //这里试图使已经死亡的线程重新启动。报错：IllegalThreadStateException
         t.start();
     }
-
+    
     private static class Dead extends Thread {
+        
         @Override
         public void run() {
             for (int i = 0; i < 10; i++) {

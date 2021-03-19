@@ -12,7 +12,7 @@ import java.io.OutputStreamWriter;
 import java.net.Socket;
 
 public class ClientDemo2 {
-
+    
     public static void main(String[] args) throws IOException {
         //指定服务器
         Socket sk = new Socket("192.168.3.4", 8888);
@@ -23,8 +23,9 @@ public class ClientDemo2 {
         String str = null;
         //循环从键盘读数据，并向管道内写入
         while ((str = input.readLine()) != null) {
-            if (str.equals("close"))
+            if (str.equals("close")) {
                 break;
+            }
             output.write(str);
             //记得冲刷。不然服务器会一直等.
             output.newLine();
@@ -33,5 +34,5 @@ public class ClientDemo2 {
         output.close();
         sk.close();
     }
-
+    
 }

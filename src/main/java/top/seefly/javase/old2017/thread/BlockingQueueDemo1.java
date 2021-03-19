@@ -5,14 +5,14 @@ import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class BlockingQueueDemo1 {
-
+    
     public static void main(String[] args) {
-
+        
         BlockingQueue<String> queue = new ArrayBlockingQueue<>(3);
         AtomicInteger count = new AtomicInteger(0);
         P p = new P(queue, count);
         V v = new V(queue);
-
+        
         Thread t = new Thread(p);
         Thread t2 = new Thread(v);
         Thread t3 = new Thread(p);
@@ -30,21 +30,26 @@ public class BlockingQueueDemo1 {
             e.printStackTrace();
         }
     }
-
+    
 }
 
 class P implements Runnable {
+    
     private BlockingQueue<String> queue;
+    
     private AtomicInteger count;
+    
     private int i = 0;//使用i会造成读脏数据
+    
     private volatile int id = 0;//使用volatile关键字定义的数据，会使数据更改成原子操作，数据读写成排他性。不会出现读脏现象
+    
     boolean flag = true;
-
+    
     public P(BlockingQueue queue, AtomicInteger count) {
         this.queue = queue;
         this.count = count;
     }
-
+    
     @Override
     public void run() {
         String data;
@@ -54,7 +59,7 @@ class P implements Runnable {
                 //data = "产品"+i++;若使用 i 则在多线程环境下会造成读脏数据
                 data = "产品" + count.incrementAndGet();//使用此方法则不会在会使自增操作成原子操作。不会造成读脏数据
                 //data = "产品" + id++;多个生产者线程对id进行更改，则会出现排他现象。不会出现都脏数据
-
+                
                 queue.put(data);
                 System.out.println("生产了产品" + data + "，仓库中有" + queue.size());
                 Thread.currentThread().sleep(200);
@@ -63,20 +68,22 @@ class P implements Runnable {
             e.printStackTrace();
         }
     }
-
+    
     public void stop() {
         this.flag = false;
     }
 }
 
 class V implements Runnable {
+    
     private BlockingQueue<String> queue;
+    
     private boolean flag = true;
-
+    
     public V(BlockingQueue queue) {
         this.queue = queue;
     }
-
+    
     @Override
     public void run() {
         System.out.println("消费者线程启动");
@@ -90,9 +97,9 @@ class V implements Runnable {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+        
     }
-
+    
     public void stop() {
         this.flag = false;
     }

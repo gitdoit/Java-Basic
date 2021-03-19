@@ -4,6 +4,7 @@ package top.seefly.javase.old2017.string;
  * 基本方法
  * */
 public class demo2 {
+    
     public static void main(String[] args) {
         String str = new String("hello world!");
         char c = str.charAt(0);
@@ -14,6 +15,6 @@ public class demo2 {
         boolean flag3 = str.equalsIgnoreCase("HELLW WORLD!");
         str = str.toUpperCase();
         str = str.toLowerCase();
-
+        
     }
 }

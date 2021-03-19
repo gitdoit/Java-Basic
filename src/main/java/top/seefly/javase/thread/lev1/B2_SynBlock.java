@@ -8,7 +8,7 @@ import org.junit.Test;
  * @author 刘建鑫
  */
 public class B2_SynBlock {
-
+    
     /**
      * 如果多个线程使用不同的锁执行相同的同步代码块，那么多个线程会并发执行这个同步代码块
      */
@@ -20,10 +20,11 @@ public class B2_SynBlock {
         t1.start();
         t2.start();
     }
-
+    
     private static class Runnable1 implements Runnable {
+        
         private int count = 100;
-
+        
         @Override
         public void run() {
             //每一个线程进来都会新建一个对象，每个线程的锁并不一样
@@ -39,8 +40,8 @@ public class B2_SynBlock {
             }
         }
     }
-
-
+    
+    
     /**
      * 对于不同的同步代码块，如果使用相同的锁，那么即使有多个线程他们也不会并发执行。
      */
@@ -52,12 +53,15 @@ public class B2_SynBlock {
         t1.start();
         t2.start();
     }
-
+    
     private static class Runnable2 implements Runnable {
+        
         private int a = 100;
+        
         private int b = 100;
+        
         Object c = new Object();
-
+        
         @Override
         public void run() {
             if (Thread.currentThread().getName().compareTo("t1") == 0) {
@@ -84,8 +88,8 @@ public class B2_SynBlock {
             }
         }
     }
-
-
+    
+    
 }
 
 

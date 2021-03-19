@@ -1,13 +1,13 @@
 package top.seefly.javase.algorithm.sort;
 
 /**
- * https://www.cnblogs.com/guoyaohua/p/8600214.html
- * 冒泡排序
+ * https://www.cnblogs.com/guoyaohua/p/8600214.html 冒泡排序
  *
  * @author liujianxin
  * @date 2019/9/15 20:11
  */
 public class BubbleSort {
+    
     public static void main(String[] p) {
         int[] arr = {1, 7, 4, 2, 7, 5, 3, 9, 0};
         for (int i = 0; i < arr.length; i++) {
@@ -20,7 +20,7 @@ public class BubbleSort {
                 }
             }
         }
-
+        
         for (int i : arr) {
             System.out.print(i);
         }

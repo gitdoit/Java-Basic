@@ -8,14 +8,14 @@ package top.seefly.javase.old2017.collection;
  *		static <T extends Object & Comparable<? super T>> T max(Collection<? extends T> coll) 	返回最大值
  *		static void reverse(List<?> list)  														反转
  *		static <T extends Comparable<? super T>> void sort(List<T> list) 						排序
-
+ 
  *
  */
 public class UsedMethods {
-
+    
     public static void main(String[] args) {
         // TODO Auto-generated method stub
-
+        
     }
-
+    
 }

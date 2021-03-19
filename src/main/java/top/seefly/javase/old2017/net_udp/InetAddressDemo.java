@@ -15,23 +15,23 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 
 public class InetAddressDemo {
-
+    
     public static void main(String[] args) throws Exception {
         //根据指定的主机名称，获得地址
         InetAddress ip = InetAddress.getByName("DESKTOP-K7IID8L");
         InetAddress ip2 = InetAddress.getByName("www.baidu.com");
         InetAddress ip3 = InetAddress.getByName("180.97.33.107");
-        InetAddress ip4 = InetAddress.getByAddress(new byte[]{117, 67, 11, 17});
+        InetAddress ip4 = InetAddress.getByAddress(new byte[] {117, 67, 11, 17});
         System.out.println(ip2.getHostAddress());
         //判断是否可达
         System.out.println(ip.isReachable(2000));
         //获取实例的IP地址+主机名
         System.out.println(ip.getHostAddress() + "---" + ip.getHostName());
-
+        
         //对应的全限定域名
         System.out.println(ip.getCanonicalHostName());
-
-
+        
+        
     }
-
+    
 }

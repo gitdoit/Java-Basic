@@ -13,6 +13,7 @@ package top.seefly.javase.old2017.thread;
  *
  * */
 public class SynchronizedDemo4 {
+    
     public static void main(String[] args) {
         Res r = new Res();
 		
@@ -28,33 +29,38 @@ public class SynchronizedDemo4 {
         new Thread(new Input(r)).start();
         new Thread(new Output(r)).start();
     }
-
+    
 }
 
 class Res {
+    
     private String name;
+    
     private String sex;
+    
     private boolean flag = false;
-
+    
     public synchronized void set(String name, String sex) {
-        if (flag)
+        if (flag) {
             try {
                 this.wait();
             } catch (Exception ex) {
             }
+        }
         ;
         this.name = name;
         this.sex = sex;
         this.flag = true;
         this.notify();
     }
-
+    
     public synchronized void out() {
-        if (!flag)
+        if (!flag) {
             try {
                 this.wait();
             } catch (Exception ex) {
             }
+        }
         ;
         System.out.println(this.name + "******" + this.sex);
         this.flag = false;
@@ -63,33 +69,38 @@ class Res {
 }
 
 class Input implements Runnable {//生产者
+    
     private Res r;
+    
     private int i = 0;
-
+    
     Input(Res r) {
         this.r = r;
     }
-
+    
     public void run() {
         while (true) {
-            if (i == 0)
+            if (i == 0) {
                 r.set("张三", "女");
-            else
+            } else {
                 r.set("Michael", "men");
+            }
             i = (i + 1) % 2;
         }
     }
 }
 
 class Output implements Runnable {//xiao'fei
+    
     private Res r;
-
+    
     Output(Res r) {
         this.r = r;
     }
-
+    
     public void run() {
-        while (true)
+        while (true) {
             r.out();
+        }
     }
 }

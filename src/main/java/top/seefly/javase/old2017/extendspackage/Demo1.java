@@ -9,30 +9,32 @@ package top.seefly.javase.old2017.extendspackage;
  * 2，父类中的构造方法都被修饰为private
  * */
 public class Demo1 {
-
+    
     public static void main(String[] args) {
         Sub a = new Sub();
-
+        
     }
-
+    
 }
 
 class Base {
+    
     public Base() {//在子类实例化时先构造父类
         test();
     }
-
+    
     public void test() {//子类覆盖了这个方法，所以父类中的构造方法调用的不再是这个方法
         System.out.println("父类test方法");
     }
 }
 
 class Sub extends Base {
+    
     private String name;
-
+    
     public Sub() {
     }
-
+    
     public void test() {//实例化时，父类构造函数会调用这个方法。但是此时数据域name还没有被初始化，则会报错
         System.out.println(name.length());
     }

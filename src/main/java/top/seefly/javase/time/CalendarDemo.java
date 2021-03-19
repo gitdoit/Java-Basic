@@ -10,7 +10,7 @@ import java.util.Date;
  * @date 2019-07-01 17:17
  */
 public class CalendarDemo {
-
+    
     @Test
     public void testAPI() {
         // 返回一个当前时区，一个当前时间的Calendar实例
@@ -19,18 +19,18 @@ public class CalendarDemo {
         instance.add(Calendar.DAY_OF_MONTH, 1);
         // 滚动的加一天，如果超出当月，那就置为当月1号。
         instance.roll(Calendar.DAY_OF_MONTH, 1);
-
+        
         // 传入指定日期，然后就可以在指定日期上进行操作
         instance.setTime(new Date());
-
+        
         // 把当前实例设置为当月的22号
         instance.set(Calendar.DAY_OF_MONTH, 22);
-
+        
         // 获取当前日期 在当月中的那一天
         int i = instance.get(Calendar.DAY_OF_MONTH);
-
+        
     }
-
+    
     @Test
     public void testAfter() {
         Calendar instance = Calendar.getInstance();

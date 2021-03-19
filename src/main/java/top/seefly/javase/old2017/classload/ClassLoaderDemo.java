@@ -26,7 +26,7 @@ package top.seefly.javase.old2017.classload;
  *
  */
 public class ClassLoaderDemo {
-
+    
     public static void main(String[] args) {
         //String是核心类它是由BootStarp ClassLoader加载的，此加载器没有名字，不是由java写的，无法获取实例
         System.out.println(String.class.getClassLoader());
@@ -36,12 +36,12 @@ public class ClassLoaderDemo {
         System.out.println(ClassLoaderDemo.class.getClassLoader().getClass().getName());
         //系统的classLoader
         System.out.println(ClassLoader.getSystemClassLoader().getClass().getName());
-
+        
         ClassLoader c = ClassLoaderDemo.class.getClassLoader();
         while (c != null) {
             System.out.println("ClassLoader:" + c.getClass().getName());
             c = c.getParent();//注意，getParent不是得到父类。他们之间没有继承关系，是引用关系，A加载器中有个引用名字叫做parent指向B。
         }
     }
-
+    
 }

@@ -1,6 +1,7 @@
 package top.seefly.javase.old2017.thread;
 
 public class ThreadGroupDemo {
+    
     public static void main(String[] argws) {
         //新建线程组，指定其父线程组为主线程组。设置父线程组的目的是为了使用父线程组中的uncaugthException的处理方法
         //即使出现了线程未捕获异常被线程组的uncaughtException捕获了，那么出现线程的异常也会停止。将异常抛向上级
@@ -10,11 +11,9 @@ public class ThreadGroupDemo {
                 System.out.println("线程组g的未捕获异常处理器,异常线程为" + t.getName() + "  " + e);
             }
         };
-
-
+        
         g.setDaemon(true);//设置是否为后台线程组，组内所有线程皆受改变
-
-
+        
         Thread t1 = new Thread(g, new Runnable() {
             @Override
             public void run() {
@@ -26,25 +25,25 @@ public class ThreadGroupDemo {
                 }
             }
         }, "t1");
-
-
+        
         Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
-
+            
             @Override
             public void uncaughtException(Thread t, Throwable e) {
                 System.out.println("重写Thread类的默认未捕获异常处理器");
-
+                
             }
         });
         Thread t2 = new Thread(g, new Runnable() {
             @Override
             public void run() {
-                while (true) ;
+                while (true) {
+                    ;
+                }
                 //System.out.println("t2");
             }
         }, "t2");
-
-
+        
         t1.start();
         t2.start();
         ThreadGroup g1 = Thread.currentThread().getThreadGroup();

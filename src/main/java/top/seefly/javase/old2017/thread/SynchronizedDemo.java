@@ -24,12 +24,13 @@ package top.seefly.javase.old2017.thread;
  *
  * */
 public class SynchronizedDemo {
+    
     public static void main(String[] args) {
         Ticket1 p = new Ticket1();
         //Ticket1 p1 = new Ticket1();
         Thread t1 = new Thread(p, "t1");
         Thread t2 = new Thread(p, "t2");
-
+        
         t1.start();
         try {
             Thread.sleep(100);
@@ -37,25 +38,27 @@ public class SynchronizedDemo {
         }
         p.flag = false;
         t2.start();
-
-
+        
         try {
             Thread.sleep(1300);
         } catch (Exception ex) {
         }
         t1.stop();
         t2.stop();
-
-
+        
+        
     }
-
+    
 }
 
 class Ticket1 implements Runnable {
+    
     private int tick = 100;
+    
     Object obj = new Object();
+    
     boolean flag = true;
-
+    
     public void run() {
         if (flag) {
             while (true) {
@@ -66,20 +69,21 @@ class Ticket1 implements Runnable {
                         } catch (Exception ex) {
                         }
                         System.out.println(Thread.currentThread().getName() + "....code:" + tick--);
-
+    
                     }
-
+    
                 }
-
+    
             }
-        } else
+        } else {
             while (true) {
                 show();
-
+        
             }
-
+        }
+        
     }
-
+    
     public synchronized void show() {
         {
             if (tick > 0) {

@@ -23,7 +23,7 @@ package top.seefly.javase.old2017.collection;
 import java.util.*;
 
 public class IteratorDemo {
-
+    
     public static void main(String[] args) {
         Collection<String> book = new HashSet<String>();
         book.add("刘建鑫");
@@ -34,15 +34,18 @@ public class IteratorDemo {
         Iterator itr = book.iterator();
         while (itr.hasNext()) {                            //hasNext方法只会检测有没有下一个元素，不会使迭代指针后移
             //System.out.println(itr.next());			只有next方法才会使迭代指针后移，所以不要再一次循环中调用两次next方法，
-            if (itr.next().equals("dd"))                    //像是上面的输出语句和这条判断语句使用了两次next则在while循环中会出现NoSuchElementException
+            if (itr.next()
+                    .equals("dd"))                    //像是上面的输出语句和这条判断语句使用了两次next则在while循环中会出现NoSuchElementException
+            {
                 itr.remove();                            //因为迭代器会生成一个链表指针指向原集合，且元集合发生了改变时链表依旧不会改变指向。所以在使用此方法使，元集合不能发生改变，否则异常
+            }
             //book.remove("刘建鑫");迭代时，集合不能发生改变。若要改变，只能使用迭代器的remove方法
         }
         System.out.println(book);
-
+        
         List<String> list = new LinkedList<>();            //此集合是有序的，适合任意位置上的插入与删除
         list.addAll(book);                                //初始化集合
-
+        
         ListIterator<String> lit = list.listIterator();//新建链表迭代器，此迭代器比是链表的特有迭代器，新增add/previous功能。一旦集合有了迭代器，此集合不允许自行改变
         System.out.println("next:" + lit.next());
         //list.add(0,"see");							在迭代过程中不能通过链表本身的方法改变链表结构
@@ -52,12 +55,11 @@ public class IteratorDemo {
         System.out.println("previous:" + lit.previous());
         ;//此方法与next方法正好相反，它会使指针前移，并返回指针跨的元素
         lit.add("fly");
-
-
+        
         //System.out.println(list);
         for (String e : list) {                            //任何实现了Iterator接口的类都能使用for each循环遍历
             System.out.print(e);
         }
     }
-
+    
 }

@@ -12,30 +12,31 @@ public class Pair<T> {/*Pair<T extends Comparable> 说明T只能是Comparable的
 					这种方法叫做上限配置。即T的上限就是Number，泛型类型不能再比他更高级，只能是他或是他的子类
 					Pair<T super String> 这种方法叫做下限配置，泛型类型T只能是String或者是他的父类
 					*/
-
+    
     private T first;
+    
     private T second;
-
+    
     public Pair() {
         first = null;
         second = null;
     }
-
+    
     public Pair(T first, T second) {
         this.first = first;
         this.second = second;
     }
-
+    
     public T getFirst() {
         return first;
     }
-
+    
     public T getSecond() {
         return second;
     }
-
+    
     public void setFirst(T first) {
         this.first = first;
     }
-
+    
 }

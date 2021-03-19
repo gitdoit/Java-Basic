@@ -5,16 +5,13 @@ import java.util.concurrent.atomic.AtomicLongArray;
 import java.util.concurrent.atomic.AtomicReferenceArray;
 
 /**
- * 数组中元素的原子操作
- * {@link AtomicReferenceArray}
- * {@link AtomicIntegerArray}
- * {@link AtomicLongArray}
+ * 数组中元素的原子操作 {@link AtomicReferenceArray} {@link AtomicIntegerArray} {@link AtomicLongArray}
  *
  * @author liujianxin
  * @date 2018-11-19 20:13
  */
 public class AtomicArrayDemo {
-
+    
     public static void main(String[] args) throws InterruptedException {
         AtomicIntegerArray air = new AtomicIntegerArray(10);
         int[] arr = new int[10];

@@ -14,6 +14,7 @@ import java.nio.file.Paths;
  * @date 2019-01-08 19:27
  */
 public class PathDemo {
+    
     /**
      * How to get a Path
      */
@@ -25,7 +26,7 @@ public class PathDemo {
         // other way
         Path path2 = FileSystems.getDefault().getPath("E://test/nio.txt");
     }
-
+    
     /**
      * File - Path
      */
@@ -38,7 +39,7 @@ public class PathDemo {
         // to URI
         file.toURI();
     }
-
+    
     @Test
     public void getPathInfo() {
         Path path = Paths.get("E://test//nio.txt");
@@ -48,6 +49,6 @@ public class PathDemo {
         System.out.println("是否以指定的路径开头:" + path.startsWith("E:\\"));
         System.out.println("该路径的字符串形式:" + path.toFile());
     }
-
-
+    
+    
 }

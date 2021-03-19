@@ -13,9 +13,10 @@ import java.io.OutputStreamWriter;
  * FileOutputStream(File)
  */
 public class BufferedWriterDemo {
+    
     public static void main(String[] args) throws IOException {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(new FileOutputStream("buffwriter.txt")));
-//		BufferedWriter bw1 = new BufferedWriter(new FileWriter("e:\\liujianxin.txt",true));
+        //		BufferedWriter bw1 = new BufferedWriter(new FileWriter("e:\\liujianxin.txt",true));
         String str = "刘建鑫帅";
         bw.write(str);
         bw.write(65);

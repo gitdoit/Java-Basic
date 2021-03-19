@@ -3,6 +3,7 @@ package top.seefly.javase.old2017.testpackage;
 import java.math.BigDecimal;
 
 public class TestClass {
+    
     public static void main(String[] args) {
         Thread.currentThread().setPriority(Thread.MAX_PRIORITY);
         double before = System.currentTimeMillis();
@@ -18,12 +19,12 @@ public class TestClass {
         }
         after = System.currentTimeMillis();
         System.out.println(after - before);
-
-
+        
+        
     }
 }
 
 class Demo {
-
+    
 }
 

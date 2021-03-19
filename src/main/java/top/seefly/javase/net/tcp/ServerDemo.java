@@ -12,8 +12,9 @@ import java.net.Socket;
  */
 
 public class ServerDemo {
+    
     private boolean stop = false;
-
+    
     public void start(int port) {
         try (ServerSocket serverSocket = new ServerSocket(port)) {
             Socket accept = serverSocket.accept();
@@ -32,7 +33,7 @@ public class ServerDemo {
             e.printStackTrace();
         }
     }
-
+    
     public void shutDown() {
         this.stop = true;
     }

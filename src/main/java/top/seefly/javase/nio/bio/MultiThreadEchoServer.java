@@ -18,9 +18,10 @@ import java.util.concurrent.Executors;
  * @date 2018-11-22 16:53
  */
 public class MultiThreadEchoServer {
+    
     private static ExecutorService tp = Executors.newCachedThreadPool();
-
-
+    
+    
     public static void main(String[] args) throws IOException {
         ServerSocket echoServer = new ServerSocket(8000);
         Socket clientSocket;
@@ -30,19 +31,21 @@ public class MultiThreadEchoServer {
             tp.execute(new HandleMsg(clientSocket));
         }
     }
-
-
+    
+    
     static class HandleMsg implements Runnable {
+        
         Socket clientSocket;
-
+        
         public HandleMsg(Socket clientSocket) {
             this.clientSocket = clientSocket;
         }
-
+        
         @Override
         public void run() {
-            try (BufferedReader is = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-                 PrintWriter os = new PrintWriter(clientSocket.getOutputStream(), true)) {
+            try (BufferedReader is = new BufferedReader(
+                    new InputStreamReader(clientSocket.getInputStream())); PrintWriter os = new PrintWriter(
+                    clientSocket.getOutputStream(), true)) {
                 String inputLine;
                 StopWatch sw = new StopWatch();
                 sw.start();

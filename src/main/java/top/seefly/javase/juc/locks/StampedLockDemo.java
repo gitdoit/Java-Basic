@@ -13,15 +13,17 @@ import java.util.concurrent.locks.StampedLock;
  * @date 2018-11-26 10:03
  */
 public class StampedLockDemo {
+    
     /**
      * 带有版本号的乐观锁
      */
     private StampedLock lock = new StampedLock();
+    
     /**
      * 临界资源点
      */
     private double x, y;
-
+    
     /**
      * 移动这个点到指定坐标
      */
@@ -36,7 +38,7 @@ public class StampedLockDemo {
             lock.unlockWrite(stamp);
         }
     }
-
+    
     /**
      * 获取这个点到原点的距离
      */
@@ -59,8 +61,8 @@ public class StampedLockDemo {
         }
         return Math.sqrt(currentX * currentX + currentY * currentY);
     }
-
-
+    
+    
     private void randomSleep() {
         try {
             Thread.sleep(RandomUtils.nextLong(500, 2000));
@@ -68,5 +70,5 @@ public class StampedLockDemo {
             e.printStackTrace();
         }
     }
-
+    
 }

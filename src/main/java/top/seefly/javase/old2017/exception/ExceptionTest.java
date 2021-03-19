@@ -61,26 +61,29 @@ package top.seefly.javase.old2017.exception;
  * 		当捕获到的异常catch处理不了的时候那就抛出去
  * */
 public class ExceptionTest {
+    
     public static void main(String[] args) {
-
+        
         Sqare a = new Sqare(2, -3);
         a.getArea();
-
-
+        
+        
     }
 }
 
 interface Shape {
+    
     public abstract void getArea();
 }
 
 class Sqare implements Shape {
+    
     private double len, wid;
-
+    
     public Sqare() throws IllegalValueException {//无参构造方法调用了有参，但是有参抛异常，无参不处理要抛出去
         this(0, 0);
     }
-
+    
     public Sqare(double len, double wid) throws IllegalValueException {//这个异常造成的原因是用户输入不正确，所以不能在构造方法中解决
         if (len < 0 || wid < 0) {
             throw new IllegalValueException(len, wid);//若参数不对则new一个异常抛出去
@@ -88,15 +91,16 @@ class Sqare implements Shape {
         this.len = len;
         this.wid = wid;
     }
-
+    
     public void getArea() {
         System.out.println(len * wid);
     }
 }
 
 class IllegalValueException extends RuntimeException {//由于用户输入的问题，在出问题之后程序无法通过自身解决，所以只能继承运行时异常。停止程序
+    
     private double len, wid;
-
+    
     IllegalValueException(double len, double wid) {
         super(String.format("含有非法数值%f或%f", len, wid));//直接调用父类中的构造方法
     }

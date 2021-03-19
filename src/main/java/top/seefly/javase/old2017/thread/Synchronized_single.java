@@ -13,20 +13,22 @@ package top.seefly.javase.old2017.thread;
  * 		该类所属的字节码文件对象
  * */
 public class Synchronized_single {
-
+    
 }
 
 class Single {
+    
     private static Single s = null;
-
+    
     private Single() {
     }
-
+    
     public static Single getInstanc() {//懒汉式
         if (s == null) {
             synchronized (Single.class) {
-                if (s == null)
+                if (s == null) {
                     s = new Single();
+                }
             }
         }
         return s;
@@ -34,13 +36,14 @@ class Single {
 }
 
 class Single1 {//饿汉式
+    
     private static final Single1 s = new Single1();
-
+    
     private Single1() {
     }
-
+    
     ;
-
+    
     public static Single1 getInstance() {
         return s;
     }

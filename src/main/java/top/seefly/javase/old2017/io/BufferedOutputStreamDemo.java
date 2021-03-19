@@ -12,13 +12,14 @@ import java.io.IOException;
  *
  */
 public class BufferedOutputStreamDemo {
+    
     public static void main(String[] args) throws IOException {
-//		FileOutputStream fos = new FileOutputStream("e:\\liujianxin.txt");
-//		BufferedOutputStream bfos = new BufferedOutputStream(fos); 第一中创建方式
-
+        //		FileOutputStream fos = new FileOutputStream("e:\\liujianxin.txt");
+        //		BufferedOutputStream bfos = new BufferedOutputStream(fos); 第一中创建方式
+        
         BufferedOutputStream bfos = new BufferedOutputStream(new FileOutputStream("e:\\liujianxin.txt"));//匿名内部对象
         bfos.write("宇宙无敌超级叼".getBytes());
         bfos.close();//只要关闭缓冲池就可以
-
+        
     }
 }

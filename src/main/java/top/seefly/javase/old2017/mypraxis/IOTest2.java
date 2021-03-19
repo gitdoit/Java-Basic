@@ -11,7 +11,7 @@ import java.io.*;
  */
 
 public class IOTest2 {
-
+    
     public static void main(String[] args) throws IOException {
         Thread.currentThread().setPriority(Thread.MAX_PRIORITY);
         long star = System.currentTimeMillis();
@@ -23,17 +23,18 @@ public class IOTest2 {
         long end = System.currentTimeMillis();
         System.out.println("所用时间：" + (end - star) + "毫秒");
     }
-
+    
     public static void basicByOne(File src, File tar) throws IOException {//无缓冲区，单字节传输
         FileInputStream input = new FileInputStream(src);
         FileOutputStream output = new FileOutputStream(tar);
         int temp;
-        while ((temp = input.read()) != -1)
+        while ((temp = input.read()) != -1) {
             output.write(temp);
+        }
         input.close();
         output.close();
     }
-
+    
     public static void basicByArr(File src, File tar) throws IOException {//无缓冲区，字节数组传输
         FileInputStream input = new FileInputStream(src);
         FileOutputStream output = new FileOutputStream(tar);
@@ -45,27 +46,28 @@ public class IOTest2 {
         input.close();
         output.close();
     }
-
+    
     public static void bufByOne(File src, File tar) throws IOException {
         FileInputStream in = new FileInputStream(src);
         FileOutputStream out = new FileOutputStream(tar);
         BufferedInputStream input = new BufferedInputStream(in);
         BufferedOutputStream output = new BufferedOutputStream(out);
-
+        
         int temp;
-        while ((temp = input.read()) != -1)
+        while ((temp = input.read()) != -1) {
             output.write(temp);
+        }
         input.close();
         output.close();
-
+        
     }
-
+    
     public static void bufByArr(File src, File tar) throws IOException {
         FileInputStream in = new FileInputStream(src);
         FileOutputStream out = new FileOutputStream(tar);
         BufferedInputStream input = new BufferedInputStream(in);
         BufferedOutputStream output = new BufferedOutputStream(out);
-
+        
         byte[] bt = new byte[1024];
         int len;
         while ((len = input.read(bt)) != -1) {
@@ -74,6 +76,6 @@ public class IOTest2 {
         input.close();
         output.close();
     }
-
-
+    
+    
 }

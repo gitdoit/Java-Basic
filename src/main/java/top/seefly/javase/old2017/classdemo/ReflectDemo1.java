@@ -9,7 +9,7 @@ package top.seefly.javase.old2017.classdemo;
 import java.lang.reflect.Method;
 
 public class ReflectDemo1 {
-
+    
     public static void main(String[] args) throws ReflectiveOperationException {
         //forName会将该类加载入内存并执行初始化，得到一个类对象
         Class c = Class.forName("classdemo.ReflectTest");
@@ -23,29 +23,32 @@ public class ReflectDemo1 {
             }
             if (e.getName().equals("m1")) {
                 for (Class m : e.getParameterTypes())//获取该方法的所有参数类型，以Class数组形式返回
+                {
                     System.out.println(m.getName());
+                }
             }
-
+            
         }
     }
-
+    
 }
 
 class ReflectTest {
+    
     static {
         System.out.println("我被初始化了！");
     }
-
+    
     int a;
-
+    
     public ReflectTest() {
         System.out.println("我被实例化了！");
     }
-
+    
     public void m1(int i) {
         System.out.println(i);
     }
-
+    
     public void m() {
         System.out.println("m执行");
     }

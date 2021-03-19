@@ -9,16 +9,16 @@ import javax.crypto.spec.SecretKeySpec;
 import java.nio.charset.StandardCharsets;
 
 public class AESUtil {
-
+    
     private static final String IV = "b52865243a3847dc";
-
+    
     /**
      * 不允许实例化
      */
     private AESUtil() {
     }
-
-
+    
+    
     /**
      * 加密
      *
@@ -29,7 +29,7 @@ public class AESUtil {
     public static String encrypt(String data, String key) {
         return encrypt(DigestUtils.sha1Hex(key).substring(0, 16), IV, data);
     }
-
+    
     /**
      * 解密
      *
@@ -40,7 +40,7 @@ public class AESUtil {
     public static String decrypt(String data, String key) {
         return decrypt(DigestUtils.sha1Hex(key).substring(0, 16), IV, Base64.decodeBase64(data));
     }
-
+    
     /**
      * AES加密
      *
@@ -70,7 +70,7 @@ public class AESUtil {
         }
         return new String(Base64.encodeBase64(encrypted), StandardCharsets.UTF_8);
     }
-
+    
     /**
      * 解密
      *
@@ -95,5 +95,5 @@ public class AESUtil {
         }
         return content;
     }
-
+    
 }

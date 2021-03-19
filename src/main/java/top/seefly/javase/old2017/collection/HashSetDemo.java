@@ -14,28 +14,29 @@ import java.util.HashSet;
  *
  * */
 public class HashSetDemo {
+    
     public static void main(String[] args) {
         HashSet<Object> book = new HashSet<>();
-
+        
         book.add(new A());
         book.add(new A());
         book.add(new B());
         book.add(new B());
         book.add(new C());
         book.add(new C());
-
+        
         System.out.println(book);
     }
-
+    
 }
 
 class A {//该类只能添加1个，因为返回散列码和equals总相同
-
+    
     @Override
     public int hashCode() {
         return 1;
     }
-
+    
     @Override
     public boolean equals(Object obj) {
         return true;
@@ -43,12 +44,12 @@ class A {//该类只能添加1个，因为返回散列码和equals总相同
 }
 
 class B {//该类和一添加无数个，但都会使用同一个散列码，影响查询性能
-
+    
     @Override
     public int hashCode() {
         return 2;
     }
-
+    
     @Override
     public boolean equals(Object obj) {
         return false;

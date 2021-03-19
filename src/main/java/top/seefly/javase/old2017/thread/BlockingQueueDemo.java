@@ -35,7 +35,7 @@ package top.seefly.javase.old2017.thread;
 import java.util.concurrent.*;
 
 public class BlockingQueueDemo {
-
+    
     public static void main(String[] args) {
         BlockingQueue<String> queue = new ArrayBlockingQueue<>(3);
         Producer1 p = new Producer1(queue);
@@ -46,18 +46,19 @@ public class BlockingQueueDemo {
         t.start();
         //con.start();
         //con1.start();
-
+        
     }
-
+    
 }
 
 class Producer1 implements Runnable {
+    
     private BlockingQueue<String> queue;
-
+    
     public Producer1(BlockingQueue queue) {
         this.queue = queue;
     }
-
+    
     @Override
     public void run() {
         boolean isRunning = true;
@@ -76,16 +77,19 @@ class Producer1 implements Runnable {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-
+        
     }
 }
 
 
 class Consumer1 implements Runnable {
+    
     private BlockingQueue<String> queue;
+    
     private String isGet;
+    
     private boolean isRunning = true;
-
+    
     @Override
     public void run() {
         try {
@@ -96,17 +100,19 @@ class Consumer1 implements Runnable {
                 if (isGet != null) {
                     System.out.println("正在消费产品--" + isGet);
                 } else//若两秒之后还没有商品被生产，那么则退出线程。
+                {
                     isRunning = false;
+                }
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
-
+    
     public Consumer1(BlockingQueue queue) {
         this.queue = queue;
     }
-
+    
     public void setRunning(boolean flag) {//设置线程停止
         this.isRunning = flag;
     }

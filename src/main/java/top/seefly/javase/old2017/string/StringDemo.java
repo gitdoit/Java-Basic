@@ -4,6 +4,7 @@ package top.seefly.javase.old2017.string;
  * 本类用来演示String类的各种使用方法
  */
 public class StringDemo {
+    
     public static void main(String[] args) {
         String arr = new String("java demo");
         String arr1 = "java demo";
@@ -21,17 +22,17 @@ public class StringDemo {
         //将字符串中指定符号作为分隔符来拆分成字符串数组存储。
         String[] arr4 = "java@is#very$good".split("[@#$]");
         //只要出现正则表达式[@#$]中任意一个字符都可以作为分隔符来拆分字符串
-
+        
         char[] arr5 = arr1.toCharArray();
         //将字符串转换为数组
-
+        
         boolean a = false;
         String arr6 = String.valueOf(a);
         //静态方法。将各种基本类型的数据转换成字符串。
         char b = arr1.charAt(0);
         //获取字符串中指定下标的字符
         System.out.println(arr6);
-
+        
     }
-
+    
 }

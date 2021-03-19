@@ -11,7 +11,7 @@ import java.util.concurrent.FutureTask;
  * @date 2018-11-22 14:15
  */
 public class FutrueMain {
-
+    
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         FutureTask<String> futureTask = new FutureTask<>(new JdkRealData("a"));
         Executors.newFixedThreadPool(1).submit(futureTask);

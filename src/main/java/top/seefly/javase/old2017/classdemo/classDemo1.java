@@ -16,10 +16,10 @@ package top.seefly.javase.old2017.classdemo;
  * 因为有时候它是在程序运行时才能确定的，这时候我们就需要一种动态的加载机制，就是反射。我们可以通过各种办法再程序运行的时候，向它传入相关数据，从而取得不同的类的实例。
  */
 public class classDemo1 {
-
+    
     public static void main(String[] args) {
         // TODO Auto-generated method stub
-
+        
     }
-
+    
 }

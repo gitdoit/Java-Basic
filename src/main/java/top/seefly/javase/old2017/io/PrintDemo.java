@@ -19,19 +19,19 @@ import java.io.PrintWriter;
  * 			该流可以直接操作文本文件
  */
 public class PrintDemo {
-
+    
     public static void main(String[] args) throws IOException {
-
+        
         PrintStream ps = new PrintStream(new FileOutputStream("wirter.txt"), true);//可以实现自动刷新，但要调用带ln或f的方法
         ps.print("刘建鑫");//此方法没有ln，不刷新
         ps.println(true);//写入boolean值，并刷新，下面不用调用close或flush进行冲刷
         ps.close();
-
+        
         PrintWriter pw = new PrintWriter(new FileOutputStream("wirter.txt", true));//不指定自动冲刷,但设置追加。否则上面写的就没了
         pw.write(65);// 原版的wirte方法只能写字符或字符数组或字符串,此行写入ASCII为65的字符
         pw.print(65);//此行写入65
         pw.print(true);//而新的print方法可以写任意数据类型。
         pw.close();
     }
-
+    
 }

@@ -14,9 +14,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * 注意，由于自定义线程池创建线程的时候默认的是加入当前线程组
- * 也就是主线程组，那么main方法启动后，所有线程池内线程加入主线程组
- * 由于线程组的销毁前提条件是组内所有线程必须停止，而线程池内的核心线程由于被阻塞
+ * 注意，由于自定义线程池创建线程的时候默认的是加入当前线程组 也就是主线程组，那么main方法启动后，所有线程池内线程加入主线程组 由于线程组的销毁前提条件是组内所有线程必须停止，而线程池内的核心线程由于被阻塞
  * 所以主线程组不会销毁，主线程也不会退出。
  *
  * @author liujianxin
@@ -24,6 +22,7 @@ import java.util.concurrent.locks.ReentrantLock;
  */
 @Slf4j
 public class MyThreadPool {
+    
     public static void main(String[] args) throws InterruptedException {
         MyThreadPool pool = new MyThreadPool(3, 5, 5, TimeUnit.SECONDS, new ArrayBlockingQueue<>(4));
         for (int i = 0; i < 10; i++) {
@@ -39,51 +38,59 @@ public class MyThreadPool {
         System.out.println("主线程休眠前，线程池内活动线程数量" + pool.getWorkerCount());
         Thread.sleep(10000);
         System.out.println("主线程休眠后，线程池内活动线程数量" + pool.getWorkerCount());
-
+        
     }
-
+    
     private final ReentrantLock lock = new ReentrantLock();
+    
     /**
      * 工作线程
      */
     private volatile Set<Worker> workers;
+    
     /**
      * 核心线程数
      */
     private int minSize;
+    
     /**
      * 最大线程数
      */
     private int maxSize;
+    
     /**
      * 超出线程存活时间
      */
     private int keepAliveTime;
+    
     private TimeUnit unit;
+    
     /**
      * 任务队列
      */
     private BlockingQueue<Runnable> workQueue;
+    
     /**
      * 线程池是否已经关闭
      */
     private AtomicBoolean isShutDown = new AtomicBoolean(false);
+    
     /**
      * 任务总数
      */
     private AtomicInteger totalTask = new AtomicInteger();
-
-
+    
+    
     public MyThreadPool(int minSize, int maxSize, int keepAliveTime, TimeUnit unit, BlockingQueue<Runnable> workQueue) {
         this.minSize = minSize;
         this.maxSize = maxSize;
         this.keepAliveTime = keepAliveTime;
         this.unit = unit;
         this.workQueue = workQueue;
-
+        
         this.workers = new ConcurrentHashSet<>();
     }
-
+    
     public void execute(Runnable runnable) {
         if (runnable == null) {
             throw new NullPointerException("Runnable can not be null!");
@@ -111,9 +118,9 @@ public class MyThreadPool {
             // 执行拒绝执行策略
             log.warn("线程数已最大，队列已满..执行拒绝策略！");
         }
-
+        
     }
-
+    
     /**
      * 执行给定任务，并将创建的线程放到线程队列中去
      */
@@ -122,17 +129,16 @@ public class MyThreadPool {
         worker.startTask();
         workers.add(worker);
     }
-
-
+    
+    
     /**
-     * 立即关闭线程池
-     * 这样会造成任务丢失
+     * 立即关闭线程池 这样会造成任务丢失
      */
     private void shutDownNow() {
         isShutDown.set(true);
         tryClose(false);
     }
-
+    
     /**
      * 尝试关闭线程池
      *
@@ -145,7 +151,7 @@ public class MyThreadPool {
             closeAll();
         }
     }
-
+    
     /**
      * 关闭当前线程队列中所有的线程
      */
@@ -154,7 +160,7 @@ public class MyThreadPool {
             worker.close();
         }
     }
-
+    
     /**
      * 获取当前线程池线程数
      *
@@ -163,11 +169,9 @@ public class MyThreadPool {
     public int getWorkerCount() {
         return this.workers.size();
     }
-
+    
     /**
-     * 从任务队列中获取任务
-     * 1、若当前线程池已经关闭，或者任务队列中没有任务，返回null
-     * 2、若当前线程数大于核心线程数，则需要在规定阻塞时间内获取到任务，否则返回null
+     * 从任务队列中获取任务 1、若当前线程池已经关闭，或者任务队列中没有任务，返回null 2、若当前线程数大于核心线程数，则需要在规定阻塞时间内获取到任务，否则返回null
      * 3、若当前线程数小于核心线程数，则当前线程可以无限期阻塞直到获取到任务
      */
     private Runnable getTask() {
@@ -193,30 +197,28 @@ public class MyThreadPool {
         }
         return task;
     }
-
-
+    
+    
     /***********************************************************************************************************/
     private final class Worker extends Thread {
+        
         private Thread thread;
+        
         private Runnable task;
+        
         private boolean isNewTask;
-
-
+        
+        
         public Worker(Runnable runnable, boolean isNewTask) {
             this.task = runnable;
             this.thread = this;
             this.isNewTask = isNewTask;
         }
-
-
+        
+        
         /**
-         * 工作线程的Run方法
-         * 1、判断是否为新创建的线程，如果是，则直接运行其构造方法中传入的Runnable
-         * 2、如果不是，则从任务队列中获取任务去执行
-         * 3、如果没有从任务队列中获取到任务，那么有两种情况
-         * 1、当前线程不是核心线程，在指定的存活时间内没有等到任务
-         * 2、当前线程是核心线程，线程池关闭了，且任务已经执行完毕
-         * 这种情况下需要关闭当前线程，即将当前线程从线程队列中移除
+         * 工作线程的Run方法 1、判断是否为新创建的线程，如果是，则直接运行其构造方法中传入的Runnable 2、如果不是，则从任务队列中获取任务去执行 3、如果没有从任务队列中获取到任务，那么有两种情况
+         * 1、当前线程不是核心线程，在指定的存活时间内没有等到任务 2、当前线程是核心线程，线程池关闭了，且任务已经执行完毕 这种情况下需要关闭当前线程，即将当前线程从线程队列中移除
          */
         @Override
         public void run() {
@@ -240,7 +242,7 @@ public class MyThreadPool {
                             log.info("没有任务了");
                         }
                     }
-
+                    
                 }
             } finally {
                 log.info("额外线程由于没有在指定时间内获取到任务，退出！");
@@ -251,47 +253,50 @@ public class MyThreadPool {
                 tryClose(true);
             }
         }
-
-
+        
+        
         public void startTask() {
             start();
         }
-
+        
         public void close() {
             interrupt();
         }
-
+        
     }
-
-
+    
+    
     private final class ConcurrentHashSet<T> extends AbstractSet<T> {
+        
         private final ConcurrentHashMap<T, Object> holder = new ConcurrentHashMap<>();
+        
         private final Object PRESENT = new Object();
+        
         private final AtomicInteger ADDER = new AtomicInteger();
-
-
+        
+        
         @Override
         public boolean add(T t) {
             ADDER.incrementAndGet();
             return holder.put(t, PRESENT) == PRESENT;
         }
-
+        
         @Override
         public boolean remove(Object o) {
             ADDER.decrementAndGet();
             return holder.remove(o) == PRESENT;
         }
-
+        
         @Override
         public Iterator<T> iterator() {
             return holder.keySet().iterator();
         }
-
+        
         @Override
         public int size() {
             return ADDER.get();
         }
     }
-
-
+    
+    
 }

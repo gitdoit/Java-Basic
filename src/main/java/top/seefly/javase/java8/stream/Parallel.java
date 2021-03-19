@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
  * @date 2019-01-16 18:14
  */
 public class Parallel {
-
+    
     @Test
     public void testParallel() throws InterruptedException {
         List<String> list = new ArrayList<>();
