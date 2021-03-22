@@ -30,7 +30,7 @@ public class ReentrantLockDemo {
         
         private int[] accounts;
         
-        private Lock bankLock = new ReentrantLock();
+        private ReentrantLock bankLock = new ReentrantLock();
         
         public BankDemo(int userNum, int initBalance) {
             // 初始化用户数量以及账户余额
