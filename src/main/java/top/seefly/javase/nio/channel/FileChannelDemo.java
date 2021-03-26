@@ -9,8 +9,13 @@ import java.nio.channels.FileChannel;
 import java.nio.charset.StandardCharsets;
 
 /**
- * java NIO Channel通道和流非常相似，区别如下 1.通道可以读也可以写，流一般来说是单向的（只能读或者写，所以之前我们用流进行IO操作的时候需要分别创建一个输入流和一个输出流）。 2.通道可以异步读写。
- * 3.通道总是基于缓冲区Buffer来读写 主要的几个管道实现 FileChannel： 用于文件的数据读写 DatagramChannel： 用于UDP的数据读写 SocketChannel： 用于TCP的数据读写，一般是客户端实现
+ * java NIO Channel通道和流非常相似，区别如下
+ *  1.通道可以读也可以写，流一般来说是单向的（只能读或者写，所以之前我们用流进行IO操作的时候需要分别创建一个输入流和一个输出流）。
+ *  2.通道可以异步读写。
+ *  3.通道总是基于缓冲区Buffer来读写 主要的几个管道实现
+ *      FileChannel： 用于文件的数据读写
+ *      DatagramChannel： 用于UDP的数据读写
+ *      SocketChannel： 用于TCP的数据读写，一般是客户端实现
  * ServerSocketChannel: 允许我们监听TCP链接请求，每个请求会创建会一个SocketChannel，一般是服务器实现
  *
  * @author liujianxin

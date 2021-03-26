@@ -1,7 +1,9 @@
 package top.seefly.javase.regex;
 
+import com.sun.org.apache.xpath.internal.jaxp.XPathImpl;
 import org.junit.Test;
 
+import javax.xml.xpath.XPath;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -16,7 +18,9 @@ import java.util.regex.Pattern;
 public class RegexDemo {
     
     /**
-     * 1.[abc] : 表示可能是a，可能是b，也可能是c。 abc中的任意一个，如果元素不是由单个字符组成则需要这样 (ab|b|c) 2.[^abc]: 表示不是a,b,c中的任意一个 3.[a-zA-Z]: 表示是英文字母
+     * 1.[abc] : 表示可能是a，可能是b，也可能是c。 abc中的任意一个，如果元素不是由单个字符组成则需要这样 (ab|b|c)
+     * 2.[^abc]: 表示不是a,b,c中的任意一个
+     * 3.[a-zA-Z]: 表示是英文字母
      * 4.[0-9]:表示是数字
      */
     @Test
@@ -28,7 +32,12 @@ public class RegexDemo {
     }
     
     /**
-     * .：匹配任意的字符 \d：表示数字 \D：表示非数字 \s：表示由空字符组成，[ \t\n\r\x\f] \S：表示由非空字符组成，[^\s] \w：表示字母、数字、下划线，[a-zA-Z0-9_]
+     * .：匹配任意的字符
+     * \d：表示数字
+     * \D：表示非数字
+     * \s：表示由空字符组成，[ \t\n\r\x\f]
+     * \S：表示由非空字符组成，[^\s]
+     * \w：表示字母、数字、下划线，[a-zA-Z0-9_]
      * \W：表示不是由字母、数字、下划线组成
      */
     @Test
@@ -44,7 +53,12 @@ public class RegexDemo {
     }
     
     /**
-     * ？ 		表示出现0次或多次 +  		表示出现一次或多次 *  		表示出现0次、1次或多次 {n} 	    表示出现n次 {n~m}    表示出现n~m次 {n,}	    表示出现n次及以上
+     * ?        表示出现0次或多次
+     * +        表示出现一次或多次
+     * *        表示出现0次、1次或多次
+     * {n}      表示出现n次
+     * {n~m}    表示出现n~m次
+     * {n,}	    表示出现n次及以上
      */
     public void testTimes() {
         boolean match = match("s?", "dfdfdf");
@@ -101,6 +115,17 @@ public class RegexDemo {
         System.out.println(match);
     }
     
+    @Test
+    public void testGet(){
+        String source = "<?xml version=\"1.0\" encoding=\"utf-8\"?><string xmlns=\"http://access.xx95.net:8886/\">00</string>";
+        String reg = "/\">(.+?)</string>$";
+        Pattern compile = Pattern.compile(reg);
+        Matcher matcher = compile.matcher(source);
+        if(matcher.find()){
+            System.out.println(matcher.group(1));
+        }
+    
+    }
     
     private boolean match(String reg, String word) {
         Pattern compile = Pattern.compile(reg);
