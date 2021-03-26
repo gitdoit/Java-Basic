@@ -56,6 +56,7 @@ public class ShowGC {
     public static void main(String[] args) {
         List<byte[]> list = new ArrayList<>();
         list.add(new byte[_7M]);
+        System.out.println("this is for git commit");
     }
     
     
