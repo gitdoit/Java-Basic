@@ -8,7 +8,8 @@ import java.lang.ref.WeakReference;
 /**
  * 误区 1、一个ThreadLocal并不是一个Map结构，不是每个线程做key，然后只能放一个值 一个ThreadLocal就是一个"key"，而这个"Map"结构是放在每个线程里面去保存的
  * <p>
- * Q：既然ThreadLocal相当于一个key，但是为什么能够通过ThreadLocal拿到每个线程中的私有的值呢？ A：因为ThreadLocal里面的get方法其实是访问的线程中的"Map",然后以自己(this)为key去取值。
+ * Q：既然ThreadLocal相当于一个key，但是为什么能够通过ThreadLocal拿到每个线程中的私有的值呢？
+ *  A：因为ThreadLocal里面的get方法其实是访问的线程中的"Map",然后以自己(this)为key去取值。
  * <p>
  * Q：那是不是能够通过不同的ThreadLocal在一个线程中存放多个值呢？ A：是的
  * <p>

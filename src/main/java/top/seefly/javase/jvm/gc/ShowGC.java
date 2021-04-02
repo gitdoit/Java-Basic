@@ -15,6 +15,7 @@ import java.util.List;
  * -XX:+PrintTenuringDistribution 晋升详情
  * -XX:+PrintGCDetails -verbose:gc GC详情
  * -XX:+ScavengeBeforeFullGC FullGC前 MinorGC
+ * -XX:+PrintCommandLineFlags 打印虚拟机启动参数
  *
  *
  * @author liujianxin
